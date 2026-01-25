@@ -2921,6 +2921,20 @@ function orderBrownies() {
 // ==================== END BROWNIE SECTION ====================
 
 
+// ==================== SNACKS NAVIGATION ====================
+function openSnackType(type) {
+  document.getElementById('snacksMenu').style.display = 'none';
+  if (type === 'wings') {
+    document.getElementById('wingboxxSection').classList.add('show');
+    resetWingBuilder();
+  }
+}
+
+function backToSnacksMenu() {
+  document.getElementById('snacksMenu').style.display = 'block';
+  document.getElementById('wingboxxSection').classList.remove('show');
+}
+
 // ==================== WINGBOXX SECTION ====================
 const WING_SIZES = {
   small: { count: 24, label: 'Small', serves: '4-6', price: 40 },
