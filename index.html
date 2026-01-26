@@ -1977,10 +1977,10 @@ function showC(){for(let i=1;i<=4;i++){const el=document.getElementById('c'+i);i
 function qty(d){q=Math.max(1,Math.min(9,q+d));document.getElementById('qtyD').textContent=q;updTotal();}
 function updTotal(){if(size){const cookiePrice = typeof getCookieAddonPrice === 'function' ? getCookieAddonPrice() : 0;document.getElementById('rTotal').textContent='$'+((size.price*q)+cookiePrice).toFixed(2);}}
 function updReview(){if(bowlType&&size){const m=bowlType.macros[size.id];document.getElementById('rEmoji').textContent='LB';document.getElementById('rName').textContent=bowlType.name+' ('+size.name+')'+(q>1?' x'+q:'');document.getElementById('rMacro').textContent=m.protein+'g protein • '+m.cal+' cal';document.getElementById('rPrice').textContent='$'+size.price.toFixed(2);}document.getElementById('rWin').textContent=win?win.time:'-';document.getElementById('rLoc').textContent=customSelected?(document.getElementById('customAddr').value||'Custom'):(loc?loc.name:'-');updTotal();}
-// Shopify Variant IDs - UPDATE THESE WITH YOUR ACTUAL IDs FROM SHOPIFY
+// Shopify Variant IDs
 const SHOPIFY_VARIANTS = {
-  'carnivore-reg': 'PASTE_REGULAR_VARIANT_ID_HERE',
-  'carnivore-xl': 'PASTE_XL_VARIANT_ID_HERE'
+  'carnivore-reg': '47048198324378',
+  'carnivore-xl': '47048199897242'
 };
 const SHOPIFY_STORE = 'meesge-h5.myshopify.com';
 
@@ -1989,13 +1989,13 @@ function checkout(){
   const variantKey = 'carnivore-' + size.id;
   const variantId = SHOPIFY_VARIANTS[variantKey];
   
-  // If variant ID is set, redirect to Shopify checkout
-  if (variantId && !variantId.includes('PASTE')) {
-    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':' + q;
+  // Redirect directly to Shopify checkout
+  if (variantId) {
+    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':' + q + '?checkout=true';
     return;
   }
   
-  // Fallback: show confirmation page (remove this once Shopify is set up)
+  // Fallback: show confirmation page
   const cookiePrice = typeof getCookieAddonPrice === 'function' ? getCookieAddonPrice() : 0;
   const total = (size.price * q) + cookiePrice;
   let orderText = (bowlType ? bowlType.name : '') + ' (' + size.name + ')' + (q > 1 ? ' x' + q : '');
