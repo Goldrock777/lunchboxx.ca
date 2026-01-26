@@ -898,10 +898,10 @@
     .size-opt.sel .size-header h5{color:var(--orange)}
     .size-header .price{font-family:var(--font1);font-size:28px;color:var(--orange)}
     .size-desc{font-size:11px;color:var(--gray3);margin-bottom:12px}
-    .macro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
-    .macro-box{background:var(--gray2);border-radius:8px;padding:10px 6px;text-align:center}
-    .macro-box .val{font-family:var(--font1);font-size:16px;color:var(--white)}
-    .macro-box .lbl{font-size:9px;color:var(--gray3);text-transform:uppercase;margin-top:2px}
+    .macro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+    .macro-box{background:var(--gray2);border-radius:8px;padding:10px 8px;text-align:center}
+    .macro-box .val{font-family:var(--font1);font-size:16px;color:var(--white);font-weight:600}
+    .macro-box .lbl{font-size:9px;color:var(--gray3);text-transform:uppercase;margin-top:2px;letter-spacing:0.5px}
 
     /* Options */
     .opts{display:flex;flex-direction:column;gap:20px}
@@ -1768,7 +1768,7 @@
             <div class="product-name">CARNIVORE BOWL</div>
             <div class="product-price"><div class="from">From</div><div class="amount">$10.99</div></div>
           </div>
-          <div class="product-desc">Creamy alfredo pasta loaded with crispy chicken, lean ground pork & pancetta. Three meats, zero compromises.</div>
+          <div class="product-desc">Loaded pasta bowl with crispy chicken, seasoned pork & crispy pancetta smothered in creamy alfredo. Three meats. Delivered hot & ready.</div>
           <div class="macro-ticker">
             <div class="macro-cards">
               <div class="macro-card"><div class="mc-val">70g</div><div class="mc-lbl">Protein</div></div>
@@ -1846,7 +1846,7 @@
     <div class="free-ban blue">TEAM ORDER • 10+ BOWLS</div>
     <div class="steps"><div id="ts1" class="step active blue">1</div><div id="tl1" class="sline"></div><div id="ts2" class="step">2</div><div id="tl2" class="sline"></div><div id="ts3" class="step">3</div><div id="tl3" class="sline"></div><div id="ts4" class="step">4</div></div>
     <div id="tc1" class="content"><h2><svg class="blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>BUILD ORDER</h2><p class="sub">XL bowls • 70g protein each</p>
-      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CARNIVORE BOWL</h4><p>Crispy chicken, lean ground pork & pancetta</p></div><div class="qty-ctrl"><button onclick="teamQty('carnivore',-1)">−</button><span id="tqCarnivore">0</span><button onclick="teamQty('carnivore',1)">+</button></div></div></div>
+      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CARNIVORE BOWL</h4><p>Crispy chicken, seasoned pork & pancetta in creamy alfredo</p></div><div class="qty-ctrl"><button onclick="teamQty('carnivore',-1)">−</button><span id="tqCarnivore">0</span><button onclick="teamQty('carnivore',1)">+</button></div></div></div>
       <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:16px"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="color:var(--gray3)">Total Bowls</span><span id="teamTotalBowls" style="font-family:var(--font1);font-size:28px">0</span></div><div style="display:flex;justify-content:space-between"><span style="color:var(--gray3)">Price/bowl</span><div style="text-align:right"><span id="teamPriceEach" style="font-family:var(--font1);font-size:28px;color:var(--yellow)">$14.99</span><div id="teamDiscount" style="font-size:12px;color:var(--green);font-weight:600"></div></div></div></div>
       <p id="teamMinNote" style="font-size:12px;color:var(--orange);text-align:center;margin-top:12px">Minimum 10 bowls required</p>
       <div class="pfooter"><button id="tbtn1" class="contbtn blue off" onclick="nextTeam()" disabled>CONTINUE</button></div>
@@ -1889,7 +1889,7 @@
 </div><!-- end iphone-frame -->
 
 <script>
-const BOWLS=[{id:'carnivore',name:'CARNIVORE BOWL',desc:'Crispy chicken, lean ground pork & pancetta in creamy alfredo',macros:{reg:{cal:550,protein:35,carbs:45,fat:25},xl:{cal:1000,protein:70,carbs:80,fat:45}}}];
+const BOWLS=[{id:'carnivore',name:'CARNIVORE BOWL',desc:'Loaded pasta bowl with crispy chicken, seasoned pork & crispy pancetta smothered in creamy alfredo. Delivered hot & ready.',macros:{reg:{cal:550,protein:35,carbs:45,fat:25},xl:{cal:1000,protein:70,carbs:80,fat:45}}}];
 const SIZES=[{id:'reg',name:'Regular',price:10.99},{id:'xl',name:'XL',price:19.99}];
 const XL_PRICE=14.99;
 const TEAM_PRICING=[{min:30,price:12.99,save:'35%'},{min:20,price:13.99,save:'30%'},{min:10,price:14.99,save:'25%'}];
@@ -1961,7 +1961,7 @@ function renderPlanL(){document.getElementById('plocations').innerHTML=L.map(l=>
 function quickOrder(id){bowlType=BOWLS.find(b=>b.id===id);step=1;showPage('order');updSteps();showC();updSelectedBowl();renderSizeSelector();}
 function selBowl(id){bowlType=BOWLS.find(b=>b.id===id);step=1;updSteps();showC();updSelectedBowl();renderSizeSelector();}
 function updSelectedBowl(){if(bowlType)document.getElementById('selectedBowl').innerHTML=`<div style="padding:12px;background:var(--gray1);border-radius:12px;margin-bottom:16px;border-left:3px solid var(--orange)"><h4 style="color:var(--orange);margin-bottom:4px">${bowlType.name}</h4><p style="color:var(--gray3);font-size:13px">${bowlType.desc}</p></div>`;}
-function renderSizeSelector(){if(!bowlType)return;const m=bowlType.macros;document.getElementById('sizeSelector').innerHTML=`<div class="size-opt" onclick="selSize('reg')"><div class="size-header"><h5>REGULAR</h5><div class="price">$10.99</div></div><div class="size-desc">Perfect for a light meal</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.reg.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.reg.cal}</div><div class="lbl">Calories</div></div></div></div><div class="size-opt" onclick="selSize('xl')"><div class="size-header"><h5>XL</h5><div class="price">$19.99</div></div><div class="size-desc">Double portion, max gains</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.xl.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.xl.cal}</div><div class="lbl">Calories</div></div></div></div>`;}
+function renderSizeSelector(){if(!bowlType)return;const m=bowlType.macros;document.getElementById('sizeSelector').innerHTML=`<div class="size-opt" onclick="selSize('reg')"><div class="size-header"><h5>REGULAR</h5><div class="price">$10.99</div></div><div class="size-desc">Perfect for a satisfying meal</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.reg.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.reg.cal}</div><div class="lbl">Calories</div></div><div class="macro-box"><div class="val">${m.reg.carbs}g</div><div class="lbl">Carbs</div></div><div class="macro-box"><div class="val">${m.reg.fat}g</div><div class="lbl">Fat</div></div></div></div><div class="size-opt" onclick="selSize('xl')"><div class="size-header"><h5>XL</h5><div class="price">$19.99</div></div><div class="size-desc">Double everything. Maximum gains.</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.xl.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.xl.cal}</div><div class="lbl">Calories</div></div><div class="macro-box"><div class="val">${m.xl.carbs}g</div><div class="lbl">Carbs</div></div><div class="macro-box"><div class="val">${m.xl.fat}g</div><div class="lbl">Fat</div></div></div></div>`;}
 function selSize(id){size=SIZES.find(s=>s.id===id);step=2;updSteps();showC();}
 function selW(id){win=W.find(w=>w.id===id);step=3;updSteps();showC();}
 function selL(id){loc=L.find(l=>l.id===id);customSelected=false;document.querySelectorAll('#locations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('customLoc').classList.remove('sel');document.getElementById('l'+id).classList.add('sel');step=4;updSteps();showC();updReview();}
