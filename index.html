@@ -1763,43 +1763,22 @@
 
     <div id="personalSection">
       <div class="products">
-        <div class="product-card" onclick="quickOrder('chicken')">
+        <div class="product-card" onclick="quickOrder('carnivore')">
           <div class="product-header">
-            <div class="product-name">CRISPY CHICKEN</div>
+            <div class="product-name">CARNIVORE BOWL</div>
             <div class="product-price"><div class="from">From</div><div class="amount">$10.99</div></div>
           </div>
-          <div class="product-desc">Creamy alfredo bowl loaded with crispy chicken topped with crispy onions</div>
+          <div class="product-desc">Creamy alfredo pasta loaded with crispy chicken, lean ground pork & pancetta. Three meats, zero compromises.</div>
           <div class="macro-ticker">
             <div class="macro-cards">
               <div class="macro-card"><div class="mc-val">70g</div><div class="mc-lbl">Protein</div></div>
-              <div class="macro-card"><div class="mc-val">880</div><div class="mc-lbl">Calories</div></div>
+              <div class="macro-card"><div class="mc-val">1000</div><div class="mc-lbl">Calories</div></div>
               <div class="macro-card"><div class="mc-val">80g</div><div class="mc-lbl">Carbs</div></div>
-              <div class="macro-card"><div class="mc-val">34g</div><div class="mc-lbl">Fat</div></div>
+              <div class="macro-card"><div class="mc-val">45g</div><div class="mc-lbl">Fat</div></div>
               <div class="macro-card"><div class="mc-val">70g</div><div class="mc-lbl">Protein</div></div>
-              <div class="macro-card"><div class="mc-val">880</div><div class="mc-lbl">Calories</div></div>
+              <div class="macro-card"><div class="mc-val">1000</div><div class="mc-lbl">Calories</div></div>
               <div class="macro-card"><div class="mc-val">80g</div><div class="mc-lbl">Carbs</div></div>
-              <div class="macro-card"><div class="mc-val">34g</div><div class="mc-lbl">Fat</div></div>
-            </div>
-          </div>
-          <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-        </div>
-
-        <div class="product-card" onclick="quickOrder('sausage')">
-          <div class="product-header">
-            <div class="product-name">CHICKEN & SAUSAGE</div>
-            <div class="product-price"><div class="from">From</div><div class="amount">$10.99</div></div>
-          </div>
-          <div class="product-desc">Creamy alfredo bowl loaded with crispy chicken and savory sausage topped with crispy onions</div>
-          <div class="macro-ticker">
-            <div class="macro-cards">
-              <div class="macro-card"><div class="mc-val">70g</div><div class="mc-lbl">Protein</div></div>
-              <div class="macro-card"><div class="mc-val">980</div><div class="mc-lbl">Calories</div></div>
-              <div class="macro-card"><div class="mc-val">88g</div><div class="mc-lbl">Carbs</div></div>
-              <div class="macro-card"><div class="mc-val">40g</div><div class="mc-lbl">Fat</div></div>
-              <div class="macro-card"><div class="mc-val">70g</div><div class="mc-lbl">Protein</div></div>
-              <div class="macro-card"><div class="mc-val">980</div><div class="mc-lbl">Calories</div></div>
-              <div class="macro-card"><div class="mc-val">88g</div><div class="mc-lbl">Carbs</div></div>
-              <div class="macro-card"><div class="mc-val">40g</div><div class="mc-lbl">Fat</div></div>
+              <div class="macro-card"><div class="mc-val">45g</div><div class="mc-lbl">Fat</div></div>
             </div>
           </div>
           <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
@@ -1816,7 +1795,7 @@
         <ul class="team-perks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Free delivery</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>70g protein per bowl</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Mix & match flavors</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>CARNIVORE BOWL - 3 meats</li>
         </ul>
         <button class="team-cta" onclick="startTeamOrder()">START TEAM ORDER</button>
       </div>
@@ -1828,12 +1807,11 @@
   <div id="order" class="page">
     <div class="hdr"><button class="back" onclick="goBack()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button><div class="hdr-logo">LUNCHBOXX</div><div style="width:26px"></div></div>
     <div class="free-ban">Delivery Included</div>
-    <div class="steps"><div id="s1" class="step active">1</div><div id="l1" class="sline"></div><div id="s2" class="step">2</div><div id="l2" class="sline"></div><div id="s3" class="step">3</div><div id="l3" class="sline"></div><div id="s4" class="step">4</div><div id="l4" class="sline"></div><div id="s5" class="step">5</div></div>
-    <div id="c1" class="content"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>CHOOSE BOWL</h2><p class="sub">Select your meal</p><div class="bowl-options" id="bowlSelect"></div></div>
-    <div id="c2" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>CHOOSE SIZE</h2><p class="sub">Select your portion</p><div id="selectedBowl" class="selected-bowl"></div><div id="sizeSelector" class="size-selector"></div></div>
-    <div id="c3" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>DROP OFF TIME</h2><p class="sub">When do you want it?</p><div id="windows" class="opts"></div></div>
-    <div id="c4" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0Z"/><circle cx="12" cy="10" r="3"/></svg>DROP OFF LOCATION</h2><p class="sub">Where should we meet you?</p><div id="locations" class="opts"></div><div id="customLoc" class="custom-loc" onclick="selectCustom()"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>CUSTOM LOCATION</h4><p>Your home or office</p><input type="text" id="customAddr" placeholder="Enter address" onclick="event.stopPropagation()"><div class="chk-row"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="pfooter"><button id="btn4" class="contbtn off" onclick="next()" disabled>CONTINUE</button></div></div>
-    <div id="c5" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>REVIEW ORDER</h2><div class="summary"><div class="sum-prod"><div class="sum-img" id="rEmoji">LB</div><div class="sum-info"><h4 id="rName">-</h4><p id="rMacro">-</p></div><div id="rPrice" class="sum-price">-</div></div><div class="qty-row"><span>Quantity</span><div class="qty-ctrl"><button onclick="qty(-1)">−</button><span id="qtyD">1</span><button onclick="qty(1)">+</button></div></div>
+    <div class="steps"><div id="s1" class="step active">1</div><div id="l1" class="sline"></div><div id="s2" class="step">2</div><div id="l2" class="sline"></div><div id="s3" class="step">3</div><div id="l3" class="sline"></div><div id="s4" class="step">4</div></div>
+    <div id="c1" class="content"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>CHOOSE SIZE</h2><p class="sub">Select your portion</p><div id="selectedBowl" class="selected-bowl"></div><div id="sizeSelector" class="size-selector"></div></div>
+    <div id="c2" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>DROP OFF TIME</h2><p class="sub">When do you want it?</p><div id="windows" class="opts"></div></div>
+    <div id="c3" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0Z"/><circle cx="12" cy="10" r="3"/></svg>DROP OFF LOCATION</h2><p class="sub">Where should we meet you?</p><div id="locations" class="opts"></div><div id="customLoc" class="custom-loc" onclick="selectCustom()"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>CUSTOM LOCATION</h4><p>Your home or office</p><input type="text" id="customAddr" placeholder="Enter address" onclick="event.stopPropagation()"><div class="chk-row"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="pfooter"><button id="btn4" class="contbtn off" onclick="next()" disabled>CONTINUE</button></div></div>
+    <div id="c4" class="content hidden"><h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>REVIEW ORDER</h2><div class="summary"><div class="sum-prod"><div class="sum-img" id="rEmoji">LB</div><div class="sum-info"><h4 id="rName">-</h4><p id="rMacro">-</p></div><div id="rPrice" class="sum-price">-</div></div><div class="qty-row"><span>Quantity</span><div class="qty-ctrl"><button onclick="qty(-1)">−</button><span id="qtyD">1</span><button onclick="qty(1)">+</button></div></div>
       <!-- Cookie Add-on -->
       <div class="cookie-addon-section">
         <div class="cookie-addon-header">
@@ -1860,7 +1838,7 @@
           <div class="flavor-chips" id="flavorChips"></div>
         </div>
       </div>
-      <div class="del-sum"><div class="sum-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><span class="sum-lbl">Window</span><span id="rWin" class="sum-val">-</span></div><button class="edit-btn" onclick="goTo(3)">Edit</button></div><div class="sum-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><span class="sum-lbl">Location</span><span id="rLoc" class="sum-val">-</span></div><button class="edit-btn" onclick="goTo(4)">Edit</button></div></div><div class="sum-item" id="cookieAddonSum" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#D4A574"><circle cx="12" cy="12" r="10"/></svg><div><span class="sum-lbl">Cookies</span><span id="rCookies" class="sum-val" style="color:#D4A574">-</span></div><button class="edit-btn" style="color:#D4A574" onclick="selectCookieAddon(0)">Remove</button></div><div class="total-row"><span>Total</span><span id="rTotal" class="total-price">-</span></div></div><div class="pfooter"><button class="checkbtn" id="bowlOrderNowBtn" onclick="checkout()">ORDER NOW</button><div class="add-cart-link" id="bowlAddCartBtn" onclick="addCurrentBowlToCart()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>ADD TO CART</div></div></div>
+      <div class="del-sum"><div class="sum-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><span class="sum-lbl">Window</span><span id="rWin" class="sum-val">-</span></div><button class="edit-btn" onclick="goTo(2)">Edit</button></div><div class="sum-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><span class="sum-lbl">Location</span><span id="rLoc" class="sum-val">-</span></div><button class="edit-btn" onclick="goTo(3)">Edit</button></div></div><div class="sum-item" id="cookieAddonSum" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#D4A574"><circle cx="12" cy="12" r="10"/></svg><div><span class="sum-lbl">Cookies</span><span id="rCookies" class="sum-val" style="color:#D4A574">-</span></div><button class="edit-btn" style="color:#D4A574" onclick="selectCookieAddon(0)">Remove</button></div><div class="total-row"><span>Total</span><span id="rTotal" class="total-price">-</span></div></div><div class="pfooter"><button class="checkbtn" id="bowlOrderNowBtn" onclick="checkout()">ORDER NOW</button><div class="add-cart-link" id="bowlAddCartBtn" onclick="addCurrentBowlToCart()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>ADD TO CART</div></div></div>
   </div>
 
   <div id="teamOrder" class="page">
@@ -1868,8 +1846,7 @@
     <div class="free-ban blue">TEAM ORDER • 10+ BOWLS</div>
     <div class="steps"><div id="ts1" class="step active blue">1</div><div id="tl1" class="sline"></div><div id="ts2" class="step">2</div><div id="tl2" class="sline"></div><div id="ts3" class="step">3</div><div id="tl3" class="sline"></div><div id="ts4" class="step">4</div></div>
     <div id="tc1" class="content"><h2><svg class="blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>BUILD ORDER</h2><p class="sub">XL bowls • 70g protein each</p>
-      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CRISPY CHICKEN</h4><p>Creamy alfredo with crispy chicken</p></div><div class="qty-ctrl"><button onclick="teamQty('chicken',-1)">−</button><span id="tqChicken">0</span><button onclick="teamQty('chicken',1)">+</button></div></div></div>
-      <div class="bowl-opt" style="cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CHICKEN & SAUSAGE</h4><p>Creamy alfredo with chicken & sausage</p></div><div class="qty-ctrl"><button onclick="teamQty('sausage',-1)">−</button><span id="tqSausage">0</span><button onclick="teamQty('sausage',1)">+</button></div></div></div>
+      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CARNIVORE BOWL</h4><p>Crispy chicken, lean ground pork & pancetta</p></div><div class="qty-ctrl"><button onclick="teamQty('carnivore',-1)">−</button><span id="tqCarnivore">0</span><button onclick="teamQty('carnivore',1)">+</button></div></div></div>
       <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:16px"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="color:var(--gray3)">Total Bowls</span><span id="teamTotalBowls" style="font-family:var(--font1);font-size:28px">0</span></div><div style="display:flex;justify-content:space-between"><span style="color:var(--gray3)">Price/bowl</span><div style="text-align:right"><span id="teamPriceEach" style="font-family:var(--font1);font-size:28px;color:var(--yellow)">$14.99</span><div id="teamDiscount" style="font-size:12px;color:var(--green);font-weight:600"></div></div></div></div>
       <p id="teamMinNote" style="font-size:12px;color:var(--orange);text-align:center;margin-top:12px">Minimum 10 bowls required</p>
       <div class="pfooter"><button id="tbtn1" class="contbtn blue off" onclick="nextTeam()" disabled>CONTINUE</button></div>
@@ -1912,7 +1889,7 @@
 </div><!-- end iphone-frame -->
 
 <script>
-const BOWLS=[{id:'chicken',name:'CRISPY CHICKEN',desc:'Creamy alfredo with crispy chicken & onions',macros:{reg:{cal:440,protein:35,carbs:40,fat:17},xl:{cal:880,protein:70,carbs:80,fat:34}}},{id:'sausage',name:'CHICKEN & SAUSAGE',desc:'Creamy alfredo with chicken, sausage & onions',macros:{reg:{cal:490,protein:35,carbs:44,fat:20},xl:{cal:980,protein:70,carbs:88,fat:40}}}];
+const BOWLS=[{id:'carnivore',name:'CARNIVORE BOWL',desc:'Crispy chicken, lean ground pork & pancetta in creamy alfredo',macros:{reg:{cal:550,protein:35,carbs:45,fat:25},xl:{cal:1000,protein:70,carbs:80,fat:45}}}];
 const SIZES=[{id:'reg',name:'Regular',price:10.99},{id:'xl',name:'XL',price:19.99}];
 const XL_PRICE=14.99;
 const TEAM_PRICING=[{min:30,price:12.99,save:'35%'},{min:20,price:13.99,save:'30%'},{min:10,price:14.99,save:'25%'}];
@@ -1920,7 +1897,7 @@ const W=[{id:1,label:'11am – 1pm',time:'Lunch delivery'},{id:2,label:'5pm – 
 const L=[{id:1,name:'SFU SURREY',addr:'Central City',icon:'SFU'},{id:2,name:'CENTRAL CITY TOWER',addr:'Office Lobby',icon:'TWR'},{id:3,name:'KING GEORGE STN',addr:'SkyTrain',icon:'KG'},{id:4,name:'GATEWAY STN',addr:'SkyTrain',icon:'GATE'}];
 
 let step=1,bowlType=null,size=null,win=null,loc=null,q=1,customSelected=false;
-let tStep=1,tChicken=0,tSausage=0,tWin=null,tLoc=null,tCustomSelected=false;
+let tStep=1,tCarnivore=0,tWin=null,tLoc=null,tCustomSelected=false;
 let pStep=1,pWin=null,pLoc=null,pCustomSelected=false;
 
 function toggleMenu(t){
@@ -1981,22 +1958,22 @@ function renderTeamL(){document.getElementById('tlocations').innerHTML=L.map(l=>
 function renderPlanW(){document.getElementById('pwindows').innerHTML=W.map(w=>`<button class="opt green" onclick="selPlanW(${w.id})"><div class="opt-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="opt-info"><span class="opt-label">${w.label}</span><span class="opt-detail">${w.time}</span></div><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></button>`).join('');}
 function renderPlanL(){document.getElementById('plocations').innerHTML=L.map(l=>`<button class="opt green" onclick="selPlanL(${l.id})" id="pl${l.id}"><div class="opt-icon">${l.icon}</div><div class="opt-info"><span class="opt-label">${l.name}</span><span class="opt-detail">${l.addr}</span></div><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></button>`).join('');}
 
-function quickOrder(id){bowlType=BOWLS.find(b=>b.id===id);step=2;showPage('order');updSteps();showC();updSelectedBowl();renderSizeSelector();}
-function selBowl(id){bowlType=BOWLS.find(b=>b.id===id);step=2;updSteps();showC();updSelectedBowl();renderSizeSelector();}
-function updSelectedBowl(){if(bowlType)document.getElementById('selectedBowl').innerHTML=`<div class="info"><h4>${bowlType.name}</h4><p>${bowlType.desc}</p></div><button class="change" onclick="goTo(1)">Change</button>`;}
+function quickOrder(id){bowlType=BOWLS.find(b=>b.id===id);step=1;showPage('order');updSteps();showC();updSelectedBowl();renderSizeSelector();}
+function selBowl(id){bowlType=BOWLS.find(b=>b.id===id);step=1;updSteps();showC();updSelectedBowl();renderSizeSelector();}
+function updSelectedBowl(){if(bowlType)document.getElementById('selectedBowl').innerHTML=`<div style="padding:12px;background:var(--gray1);border-radius:12px;margin-bottom:16px;border-left:3px solid var(--orange)"><h4 style="color:var(--orange);margin-bottom:4px">${bowlType.name}</h4><p style="color:var(--gray3);font-size:13px">${bowlType.desc}</p></div>`;}
 function renderSizeSelector(){if(!bowlType)return;const m=bowlType.macros;document.getElementById('sizeSelector').innerHTML=`<div class="size-opt" onclick="selSize('reg')"><div class="size-header"><h5>REGULAR</h5><div class="price">$10.99</div></div><div class="size-desc">Perfect for a light meal</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.reg.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.reg.cal}</div><div class="lbl">Calories</div></div></div></div><div class="size-opt" onclick="selSize('xl')"><div class="size-header"><h5>XL</h5><div class="price">$19.99</div></div><div class="size-desc">Double portion, max gains</div><div class="macro-grid"><div class="macro-box"><div class="val">${m.xl.protein}g</div><div class="lbl">Protein</div></div><div class="macro-box"><div class="val">${m.xl.cal}</div><div class="lbl">Calories</div></div></div></div>`;}
-function selSize(id){size=SIZES.find(s=>s.id===id);step=3;updSteps();showC();}
-function selW(id){win=W.find(w=>w.id===id);step=4;updSteps();showC();}
-function selL(id){loc=L.find(l=>l.id===id);customSelected=false;document.querySelectorAll('#locations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('customLoc').classList.remove('sel');document.getElementById('l'+id).classList.add('sel');step=5;updSteps();showC();updReview();}
+function selSize(id){size=SIZES.find(s=>s.id===id);step=2;updSteps();showC();}
+function selW(id){win=W.find(w=>w.id===id);step=3;updSteps();showC();}
+function selL(id){loc=L.find(l=>l.id===id);customSelected=false;document.querySelectorAll('#locations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('customLoc').classList.remove('sel');document.getElementById('l'+id).classList.add('sel');step=4;updSteps();showC();updReview();}
 function selectCustom(){loc={id:0,name:'CUSTOM'};customSelected=true;document.querySelectorAll('#locations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('customLoc').classList.add('sel');en('btn4');}
 function en(id){const b=document.getElementById(id);if(b){b.classList.remove('off');b.disabled=false;}}
 
 function showPage(id,s){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');if(s&&id==='order'){step=s;updSteps();showC();}if(s&&id==='teamOrder'){tStep=s;updTeamSteps();showTeamC();}if(s&&id==='plan'){pStep=s;updPlanSteps();showPlanC();}}
 function goBack(){if(step>1){step--;updSteps();showC();}else showPage('landing');}
-function next(){if(step<5){step++;updSteps();showC();if(step===5)updReview();}}
+function next(){if(step<4){step++;updSteps();showC();if(step===4)updReview();}}
 function goTo(s){step=s;updSteps();showC();}
-function updSteps(){for(let i=1;i<=5;i++){const s=document.getElementById('s'+i),l=document.getElementById('l'+i);s.classList.remove('active','done');s.textContent=i;if(i<step){s.classList.add('done');s.textContent='✓';if(l)l.classList.add('done');}else if(i===step)s.classList.add('active');if(l&&i>=step)l.classList.remove('done');}}
-function showC(){for(let i=1;i<=5;i++)document.getElementById('c'+i).classList.add('hidden');document.getElementById('c'+step).classList.remove('hidden');}
+function updSteps(){for(let i=1;i<=4;i++){const s=document.getElementById('s'+i),l=document.getElementById('l'+i);if(s){s.classList.remove('active','done');s.textContent=i;if(i<step){s.classList.add('done');s.textContent='✓';if(l)l.classList.add('done');}else if(i===step)s.classList.add('active');if(l&&i>=step)l.classList.remove('done');}}}
+function showC(){for(let i=1;i<=4;i++){const el=document.getElementById('c'+i);if(el)el.classList.add('hidden');}document.getElementById('c'+step).classList.remove('hidden');}
 function qty(d){q=Math.max(1,Math.min(9,q+d));document.getElementById('qtyD').textContent=q;updTotal();}
 function updTotal(){if(size){const cookiePrice = typeof getCookieAddonPrice === 'function' ? getCookieAddonPrice() : 0;document.getElementById('rTotal').textContent='$'+((size.price*q)+cookiePrice).toFixed(2);}}
 function updReview(){if(bowlType&&size){const m=bowlType.macros[size.id];document.getElementById('rEmoji').textContent='LB';document.getElementById('rName').textContent=bowlType.name+' ('+size.name+')'+(q>1?' x'+q:'');document.getElementById('rMacro').textContent=m.protein+'g protein • '+m.cal+' cal';document.getElementById('rPrice').textContent='$'+size.price.toFixed(2);}document.getElementById('rWin').textContent=win?win.time:'-';document.getElementById('rLoc').textContent=customSelected?(document.getElementById('customAddr').value||'Custom'):(loc?loc.name:'-');updTotal();}
@@ -2016,9 +1993,9 @@ function checkout(){
 }
 
 function startTeamOrder(){tStep=1;showPage('teamOrder',1);}
-function teamQty(t,d){if(t==='chicken'){tChicken=Math.max(0,tChicken+d);document.getElementById('tqChicken').textContent=tChicken;}else{tSausage=Math.max(0,tSausage+d);document.getElementById('tqSausage').textContent=tSausage;}updateTeamPricing();}
+function teamQty(t,d){tCarnivore=Math.max(0,tCarnivore+d);document.getElementById('tqCarnivore').textContent=tCarnivore;updateTeamPricing();}
 function getTeamPrice(total){for(let t of TEAM_PRICING)if(total>=t.min)return t;return{min:0,price:XL_PRICE,save:null};}
-function updateTeamPricing(){const total=tChicken+tSausage,tier=getTeamPrice(total);document.getElementById('teamTotalBowls').textContent=total;document.getElementById('teamPriceEach').textContent='$'+tier.price.toFixed(2);document.getElementById('teamDiscount').textContent=tier.save?'Save '+tier.save:'';document.getElementById('teamMinNote').style.display=total>=10?'none':'block';const btn=document.getElementById('tbtn1');if(total>=10){btn.classList.remove('off');btn.disabled=false;}else{btn.classList.add('off');btn.disabled=true;}}
+function updateTeamPricing(){const total=tCarnivore,tier=getTeamPrice(total);document.getElementById('teamTotalBowls').textContent=total;document.getElementById('teamPriceEach').textContent='$'+tier.price.toFixed(2);document.getElementById('teamDiscount').textContent=tier.save?'Save '+tier.save:'';document.getElementById('teamMinNote').style.display=total>=10?'none':'block';const btn=document.getElementById('tbtn1');if(total>=10){btn.classList.remove('off');btn.disabled=false;}else{btn.classList.add('off');btn.disabled=true;}}
 function selTeamW(id){tWin=W.find(w=>w.id===id);tStep=3;updTeamSteps();showTeamC();}
 function selTeamL(id){tLoc=L.find(l=>l.id===id);tCustomSelected=false;document.querySelectorAll('#tlocations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('tcustomLoc').classList.remove('sel');document.getElementById('tl'+id).classList.add('sel');tStep=4;updTeamSteps();showTeamC();updTeamReview();}
 function selectTeamCustom(){tLoc={id:0,name:'CUSTOM'};tCustomSelected=true;document.querySelectorAll('#tlocations .opt').forEach(c=>c.classList.remove('sel'));document.getElementById('tcustomLoc').classList.add('sel');en('tbtn3');}
@@ -2027,8 +2004,8 @@ function nextTeam(){if(tStep<4){tStep++;updTeamSteps();showTeamC();if(tStep===4)
 function goToTeam(s){tStep=s;updTeamSteps();showTeamC();}
 function updTeamSteps(){for(let i=1;i<=4;i++){const s=document.getElementById('ts'+i),l=document.getElementById('tl'+i);s.classList.remove('active','done','blue');s.textContent=i;if(i<tStep){s.classList.add('done');s.textContent='✓';if(l)l.classList.add('done');}else if(i===tStep)s.classList.add('active','blue');if(l&&i>=tStep)l.classList.remove('done');}}
 function showTeamC(){for(let i=1;i<=4;i++)document.getElementById('tc'+i).classList.add('hidden');document.getElementById('tc'+tStep).classList.remove('hidden');}
-function updTeamReview(){const total=tChicken+tSausage,tier=getTeamPrice(total);let o='';if(tChicken>0)o+=tChicken+' Crispy Chicken';if(tSausage>0)o+=(o?', ':'')+tSausage+' Chicken & Sausage';document.getElementById('trName').textContent=o;document.getElementById('trPrice').textContent='$'+tier.price.toFixed(2)+'/ea';document.getElementById('trWin').textContent=tWin?tWin.time:'-';document.getElementById('trLoc').textContent=tCustomSelected?(document.getElementById('tcustomAddr').value||'Custom'):(tLoc?tLoc.name:'-');const f=total*XL_PRICE,d=total*tier.price,sv=f-d;document.getElementById('trDiscountLabel').textContent=total+' bowls @ $'+tier.price.toFixed(2);document.getElementById('trDiscountAmt').textContent='-$'+sv.toFixed(2);document.getElementById('trTotal').textContent='$'+d.toFixed(2);}
-function checkoutTeam(){const total=tChicken+tSausage,tier=getTeamPrice(total);let o='';if(tChicken>0)o+=tChicken+' Crispy Chicken';if(tSausage>0)o+=(o?', ':'')+tSausage+' Chicken & Sausage';document.getElementById('confTitle').textContent='TEAM ORDER CONFIRMED';document.getElementById('confSub').textContent="We'll deliver to your team.";document.getElementById('cOrder').textContent=o;document.getElementById('cWin').textContent=tWin?tWin.time:'-';document.getElementById('cLoc').textContent=tCustomSelected?(document.getElementById('tcustomAddr').value||'Custom'):(tLoc?tLoc.name:'-');document.getElementById('cTotal').textContent='$'+(total*tier.price).toFixed(2);showPage('confirm');}
+function updTeamReview(){const total=tCarnivore,tier=getTeamPrice(total);document.getElementById('trName').textContent=total+' CARNIVORE BOWL'+(total>1?'S':'');document.getElementById('trPrice').textContent='$'+tier.price.toFixed(2)+'/ea';document.getElementById('trWin').textContent=tWin?tWin.time:'-';document.getElementById('trLoc').textContent=tCustomSelected?(document.getElementById('tcustomAddr').value||'Custom'):(tLoc?tLoc.name:'-');const f=total*XL_PRICE,d=total*tier.price,sv=f-d;document.getElementById('trDiscountLabel').textContent=total+' bowls @ $'+tier.price.toFixed(2);document.getElementById('trDiscountAmt').textContent='-$'+sv.toFixed(2);document.getElementById('trTotal').textContent='$'+d.toFixed(2);}
+function checkoutTeam(){const total=tCarnivore,tier=getTeamPrice(total);document.getElementById('confTitle').textContent='TEAM ORDER CONFIRMED';document.getElementById('confSub').textContent="We'll deliver to your team.";document.getElementById('cOrder').textContent=total+' CARNIVORE BOWL'+(total>1?'S':'');document.getElementById('cWin').textContent=tWin?tWin.time:'-';document.getElementById('cLoc').textContent=tCustomSelected?(document.getElementById('tcustomAddr').value||'Custom'):(tLoc?tLoc.name:'-');document.getElementById('cTotal').textContent='$'+(total*tier.price).toFixed(2);showPage('confirm');}
 
 function goBackPlan(){if(pStep>1){pStep--;updPlanSteps();showPlanC();}else showPage('landing');}
 function nextPlan(){if(pStep<4){pStep++;updPlanSteps();showPlanC();if(pStep===4)updPlanReview();}}
@@ -2041,7 +2018,7 @@ function selectPlanCustom(){pLoc={id:0,name:'CUSTOM'};pCustomSelected=true;docum
 function updPlanReview(){document.getElementById('prWin').textContent=pWin?pWin.time:'-';document.getElementById('prLoc').textContent=pCustomSelected?(document.getElementById('pcustomAddr').value||'Custom'):(pLoc?pLoc.name:'-');}
 function checkoutPlan(){document.getElementById('confTitle').textContent='PLAN ACTIVATED';document.getElementById('confSub').textContent="Your daily bowls start tomorrow!";document.getElementById('cOrder').textContent='30-Day Meal Plan';document.getElementById('cWin').textContent=pWin?pWin.time:'-';document.getElementById('cLoc').textContent=pCustomSelected?(document.getElementById('pcustomAddr').value||'Custom'):(pLoc?pLoc.name:'-');document.getElementById('cTotal').textContent='$449.99/mo';showPage('confirm');}
 
-function reset(){bowlType=size=win=loc=null;q=1;step=1;customSelected=false;tChicken=tSausage=0;tWin=tLoc=null;tStep=1;tCustomSelected=false;pWin=pLoc=null;pStep=1;pCustomSelected=false;mealCookieAddon=0;document.querySelectorAll('.bowl-opt,.opt,.custom-loc,.size-opt').forEach(c=>c.classList.remove('sel'));document.getElementById('cookieOpt1')?.classList.remove('selected');document.getElementById('cookieOpt2')?.classList.remove('selected');document.getElementById('cookieAddonSum').style.display='none';['btn4','tbtn1','tbtn3','pbtn3'].forEach(id=>{const b=document.getElementById(id);if(b){b.classList.add('off');b.disabled=true;}});document.getElementById('qtyD').textContent='1';document.getElementById('tqChicken').textContent='0';document.getElementById('tqSausage').textContent='0';['customAddr','tcustomAddr','pcustomAddr'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});updateTeamPricing();resetCookies();toggleMenu('personal');showPage('landing');}
+function reset(){bowlType=size=win=loc=null;q=1;step=1;customSelected=false;tCarnivore=0;tWin=tLoc=null;tStep=1;tCustomSelected=false;pWin=pLoc=null;pStep=1;pCustomSelected=false;mealCookieAddon=0;document.querySelectorAll('.bowl-opt,.opt,.custom-loc,.size-opt').forEach(c=>c.classList.remove('sel'));document.getElementById('cookieOpt1')?.classList.remove('selected');document.getElementById('cookieOpt2')?.classList.remove('selected');document.getElementById('cookieAddonSum').style.display='none';['btn4','tbtn1','tbtn3','pbtn3'].forEach(id=>{const b=document.getElementById(id);if(b){b.classList.add('off');b.disabled=true;}});document.getElementById('qtyD').textContent='1';document.getElementById('tqCarnivore').textContent='0';['customAddr','tcustomAddr','pcustomAddr'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});updateTeamPricing();resetCookies();toggleMenu('personal');showPage('landing');}
 
 // Cookie Builder System
 const COOKIES = [
@@ -3764,7 +3741,7 @@ function addCurrentBowlToCart() {
 
 // Add team order to cart
 function addPartyOrderToCart() {
-  const total = tChicken + tSausage;
+  const total = tCarnivore;
   if (total < 10) {
     showToast('Minimum 10 bowls required', 'error', 2000);
     return;
@@ -3773,29 +3750,22 @@ function addPartyOrderToCart() {
   const tier = getTeamPrice(total);
   const price = total * tier.price;
   
-  let orderDesc = '';
-  if (tChicken > 0) orderDesc += tChicken + ' Crispy Chicken';
-  if (tSausage > 0) orderDesc += (orderDesc ? ', ' : '') + tSausage + ' Chicken & Sausage';
-  
   addToCart({
     type: 'bowl',
-    name: 'Party Order (' + total + ' bowls)',
-    details: orderDesc + ' • ' + (tWin ? tWin.time : ''),
+    name: 'Team Order (' + total + ' bowls)',
+    details: total + ' CARNIVORE BOWLS • ' + (tWin ? tWin.time : ''),
     price: price,
-    chicken: tChicken,
-    sausage: tSausage,
+    quantity: total,
     window: tWin ? tWin.time : '',
     location: tCustomSelected ? (document.getElementById('tcustomAddr')?.value || 'Custom') : (tLoc ? tLoc.name : '')
   });
   
   // Reset and go back to landing
-  tChicken = 0;
-  tSausage = 0;
+  tCarnivore = 0;
   tWin = null;
   tLoc = null;
   tCustomSelected = false;
-  document.getElementById('tqChicken').textContent = '0';
-  document.getElementById('tqSausage').textContent = '0';
+  document.getElementById('tqCarnivore').textContent = '0';
   showPage('landing');
 }
 // ==================== END CART SYSTEM ====================
