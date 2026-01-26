@@ -1846,7 +1846,7 @@
     <div class="free-ban blue">TEAM ORDER • 10+ BOWLS</div>
     <div class="steps"><div id="ts1" class="step active blue">1</div><div id="tl1" class="sline"></div><div id="ts2" class="step">2</div><div id="tl2" class="sline"></div><div id="ts3" class="step">3</div><div id="tl3" class="sline"></div><div id="ts4" class="step">4</div></div>
     <div id="tc1" class="content"><h2><svg class="blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>BUILD ORDER</h2><p class="sub">XL bowls • 70g protein each</p>
-      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CARNIVORE BOWL</h4><p>Crispy chicken, seasoned pork & pancetta in creamy alfredo</p></div><div class="qty-ctrl"><button onclick="teamQty('carnivore',-1)">−</button><span id="tqCarnivore">0</span><button onclick="teamQty('carnivore',1)">+</button></div></div></div>
+      <div class="bowl-opt" style="margin-bottom:12px;cursor:default"><div style="display:flex;justify-content:space-between;align-items:center"><div><h4>CARNIVORE BOWL</h4><p>Crispy chicken, lean ground pork & pancetta in creamy alfredo</p></div><div class="qty-ctrl"><button onclick="teamQty('carnivore',-1)">−</button><span id="tqCarnivore">0</span><button onclick="teamQty('carnivore',1)">+</button></div></div></div>
       <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:16px"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="color:var(--gray3)">Total Bowls</span><span id="teamTotalBowls" style="font-family:var(--font1);font-size:28px">0</span></div><div style="display:flex;justify-content:space-between"><span style="color:var(--gray3)">Price/bowl</span><div style="text-align:right"><span id="teamPriceEach" style="font-family:var(--font1);font-size:28px;color:var(--yellow)">$14.99</span><div id="teamDiscount" style="font-size:12px;color:var(--green);font-weight:600"></div></div></div></div>
       <p id="teamMinNote" style="font-size:12px;color:var(--orange);text-align:center;margin-top:12px">Minimum 10 bowls required</p>
       <div class="pfooter"><button id="tbtn1" class="contbtn blue off" onclick="nextTeam()" disabled>CONTINUE</button></div>
@@ -1889,7 +1889,7 @@
 </div><!-- end iphone-frame -->
 
 <script>
-const BOWLS=[{id:'carnivore',name:'CARNIVORE BOWL',desc:'Loaded pasta bowl with crispy chicken, seasoned pork & crispy pancetta smothered in creamy alfredo. Delivered hot & ready.',macros:{reg:{cal:550,protein:35,carbs:45,fat:25},xl:{cal:1000,protein:70,carbs:80,fat:45}}}];
+const BOWLS=[{id:'carnivore',name:'CARNIVORE BOWL',desc:'Loaded pasta bowl with crispy chicken, lean ground pork & crispy pancetta smothered in creamy alfredo. Delivered hot & ready.',macros:{reg:{cal:550,protein:35,carbs:45,fat:25},xl:{cal:1000,protein:70,carbs:80,fat:45}}}];
 const SIZES=[{id:'reg',name:'Regular',price:10.99},{id:'xl',name:'XL',price:19.99}];
 const XL_PRICE=14.99;
 const TEAM_PRICING=[{min:30,price:12.99,save:'35%'},{min:20,price:13.99,save:'30%'},{min:10,price:14.99,save:'25%'}];
