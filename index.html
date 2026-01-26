@@ -3555,7 +3555,26 @@ function closeCart() {
 
 function checkoutCart() {
   closeCart();
-  // Set default date to tomorrow
+  
+  // Build Shopify cart URL with all items
+  let cartItems = [];
+  
+  for (const item of cart) {
+    if (item.type === 'bowl' && item.size) {
+      const variantKey = 'carnivore-' + item.size;
+      const variantId = SHOPIFY_VARIANTS[variantKey];
+      if (variantId) {
+        cartItems.push(variantId + ':' + (item.quantity || 1));
+      }
+    }
+  }
+  
+  if (cartItems.length > 0) {
+    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + cartItems.join(',');
+    return;
+  }
+  
+  // Fallback for non-bowl items - show local checkout
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   document.getElementById('checkoutDate').value = tomorrow.toISOString().split('T')[0];
@@ -3751,8 +3770,8 @@ function addCurrentBowlToCart() {
     details: details,
     price: total,
     bowlId: bowlType.id,
-    size: size.name,
-    qty: q,
+    size: size.id,
+    quantity: q,
     window: win ? win.time : '',
     location: customSelected ? document.getElementById('customAddr')?.value : (loc ? loc.name : ''),
     cookies: mealCookieAddon > 0 ? mealCookieAddon : 0
