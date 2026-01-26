@@ -1989,9 +1989,9 @@ function checkout(){
   const variantKey = 'carnivore-' + size.id;
   const variantId = SHOPIFY_VARIANTS[variantKey];
   
-  // Redirect to Shopify - add to cart and go straight to checkout
+  // Redirect to Shopify checkout using permalink
   if (variantId) {
-    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/add?id=' + variantId + '&quantity=' + q + '&return_to=/checkout';
+    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':' + q;
     return;
   }
   
