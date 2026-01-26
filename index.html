@@ -3569,6 +3569,12 @@ function closeCheckout() {
   document.getElementById('checkoutDrawer').classList.remove('show');
 }
 
+// Simple confetti placeholder
+function triggerConfetti() {
+  // Confetti animation - can be enhanced later
+  console.log('🎉 Order placed!');
+}
+
 function placeOrder() {
   const name = document.getElementById('checkoutName').value;
   const phone = document.getElementById('checkoutPhone').value;
