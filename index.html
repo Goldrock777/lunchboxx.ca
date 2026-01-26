@@ -999,6 +999,43 @@
     .plan-breakdown .daily span{font-size:16px;color:var(--gray3)}
     .plan-breakdown p{font-size:12px;color:var(--green);margin-top:4px}
 
+    /* Calendar Styles */
+    .calendar-trigger{display:flex;align-items:center;justify-content:space-between;background:var(--gray2);border:2px solid var(--gray2);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .2s;color:var(--gray3)}
+    .calendar-trigger:hover{border-color:var(--orange)}
+    .calendar-trigger .has-date{color:var(--white)}
+    .calendar-trigger svg{color:var(--orange)}
+    
+    .calendar-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s}
+    .calendar-modal.show{opacity:1;visibility:visible}
+    .calendar-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.8)}
+    .calendar-container{position:relative;background:var(--gray1);border-radius:20px;padding:24px;width:90%;max-width:360px;transform:translateY(20px);transition:transform .3s}
+    .calendar-modal.show .calendar-container{transform:translateY(0)}
+    
+    .calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .calendar-header h3{font-family:var(--font1);font-size:18px;color:var(--white);margin:0}
+    .calendar-close{background:none;border:none;color:var(--gray3);font-size:28px;cursor:pointer;padding:0;line-height:1}
+    .calendar-close:hover{color:var(--white)}
+    
+    .calendar-quick{display:flex;gap:10px;margin-bottom:20px}
+    .quick-date{flex:1;background:var(--gray2);border:2px solid var(--gray2);border-radius:10px;padding:12px;color:var(--white);font-family:var(--font2);font-size:14px;cursor:pointer;transition:all .2s}
+    .quick-date:hover{border-color:var(--orange);color:var(--orange)}
+    
+    .calendar-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .calendar-nav button{background:var(--gray2);border:none;color:var(--white);width:36px;height:36px;border-radius:10px;font-size:20px;cursor:pointer;transition:all .2s}
+    .calendar-nav button:hover{background:var(--orange)}
+    .calendar-nav span{font-family:var(--font2);font-size:16px;font-weight:600;color:var(--white)}
+    
+    .calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px}
+    .calendar-weekdays div{text-align:center;font-size:12px;color:var(--gray3);padding:8px 0;font-weight:500}
+    
+    .calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+    .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:14px;font-weight:500;color:var(--white);cursor:pointer;transition:all .2s}
+    .cal-day:not(.empty):not(.past):hover{background:var(--gray2)}
+    .cal-day.empty{cursor:default}
+    .cal-day.past{color:var(--gray3);cursor:not-allowed;opacity:0.4}
+    .cal-day.today{background:var(--gray2);color:var(--orange);font-weight:700}
+    .cal-day.selected{background:var(--orange)!important;color:var(--black)!important;font-weight:700}
+
     .hidden{display:none!important}
   </style>
 </head>
@@ -1239,7 +1276,11 @@
           </div>
           <div class="form-row">
             <label>Delivery Date</label>
-            <input type="date" id="cookieDeliveryDate">
+            <div class="calendar-trigger" onclick="openCalendar('cookie')">
+              <span id="cookieDateDisplay">Select date</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <input type="hidden" id="cookieDeliveryDate">
           </div>
           <div class="form-row">
             <label>Delivery Notes (optional)</label>
@@ -1444,7 +1485,11 @@
           </div>
           <div class="form-row">
             <label>Delivery Date</label>
-            <input type="date" id="brownieDeliveryDate">
+            <div class="calendar-trigger" onclick="openCalendar('brownie')">
+              <span id="brownieDateDisplay">Select date</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <input type="hidden" id="brownieDeliveryDate">
           </div>
           <div class="form-row">
             <label>Delivery Notes (optional)</label>
@@ -1744,7 +1789,11 @@
           </div>
           <div class="form-row">
             <label>Delivery Date *</label>
-            <input type="date" id="checkoutDate">
+            <div class="calendar-trigger" id="calendarTrigger" onclick="openCalendar('checkout')">
+              <span id="checkoutDateDisplay">Select date</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <input type="hidden" id="checkoutDate">
           </div>
           <div class="form-row">
             <label>Delivery Notes (optional)</label>
@@ -3626,9 +3675,11 @@ function checkoutCart() {
   }
   
   // Fallback for non-bowl items - show local checkout
+  // Set default to tomorrow
+  currentCalendarTarget = 'checkout';
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
-  document.getElementById('checkoutDate').value = tomorrow.toISOString().split('T')[0];
+  selectDate(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate());
   
   document.getElementById('checkoutOverlay').classList.add('show');
   document.getElementById('checkoutDrawer').classList.add('show');
@@ -3863,6 +3914,142 @@ function addPartyOrderToCart() {
   showPage('landing');
 }
 // ==================== END CART SYSTEM ====================
+
+// ==================== CALENDAR ====================
+let calendarDate = new Date();
+let selectedDeliveryDate = null;
+let currentCalendarTarget = 'checkout';
+
+function openCalendar(target) {
+  currentCalendarTarget = target || 'checkout';
+  calendarDate = new Date(); // Reset to current month
+  document.getElementById('calendarModal').classList.add('show');
+  renderCalendar();
+}
+
+function closeCalendar() {
+  document.getElementById('calendarModal').classList.remove('show');
+}
+
+function renderCalendar() {
+  const year = calendarDate.getFullYear();
+  const month = calendarDate.getMonth();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                      'July', 'August', 'September', 'October', 'November', 'December'];
+  
+  document.getElementById('calendarMonthYear').textContent = monthNames[month] + ' ' + year;
+  
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  
+  let html = '';
+  
+  // Empty cells for days before the first of the month
+  for (let i = 0; i < firstDay; i++) {
+    html += '<div class="cal-day empty"></div>';
+  }
+  
+  // Days of the month
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(year, month, day);
+    const isPast = date < today;
+    const isToday = date.getTime() === today.getTime();
+    const isSelected = selectedDeliveryDate && 
+                       date.toDateString() === selectedDeliveryDate.toDateString();
+    
+    let classes = 'cal-day';
+    if (isPast) classes += ' past';
+    if (isToday) classes += ' today';
+    if (isSelected) classes += ' selected';
+    
+    if (isPast) {
+      html += `<div class="${classes}">${day}</div>`;
+    } else {
+      html += `<div class="${classes}" onclick="selectDate(${year}, ${month}, ${day})">${day}</div>`;
+    }
+  }
+  
+  document.getElementById('calendarDays').innerHTML = html;
+}
+
+function prevMonth() {
+  calendarDate.setMonth(calendarDate.getMonth() - 1);
+  renderCalendar();
+}
+
+function nextMonth() {
+  calendarDate.setMonth(calendarDate.getMonth() + 1);
+  renderCalendar();
+}
+
+function selectDate(year, month, day) {
+  selectedDeliveryDate = new Date(year, month, day);
+  
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  const formattedDate = selectedDeliveryDate.toLocaleDateString('en-US', options);
+  const isoDate = selectedDeliveryDate.toISOString().split('T')[0];
+  
+  // Update the correct display and hidden input based on target
+  const targets = {
+    'cookie': { display: 'cookieDateDisplay', input: 'cookieDeliveryDate' },
+    'brownie': { display: 'brownieDateDisplay', input: 'brownieDeliveryDate' },
+    'checkout': { display: 'checkoutDateDisplay', input: 'checkoutDate' }
+  };
+  
+  const t = targets[currentCalendarTarget];
+  if (t) {
+    const displayEl = document.getElementById(t.display);
+    const inputEl = document.getElementById(t.input);
+    if (displayEl) {
+      displayEl.textContent = formattedDate;
+      displayEl.classList.add('has-date');
+    }
+    if (inputEl) {
+      inputEl.value = isoDate;
+    }
+  }
+  
+  closeCalendar();
+}
+
+function selectToday() {
+  const today = new Date();
+  selectDate(today.getFullYear(), today.getMonth(), today.getDate());
+}
+
+function selectTomorrow() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  selectDate(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate());
+}
+// ==================== END CALENDAR ====================
 </script>
+
+<!-- Calendar Modal -->
+<div class="calendar-modal" id="calendarModal">
+  <div class="calendar-overlay" onclick="closeCalendar()"></div>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <h3>Select Delivery Date</h3>
+      <button class="calendar-close" onclick="closeCalendar()">×</button>
+    </div>
+    <div class="calendar-quick">
+      <button class="quick-date" onclick="selectToday()">Today</button>
+      <button class="quick-date" onclick="selectTomorrow()">Tomorrow</button>
+    </div>
+    <div class="calendar-nav">
+      <button onclick="prevMonth()">‹</button>
+      <span id="calendarMonthYear">January 2026</span>
+      <button onclick="nextMonth()">›</button>
+    </div>
+    <div class="calendar-weekdays">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="calendar-days" id="calendarDays"></div>
+  </div>
+</div>
 </body>
 </html>
