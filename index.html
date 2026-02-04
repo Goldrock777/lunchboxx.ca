@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>lunchboxx - High Protein Meals</title>
+  <title>LUNCHBOXX - High Protein Meals</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -225,7 +225,7 @@
     .menu-toggle button{flex:1;padding:12px 8px;border:none;background:transparent;color:var(--gray3);font-family:var(--font1);font-size:13px;letter-spacing:1px;cursor:pointer;border-radius:8px;transition:all .2s}
     .menu-toggle button.active{background:var(--orange);color:var(--white)}
     .menu-toggle button.dessert-active{background:#D4A574;color:var(--dark)}
-    .menu-toggle button.snacks-active{background:#8B9A46;color:var(--white)}
+    .menu-toggle button.snacks-active{background:#E8A817;color:var(--dark)}
     .menu-toggle button.team-active{background:var(--blue);color:var(--white)}
 
     /* Dessert Section */
@@ -251,6 +251,43 @@
     .snacks-card-price span{font-size:12px;color:var(--gray3);font-family:var(--font2)}
     .snacks-card-cta{font-size:12px;color:#8B9A46;font-weight:600;display:flex;align-items:center;gap:4px}
     
+    /* DOGBOXX Section */
+    .dogboxx-section{display:none}
+    .dogboxx-section.show{display:block}
+    .dogboxx-section .dessert-header h2{color:#E8A817}
+    .dogboxx-section .dessert-header .partner span{color:#E8A817}
+    .dogboxx-section .cookie-builder{border-color:#5D4502;background:linear-gradient(135deg,#1c1810,#0d0b08)}
+    .dogboxx-section .dessert-cta{background:linear-gradient(135deg,#E8A817,#D49B12)}
+    .dogboxx-section .dessert-cta:hover{background:linear-gradient(135deg,#F0B82A,#E8A817)}
+    .dogboxx-section .box-summary{background:rgba(93,69,2,.3)}
+    .dogboxx-section .summary-row.total span:last-child{color:#E8A817}
+    .dogboxx-section .order-now-link:hover{border-color:#E8A817;color:#E8A817}
+    .dog-hero{text-align:center;margin-bottom:20px;padding:20px 0}
+    .dog-box-visual{position:relative;display:inline-block}
+    .dog-box-icon{margin-bottom:8px}
+    .dog-count-display{font-family:var(--font1);font-size:48px;color:#E8A817;letter-spacing:2px}
+    .dog-label{font-family:var(--font1);font-size:14px;color:var(--gray3);letter-spacing:3px}
+    .dog-tagline{font-size:12px;color:var(--gray3);margin-top:8px}
+    .dog-size-card{background:var(--gray1);border:2px solid var(--gray2);border-radius:14px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;flex:1}
+    .dog-size-card:hover{border-color:#E8A817;transform:translateY(-2px)}
+    .dog-size-card.selected{border-color:#E8A817;background:rgba(232,168,23,0.1)}
+    .dog-size-count{font-family:var(--font1);font-size:36px;color:var(--white);margin-bottom:2px}
+    .dog-size-label{font-family:var(--font1);font-size:12px;color:var(--gray3);letter-spacing:2px;margin-bottom:6px}
+    .dog-size-serves{font-size:10px;color:var(--gray3);margin-bottom:8px}
+    .dog-size-price{font-family:var(--font1);font-size:20px;color:#E8A817}
+    .dog-pop-badge{font-size:8px;background:#E8A817;color:var(--dark);padding:3px 8px;border-radius:10px;display:inline-block;margin-top:6px;font-weight:700;letter-spacing:1px}
+    .dog-included{background:var(--gray2);border-radius:10px;padding:14px;margin-top:16px}
+    .dog-included-header{font-family:var(--font1);font-size:11px;color:#E8A817;letter-spacing:2px;margin-bottom:10px}
+    .dog-included-items{display:flex;flex-wrap:wrap;gap:8px}
+    .dog-included-item{font-size:11px;color:var(--gray3);display:flex;align-items:center;gap:6px;background:var(--gray1);padding:6px 10px;border-radius:8px}
+    .dog-included-item .inc-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dog-free-drink{background:linear-gradient(135deg,rgba(232,168,23,0.15),rgba(232,168,23,0.05));border:2px solid rgba(232,168,23,0.3);border-radius:12px;padding:14px;text-align:center;margin-top:16px}
+    .dog-free-drink .drink-icon{font-size:24px;margin-bottom:4px}
+    .dog-free-drink .drink-text{font-family:var(--font1);font-size:13px;color:#E8A817;letter-spacing:1px}
+    .dog-free-drink .drink-sub{font-size:11px;color:var(--gray3);margin-top:2px}
+    .dog-new-badge{display:inline-block;background:#E8A817;color:var(--dark);font-family:var(--font1);font-size:9px;padding:3px 8px;border-radius:10px;letter-spacing:1px;margin-bottom:4px;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+
     /* WINGBOXX Section */
     .wingboxx-section{display:none}
     .wingboxx-section.show{display:block}
@@ -341,6 +378,72 @@
     .dessert-header h2{font-family:var(--font1);font-size:32px;color:#D4A574;margin-bottom:4px;letter-spacing:3px}
     .dessert-header .partner{font-size:12px;color:var(--gray3)}
     .dessert-header .partner span{color:#D4A574;font-weight:600}
+    
+    /* Partner Branding - Crumbl Style */
+    .partner-badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px auto 16px;padding:8px 16px;background:rgba(212,165,116,.08);border:1px solid rgba(212,165,116,.2);border-radius:100px;width:fit-content;cursor:pointer;transition:all .3s}
+    .partner-badge:hover{background:rgba(212,165,116,.15);border-color:rgba(212,165,116,.4);transform:scale(1.02)}
+    .partner-badge .pb-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#D4A574,#8B6914);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+    .partner-badge .pb-text{font-size:11px;color:var(--gray3);line-height:1.3}
+    .partner-badge .pb-text strong{color:#D4A574;font-weight:700;display:block;font-size:12px}
+    .partner-badge .pb-ig{font-size:11px;color:var(--gray3);opacity:.7}
+    .partner-badge .pb-arrow{color:var(--gray3);font-size:16px;margin-left:4px}
+    .brownieboxx-section .partner-badge{background:rgba(139,105,20,.08);border-color:rgba(139,105,20,.2)}
+    .brownieboxx-section .partner-badge:hover{background:rgba(139,105,20,.15);border-color:rgba(139,105,20,.4)}
+    .brownieboxx-section .partner-badge .pb-text strong{color:#8B6914}
+    
+    /* Weekly Flavor Drop Banner */
+    .flavor-drop{background:linear-gradient(135deg,rgba(212,165,116,.1),rgba(212,165,116,.03));border:1px solid rgba(212,165,116,.15);border-radius:16px;padding:14px 16px;margin-bottom:16px;text-align:center}
+    .flavor-drop .drop-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#D4A574;text-transform:uppercase;margin-bottom:4px}
+    .flavor-drop .drop-title{font-family:var(--font1);font-size:18px;color:var(--white);margin-bottom:2px}
+    .flavor-drop .drop-timer{font-size:11px;color:var(--gray3)}
+    .flavor-drop .drop-timer span{color:#D4A574;font-weight:600}
+    .brownieboxx-section .flavor-drop{background:linear-gradient(135deg,rgba(139,105,20,.1),rgba(139,105,20,.03));border-color:rgba(139,105,20,.15)}
+    .brownieboxx-section .flavor-drop .drop-label,.brownieboxx-section .flavor-drop .drop-timer span{color:#8B6914}
+    
+    /* Order Mode Toggle */
+    .order-mode-toggle{display:flex;gap:0;margin-bottom:16px;background:var(--gray2);border-radius:14px;padding:4px;position:relative}
+    .order-mode-btn{flex:1;padding:12px 8px;border:none;background:transparent;color:var(--gray3);font-family:var(--font1);font-size:13px;font-weight:600;letter-spacing:1px;border-radius:11px;cursor:pointer;transition:all .3s;text-align:center;position:relative;z-index:1}
+    .order-mode-btn.active{color:var(--dark);background:#D4A574}
+    .order-mode-btn .mode-tag{display:block;font-family:var(--font2);font-size:9px;font-weight:400;letter-spacing:0;margin-top:2px;opacity:.7}
+    .order-mode-btn.active .mode-tag{opacity:.8}
+    .brownieboxx-section .order-mode-btn.active{background:#8B6914}
+    
+    /* Available Now Quick Buy Cards */
+    .available-now{margin-bottom:16px}
+    .available-now-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .available-now-header h3{font-family:var(--font1);font-size:16px;color:var(--white);letter-spacing:1px}
+    .available-now-header .avail-badge{font-size:10px;padding:4px 10px;background:rgba(0,210,106,.15);color:#00D26A;border-radius:20px;font-weight:600;animation:pulse-green 2s infinite}
+    @keyframes pulse-green{0%,100%{opacity:1}50%{opacity:.6}}
+    .avail-cards{display:flex;flex-direction:column;gap:8px}
+    .avail-card{display:flex;align-items:center;gap:12px;padding:14px;background:var(--gray2);border-radius:14px;border:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s}
+    .avail-card:hover{border-color:rgba(0,210,106,.3);background:rgba(0,210,106,.05)}
+    .avail-card .avail-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(0,210,106,.15),rgba(0,210,106,.05));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .avail-card .avail-info{flex:1}
+    .avail-card .avail-name{font-weight:700;font-size:14px;color:var(--white)}
+    .avail-card .avail-desc{font-size:11px;color:var(--gray3);margin-top:1px}
+    .avail-card .avail-price{font-family:var(--font1);font-size:16px;color:#00D26A;font-weight:700}
+    .avail-card .avail-stock{font-size:9px;color:var(--gray3);display:block;margin-top:1px}
+    
+    /* Pre-order notice */
+    .preorder-notice{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(212,165,116,.08);border:1px solid rgba(212,165,116,.15);border-radius:12px;margin-bottom:14px;font-size:12px;color:var(--gray3);line-height:1.4}
+    .preorder-notice .notice-icon{font-size:20px;flex-shrink:0}
+    .preorder-notice strong{color:#D4A574}
+    .brownieboxx-section .preorder-notice{background:rgba(139,105,20,.08);border-color:rgba(139,105,20,.15)}
+    .brownieboxx-section .preorder-notice strong{color:#8B6914}
+    
+    /* Meet the Baker Card */
+    .baker-card{display:flex;align-items:center;gap:14px;padding:16px;background:var(--gray2);border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s}
+    .baker-card:hover{background:rgba(212,165,116,.08);border-color:rgba(212,165,116,.2)}
+    .baker-card .baker-img{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#D4A574,#8B6914);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;position:relative}
+    .baker-card .baker-img::after{content:'';position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;background:#00D26A;border-radius:50%;border:2px solid var(--gray2)}
+    .baker-card .baker-info{flex:1}
+    .baker-card .baker-name{font-weight:700;font-size:15px;color:var(--white);margin-bottom:2px}
+    .baker-card .baker-role{font-size:12px;color:#D4A574;margin-bottom:2px}
+    .baker-card .baker-desc{font-size:11px;color:var(--gray3);line-height:1.4}
+    .baker-card .baker-ig{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--gray3);margin-top:4px}
+    .baker-card .baker-ig svg{width:14px;height:14px}
+    .brownieboxx-section .baker-card:hover{background:rgba(139,105,20,.08);border-color:rgba(139,105,20,.2)}
+    .brownieboxx-section .baker-card .baker-role{color:#8B6914}
     
     /* Brownie Theme */
     .brownieboxx-section .dessert-header h2{color:#8B6914}
@@ -1063,22 +1166,20 @@
       <div id="landing" class="page active">
     <div class="logo">LUNCHBOXX</div>
     <div class="hero">
-      <h1>HIGH PROTEIN<br><span>DELIVERED</span></h1>
-      <p class="subline">Hand delivered to you hot and ready.</p>
+      <h1>PARTY FOOD<br><span>DELIVERED</span></h1>
+      <p class="subline">Loaded hot dogs, desserts & more — straight to your door.</p>
     </div>
 
     <div class="trust">
-        <div class="trust-item"><h4>COOKED SAME DAY</h4><p>Fresh, never frozen</p></div>
-        <div class="trust-item"><h4>SEALED & LABELED</h4><p>Macros on every box</p></div>
+        <div class="trust-item"><h4>LOADED PORTIONS</h4><p>Every dog fully loaded</p></div>
+        <div class="trust-item"><h4>FREE 2L DRINK</h4><p>With every DOGBOXX</p></div>
         <div class="trust-item"><h4>FAST DELIVERY</h4><p>Direct to you</p></div>
       </div>
 
     <div class="toggle-wrap">
       <div class="menu-toggle">
-        <button id="togglePersonal" class="active" onclick="toggleMenu('personal')">MEALS</button>
+        <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')">PARTY</button>
         <button id="toggleDessert" onclick="toggleMenu('dessert')">DESSERTS</button>
-        <button id="toggleSnacks" onclick="toggleMenu('snacks')" style="display:none">SNACKS</button>
-        <button id="toggleTeam" onclick="toggleMenu('team')">TEAM 10+</button>
       </div>
     </div>
 
@@ -1087,15 +1188,15 @@
       <div class="dessert-menu" id="dessertMenu">
         <div class="dessert-menu-header">
           <h2>DESSERTS</h2>
-          <p>Premium treats, delivered fresh</p>
+          <p>Handcrafted by our partners, delivered by us</p>
         </div>
         <div class="dessert-cards">
           <div class="dessert-card" onclick="openDessertType('cookie')">
             <div class="dessert-card-icon cookie">🍪</div>
             <div class="dessert-card-info">
               <div class="dessert-card-name">COOKIEBOXX</div>
-              <div class="dessert-card-desc">Stuffed cookies baked fresh daily</div>
-              <div class="dessert-card-price">From $75</div>
+              <div class="dessert-card-desc">by Fudge & Crumble · Stuffed cookies baked fresh</div>
+              <div class="dessert-card-price">From $20</div>
             </div>
             <div class="dessert-card-arrow">›</div>
           </div>
@@ -1103,8 +1204,8 @@
             <div class="dessert-card-icon brownie">🍫</div>
             <div class="dessert-card-info">
               <div class="dessert-card-name">BROWNIEBOXX</div>
-              <div class="dessert-card-desc">Fudgy brownies baked fresh daily</div>
-              <div class="dessert-card-price">From $60</div>
+              <div class="dessert-card-desc">by Fudge & Crumble · Fudgy brownies baked fresh</div>
+              <div class="dessert-card-price">From $30</div>
             </div>
             <div class="dessert-card-arrow">›</div>
           </div>
@@ -1119,38 +1220,85 @@
         </button>
         <div class="dessert-header">
           <h2>COOKIEBOXX</h2>
-          <p class="partner"><span>Fresh Baked Daily</span></p>
+          <p class="partner">by <span>Fudge & Crumble Patisserie</span></p>
+        </div>
+        
+        <!-- Partner Badge -->
+        <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
+          <div class="partner-badge">
+            <div class="pb-avatar">🍪</div>
+            <div class="pb-text">
+              <strong>Fudge & Crumble</strong>
+              <span class="pb-ig">@_fudgeandcrumble_</span>
+            </div>
+            <span class="pb-arrow">›</span>
+          </div>
+        </a>
+        
+        <!-- Weekly Flavor Drop -->
+        <div class="flavor-drop">
+          <div class="drop-label">📋 PRE-ORDER</div>
+          <div class="drop-title">9 Flavors Available</div>
+          <div class="drop-timer">Baked fresh to order · <span>Same-day or next-day delivery</span></div>
+        </div>
+
+        <!-- Pre-order Notice -->
+        <div class="preorder-notice">
+          <span class="notice-icon">📋</span>
+          <div><strong>Pre-order:</strong> Pick your flavors & box size. You'll choose your delivery date at checkout — same-day or next-day available.</div>
         </div>
 
         <!-- Quick Packs -->
-        <div class="quick-packs" id="quickPacks">
+        <div class="quick-packs" id="quickPacksAvail">
+          <div class="quick-pack" onclick="selectQuickPack('five')">
+            <div class="quick-pack-name">5 PACK</div>
+            <div class="quick-pack-desc">Try a mix</div>
+            <div class="quick-pack-price">$20</div>
+          </div>
+          <div class="quick-pack" onclick="selectQuickPack('ten')">
+            <div class="quick-pack-name">10 PACK</div>
+            <div class="quick-pack-desc">Share with friends</div>
+            <div class="quick-pack-price">$40</div>
+          </div>
           <div class="quick-pack" onclick="selectQuickPack('twenty')">
             <div class="quick-pack-name">20 PACK</div>
             <div class="quick-pack-desc">Perfect for parties</div>
             <div class="quick-pack-price">$75</div>
-            
           </div>
           <div class="quick-pack" onclick="selectQuickPack('thirty')">
             <div class="quick-pack-tag">POPULAR</div>
             <div class="quick-pack-name">30 PACK</div>
             <div class="quick-pack-desc">Small events</div>
             <div class="quick-pack-price">$104</div>
-            
           </div>
           <div class="quick-pack" onclick="selectQuickPack('fifty')">
             <div class="quick-pack-tag">BEST VALUE</div>
             <div class="quick-pack-name">50 PACK</div>
             <div class="quick-pack-desc">Office & events</div>
             <div class="quick-pack-price">$170</div>
-            
           </div>
           <div class="quick-pack" onclick="selectQuickPack('hundred')">
             <div class="quick-pack-name">100 PACK</div>
             <div class="quick-pack-desc">Catering & bulk</div>
             <div class="quick-pack-price">$310</div>
-            
           </div>
         </div>
+
+        <!-- Meet the Baker -->
+        <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
+          <div class="baker-card">
+            <div class="baker-img">👩‍🍳</div>
+            <div class="baker-info">
+              <div class="baker-name">Fudge & Crumble Patisserie</div>
+              <div class="baker-role">Official LUNCHBOXX Partner</div>
+              <div class="baker-desc">Homemade treats, crafted to excellence. Custom orders + gluten free options available.</div>
+              <div class="baker-ig">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153A4.904 4.904 0 012.525 18.55c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.25-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
+                @_fudgeandcrumble_
+              </div>
+            </div>
+          </div>
+        </a>
         
         <div class="cookie-builder">
           <!-- Visual Cookie Box with Custom Label -->
@@ -1177,8 +1325,9 @@
               <div class="progress-fill" id="progressFill" style="width:0%"></div>
             </div>
             <div class="progress-milestones">
-              <div class="milestone" id="mile10">20</div>
-              <div class="milestone" id="mile20">30</div>
+              <div class="milestone" id="mile5">5</div>
+              <div class="milestone" id="mile10">10</div>
+              <div class="milestone" id="mile20">20</div>
               <div class="milestone" id="mile50">50</div>
               <div class="milestone" id="mile100">100</div>
             </div>
@@ -1312,6 +1461,8 @@
         </div>
 
         <div class="bulk-tiers">
+          <div class="tier-badge" id="tier5">5 Pack $20</div>
+          <div class="tier-badge" id="tier10">10 Pack $40</div>
           <div class="tier-badge" id="tier20">20 Pack $75</div>
           <div class="tier-badge" id="tier30">30 Pack $104</div>
           <div class="tier-badge" id="tier50">50 Pack $170</div>
@@ -1334,32 +1485,75 @@
       </button>
       <div class="dessert-header">
         <h2>BROWNIEBOXX</h2>
-        <p class="partner"><span>Fresh Baked Daily</span></p>
+        <p class="partner">by <span>Fudge & Crumble Patisserie</span></p>
+      </div>
+      
+      <!-- Partner Badge -->
+      <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
+        <div class="partner-badge">
+          <div class="pb-avatar">🍫</div>
+          <div class="pb-text">
+            <strong>Fudge & Crumble</strong>
+            <span class="pb-ig">@_fudgeandcrumble_</span>
+          </div>
+          <span class="pb-arrow">›</span>
+        </div>
+      </a>
+      
+      <!-- Weekly Flavor Drop -->
+      <div class="flavor-drop">
+        <div class="drop-label">📋 PRE-ORDER</div>
+        <div class="drop-title">Fudgy Brownies, Fresh Baked</div>
+        <div class="drop-timer">Baked fresh to order · <span>Same-day or next-day delivery</span></div>
       </div>
 
-      <!-- Brownie Quick Packs -->
-      <div class="quick-packs" id="brownieQuickPacks">
+      <!-- Pre-order Notice -->
+      <div class="preorder-notice">
+        <span class="notice-icon">📋</span>
+        <div><strong>Pre-order:</strong> Pick your flavors & box size. You'll choose your delivery date at checkout — same-day or next-day available.</div>
+      </div>
+
+      <!-- Quick Packs -->
+      <div class="quick-packs" id="browniePacksAvail">
+        <div class="quick-pack" onclick="selectBrowniePack('six')">
+          <div class="quick-pack-name">6 PACK</div>
+          <div class="quick-pack-desc">Try a mix</div>
+          <div class="quick-pack-price">$30</div>
+        </div>
         <div class="quick-pack" onclick="selectBrowniePack('twelve')">
           <div class="quick-pack-name">12 PACK</div>
           <div class="quick-pack-desc">Perfect for sharing</div>
           <div class="quick-pack-price">$60</div>
-          
         </div>
         <div class="quick-pack" onclick="selectBrowniePack('twentyfour')">
           <div class="quick-pack-tag">POPULAR</div>
           <div class="quick-pack-name">24 PACK</div>
           <div class="quick-pack-desc">Office treats</div>
           <div class="quick-pack-price">$110</div>
-          
         </div>
         <div class="quick-pack" onclick="selectBrowniePack('fortyeight')">
           <div class="quick-pack-tag">BEST VALUE</div>
           <div class="quick-pack-name">48 PACK</div>
           <div class="quick-pack-desc">Events & parties</div>
           <div class="quick-pack-price">$200</div>
-          
         </div>
       </div>
+
+      <!-- Meet the Baker -->
+      <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
+        <div class="baker-card">
+          <div class="baker-img">👩‍🍳</div>
+          <div class="baker-info">
+            <div class="baker-name">Fudge & Crumble Patisserie</div>
+            <div class="baker-role">Official LUNCHBOXX Partner</div>
+            <div class="baker-desc">Homemade treats, crafted to excellence. Custom orders + gluten free options available.</div>
+            <div class="baker-ig">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153A4.904 4.904 0 012.525 18.55c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.25-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
+              @_fudgeandcrumble_
+            </div>
+          </div>
+        </div>
+      </a>
       
       <div class="cookie-builder">
         <!-- Visual Brownie Box -->
@@ -1386,6 +1580,7 @@
             <div class="progress-fill" id="brownieProgressFill" style="width:0%"></div>
           </div>
           <div class="progress-milestones">
+            <div class="milestone" id="bmile6">6</div>
             <div class="milestone" id="bmile12">12</div>
             <div class="milestone" id="bmile24">24</div>
             <div class="milestone" id="bmile48">48</div>
@@ -1514,6 +1709,7 @@
         </div>
 
         <div class="bulk-tiers">
+          <div class="tier-badge" id="btier6">6 Pack $30</div>
           <div class="tier-badge" id="btier12">12 Pack $60</div>
           <div class="tier-badge" id="btier24">24 Pack $110</div>
           <div class="tier-badge" id="btier48">48 Pack $200</div>
@@ -1529,183 +1725,161 @@
   </div>
 
   <!-- SNACKS SECTION -->
-  <div id="snacksSection" class="snacks-section">
-    <div class="snacks-menu" id="snacksMenu">
-      <div class="snacks-header">
-        <h2>SNACKS</h2>
-        <p>Perfect for parties & gatherings</p>
-      </div>
-      
-      <div class="snacks-card wing-card" onclick="openSnackType('wings')">
-        <div class="snacks-card-header">
-          <div class="snacks-card-icon" style="background:linear-gradient(135deg,#E85D04,#DC2F02)">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
-              <path d="M19.5,8c-0.8-3.2-4.8-4.8-8-3.2c-1.6,0.8-2.4,1.6-3.2,3.2c-1.6-0.8-4,0-4.8,2.4c-0.8,2.4,0.8,4.8,3.2,5.6 c0.8,0.4,1.6,0.4,2.4,0l0.8,3.2c0.4,1.2,1.6,2,2.8,2h2.4c1.2,0,2.4-0.8,2.8-2l0.8-3.2c2.4,0.8,4.8-0.8,5.6-3.2 C25.1,10.4,22.7,8.8,19.5,8z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="snacks-card-title">WINGBOXX</div>
-            <div class="snacks-card-subtitle" style="color:#E85D04">Crispy Wings</div>
-          </div>
-        </div>
-        <div class="snacks-card-desc">Crispy fried wings tossed in your choice of sauce. Buffalo, BBQ, Honey Garlic, Lemon Pepper & more. Served with ranch & celery.</div>
-        <div class="snacks-card-footer">
-          <div class="snacks-card-price" style="color:#E85D04">From <span>$40</span></div>
-          <div class="snacks-card-cta" style="color:#E85D04">BUILD YOURS →</div>
-        </div>
-      </div>
-    </div>
+  <div id="snacksSection" class="snacks-section show">
+    <!-- DOGBOXX loads directly, no menu needed -->
 
-    <!-- WINGBOXX Section -->
-    <div class="wingboxx-section" id="wingboxxSection">
-      <button class="dessert-back" onclick="backToSnacksMenu()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Snacks
-      </button>
+    <!-- DOGBOXX Section -->
+    <div class="dogboxx-section show" id="dogboxxSection">
       <div class="dessert-header">
-        <h2>WINGBOXX</h2>
-        <div class="partner"><span>Crispy & Saucy</span></div>
+        <h2>DOGBOXX</h2>
+        <div class="partner"><span>Loaded Dogs</span></div>
       </div>
 
-      <div class="cookie-builder wing-builder">
-        <!-- Wing Visual -->
-        <div class="wing-hero">
-          <div class="wing-box-visual">
-            <div class="wing-box-icon">
-              <svg viewBox="0 0 64 64" width="80" height="80">
-                <defs>
-                  <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#E85D04"/>
-                    <stop offset="100%" style="stop-color:#DC2F02"/>
-                  </linearGradient>
-                </defs>
-                <path fill="url(#wingGrad)" d="M52,20c-2-8-12-12-20-8c-4,2-6,4-8,8c-4-2-10,0-12,6c-2,6,2,12,8,14c2,1,4,1,6,0l2,8c1,3,4,5,7,5h6c3,0,6-2,7-5l2-8c6,2,12-2,14-8C66,26,58,22,52,20z"/>
-                <ellipse fill="#D4A574" cx="24" cy="28" rx="3" ry="2" opacity="0.6"/>
-                <ellipse fill="#D4A574" cx="40" cy="26" rx="4" ry="2" opacity="0.6"/>
-              </svg>
-            </div>
-            <div class="wing-count-display" id="wingCountDisplay">24</div>
-            <div class="wing-label">CRISPY WINGS</div>
+      <div class="cookie-builder dog-builder">
+        <!-- Dog Visual -->
+        <div class="dog-hero">
+          <div class="dog-box-visual">
+            <div class="dog-box-icon" style="font-size:60px">🌭</div>
+            <div class="dog-count-display" id="dogCountDisplay">10</div>
+            <div class="dog-label">LOADED DOGS</div>
           </div>
-          <div class="wing-tagline">Tossed in your favorite sauce</div>
+          <div class="dog-tagline">Crispy Pancetta · Cheese · Onions · Crispy Onions</div>
         </div>
 
         <!-- Size Selection -->
-        <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px">CHOOSE YOUR SIZE</label>
-        <div class="wing-sizes">
-          <div class="wing-size-card selected" data-size="small" onclick="selectWingSize('small')">
-            <div class="wing-size-count">24</div>
-            <div class="wing-size-label">SMALL</div>
-            <div class="wing-size-serves">4-6 people</div>
-            <div class="wing-size-price">$40</div>
+        <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px;letter-spacing:1px">CHOOSE YOUR SIZE</label>
+        <div style="display:flex;gap:12px;margin-bottom:16px">
+          <div class="dog-size-card selected" data-size="regular" onclick="selectDogSize('regular')">
+            <div class="dog-size-count">10</div>
+            <div class="dog-size-label">REGULAR</div>
+            <div class="dog-size-serves">Feeds 4-6</div>
+            <div class="dog-size-price">$50</div>
           </div>
-          <div class="wing-size-card" data-size="medium" onclick="selectWingSize('medium')">
-            <div class="wing-size-count">50</div>
-            <div class="wing-size-label">MEDIUM</div>
-            <div class="wing-size-serves">8-12 people</div>
-            <div class="wing-size-price">$70</div>
-            <div class="wing-pop-badge">BEST VALUE</div>
-          </div>
-          <div class="wing-size-card" data-size="large" onclick="selectWingSize('large')">
-            <div class="wing-size-count">100</div>
-            <div class="wing-size-label">LARGE</div>
-            <div class="wing-size-serves">15-20 people</div>
-            <div class="wing-size-price">$125</div>
+          <div class="dog-size-card" data-size="party" onclick="selectDogSize('party')">
+            <div class="dog-size-count">20</div>
+            <div class="dog-size-label">PARTY</div>
+            <div class="dog-size-serves">Feeds 8-12</div>
+            <div class="dog-size-price">$90</div>
+            <div class="dog-pop-badge">BEST VALUE</div>
           </div>
         </div>
 
-        <!-- Flavor Selection -->
-        <label style="font-size:11px;color:var(--gray3);display:block;margin:16px 0 8px">CHOOSE YOUR FLAVORS <span id="wingFlavorCount" style="color:#E85D04">(Pick up to 2)</span></label>
-        <div class="wing-flavors">
-          <div class="wing-flavor selected" data-flavor="buffalo" onclick="toggleWingFlavor('buffalo')">
-            <span class="flavor-dot" style="background:#E63946"></span>
-            <span class="flavor-name">Buffalo</span>
-            <span class="flavor-heat">Medium</span>
-          </div>
-          <div class="wing-flavor" data-flavor="bbq" onclick="toggleWingFlavor('bbq')">
-            <span class="flavor-dot" style="background:#5D2A02"></span>
-            <span class="flavor-name">Smoky BBQ</span>
-            <span class="flavor-heat">Sweet</span>
-          </div>
-          <div class="wing-flavor" data-flavor="honeygarlic" onclick="toggleWingFlavor('honeygarlic')">
-            <span class="flavor-dot" style="background:#F4A261"></span>
-            <span class="flavor-name">Honey Garlic</span>
-            <span class="flavor-heat">Sweet</span>
-          </div>
-          <div class="wing-flavor" data-flavor="lemonpepper" onclick="toggleWingFlavor('lemonpepper')">
-            <span class="flavor-dot" style="background:#E9C46A"></span>
-            <span class="flavor-name">Lemon Pepper</span>
-            <span class="flavor-heat">Zesty</span>
-          </div>
-          <div class="wing-flavor" data-flavor="korean" onclick="toggleWingFlavor('korean')">
-            <span class="flavor-dot" style="background:#D62828"></span>
-            <span class="flavor-name">Korean</span>
-            <span class="flavor-heat">Spicy-Sweet</span>
-          </div>
-          <div class="wing-flavor" data-flavor="mango" onclick="toggleWingFlavor('mango')">
-            <span class="flavor-dot" style="background:#F77F00"></span>
-            <span class="flavor-name">Mango Hab</span>
-            <span class="flavor-heat">Hot 🔥</span>
-          </div>
-          <div class="wing-flavor" data-flavor="garmparm" onclick="toggleWingFlavor('garmparm')">
-            <span class="flavor-dot" style="background:#F5EBD3"></span>
-            <span class="flavor-name">Garlic Parm</span>
-            <span class="flavor-heat">Savory</span>
-          </div>
-          <div class="wing-flavor" data-flavor="naked" onclick="toggleWingFlavor('naked')">
-            <span class="flavor-dot" style="background:#D4A574"></span>
-            <span class="flavor-name">Naked</span>
-            <span class="flavor-heat">Crispy</span>
+        <!-- What's on each dog -->
+        <div class="dog-included">
+          <div class="dog-included-header">EVERY DOG IS LOADED WITH</div>
+          <div class="dog-included-items">
+            <div class="dog-included-item"><span class="inc-dot" style="background:#F4A261"></span>7" Jumbo Dog</div>
+            <div class="dog-included-item"><span class="inc-dot" style="background:#F5EBD3"></span>Soft Bun</div>
+            <div class="dog-included-item"><span class="inc-dot" style="background:#E63946"></span>Crispy Pancetta</div>
+            <div class="dog-included-item"><span class="inc-dot" style="background:#FFD166"></span>Melted Cheese</div>
+            <div class="dog-included-item"><span class="inc-dot" style="background:#E9C46A"></span>Diced Onions</div>
+            <div class="dog-included-item"><span class="inc-dot" style="background:#D4A574"></span>Crispy Onions</div>
           </div>
         </div>
 
-        <!-- Included Items -->
-        <div class="wing-included">
-          <div class="wing-included-header">INCLUDED</div>
-          <div class="wing-included-items">
-            <div class="wing-included-item"><span class="inc-dot" style="background:#90BE6D"></span>Celery</div>
-            <div class="wing-included-item"><span class="inc-dot" style="background:#F9844A"></span>Carrots</div>
-            <div class="wing-included-item"><span class="inc-dot" style="background:#F5F5F5"></span>Ranch</div>
+        <!-- Macros per dog -->
+        <div style="display:flex;justify-content:space-around;background:var(--gray2);border-radius:10px;padding:12px 8px;margin-top:10px;text-align:center">
+          <div>
+            <div style="font-family:var(--font1);font-size:18px;color:#E8A817">~500</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">CAL</div>
+          </div>
+          <div style="width:1px;background:var(--gray1)"></div>
+          <div>
+            <div style="font-family:var(--font1);font-size:18px;color:#4CAF50">26g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">PROTEIN</div>
+          </div>
+          <div style="width:1px;background:var(--gray1)"></div>
+          <div>
+            <div style="font-family:var(--font1);font-size:18px;color:var(--white)">27g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">CARBS</div>
+          </div>
+          <div style="width:1px;background:var(--gray1)"></div>
+          <div>
+            <div style="font-family:var(--font1);font-size:18px;color:var(--white)">33g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">FAT</div>
           </div>
         </div>
+        <div style="text-align:center;font-size:9px;color:var(--gray3);margin-top:4px">Estimated per dog</div>
 
-        <!-- Extra Dips -->
-        <label style="font-size:11px;color:var(--gray3);display:block;margin:14px 0 8px">EXTRA DIPS <span style="color:#E85D04">+$2 each</span></label>
-        <div class="wing-dips">
-          <div class="wing-dip" data-dip="ranch" onclick="toggleWingDip('ranch')">
-            <span class="dip-dot" style="background:#F5F5F5"></span>
-            <span>Ranch</span>
+        <!-- Sauce Packets -->
+        <div class="dog-included" style="margin-top:10px">
+          <div class="dog-included-header">KETCHUP INCLUDED WITH ALL 🟢</div>
+        </div>
+
+        <!-- Sauce Selection -->
+        <label style="font-size:11px;color:var(--gray3);display:block;margin:14px 0 4px;letter-spacing:1px">PICK YOUR SAUCE <span id="dogSauceCount" style="color:#E8A817">(1 per dog — choose <span id="dogSauceMax">10</span>)</span></label>
+        <p style="font-size:10px;color:var(--gray3);margin-bottom:10px">Ketchup comes with every dog. Pick 1 extra sauce per dog below.</p>
+        <div class="dog-sauces" style="display:flex;flex-direction:column;gap:8px">
+          <div class="dog-sauce-row" data-sauce="spicymayo" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#F77F00;flex-shrink:0"></span>
+              <span style="font-size:14px;color:var(--white);font-weight:600">Spicy Mayo</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+              <button onclick="adjustSauce('spicymayo',-1)" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--gray2);background:var(--gray2);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+              <span class="sauce-qty" id="sauceQty_spicymayo" style="font-family:var(--font1);font-size:18px;color:#E8A817;width:28px;text-align:center">0</span>
+              <button onclick="adjustSauce('spicymayo',1)" style="width:32px;height:32px;border-radius:50%;border:none;background:#E8A817;color:var(--dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
+            </div>
           </div>
-          <div class="wing-dip" data-dip="bluecheese" onclick="toggleWingDip('bluecheese')">
-            <span class="dip-dot" style="background:#E8E4D9"></span>
-            <span>Blue Cheese</span>
+          <div class="dog-sauce-row" data-sauce="bbq" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#5D2A02;flex-shrink:0"></span>
+              <span style="font-size:14px;color:var(--white);font-weight:600">BBQ</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+              <button onclick="adjustSauce('bbq',-1)" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--gray2);background:var(--gray2);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+              <span class="sauce-qty" id="sauceQty_bbq" style="font-family:var(--font1);font-size:18px;color:#E8A817;width:28px;text-align:center">0</span>
+              <button onclick="adjustSauce('bbq',1)" style="width:32px;height:32px;border-radius:50%;border:none;background:#E8A817;color:var(--dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
+            </div>
           </div>
-          <div class="wing-dip" data-dip="honey" onclick="toggleWingDip('honey')">
-            <span class="dip-dot" style="background:#F4A261"></span>
-            <span>Hot Honey</span>
+          <div class="dog-sauce-row" data-sauce="mustard" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#E8C817;flex-shrink:0"></span>
+              <span style="font-size:14px;color:var(--white);font-weight:600">Mustard</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+              <button onclick="adjustSauce('mustard',-1)" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--gray2);background:var(--gray2);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+              <span class="sauce-qty" id="sauceQty_mustard" style="font-family:var(--font1);font-size:18px;color:#E8A817;width:28px;text-align:center">0</span>
+              <button onclick="adjustSauce('mustard',1)" style="width:32px;height:32px;border-radius:50%;border:none;background:#E8A817;color:var(--dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
+            </div>
           </div>
-          <div class="wing-dip" data-dip="sriracha" onclick="toggleWingDip('sriracha')">
-            <span class="dip-dot" style="background:#E63946"></span>
-            <span>Sriracha</span>
+          <div class="dog-sauce-row" data-sauce="hotsauce" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#E63946;flex-shrink:0"></span>
+              <span style="font-size:14px;color:var(--white);font-weight:600">Hot Sauce</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+              <button onclick="adjustSauce('hotsauce',-1)" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--gray2);background:var(--gray2);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+              <span class="sauce-qty" id="sauceQty_hotsauce" style="font-family:var(--font1);font-size:18px;color:#E8A817;width:28px;text-align:center">0</span>
+              <button onclick="adjustSauce('hotsauce',1)" style="width:32px;height:32px;border-radius:50%;border:none;background:#E8A817;color:var(--dark);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
+            </div>
           </div>
+        </div>
+        <div id="dogSauceRemaining" style="text-align:center;font-size:11px;color:var(--gray3);margin-top:8px"><span id="dogSauceLeft" style="color:#E8A817;font-weight:600">10</span> sauce picks remaining</div>
+
+        <!-- Free 2L Drink -->
+        <div class="dog-free-drink">
+          <div class="drink-icon">🥤</div>
+          <div class="drink-text">FREE 2L DRINK INCLUDED</div>
+          <div class="drink-sub">With every DOGBOXX order</div>
         </div>
 
         <!-- Summary -->
         <div class="box-summary" style="margin-top:16px">
-          <div class="summary-row"><span>Wings</span><span id="wingSizeLabel">24pc Small</span></div>
-          <div class="summary-row"><span>Flavors</span><span id="wingFlavorsLabel">Buffalo</span></div>
-          <div class="summary-row" id="wingDipsRow" style="display:none"><span>Extra Dips</span><span id="wingDipsPrice">+$0</span></div>
+          <div class="summary-row"><span>Hot Dogs</span><span id="dogSizeLabel">10 Pack Regular</span></div>
+          <div class="summary-row"><span>Toppings</span><span style="color:#4CAF50">Loaded</span></div>
+          <div class="summary-row"><span>Ketchup</span><span style="color:#4CAF50">Included</span></div>
+          <div class="summary-row"><span>Sauces</span><span id="dogSaucesLabel" style="color:#E8A817">Pick your sauces above</span></div>
+          <div class="summary-row"><span>2L Drink</span><span style="color:#4CAF50">FREE</span></div>
           <div class="summary-row" style="color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">Included</span></div>
-          <div class="summary-row total"><span>Total</span><span id="wingTotal">$40.00</span></div>
+          <div class="summary-row total"><span>Total</span><span id="dogTotal">$50.00</span></div>
         </div>
 
-        <div class="free-delivery-banner" style="background:linear-gradient(90deg,rgba(232,93,4,.15),rgba(232,93,4,.05));border-color:rgba(232,93,4,.3);color:#E85D04">FRESH FRIED • NEVER FROZEN</div>
-
-        <button class="dessert-cta" id="wingCta" onclick="addWingsToCart()">ADD TO CART 🛒 • $45.00</button>
-        <div class="order-now-link" id="wingOrderNowLink" onclick="orderWings()">ORDER NOW</div>
+        <button class="dessert-cta" id="dogCta" onclick="addDogsToCart()">ADD TO CART 🛒 • $50.00</button>
+        <div class="order-now-link" id="dogOrderNowLink" onclick="orderDogs()">ORDER NOW</div>
       </div>
     </div>
-    <!-- End WINGBOXX Section -->
+    <!-- End DOGBOXX Section -->
   </div>
   <!-- End SNACKS SECTION -->
 
@@ -1756,6 +1930,21 @@
         <div class="cart-delivery">
           <span>Delivery</span>
           <span style="color:#00D26A">Included</span>
+        </div>
+        <!-- Tip Section -->
+        <div style="padding:10px 0;border-top:1px solid var(--gray2);margin-top:6px">
+          <div style="font-size:11px;color:var(--gray3);margin-bottom:8px;letter-spacing:1px">ADD A TIP 💛</div>
+          <div style="display:flex;gap:8px">
+            <button class="tip-btn" data-tip="0" onclick="setTip(0)" style="flex:1;padding:10px 0;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:13px;cursor:pointer;transition:all .2s">NONE</button>
+            <button class="tip-btn" data-tip="3" onclick="setTip(3)" style="flex:1;padding:10px 0;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:13px;cursor:pointer;transition:all .2s">$3</button>
+            <button class="tip-btn" data-tip="5" onclick="setTip(5)" style="flex:1;padding:10px 0;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:13px;cursor:pointer;transition:all .2s">$5</button>
+            <button class="tip-btn" data-tip="10" onclick="setTip(10)" style="flex:1;padding:10px 0;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:13px;cursor:pointer;transition:all .2s">$10</button>
+            <button class="tip-btn" data-tip="custom" onclick="setCustomTip()" style="flex:1;padding:10px 0;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:13px;cursor:pointer;transition:all .2s">Other</button>
+          </div>
+          <div id="customTipWrap" style="display:none;margin-top:8px">
+            <input type="number" id="customTipInput" placeholder="Enter amount" min="0" oninput="updateCustomTip()" style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:14px;outline:none;text-align:center">
+          </div>
+          <div id="tipDisplay" style="display:none;text-align:center;font-size:12px;color:#E8A817;margin-top:6px;font-weight:600"></div>
         </div>
         <div class="cart-total">
           <span>Total</span>
@@ -1810,7 +1999,7 @@
       </div>
     </div>
 
-    <div id="personalSection">
+    <div id="personalSection" style="display:none">
       <div class="products">
         <div class="product-card" onclick="quickOrder('carnivore')">
           <div class="product-header">
@@ -1950,31 +2139,26 @@ let tStep=1,tCarnivore=0,tWin=null,tLoc=null,tCustomSelected=false;
 let pStep=1,pWin=null,pLoc=null,pCustomSelected=false;
 
 function toggleMenu(t){
-  document.getElementById('togglePersonal').classList.remove('active');
-  document.getElementById('toggleDessert').classList.remove('dessert-active');
   document.getElementById('toggleSnacks').classList.remove('snacks-active');
-  document.getElementById('toggleTeam').classList.remove('team-active');
-  document.getElementById('personalSection').style.display='none';
+  document.getElementById('toggleDessert').classList.remove('dessert-active');
+  var personalEl = document.getElementById('personalSection');
+  if(personalEl) personalEl.style.display='none';
   document.getElementById('dessertSection').classList.remove('show');
   document.getElementById('snacksSection').classList.remove('show');
-  document.getElementById('teamSection').classList.remove('show');
+  var teamEl = document.getElementById('teamSection');
+  if(teamEl) teamEl.classList.remove('show');
   
   if(t==='personal'){
-    document.getElementById('togglePersonal').classList.add('active');
-    document.getElementById('personalSection').style.display='block';
+    if(personalEl) { var btn = document.getElementById('togglePersonal'); if(btn) btn.classList.add('active'); personalEl.style.display='block'; }
   }else if(t==='dessert'){
     document.getElementById('toggleDessert').classList.add('dessert-active');
     document.getElementById('dessertSection').classList.add('show');
-    // Reset to dessert menu
     backToDessertMenu();
   }else if(t==='snacks'){
     document.getElementById('toggleSnacks').classList.add('snacks-active');
     document.getElementById('snacksSection').classList.add('show');
-    // Reset to snacks menu
-    backToSnacksMenu();
   }else if(t==='team'){
-    document.getElementById('toggleTeam').classList.add('team-active');
-    document.getElementById('teamSection').classList.add('show');
+    if(teamEl) { var btn2 = document.getElementById('toggleTeam'); if(btn2) btn2.classList.add('team-active'); teamEl.classList.add('show'); }
   }
 }
 
@@ -1991,6 +2175,98 @@ function openDessertType(type) {
     document.getElementById('brownieboxxSection').classList.add('show');
     initBrownieGrid();
   }
+}
+
+// ==================== ORDER MODE TOGGLE ====================
+function setCookieMode(mode) {
+  const availBtn = document.getElementById('cookieAvailBtn');
+  const preorderBtn = document.getElementById('cookiePreorderBtn');
+  const availSection = document.getElementById('cookieAvailSection');
+  const preorderSection = document.getElementById('cookiePreorderSection');
+  
+  // Clear pack selections when switching modes
+  document.querySelectorAll('#quickPacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
+  selectedPackId = null;
+  cookieCart = {};
+  initCookieGrid();
+  updateCookieSummary();
+  
+  if (mode === 'available') {
+    availBtn.classList.add('active');
+    preorderBtn.classList.remove('active');
+    availSection.style.display = 'block';
+    preorderSection.style.display = 'none';
+  } else {
+    availBtn.classList.remove('active');
+    preorderBtn.classList.add('active');
+    availSection.style.display = 'none';
+    preorderSection.style.display = 'block';
+  }
+}
+
+function setBrownieMode(mode) {
+  const availBtn = document.getElementById('brownieAvailBtn');
+  const preorderBtn = document.getElementById('browniePreorderBtn');
+  const availSection = document.getElementById('brownieAvailSection');
+  const preorderSection = document.getElementById('browniePreorderSection');
+  
+  // Clear pack selections when switching modes
+  document.querySelectorAll('#browniePacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
+  selectedBrowniePackId = null;
+  brownieCart = {};
+  initBrownieGrid();
+  updateBrownieSummary();
+  
+  if (mode === 'available') {
+    availBtn.classList.add('active');
+    preorderBtn.classList.remove('active');
+    availSection.style.display = 'block';
+    preorderSection.style.display = 'none';
+  } else {
+    availBtn.classList.remove('active');
+    preorderBtn.classList.add('active');
+    availSection.style.display = 'none';
+    preorderSection.style.display = 'block';
+  }
+}
+
+// Available Now - Quick Buy
+function addAvailCookieToCart(packType) {
+  let name, price, qty;
+  if (packType === 'mixed5') { name = "COOKIEBOXX Mixed 5 Pack"; price = 20; qty = 5; }
+  else if (packType === 'mixed10') { name = "COOKIEBOXX Mixed 10 Pack"; price = 40; qty = 10; }
+  else return;
+  
+  addToCart({
+    type: 'cookies',
+    name: name,
+    details: "Baker's choice · Ready today",
+    price: price,
+    qty: qty,
+    flavors: {},
+    availableNow: true
+  });
+  
+  showToast('Added to cart!', 'success', 1500);
+}
+
+function addAvailBrownieToCart(packType) {
+  let name, price, qty;
+  if (packType === 'mixed6') { name = "BROWNIEBOXX Mixed 6 Pack"; price = 30; qty = 6; }
+  else if (packType === 'mixed12') { name = "BROWNIEBOXX Mixed 12 Pack"; price = 60; qty = 12; }
+  else return;
+  
+  addToCart({
+    type: 'brownies',
+    name: name,
+    details: "Baker's choice · Ready today",
+    price: price,
+    qty: qty,
+    flavors: {},
+    availableNow: true
+  });
+  
+  showToast('Added to cart!', 'success', 1500);
 }
 
 function backToDessertMenu() {
@@ -2096,7 +2372,7 @@ function selectPlanCustom(){pLoc={id:0,name:'CUSTOM'};pCustomSelected=true;docum
 function updPlanReview(){document.getElementById('prWin').textContent=pWin?pWin.time:'-';document.getElementById('prLoc').textContent=pCustomSelected?(document.getElementById('pcustomAddr').value||'Custom'):(pLoc?pLoc.name:'-');}
 function checkoutPlan(){document.getElementById('confTitle').textContent='PLAN ACTIVATED';document.getElementById('confSub').textContent="Your daily bowls start tomorrow!";document.getElementById('cOrder').textContent='30-Day Meal Plan';document.getElementById('cWin').textContent=pWin?pWin.time:'-';document.getElementById('cLoc').textContent=pCustomSelected?(document.getElementById('pcustomAddr').value||'Custom'):(pLoc?pLoc.name:'-');document.getElementById('cTotal').textContent='$449.99/mo';showPage('confirm');}
 
-function reset(){bowlType=size=win=loc=null;q=1;step=1;customSelected=false;tCarnivore=0;tWin=tLoc=null;tStep=1;tCustomSelected=false;pWin=pLoc=null;pStep=1;pCustomSelected=false;mealCookieAddon=0;document.querySelectorAll('.bowl-opt,.opt,.custom-loc,.size-opt').forEach(c=>c.classList.remove('sel'));document.getElementById('cookieOpt1')?.classList.remove('selected');document.getElementById('cookieOpt2')?.classList.remove('selected');document.getElementById('cookieAddonSum').style.display='none';['btn4','tbtn1','tbtn3','pbtn3'].forEach(id=>{const b=document.getElementById(id);if(b){b.classList.add('off');b.disabled=true;}});document.getElementById('qtyD').textContent='1';document.getElementById('tqCarnivore').textContent='0';['customAddr','tcustomAddr','pcustomAddr'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});updateTeamPricing();resetCookies();toggleMenu('personal');showPage('landing');}
+function reset(){bowlType=size=win=loc=null;q=1;step=1;customSelected=false;tCarnivore=0;tWin=tLoc=null;tStep=1;tCustomSelected=false;pWin=pLoc=null;pStep=1;pCustomSelected=false;mealCookieAddon=0;document.querySelectorAll('.bowl-opt,.opt,.custom-loc,.size-opt').forEach(c=>c.classList.remove('sel'));document.getElementById('cookieOpt1')?.classList.remove('selected');document.getElementById('cookieOpt2')?.classList.remove('selected');document.getElementById('cookieAddonSum').style.display='none';['btn4','tbtn1','tbtn3','pbtn3'].forEach(id=>{const b=document.getElementById(id);if(b){b.classList.add('off');b.disabled=true;}});document.getElementById('qtyD').textContent='1';document.getElementById('tqCarnivore').textContent='0';['customAddr','tcustomAddr','pcustomAddr'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});updateTeamPricing();resetCookies();toggleMenu('snacks');showPage('landing');}
 
 // Cookie Builder System
 const COOKIES = [
@@ -2343,8 +2619,14 @@ function updateCookieSummary() {
   } else if (totalQty >= 20) {
     total = 75;
     packName = '20 Pack';
+  } else if (totalQty >= 10) {
+    total = 40;
+    packName = '10 Pack';
+  } else if (totalQty >= 5) {
+    total = 20;
+    packName = '5 Pack';
   } else {
-    // Under 20 - can't order
+    // Under 5 - can't order
     total = 0;
   }
   
@@ -2356,7 +2638,7 @@ function updateCookieSummary() {
   total += addonsTotal;
   
   document.getElementById('totalCookies').textContent = totalQty;
-  document.getElementById('cookieTotal').textContent = totalQty >= 20 ? '$' + total.toFixed(2) : '--';
+  document.getElementById('cookieTotal').textContent = totalQty >= 5 ? '$' + total.toFixed(2) : '--';
   
   // Cream cheese row
   const ccRow = document.getElementById('creamCheeseRow');
@@ -2381,7 +2663,8 @@ function updateCookieSummary() {
   if (discountRow) discountRow.style.display = 'none';
   
   // Update tier badges - now show which pack tier
-  document.getElementById('tier10')?.classList.toggle('active', false);
+  document.getElementById('tier5')?.classList.toggle('active', totalQty >= 5 && totalQty < 10);
+  document.getElementById('tier10')?.classList.toggle('active', totalQty >= 10 && totalQty < 20);
   document.getElementById('tier20')?.classList.toggle('active', totalQty >= 20 && totalQty < 30);
   document.getElementById('tier30')?.classList.toggle('active', totalQty >= 30 && totalQty < 50);
   document.getElementById('tier50')?.classList.toggle('active', totalQty >= 50 && totalQty < 100);
@@ -2395,13 +2678,17 @@ function updateCookieSummary() {
   
   const btn = document.getElementById('dessertCta');
   const orderLink = document.getElementById('cookieOrderNowLink');
-  if (totalQty >= 20) {
+  if (totalQty >= 5 && selectedPackId) {
     btn.textContent = 'ADD TO CART 🛒 • $' + total.toFixed(2);
     btn.disabled = false;
     // Only show Order Now if cart is empty
     if (orderLink) orderLink.style.display = cart.length === 0 ? 'block' : 'none';
+  } else if (totalQty >= 5) {
+    btn.textContent = 'ADD TO CART 🛒 • $' + total.toFixed(2);
+    btn.disabled = false;
+    if (orderLink) orderLink.style.display = cart.length === 0 ? 'block' : 'none';
   } else if (totalQty > 0) {
-    btn.textContent = 'MINIMUM 20 COOKIES';
+    btn.textContent = 'MINIMUM 5 COOKIES';
     btn.disabled = true;
     if (orderLink) orderLink.style.display = 'none';
   } else {
@@ -2445,35 +2732,45 @@ function updateProgressBar(qty) {
     pct = 100;
     rewardText = '🎉 100 Pack - $310!';
   } else if (qty >= 50) {
-    pct = 75 + (qty - 50) / 50 * 25;
+    pct = 80 + (qty - 50) / 50 * 20;
     rewardText = `Add ${100 - qty} for 100 Pack!`;
   } else if (qty >= 30) {
-    pct = 50 + (qty - 30) / 20 * 25;
+    pct = 60 + (qty - 30) / 20 * 20;
     rewardText = `Add ${50 - qty} for 50 Pack - BEST VALUE!`;
   } else if (qty >= 20) {
-    pct = 25 + (qty - 20) / 10 * 25;
+    pct = 45 + (qty - 20) / 10 * 15;
     rewardText = `Add ${30 - qty} for 30 Pack!`;
+  } else if (qty >= 10) {
+    pct = 30 + (qty - 10) / 10 * 15;
+    rewardText = `Add ${20 - qty} for 20 Pack!`;
+  } else if (qty >= 5) {
+    pct = 15 + (qty - 5) / 5 * 15;
+    rewardText = `Add ${10 - qty} for 10 Pack!`;
   } else {
-    pct = qty / 20 * 25;
-    rewardText = qty > 0 ? `Add ${20 - qty} more (min 20)` : 'Select a pack to start!';
+    pct = qty / 5 * 15;
+    rewardText = qty > 0 ? `Add ${5 - qty} more (min 5)` : 'Select a pack to start!';
   }
   
   fill.style.width = pct + '%';
   if (reward) reward.textContent = rewardText;
   
   // Update milestones
-  document.getElementById('mile10')?.classList.toggle('reached', qty >= 20);
-  document.getElementById('mile20')?.classList.toggle('reached', qty >= 30);
+  document.getElementById('mile5')?.classList.toggle('reached', qty >= 5);
+  document.getElementById('mile10')?.classList.toggle('reached', qty >= 10);
+  document.getElementById('mile20')?.classList.toggle('reached', qty >= 20);
   document.getElementById('mile50')?.classList.toggle('reached', qty >= 50);
   document.getElementById('mile100')?.classList.toggle('reached', qty >= 100);
   
-  if (qty < 20) document.getElementById('mile10')?.classList.add('next');
+  if (qty < 5) document.getElementById('mile5')?.classList.add('next');
+  else document.getElementById('mile5')?.classList.remove('next');
+  
+  if (qty >= 5 && qty < 10) document.getElementById('mile10')?.classList.add('next');
   else document.getElementById('mile10')?.classList.remove('next');
   
-  if (qty >= 20 && qty < 30) document.getElementById('mile20')?.classList.add('next');
+  if (qty >= 10 && qty < 20) document.getElementById('mile20')?.classList.add('next');
   else document.getElementById('mile20')?.classList.remove('next');
   
-  if (qty >= 30 && qty < 50) document.getElementById('mile50')?.classList.add('next');
+  if (qty >= 20 && qty < 50) document.getElementById('mile50')?.classList.add('next');
   else document.getElementById('mile50')?.classList.remove('next');
   
   if (qty >= 50 && qty < 100) document.getElementById('mile100')?.classList.add('next');
@@ -2549,10 +2846,12 @@ function updateBoxLabel() {
 
 // Quick packs - auto-fill with best sellers
 const QUICK_PACKS = {
-  twenty: { name: '20 Pack', qty: 20, price: 75, cookies: {nutella: 4, caramel: 4, redvelvet: 3, cookiescream: 3, ferrero: 3, smores: 3} },
-  thirty: { name: '30 Pack', qty: 30, price: 104, cookies: {nutella: 6, caramel: 5, redvelvet: 5, cookiescream: 4, ferrero: 4, smores: 3, matcha: 3} },
-  fifty: { name: '50 Pack', qty: 50, price: 170, cookies: {nutella: 10, caramel: 8, redvelvet: 8, cookiescream: 6, ferrero: 6, smores: 4, matcha: 4, espresso: 4} },
-  hundred: { name: '100 Pack', qty: 100, price: 310, cookies: {nutella: 20, caramel: 15, redvelvet: 15, cookiescream: 12, ferrero: 12, smores: 8, matcha: 6, espresso: 6, lemon: 6} }
+  five: { name: '5 Pack', qty: 5, price: 20, cookies: {} },
+  ten: { name: '10 Pack', qty: 10, price: 40, cookies: {} },
+  twenty: { name: '20 Pack', qty: 20, price: 75, cookies: {} },
+  thirty: { name: '30 Pack', qty: 30, price: 104, cookies: {} },
+  fifty: { name: '50 Pack', qty: 50, price: 170, cookies: {} },
+  hundred: { name: '100 Pack', qty: 100, price: 310, cookies: {} }
 };
 
 let selectedPackId = null;
@@ -2564,24 +2863,19 @@ function selectQuickPack(packId) {
   const clickedEl = event.currentTarget;
   const wasSelected = clickedEl.classList.contains('selected');
   
-  // Clear selection from all packs
-  document.querySelectorAll('#quickPacks .quick-pack').forEach(el => el.classList.remove('selected'));
+  // Clear selection from ALL pack groups
+  document.querySelectorAll('#quickPacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   
   if (wasSelected) {
-    // Deselect - clear the box
+    // Deselect
     selectedPackId = null;
     clearCookieBox();
     return;
   }
   
-  // Select new pack
+  // Select new pack - DON'T auto-fill, let user pick flavors
   selectedPackId = packId;
   cookieCart = {};
-  
-  // Add pack cookies
-  Object.keys(pack.cookies).forEach(id => {
-    cookieCart[id] = pack.cookies[id];
-  });
   
   // Highlight selected pack
   clickedEl.classList.add('selected');
@@ -2606,9 +2900,10 @@ const BROWNIES = [
 ];
 
 const BROWNIE_PACKS = {
-  twelve: { name: '12 Pack', qty: 12, price: 60, brownies: {classic: 4, caramel: 4, cheesecake: 4} },
-  twentyfour: { name: '24 Pack', qty: 24, price: 110, brownies: {classic: 6, caramel: 6, cheesecake: 4, walnut: 4, smores: 4} },
-  fortyeight: { name: '48 Pack', qty: 48, price: 200, brownies: {classic: 12, caramel: 10, cheesecake: 8, walnut: 6, peanutbutter: 6, smores: 6} }
+  six: { name: '6 Pack', qty: 6, price: 30, brownies: {} },
+  twelve: { name: '12 Pack', qty: 12, price: 60, brownies: {} },
+  twentyfour: { name: '24 Pack', qty: 24, price: 110, brownies: {} },
+  fortyeight: { name: '48 Pack', qty: 48, price: 200, brownies: {} }
 };
 
 let brownieCart = {};
@@ -2679,8 +2974,8 @@ function selectBrowniePack(packId) {
   const clickedEl = event.currentTarget;
   const wasSelected = clickedEl.classList.contains('selected');
   
-  // Clear selection from all brownie packs
-  document.querySelectorAll('#brownieQuickPacks .quick-pack').forEach(el => el.classList.remove('selected'));
+  // Clear selection from ALL brownie pack groups
+  document.querySelectorAll('#browniePacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   
   if (wasSelected) {
     selectedBrowniePackId = null;
@@ -2690,10 +2985,6 @@ function selectBrowniePack(packId) {
   
   selectedBrowniePackId = packId;
   brownieCart = {};
-  
-  Object.keys(pack.brownies).forEach(id => {
-    brownieCart[id] = pack.brownies[id];
-  });
   
   clickedEl.classList.add('selected');
   
@@ -2713,7 +3004,7 @@ function clearBrownieBox() {
   brownieAddons = { giftWrap: false, iceCream: false };
   brownieGiftMode = false;
   
-  document.querySelectorAll('#brownieQuickPacks .quick-pack').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('#browniePacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   document.getElementById('brownieGiftSwitch')?.classList.remove('active');
   document.getElementById('brownieGiftForm')?.classList.remove('show');
   document.getElementById('brownieAddonGiftWrap')?.classList.remove('checked');
@@ -2769,20 +3060,24 @@ function updateBrownieProgress() {
     percent = 100;
     message = '48 Pack - Best value! 🎉';
   } else if (totalQty >= 24) {
-    percent = 66;
+    percent = 75;
     message = `${48 - totalQty} more for 48 pack!`;
   } else if (totalQty >= 12) {
-    percent = 33;
+    percent = 50;
     message = `${24 - totalQty} more for 24 pack!`;
+  } else if (totalQty >= 6) {
+    percent = 25;
+    message = `${12 - totalQty} more for 12 pack!`;
   } else if (totalQty > 0) {
-    percent = (totalQty / 12) * 33;
-    message = `${12 - totalQty} more for 12 pack`;
+    percent = (totalQty / 6) * 25;
+    message = `${6 - totalQty} more for 6 pack`;
   }
   
   if (fill) fill.style.width = percent + '%';
   if (reward) reward.textContent = message;
   
   // Update milestones
+  document.getElementById('bmile6')?.classList.toggle('reached', totalQty >= 6);
   document.getElementById('bmile12')?.classList.toggle('reached', totalQty >= 12);
   document.getElementById('bmile24')?.classList.toggle('reached', totalQty >= 24);
   document.getElementById('bmile48')?.classList.toggle('reached', totalQty >= 48);
@@ -2803,6 +3098,8 @@ function updateBrownieSummary() {
     baseTotal = 110;
   } else if (totalQty >= 12) {
     baseTotal = 60;
+  } else if (totalQty >= 6) {
+    baseTotal = 30;
   }
   
   // Calculate addons
@@ -2821,9 +3118,10 @@ function updateBrownieSummary() {
     document.getElementById('brownieAddonsTotal').textContent = '+$' + addonsTotal;
   }
   
-  document.getElementById('brownieTotal').textContent = totalQty >= 12 ? '$' + grandTotal.toFixed(2) : '--';
+  document.getElementById('brownieTotal').textContent = totalQty >= 6 ? '$' + grandTotal.toFixed(2) : '--';
   
   // Update tier badges
+  document.getElementById('btier6')?.classList.toggle('active', totalQty >= 6 && totalQty < 12);
   document.getElementById('btier12')?.classList.toggle('active', totalQty >= 12 && totalQty < 24);
   document.getElementById('btier24')?.classList.toggle('active', totalQty >= 24 && totalQty < 48);
   document.getElementById('btier48')?.classList.toggle('active', totalQty >= 48);
@@ -2834,13 +3132,13 @@ function updateBrownieSummary() {
   // Update CTA button
   const btn = document.getElementById('brownieCta');
   const orderLink = document.getElementById('brownieOrderNowLink');
-  if (totalQty >= 12) {
+  if (totalQty >= 6) {
     btn.textContent = 'ADD TO CART 🛒 • $' + grandTotal.toFixed(2);
     btn.disabled = false;
     // Only show Order Now if cart is empty
     if (orderLink) orderLink.style.display = cart.length === 0 ? 'block' : 'none';
   } else if (totalQty > 0) {
-    btn.textContent = 'MINIMUM 12 BROWNIES';
+    btn.textContent = 'MINIMUM 6 BROWNIES';
     btn.disabled = true;
     if (orderLink) orderLink.style.display = 'none';
   } else {
@@ -2862,7 +3160,12 @@ function updateBrownieSuggestion(totalQty) {
   
   if (!suggestion) return;
   
-  if (totalQty > 0 && totalQty < 12) {
+  if (totalQty > 0 && totalQty < 6) {
+    const needed = 6 - totalQty;
+    text.innerHTML = `Add <strong>${needed} more</strong> to reach <strong>6 pack!</strong>`;
+    btn.textContent = '+' + needed;
+    suggestion.style.display = 'flex';
+  } else if (totalQty >= 6 && totalQty < 12) {
     const needed = 12 - totalQty;
     text.innerHTML = `Add <strong>${needed} more</strong> to reach <strong>12 pack!</strong>`;
     btn.textContent = '+' + needed;
@@ -2989,17 +3292,158 @@ function orderBrownies() {
 
 // ==================== SNACKS NAVIGATION ====================
 function openSnackType(type) {
-  document.getElementById('snacksMenu').style.display = 'none';
-  if (type === 'wings') {
-    document.getElementById('wingboxxSection').classList.add('show');
-    resetWingBuilder();
-  }
+  // DOGBOXX is the only item, always visible
 }
 
 function backToSnacksMenu() {
-  document.getElementById('snacksMenu').style.display = 'block';
-  document.getElementById('wingboxxSection').classList.remove('show');
+  // No menu to go back to, DOGBOXX is always shown
 }
+
+// ==================== DOGBOXX SECTION ====================
+const DOG_SIZES = {
+  regular: { count: 10, label: 'Regular', serves: '4-6', price: 50 },
+  party: { count: 20, label: 'Party', serves: '8-12', price: 90 }
+};
+
+const DOG_SAUCES = {
+  spicymayo: 'Spicy Mayo',
+  bbq: 'BBQ',
+  mustard: 'Mustard',
+  hotsauce: 'Hot Sauce'
+};
+
+let selectedDogSize = 'regular';
+let dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+
+function selectDogSize(size) {
+  selectedDogSize = size;
+  
+  document.querySelectorAll('.dog-size-card').forEach(card => {
+    card.classList.toggle('selected', card.dataset.size === size);
+  });
+  
+  document.getElementById('dogCountDisplay').textContent = DOG_SIZES[size].count;
+  document.getElementById('dogSauceMax').textContent = DOG_SIZES[size].count;
+  
+  // Reset sauces if total exceeds new max
+  const total = Object.values(dogSauces).reduce((a, b) => a + b, 0);
+  if (total > DOG_SIZES[size].count) {
+    dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+    Object.keys(dogSauces).forEach(s => {
+      document.getElementById('sauceQty_' + s).textContent = '0';
+    });
+  }
+  
+  updateDogSummary();
+}
+
+function adjustSauce(sauce, delta) {
+  const max = DOG_SIZES[selectedDogSize].count;
+  const totalUsed = Object.values(dogSauces).reduce((a, b) => a + b, 0);
+  
+  const newVal = dogSauces[sauce] + delta;
+  if (newVal < 0) return;
+  if (delta > 0 && totalUsed >= max) {
+    showToast('All ' + max + ' sauce picks used!', 'error', 2000);
+    return;
+  }
+  
+  dogSauces[sauce] = newVal;
+  document.getElementById('sauceQty_' + sauce).textContent = newVal;
+  
+  // Highlight row if has quantity
+  document.querySelectorAll('.dog-sauce-row').forEach(row => {
+    const s = row.dataset.sauce;
+    if (dogSauces[s] > 0) {
+      row.style.borderColor = '#E8A817';
+      row.style.background = 'rgba(232,168,23,0.08)';
+    } else {
+      row.style.borderColor = 'var(--gray2)';
+      row.style.background = 'var(--gray1)';
+    }
+  });
+  
+  updateDogSummary();
+}
+
+function updateDogSummary() {
+  const size = DOG_SIZES[selectedDogSize];
+  const totalSauces = Object.values(dogSauces).reduce((a, b) => a + b, 0);
+  const remaining = size.count - totalSauces;
+  
+  document.getElementById('dogSizeLabel').textContent = size.count + ' Pack ' + size.label;
+  document.getElementById('dogTotal').textContent = '$' + size.price.toFixed(2);
+  document.getElementById('dogCta').textContent = 'ADD TO CART 🛒 • $' + size.price.toFixed(2);
+  document.getElementById('dogOrderNowLink').style.display = cart.length === 0 ? 'block' : 'none';
+  
+  // Update sauce remaining
+  document.getElementById('dogSauceLeft').textContent = remaining;
+  document.getElementById('dogSauceMax').textContent = size.count;
+  
+  // Update sauce label in summary
+  const sauceList = Object.entries(dogSauces)
+    .filter(([k, v]) => v > 0)
+    .map(([k, v]) => v + 'x ' + DOG_SAUCES[k])
+    .join(', ');
+  
+  document.getElementById('dogSaucesLabel').textContent = sauceList || 'Pick your sauces above';
+  if (sauceList) {
+    document.getElementById('dogSaucesLabel').style.color = '#4CAF50';
+  } else {
+    document.getElementById('dogSaucesLabel').style.color = '#E8A817';
+  }
+}
+
+function addDogsToCart() {
+  const size = DOG_SIZES[selectedDogSize];
+  const totalSauces = Object.values(dogSauces).reduce((a, b) => a + b, 0);
+  
+  const sauceList = Object.entries(dogSauces)
+    .filter(([k, v]) => v > 0)
+    .map(([k, v]) => v + 'x ' + DOG_SAUCES[k])
+    .join(', ');
+  
+  const sauceDetail = sauceList ? 'Sauces: Ketchup + ' + sauceList : 'Sauces: Ketchup';
+  
+  addToCart({
+    type: 'dogs',
+    name: 'DOGBOXX ' + size.count + ' Pack',
+    details: 'Loaded dogs + ' + sauceDetail + ' + FREE 2L drink',
+    price: size.price,
+    size: selectedDogSize,
+    count: size.count,
+    sauces: {...dogSauces}
+  });
+  
+  resetDogBuilder();
+}
+
+function orderDogs() {
+  addDogsToCart();
+  openCart();
+}
+
+function resetDogBuilder() {
+  selectedDogSize = 'regular';
+  dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+  
+  document.querySelectorAll('.dog-size-card').forEach(card => {
+    card.classList.toggle('selected', card.dataset.size === 'regular');
+  });
+  document.getElementById('dogCountDisplay').textContent = '10';
+  
+  Object.keys(dogSauces).forEach(s => {
+    document.getElementById('sauceQty_' + s).textContent = '0';
+  });
+  
+  document.querySelectorAll('.dog-sauce-row').forEach(row => {
+    row.style.borderColor = 'var(--gray2)';
+    row.style.background = 'var(--gray1)';
+  });
+  
+  updateDogSummary();
+}
+// ==================== END DOGBOXX SECTION ====================
 
 // ==================== WINGBOXX SECTION ====================
 const WING_SIZES = {
@@ -3612,9 +4056,74 @@ function renderCartItems() {
   footer.style.display = 'block';
   
   document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
-  document.getElementById('cartTotal').textContent = '$' + subtotal.toFixed(2);
-  document.getElementById('checkoutTotal').textContent = '$' + subtotal.toFixed(2);
+  const tipTotal = subtotal + currentTip;
+  document.getElementById('cartTotal').textContent = '$' + tipTotal.toFixed(2);
+  document.getElementById('checkoutTotal').textContent = '$' + tipTotal.toFixed(2);
 }
+
+// ==================== TIP SYSTEM ====================
+let currentTip = 0;
+
+function setTip(amount) {
+  currentTip = amount;
+  document.getElementById('customTipWrap').style.display = 'none';
+  document.getElementById('customTipInput').value = '';
+  
+  document.querySelectorAll('.tip-btn').forEach(btn => {
+    btn.style.borderColor = 'var(--gray2)';
+    btn.style.background = 'var(--gray1)';
+    btn.style.color = 'var(--white)';
+  });
+  
+  const activeBtn = document.querySelector('.tip-btn[data-tip="' + amount + '"]');
+  if (activeBtn) {
+    activeBtn.style.borderColor = '#E8A817';
+    activeBtn.style.background = 'rgba(232,168,23,0.15)';
+    activeBtn.style.color = '#E8A817';
+  }
+  
+  const tipDisplay = document.getElementById('tipDisplay');
+  if (amount > 0) {
+    tipDisplay.style.display = 'block';
+    tipDisplay.textContent = 'Tip: $' + amount.toFixed(2) + ' — Thank you! 🙏';
+  } else {
+    tipDisplay.style.display = 'none';
+  }
+  
+  updateCartUI();
+}
+
+function setCustomTip() {
+  document.querySelectorAll('.tip-btn').forEach(btn => {
+    btn.style.borderColor = 'var(--gray2)';
+    btn.style.background = 'var(--gray1)';
+    btn.style.color = 'var(--white)';
+  });
+  
+  const customBtn = document.querySelector('.tip-btn[data-tip="custom"]');
+  customBtn.style.borderColor = '#E8A817';
+  customBtn.style.background = 'rgba(232,168,23,0.15)';
+  customBtn.style.color = '#E8A817';
+  
+  document.getElementById('customTipWrap').style.display = 'block';
+  document.getElementById('customTipInput').focus();
+}
+
+function updateCustomTip() {
+  const val = parseFloat(document.getElementById('customTipInput').value) || 0;
+  currentTip = Math.max(0, val);
+  
+  const tipDisplay = document.getElementById('tipDisplay');
+  if (currentTip > 0) {
+    tipDisplay.style.display = 'block';
+    tipDisplay.textContent = 'Tip: $' + currentTip.toFixed(2) + ' — Thank you! 🙏';
+  } else {
+    tipDisplay.style.display = 'none';
+  }
+  
+  updateCartUI();
+}
+// ==================== END TIP SYSTEM ====================
 
 function addToCart(item) {
   cart.push(item);
@@ -3638,6 +4147,15 @@ function removeFromCart(index) {
 
 function clearCart() {
   cart = [];
+  currentTip = 0;
+  document.querySelectorAll('.tip-btn').forEach(btn => {
+    btn.style.borderColor = 'var(--gray2)';
+    btn.style.background = 'var(--gray1)';
+    btn.style.color = 'var(--white)';
+  });
+  document.getElementById('tipDisplay').style.display = 'none';
+  document.getElementById('customTipWrap').style.display = 'none';
+  document.getElementById('customTipInput').value = '';
   updateCartUI();
   closeCart();
   showToast('Cart cleared', 'info', 2000);
@@ -3734,14 +4252,16 @@ function addCookiesToCart() {
     if (qty > 0) flavors.push(`${qty}x ${c.name}`);
   });
   
-  if (totalQty < 20) return;
+  if (totalQty < 5) return;
   
   let price = 0;
   let packName = '';
   if (totalQty >= 100) { price = 310; packName = '100 Pack'; }
   else if (totalQty >= 50) { price = 170; packName = '50 Pack'; }
   else if (totalQty >= 30) { price = 104; packName = '30 Pack'; }
-  else { price = 75; packName = '20 Pack'; }
+  else if (totalQty >= 20) { price = 75; packName = '20 Pack'; }
+  else if (totalQty >= 10) { price = 40; packName = '10 Pack'; }
+  else { price = 20; packName = '5 Pack'; }
   
   // Add cream cheese and addons
   if (creamCheese) {
@@ -3772,7 +4292,7 @@ function addCookiesToCart() {
   selectedPackId = null;
   creamCheese = false;
   addons = { giftWrap: false };
-  document.querySelectorAll('#quickPacks .quick-pack').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('#quickPacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   document.getElementById('creamCheeseToggle')?.classList.remove('active');
   document.getElementById('giftToggle')?.classList.remove('active');
   document.getElementById('giftForm')?.classList.remove('show');
@@ -3793,13 +4313,14 @@ function addBrowniesToCart() {
     if (qty > 0) flavors.push(`${qty}x ${b.name}`);
   });
   
-  if (totalQty < 12) return;
+  if (totalQty < 6) return;
   
   let price = 0;
   let packName = '';
   if (totalQty >= 48) { price = 200; packName = '48 Pack'; }
   else if (totalQty >= 24) { price = 110; packName = '24 Pack'; }
-  else { price = 60; packName = '12 Pack'; }
+  else if (totalQty >= 12) { price = 60; packName = '12 Pack'; }
+  else { price = 30; packName = '6 Pack'; }
   
   // Add addons
   if (brownieAddons.giftWrap) price += 5;
@@ -3828,7 +4349,7 @@ function addBrowniesToCart() {
   selectedBrowniePackId = null;
   brownieAddons = { giftWrap: false, iceCream: false };
   brownieGiftMode = false;
-  document.querySelectorAll('#brownieQuickPacks .quick-pack').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('#browniePacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   document.getElementById('brownieGiftSwitch')?.classList.remove('active');
   document.getElementById('brownieGiftForm')?.classList.remove('show');
   document.getElementById('brownieAddonGiftWrap')?.classList.remove('checked');
