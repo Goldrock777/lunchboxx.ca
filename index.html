@@ -2318,6 +2318,10 @@ const SHOPIFY_BROWNIE_PACKS = {
   24: '47048690172058',
   48: '47048690335898'
 };
+const SHOPIFY_DOG_PACKS = {
+  'regular': '47078075728026',
+  'party': '47078075793562'
+};
 const SHOPIFY_STORE = 'meesge-h5.myshopify.com';
 
 function checkout(){
@@ -3419,6 +3423,15 @@ function addDogsToCart() {
 }
 
 function orderDogs() {
+  const size = DOG_SIZES[selectedDogSize];
+  const variantId = SHOPIFY_DOG_PACKS[selectedDogSize];
+  
+  if (variantId) {
+    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':1';
+    return;
+  }
+  
+  // Fallback
   addDogsToCart();
   openCart();
 }
@@ -4185,10 +4198,31 @@ function checkoutCart() {
         cartItems.push(variantId + ':' + (item.quantity || 1));
       }
     }
+    if (item.type === 'dogs' && item.size) {
+      const variantId = SHOPIFY_DOG_PACKS[item.size];
+      if (variantId) {
+        cartItems.push(variantId + ':1');
+      }
+    }
+    if (item.type === 'cookies' && item.packSize) {
+      const variantId = SHOPIFY_COOKIE_PACKS[item.packSize];
+      if (variantId) {
+        cartItems.push(variantId + ':1');
+      }
+    }
+    if (item.type === 'brownies' && item.packSize) {
+      const variantId = SHOPIFY_BROWNIE_PACKS[item.packSize];
+      if (variantId) {
+        cartItems.push(variantId + ':1');
+      }
+    }
   }
   
+  // Add tip as note attribute if present
+  const tipNote = currentTip > 0 ? '?note=Tip:%20$' + currentTip.toFixed(2) : '';
+  
   if (cartItems.length > 0) {
-    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + cartItems.join(',');
+    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + cartItems.join(',') + tipNote;
     return;
   }
   
