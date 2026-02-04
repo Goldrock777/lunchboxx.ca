@@ -1857,11 +1857,16 @@
         </div>
         <div id="dogSauceRemaining" style="text-align:center;font-size:11px;color:var(--gray3);margin-top:8px"><span id="dogSauceLeft" style="color:#E8A817;font-weight:600">10</span> sauce picks remaining</div>
 
-        <!-- Free 2L Drink -->
-        <div class="dog-free-drink">
-          <div class="drink-icon">🥤</div>
-          <div class="drink-text">FREE 2L DRINK INCLUDED</div>
-          <div class="drink-sub">With every DOGBOXX order</div>
+        <!-- Free 2L Drink Picker -->
+        <div style="background:rgba(232,168,23,0.08);border:2px solid rgba(232,168,23,0.3);border-radius:12px;padding:14px;margin-top:12px">
+          <div style="text-align:center;font-size:11px;color:#E8A817;letter-spacing:1px;font-weight:600;margin-bottom:10px">🥤 FREE 2L DRINK — PICK ONE</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center" id="drinkPicker">
+            <button onclick="pickDrink(this,'Pepsi')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Pepsi</button>
+            <button onclick="pickDrink(this,'Coke')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Coke</button>
+            <button onclick="pickDrink(this,'Sprite')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Sprite</button>
+            <button onclick="pickDrink(this,'Dr Pepper')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Dr Pepper</button>
+            <button onclick="pickDrink(this,'Cream Soda')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Cream Soda</button>
+          </div>
         </div>
 
         <!-- Summary -->
@@ -1870,7 +1875,7 @@
           <div class="summary-row"><span>Toppings</span><span style="color:#4CAF50">Loaded</span></div>
           <div class="summary-row"><span>Ketchup</span><span style="color:#4CAF50">Included</span></div>
           <div class="summary-row"><span>Sauces</span><span id="dogSaucesLabel" style="color:#E8A817">Pick your sauces above</span></div>
-          <div class="summary-row"><span>2L Drink</span><span style="color:#4CAF50">FREE</span></div>
+          <div class="summary-row"><span>2L Drink</span><span id="dogDrinkLabel" style="color:#E8A817">Pick above</span></div>
           <div class="summary-row" style="color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">Included</span></div>
           <div class="summary-row total"><span>Total</span><span id="dogTotal">$50.00</span></div>
         </div>
@@ -3398,6 +3403,22 @@ function updateDogSummary() {
   }
 }
 
+let selectedDrink = '';
+
+function pickDrink(btn, name) {
+  selectedDrink = name;
+  document.querySelectorAll('.drink-opt').forEach(b => {
+    b.style.borderColor = 'var(--gray2)';
+    b.style.background = 'var(--gray1)';
+    b.style.color = 'var(--white)';
+  });
+  btn.style.borderColor = '#E8A817';
+  btn.style.background = 'rgba(232,168,23,0.15)';
+  btn.style.color = '#E8A817';
+  document.getElementById('dogDrinkLabel').textContent = name + ' (FREE)';
+  document.getElementById('dogDrinkLabel').style.color = '#4CAF50';
+}
+
 function addDogsToCart() {
   const size = DOG_SIZES[selectedDogSize];
   const totalSauces = Object.values(dogSauces).reduce((a, b) => a + b, 0);
@@ -3412,7 +3433,7 @@ function addDogsToCart() {
   addToCart({
     type: 'dogs',
     name: 'DOGBOXX ' + size.count + ' Pack',
-    details: 'Loaded dogs + ' + sauceDetail + ' + FREE 2L drink',
+    details: 'Loaded dogs + ' + sauceDetail + ' + FREE 2L ' + (selectedDrink || 'drink'),
     price: size.price,
     size: selectedDogSize,
     count: size.count,
@@ -3439,6 +3460,15 @@ function orderDogs() {
 function resetDogBuilder() {
   selectedDogSize = 'regular';
   dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+  selectedDrink = '';
+  
+  document.querySelectorAll('.drink-opt').forEach(b => {
+    b.style.borderColor = 'var(--gray2)';
+    b.style.background = 'var(--gray1)';
+    b.style.color = 'var(--white)';
+  });
+  document.getElementById('dogDrinkLabel').textContent = 'Pick above';
+  document.getElementById('dogDrinkLabel').style.color = '#E8A817';
   
   document.querySelectorAll('.dog-size-card').forEach(card => {
     card.classList.toggle('selected', card.dataset.size === 'regular');
