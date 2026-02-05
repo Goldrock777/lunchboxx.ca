@@ -1167,14 +1167,7 @@
     <div class="logo">LUNCHBOXX</div>
     <div class="hero">
       <h1>PARTY FOOD<br><span>DELIVERED</span></h1>
-      <p class="subline">Loaded hot dogs, desserts & more — straight to your door.</p>
     </div>
-
-    <div class="trust">
-        <div class="trust-item"><h4>LOADED PORTIONS</h4><p>Every dog fully loaded</p></div>
-        <div class="trust-item"><h4>FREE 2L DRINK</h4><p>With every DOGBOXX</p></div>
-        <div class="trust-item"><h4>FAST DELIVERY</h4><p>Direct to you</p></div>
-      </div>
 
     <div class="toggle-wrap">
       <div class="menu-toggle">
@@ -1752,7 +1745,7 @@
             <div class="dog-size-count">2</div>
             <div class="dog-size-label">STUDENT</div>
             <div class="dog-size-serves">Feeds 1-2</div>
-            <div class="dog-size-price">$9.99</div>
+            <div class="dog-size-price">$10</div>
             <div style="font-size:8px;color:#4CAF50;margin-top:4px">40g protein</div>
             <div class="dog-pop-badge" style="background:#4CAF50">DEAL</div>
           </div>
@@ -1885,7 +1878,7 @@
 
         <!-- Free 2L Drink Picker -->
         <div id="drinkPickerWrap" style="background:rgba(212,68,42,0.08);border:2px solid rgba(212,68,42,0.3);border-radius:12px;padding:14px;margin-top:12px">
-          <div style="text-align:center;font-size:11px;color:#D4442A;letter-spacing:1px;font-weight:600;margin-bottom:10px">FREE 2L DRINK — PICK ONE</div>
+          <div style="text-align:center;font-size:11px;color:#D4442A;letter-spacing:1px;font-weight:600;margin-bottom:10px">FREE 2L DRINK WITH 10 & 20 PACKS</div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center" id="drinkPicker">
             <button onclick="pickDrink(this,'Pepsi')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Pepsi</button>
             <button onclick="pickDrink(this,'Coke')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Coke</button>
@@ -2348,7 +2341,7 @@ const SHOPIFY_BROWNIE_PACKS = {
   48: '47048690335898'
 };
 const SHOPIFY_DOG_PACKS = {
-  'student': '', // Create on Shopify: 2 dogs for $9.99
+  'student': '47080319811738',
   'regular': '47078075728026',
   'party': '47078075793562'
 };
@@ -3335,7 +3328,7 @@ function backToSnacksMenu() {
 
 // ==================== DOGBOXX SECTION ====================
 const DOG_SIZES = {
-  student: { count: 2, label: 'Student', serves: 'SFU Area', price: 9.99, noDrink: true },
+  student: { count: 2, label: 'Student', serves: 'Feeds 1-2', price: 10, noDrink: true },
   regular: { count: 10, label: 'Regular', serves: '4-6', price: 50 },
   party: { count: 20, label: 'Party', serves: '8-12', price: 90 }
 };
