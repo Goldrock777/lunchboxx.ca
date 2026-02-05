@@ -1897,8 +1897,8 @@
           <div class="summary-row total"><span>Total</span><span id="dogTotal">$50.00</span></div>
         </div>
 
-        <button class="dessert-cta" id="dogCta" onclick="addDogsToCart()">ADD TO CART 🛒 • $50.00</button>
-        <div class="order-now-link" id="dogOrderNowLink" onclick="orderDogs()">ORDER NOW</div>
+        <button class="dessert-cta" id="dogOrderNow" onclick="orderDogs()" style="margin-bottom:10px">ORDER NOW • $50.00</button>
+        <div class="order-now-link" id="dogAddToCart" onclick="addDogsToCart()" style="display:block">OR ADD TO CART</div>
       </div>
     </div>
     <!-- End DOGBOXX Section -->
@@ -3418,8 +3418,7 @@ function updateDogSummary() {
   
   document.getElementById('dogSizeLabel').textContent = size.count + ' Pack ' + size.label;
   document.getElementById('dogTotal').textContent = '$' + size.price.toFixed(2);
-  document.getElementById('dogCta').textContent = 'ADD TO CART 🛒 • $' + size.price.toFixed(2);
-  document.getElementById('dogOrderNowLink').style.display = cart.length === 0 ? 'block' : 'none';
+  document.getElementById('dogOrderNow').textContent = 'ORDER NOW • $' + size.price.toFixed(2);
   
   // Update sauce remaining
   document.getElementById('dogSauceLeft').textContent = remaining;
@@ -3519,10 +3518,10 @@ function addDogsToCart() {
   
   let details = 'Loaded dogs + ' + sauceDetail;
   if (size.noDrink) {
-    // Student deal - add time slot and location info
+    // Student deal - add time slot and location info (always today)
     const location = document.getElementById('studentLocation').value.trim();
     const deliveryType = studentDeliveryType === 'drop' ? 'Drop' : 'Meet';
-    details += ' | ' + selectedTimeSlot + ' ' + deliveryType + ': ' + location;
+    details += ' | TODAY ' + selectedTimeSlot + ' ' + deliveryType + ': ' + location;
   } else {
     details += ' + FREE 2L ' + (selectedDrink || 'drink');
   }
@@ -3547,8 +3546,42 @@ function orderDogs() {
   const size = DOG_SIZES[selectedDogSize];
   const variantId = SHOPIFY_DOG_PACKS[selectedDogSize];
   
+  // Validate student order
+  if (selectedDogSize === 'student') {
+    if (!selectedTimeSlot) {
+      showToast('Please pick a delivery time slot', 'error', 3000);
+      return;
+    }
+    const location = document.getElementById('studentLocation').value.trim();
+    if (!location) {
+      showToast('Please enter your drop off / meet up location', 'error', 3000);
+      return;
+    }
+  }
+  
   if (variantId) {
-    window.location.href = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':1';
+    let note = '';
+    
+    // Build sauce list
+    const sauceList = Object.entries(dogSauces)
+      .filter(([k, v]) => v > 0)
+      .map(([k, v]) => v + 'x ' + DOG_SAUCES[k])
+      .join(', ');
+    
+    if (selectedDogSize === 'student') {
+      const location = document.getElementById('studentLocation').value.trim();
+      const deliveryType = studentDeliveryType === 'drop' ? 'Drop off' : 'Meet up';
+      note = 'TODAY ' + selectedTimeSlot + ' | ' + deliveryType + ': ' + location;
+      if (sauceList) note += ' | Sauces: ' + sauceList;
+    } else {
+      if (selectedDrink) note += 'Drink: ' + selectedDrink;
+      if (sauceList) note += (note ? ' | ' : '') + 'Sauces: ' + sauceList;
+    }
+    
+    let url = 'https://' + SHOPIFY_STORE + '/cart/' + variantId + ':1';
+    if (note) url += '?note=' + encodeURIComponent(note);
+    
+    window.location.href = url;
     return;
   }
   
