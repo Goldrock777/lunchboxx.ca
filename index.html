@@ -1777,8 +1777,7 @@
             <div style="font-size:12px;color:var(--white)">Pork & Beef Jumbo Dog</div>
             <div style="font-size:12px;color:var(--white)">Toasted Buttered Bun</div>
             <div style="font-size:12px;color:var(--white)">Crispy Bacon</div>
-            <div style="font-size:12px;color:var(--white)">Mixed Shredded Cheese</div>
-            <div style="font-size:12px;color:var(--white)">Chopped Onions</div>
+            <div style="font-size:12px;color:var(--white)">Shredded Cheese</div>
             <div style="font-size:12px;color:var(--white)">Your Choice of Sauce</div>
           </div>
         </div>
@@ -1879,13 +1878,16 @@
             </div>
           </div>
           
-          <div style="display:flex;gap:8px;margin-bottom:10px">
-            <button onclick="selectDeliveryType('drop')" id="dropBtn" class="delivery-type-btn" style="flex:1;padding:10px;border-radius:8px;border:2px solid #D4442A;background:rgba(212,68,42,0.15);color:#D4442A;font-family:var(--font1);font-size:12px;cursor:pointer">DROP OFF</button>
-            <button onclick="selectDeliveryType('meet')" id="meetBtn" class="delivery-type-btn" style="flex:1;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">MEET UP</button>
+          <div style="margin-bottom:10px">
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">MEET UP SPOT</div>
+            <select id="studentLocation" onchange="toggleOtherLocation()" style="width:100%;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;cursor:pointer">
+              <option value="">Select a location</option>
+              <option value="SFU Main Entrance (Steps)">SFU Main Entrance (Steps)</option>
+              <option value="other">Other (specify below)</option>
+            </select>
+            <input type="text" id="otherLocationInput" placeholder="Floor, office number, building..." style="display:none;width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;margin-top:8px">
           </div>
-          
-          <input type="text" id="studentLocation" placeholder="Building, room, or meet spot (e.g. SRYE 2nd floor)" style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box">
-          <div style="font-size:9px;color:var(--gray3);margin-top:6px;text-align:center">We'll text you when close</div>
+          <div style="font-size:9px;color:var(--gray3);margin-top:6px;text-align:center">We'll text you when we're there</div>
         </div>
 
         <!-- Free 2L Drink Picker -->
@@ -3466,6 +3468,25 @@ let selectedDrink = '';
 let studentDeliveryType = 'drop';
 let selectedTimeSlot = '';
 
+function toggleOtherLocation() {
+  const select = document.getElementById('studentLocation');
+  const otherInput = document.getElementById('otherLocationInput');
+  if (select.value === 'other') {
+    otherInput.style.display = 'block';
+  } else {
+    otherInput.style.display = 'none';
+    otherInput.value = '';
+  }
+}
+
+function getStudentLocation() {
+  const select = document.getElementById('studentLocation').value;
+  if (select === 'other') {
+    return document.getElementById('otherLocationInput').value.trim();
+  }
+  return select;
+}
+
 function selectTimeSlot(btn, time) {
   selectedTimeSlot = time;
   document.querySelectorAll('.time-slot-btn').forEach(b => {
@@ -3476,30 +3497,6 @@ function selectTimeSlot(btn, time) {
   btn.style.borderColor = '#D4442A';
   btn.style.background = 'rgba(212,68,42,0.15)';
   btn.style.color = '#D4442A';
-}
-
-function selectDeliveryType(type) {
-  studentDeliveryType = type;
-  const dropBtn = document.getElementById('dropBtn');
-  const meetBtn = document.getElementById('meetBtn');
-  
-  if (type === 'drop') {
-    dropBtn.style.borderColor = '#E8A817';
-    dropBtn.style.background = 'rgba(232,168,23,0.15)';
-    dropBtn.style.color = '#E8A817';
-    meetBtn.style.borderColor = 'var(--gray2)';
-    meetBtn.style.background = 'var(--gray1)';
-    meetBtn.style.color = 'var(--white)';
-    document.getElementById('studentLocation').placeholder = 'Building, room, or drop spot (e.g. SRYE 2nd floor lobby)';
-  } else {
-    meetBtn.style.borderColor = '#E8A817';
-    meetBtn.style.background = 'rgba(232,168,23,0.15)';
-    meetBtn.style.color = '#E8A817';
-    dropBtn.style.borderColor = 'var(--gray2)';
-    dropBtn.style.background = 'var(--gray1)';
-    dropBtn.style.color = 'var(--white)';
-    document.getElementById('studentLocation').placeholder = 'Where to meet? (e.g. Main entrance, food court)';
-  }
 }
 
 function pickDrink(btn, name) {
@@ -3526,9 +3523,9 @@ function addDogsToCart() {
       showToast('Please pick a delivery time slot', 'error', 3000);
       return;
     }
-    const location = document.getElementById('studentLocation').value.trim();
+    const location = getStudentLocation();
     if (!location) {
-      showToast('Please enter your drop off / meet up location', 'error', 3000);
+      showToast('Please select a meet up spot', 'error', 3000);
       return;
     }
   }
@@ -3543,9 +3540,9 @@ function addDogsToCart() {
   let details = 'Loaded dogs + ' + sauceDetail;
   if (size.noDrink) {
     // Student deal - add time slot and location info (always today)
-    const location = document.getElementById('studentLocation').value.trim();
-    const deliveryType = studentDeliveryType === 'drop' ? 'Drop' : 'Meet';
-    details += ' | TODAY ' + selectedTimeSlot + ' ' + deliveryType + ': ' + location;
+    const location = getStudentLocation();
+    const deliveryType = 'Meet';
+    details += ' | TODAY ' + selectedTimeSlot + ' @ ' + location;
   } else {
     details += ' + FREE 2L ' + (selectedDrink || 'drink');
   }
@@ -3558,7 +3555,7 @@ function addDogsToCart() {
     size: selectedDogSize,
     count: size.count,
     sauces: {...dogSauces},
-    studentLocation: selectedDogSize === 'student' ? document.getElementById('studentLocation').value.trim() : null,
+    studentLocation: selectedDogSize === 'student' ? getStudentLocation() : null,
     deliveryType: selectedDogSize === 'student' ? studentDeliveryType : null,
     timeSlot: selectedDogSize === 'student' ? selectedTimeSlot : null
   });
@@ -3576,9 +3573,9 @@ function orderDogs() {
       showToast('Please pick a delivery time slot', 'error', 3000);
       return;
     }
-    const location = document.getElementById('studentLocation').value.trim();
+    const location = getStudentLocation();
     if (!location) {
-      showToast('Please enter your drop off / meet up location', 'error', 3000);
+      showToast('Please select a meet up spot', 'error', 3000);
       return;
     }
   }
@@ -3596,9 +3593,8 @@ function orderDogs() {
     const specialRequests = document.getElementById('dogSpecialRequests')?.value.trim();
     
     if (selectedDogSize === 'student') {
-      const location = document.getElementById('studentLocation').value.trim();
-      const deliveryType = studentDeliveryType === 'drop' ? 'Drop off' : 'Meet up';
-      note = 'TODAY ' + selectedTimeSlot + ' | ' + deliveryType + ': ' + location;
+      const location = getStudentLocation();
+      note = 'TODAY ' + selectedTimeSlot + ' @ ' + location;
       if (sauceList) note += ' | Sauces: ' + sauceList;
     } else {
       if (selectedDrink) note += 'Drink: ' + selectedDrink;
@@ -3629,6 +3625,12 @@ function resetDogBuilder() {
   // Reset student location, time slots, and special requests
   const studentLocation = document.getElementById('studentLocation');
   if (studentLocation) studentLocation.value = '';
+  
+  const otherInput = document.getElementById('otherLocationInput');
+  if (otherInput) {
+    otherInput.value = '';
+    otherInput.style.display = 'none';
+  }
   
   const specialRequests = document.getElementById('dogSpecialRequests');
   if (specialRequests) specialRequests.value = '';
