@@ -1172,7 +1172,7 @@
     <div class="trust" style="margin:10px 0">
         <div class="trust-item"><h4>FREE DELIVERY</h4><p>SFU Surrey</p></div>
         <div class="trust-item"><h4>LOADED DOGS</h4><p>Fully loaded</p></div>
-        <div class="trust-item"><h4>FAST</h4><p>Same day</p></div>
+        <div class="trust-item"><h4>HOT & READY</h4><p>Delivered fresh</p></div>
       </div>
 
     <div class="toggle-wrap">
@@ -1778,14 +1778,14 @@
             <div style="font-size:12px;color:var(--white)">Toasted Buttered Bun</div>
             <div style="font-size:12px;color:var(--white)">Crispy Bacon</div>
             <div style="font-size:12px;color:var(--white)">Shredded Cheese</div>
-            <div style="font-size:12px;color:var(--white)">Your Choice of Sauce</div>
+            <div style="font-size:12px;color:var(--white)">Spicy Mayo</div>
           </div>
         </div>
         
         <!-- Special Instructions -->
         <div style="margin-top:12px">
           <label style="font-size:10px;color:var(--gray3);letter-spacing:1px">SPECIAL REQUESTS (optional)</label>
-          <input type="text" id="dogSpecialRequests" placeholder="No onions, extra cheese, etc." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;margin-top:6px">
+          <input type="text" id="dogSpecialRequests" placeholder="e.g. Add mustard to one dog, extra bacon..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;margin-top:6px">
         </div>
 
         <!-- Macros per dog -->
@@ -1813,17 +1813,9 @@
         <div style="text-align:center;font-size:9px;color:var(--gray3);margin-top:4px">Per dog</div>
 
         <!-- Sauce Selection -->
-        <label style="font-size:11px;color:var(--gray3);display:block;margin:14px 0 4px;letter-spacing:1px">PICK YOUR SAUCES <span id="dogSauceCount" style="color:#D4442A">(<span id="dogSauceLeft">10</span> remaining)</span></label>
-        <p style="font-size:10px;color:var(--gray3);margin-bottom:10px">Mix any sauces you want.</p>
+        <label style="font-size:11px;color:var(--gray3);display:block;margin:14px 0 4px;letter-spacing:1px">ADD EXTRA SAUCES <span id="dogSauceCount" style="color:#D4442A">(optional)</span></label>
+        <p style="font-size:10px;color:var(--gray3);margin-bottom:10px">Spicy mayo comes on every dog. Add more if you want.</p>
         <div class="dog-sauces" style="display:flex;flex-direction:column;gap:8px">
-          <div class="dog-sauce-row" data-sauce="spicymayo" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
-            <span style="font-size:14px;color:var(--white);font-weight:500">Spicy Mayo</span>
-            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
-              <button onclick="adjustSauce('spicymayo',-1)" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--gray2);background:var(--gray2);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
-              <span class="sauce-qty" id="sauceQty_spicymayo" style="font-family:var(--font1);font-size:18px;color:#D4442A;width:28px;text-align:center">0</span>
-              <button onclick="adjustSauce('spicymayo',1)" style="width:32px;height:32px;border-radius:50%;border:none;background:#D4442A;color:#FFF;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
-            </div>
-          </div>
           <div class="dog-sauce-row" data-sauce="bbq" style="display:flex;align-items:center;justify-content:space-between;background:var(--gray1);border:2px solid var(--gray2);border-radius:10px;padding:10px 14px;transition:all .2s">
             <span style="font-size:14px;color:var(--white);font-weight:500">BBQ</span>
             <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
@@ -1849,7 +1841,6 @@
             </div>
           </div>
         </div>
-        <div id="dogSauceRemaining" style="text-align:center;font-size:11px;color:var(--gray3);margin-top:8px"><span id="dogSauceLeft" style="color:#E8A817;font-weight:600">10</span> sauce picks remaining</div>
 
         <!-- Student Zone Warning -->
         <div id="studentZoneWarning" style="display:none;background:rgba(212,68,42,0.1);border:2px solid rgba(212,68,42,0.3);border-radius:10px;padding:12px;margin-top:12px">
@@ -3348,14 +3339,13 @@ const DOG_SIZES = {
 };
 
 const DOG_SAUCES = {
-  spicymayo: 'Spicy Mayo',
   bbq: 'BBQ',
   mustard: 'Mustard',
   hotsauce: 'Hot Sauce'
 };
 
 let selectedDogSize = 'regular';
-let dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+let dogSauces = { bbq: 0, mustard: 0, hotsauce: 0 };
 
 function selectDogSize(size) {
   selectedDogSize = size;
@@ -3394,7 +3384,7 @@ function selectDogSize(size) {
   // Reset sauces if switching to non-unlimited and total exceeds max
   const total = Object.values(dogSauces).reduce((a, b) => a + b, 0);
   if (!DOG_SIZES[size].unlimitedSauce && total > DOG_SIZES[size].count) {
-    dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+    dogSauces = { bbq: 0, mustard: 0, hotsauce: 0 };
     Object.keys(dogSauces).forEach(s => {
       document.getElementById('sauceQty_' + s).textContent = '0';
     });
@@ -3617,7 +3607,7 @@ function orderDogs() {
 
 function resetDogBuilder() {
   selectedDogSize = 'regular';
-  dogSauces = { spicymayo: 0, bbq: 0, mustard: 0, hotsauce: 0 };
+  dogSauces = { bbq: 0, mustard: 0, hotsauce: 0 };
   selectedDrink = '';
   studentDeliveryType = 'drop';
   selectedTimeSlot = '';
