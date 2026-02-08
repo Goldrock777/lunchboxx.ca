@@ -208,7 +208,7 @@
 
     /* Landing Page */
     .logo{text-align:center;padding:20px;font-family:var(--font1);font-size:28px;letter-spacing:10px;color:var(--orange)}
-    .hero{padding:20px 24px 32px;text-align:center}
+    .hero{padding:16px 24px 16px;text-align:center}
     .hero h1{font-family:var(--font1);font-size:clamp(42px,12vw,64px);line-height:.9;color:var(--white);margin-bottom:16px;letter-spacing:3px}
     .hero h1 span{color:var(--green)}
     .hero .subline{font-size:15px;color:var(--gray3);margin-bottom:28px;line-height:1.5;max-width:320px;margin-left:auto;margin-right:auto}
@@ -1169,10 +1169,10 @@
       <h1>PARTY FOOD<br><span>DELIVERED</span></h1>
     </div>
 
-    <div class="trust" style="margin:10px 0">
-        <div class="trust-item"><h4>FREE DELIVERY</h4><p>SFU Surrey</p></div>
+    <div class="trust" style="margin:8px 0">
+        <div class="trust-item"><h4>FREE DELIVERY</h4><p>No hidden fees</p></div>
         <div class="trust-item"><h4>LOADED DOGS</h4><p>Fully loaded</p></div>
-        <div class="trust-item"><h4>HOT & READY</h4><p>Delivered fresh</p></div>
+        <div class="trust-item"><h4>HOT & READY</h4><p>Made fresh</p></div>
       </div>
 
     <div class="toggle-wrap">
@@ -1747,25 +1747,27 @@
         <!-- Size Selection -->
         <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px;letter-spacing:1px">CHOOSE YOUR SIZE</label>
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-          <div class="dog-size-card" data-size="student" onclick="selectDogSize('student')" style="flex:1;min-width:90px">
+          <div class="dog-size-card" data-size="student" onclick="selectDogSize('student')" style="flex:1;min-width:90px;position:relative;border:2px solid #4CAF50">
             <div class="dog-size-count">2</div>
             <div class="dog-size-label">STUDENT</div>
             <div class="dog-size-serves">Feeds 1-2</div>
-            <div class="dog-size-price">$10</div>
-            <div style="font-size:8px;color:#4CAF50;margin-top:4px">40g protein</div>
-            <div class="dog-pop-badge" style="background:#4CAF50">DEAL</div>
+            <div class="dog-size-price" style="color:#4CAF50">$10</div>
+            <div style="font-size:8px;color:#4CAF50;margin-top:4px">SFU Only • Free Delivery</div>
+            <div class="dog-pop-badge" style="background:#4CAF50">SPECIAL</div>
           </div>
           <div class="dog-size-card selected" data-size="regular" onclick="selectDogSize('regular')" style="flex:1;min-width:90px">
             <div class="dog-size-count">10</div>
-            <div class="dog-size-label">REGULAR</div>
-            <div class="dog-size-serves">Feeds 4-6</div>
-            <div class="dog-size-price">$50</div>
+            <div class="dog-size-label">PARTY</div>
+            <div class="dog-size-serves">Feeds 8-10</div>
+            <div class="dog-size-price">$60</div>
+            <div style="font-size:8px;color:var(--gray3);margin-top:4px">+ Free 2L Drink</div>
           </div>
           <div class="dog-size-card" data-size="party" onclick="selectDogSize('party')" style="flex:1;min-width:90px">
             <div class="dog-size-count">20</div>
-            <div class="dog-size-label">PARTY</div>
-            <div class="dog-size-serves">Feeds 8-12</div>
-            <div class="dog-size-price">$90</div>
+            <div class="dog-size-label">BIG PARTY</div>
+            <div class="dog-size-serves">Feeds 15-20</div>
+            <div class="dog-size-price">$100</div>
+            <div style="font-size:8px;color:var(--gray3);margin-top:4px">+ Free 2L Drink</div>
             <div class="dog-pop-badge">BEST VALUE</div>
           </div>
         </div>
@@ -1780,12 +1782,6 @@
             <div style="font-size:12px;color:var(--white)">Shredded Cheese</div>
             <div style="font-size:12px;color:var(--white)">Spicy Mayo</div>
           </div>
-        </div>
-        
-        <!-- Special Instructions -->
-        <div style="margin-top:12px">
-          <label style="font-size:10px;color:var(--gray3);letter-spacing:1px">SPECIAL REQUESTS (optional)</label>
-          <input type="text" id="dogSpecialRequests" placeholder="e.g. Add mustard to one dog, extra bacon..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;margin-top:6px">
         </div>
 
         <!-- Macros per dog -->
@@ -1841,15 +1837,22 @@
             </div>
           </div>
         </div>
+        
+        <!-- Special Requests Button -->
+        <div style="margin-top:12px">
+          <button onclick="toggleSpecialRequests()" id="specialRequestsBtn" style="width:100%;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--gray3);font-family:var(--font1);font-size:12px;cursor:pointer;text-align:left">+ Add Special Requests</button>
+          <div id="specialRequestsWrap" style="display:none;margin-top:8px">
+            <input type="text" id="dogSpecialRequests" placeholder="e.g. Extra bacon, no cheese on one dog..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box">
+          </div>
+        </div>
 
         <!-- Student Zone Warning -->
         <div id="studentZoneWarning" style="display:none;background:rgba(212,68,42,0.1);border:2px solid rgba(212,68,42,0.3);border-radius:10px;padding:12px;margin-top:12px">
           <div style="text-align:center;font-size:12px;color:#D4442A;font-weight:600;margin-bottom:10px">SFU SURREY ONLY</div>
           
           <div style="margin-bottom:10px">
-            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">LUNCH 11AM-3PM</div>
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">LUNCH 12PM-3PM</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">
-              <button onclick="selectTimeSlot(this,'11AM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">11AM</button>
               <button onclick="selectTimeSlot(this,'12PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">12PM</button>
               <button onclick="selectTimeSlot(this,'1PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">1PM</button>
               <button onclick="selectTimeSlot(this,'2PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">2PM</button>
@@ -1857,17 +1860,7 @@
             </div>
           </div>
           
-          <div style="margin-bottom:10px">
-            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">EVENING 6PM-11PM</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">
-              <button onclick="selectTimeSlot(this,'6PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">6PM</button>
-              <button onclick="selectTimeSlot(this,'7PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">7PM</button>
-              <button onclick="selectTimeSlot(this,'8PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">8PM</button>
-              <button onclick="selectTimeSlot(this,'9PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">9PM</button>
-              <button onclick="selectTimeSlot(this,'10PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">10PM</button>
-              <button onclick="selectTimeSlot(this,'11PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">11PM</button>
-            </div>
-          </div>
+          <div style="font-size:9px;color:#4CAF50;text-align:center;margin-bottom:10px">FREE DELIVERY TO SFU</div>
           
           <div style="margin-bottom:10px">
             <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">MEET UP SPOT</div>
@@ -1883,7 +1876,8 @@
 
         <!-- Free 2L Drink Picker -->
         <div id="drinkPickerWrap" style="background:rgba(212,68,42,0.08);border:2px solid rgba(212,68,42,0.3);border-radius:12px;padding:14px;margin-top:12px">
-          <div style="text-align:center;font-size:11px;color:#D4442A;letter-spacing:1px;font-weight:600;margin-bottom:10px">FREE 2L DRINK WITH 10 & 20 PACKS</div>
+          <div style="text-align:center;font-size:11px;color:#D4442A;letter-spacing:1px;font-weight:600;margin-bottom:4px">FREE 2L DRINK INCLUDED</div>
+          <div style="text-align:center;font-size:9px;color:var(--gray3);margin-bottom:10px">All day delivery • Surrey area</div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center" id="drinkPicker">
             <button onclick="pickDrink(this,'Pepsi')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Pepsi</button>
             <button onclick="pickDrink(this,'Coke')" class="drink-opt" style="padding:8px 14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer;transition:all .2s">Coke</button>
@@ -1898,7 +1892,7 @@
           <div class="summary-row"><span>Hot Dogs</span><span id="dogSizeLabel">10 Pack Regular</span></div>
           <div class="summary-row"><span>Sauces</span><span id="dogSaucesLabel" style="color:#D4442A">Pick your sauces above</span></div>
           <div class="summary-row" id="dogDrinkRow"><span>2L Drink</span><span id="dogDrinkLabel" style="color:#D4442A">Pick above</span></div>
-          <div class="summary-row" style="color:var(--gray3)"><span>Delivery</span><span style="color:var(--white)">Included</span></div>
+          <div class="summary-row" id="deliveryRow" style="color:var(--gray3)"><span>Delivery</span><span id="deliveryLabel" style="color:#4CAF50">FREE</span></div>
           <div class="summary-row total"><span>Total</span><span id="dogTotal">$50.00</span></div>
         </div>
 
@@ -3333,9 +3327,9 @@ function backToSnacksMenu() {
 
 // ==================== DOGBOXX SECTION ====================
 const DOG_SIZES = {
-  student: { count: 2, label: 'Student', serves: 'Feeds 1-2', price: 10, noDrink: true, unlimitedSauce: true },
-  regular: { count: 10, label: 'Regular', serves: '4-6', price: 50 },
-  party: { count: 20, label: 'Party', serves: '8-12', price: 90 }
+  student: { count: 2, label: 'Student Special', serves: 'Feeds 1-2', price: 10, noDrink: true, unlimitedSauce: true },
+  regular: { count: 10, label: 'Party', serves: 'Feeds 8-10', price: 60 },
+  party: { count: 20, label: 'Big Party', serves: 'Feeds 15-20', price: 100 }
 };
 
 const DOG_SAUCES = {
@@ -3373,6 +3367,13 @@ function selectDogSize(size) {
   } else {
     if (drinkPicker) drinkPicker.style.display = 'block';
     if (drinkRow) drinkRow.style.display = 'flex';
+  }
+  
+  // Update delivery label - always free now
+  const deliveryLabel = document.getElementById('deliveryLabel');
+  if (deliveryLabel) {
+    deliveryLabel.textContent = 'FREE';
+    deliveryLabel.style.color = '#4CAF50';
   }
   
   // Show zone warning for student deal
@@ -3466,6 +3467,20 @@ function toggleOtherLocation() {
   } else {
     otherInput.style.display = 'none';
     otherInput.value = '';
+  }
+}
+
+function toggleSpecialRequests() {
+  const wrap = document.getElementById('specialRequestsWrap');
+  const btn = document.getElementById('specialRequestsBtn');
+  if (wrap.style.display === 'none') {
+    wrap.style.display = 'block';
+    btn.textContent = '− Hide Special Requests';
+    btn.style.color = '#D4442A';
+  } else {
+    wrap.style.display = 'none';
+    btn.textContent = '+ Add Special Requests';
+    btn.style.color = 'var(--gray3)';
   }
 }
 
