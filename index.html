@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>LUNCHBOXX - Party Food Delivered</title>
+  <title>LUNCHBOXX - High Protein Meals</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -214,13 +214,13 @@
     .hero .subline{font-size:15px;color:var(--gray3);margin-bottom:28px;line-height:1.5;max-width:320px;margin-left:auto;margin-right:auto}
 
     /* Trust Strip */
-    .trust{display:flex;justify-content:center;gap:8px;padding:16px 12px;background:var(--gray1);margin:0 20px 20px;border-radius:12px}
+    .trust{display:flex;justify-content:center;gap:8px;padding:14px 12px;background:var(--gray1);margin:0 20px 12px;border-radius:12px}
     .trust-item{flex:1;text-align:center;padding:8px 4px}
     .trust-item h4{font-family:var(--font1);font-size:clamp(13px,3.5vw,16px);color:var(--white);margin-bottom:4px;letter-spacing:0.5px}
     .trust-item p{font-size:clamp(10px,2.5vw,12px);color:var(--gray3)}
 
     /* Toggle - 3 options */
-    .toggle-wrap{padding:0 20px 20px}
+    .toggle-wrap{padding:0 20px 12px}
     .menu-toggle{display:flex;background:var(--gray2);border-radius:10px;padding:4px}
     .menu-toggle button{flex:1;padding:12px 8px;border:none;background:transparent;color:var(--gray3);font-family:var(--font1);font-size:13px;letter-spacing:1px;cursor:pointer;border-radius:8px;transition:all .2s}
     .menu-toggle button.active{background:var(--orange);color:var(--white)}
@@ -229,14 +229,18 @@
     .menu-toggle button.team-active{background:var(--blue);color:var(--white)}
 
     /* Dessert Section */
-    .dessert-section{padding:0 20px 20px;display:none}
+    .dessert-section{padding:0 20px;display:none}
     .dessert-section.show{display:block}
     
     /* Snacks Section */
-    .snacks-section{padding:0 20px 20px;display:none}
+    .snacks-section{padding:0 20px;display:none}
     .snacks-section.show{display:block}
-    .snacks-menu{padding-top:20px}
-    .snacks-header{text-align:center;margin-bottom:20px}
+    .vegan-section{padding:0 20px;display:none}
+    .vegan-section.show{display:block}
+    #toggleVegan{background:#4CAF50;color:#fff}
+    #toggleVegan.vegan-active{background:#2E7D32;box-shadow:0 0 15px rgba(76,175,80,0.4)}
+    .snacks-menu{padding-top:10px}
+    .snacks-header{text-align:center;margin-bottom:16px}
     .snacks-header h2{font-family:var(--font1);font-size:28px;color:#8B9A46;margin-bottom:4px;letter-spacing:2px}
     .snacks-header p{font-size:13px;color:var(--gray3)}
     .snacks-card{background:var(--gray1);border:2px solid #8B9A46;border-radius:16px;padding:20px;cursor:pointer;transition:all .2s;margin-bottom:12px}
@@ -262,7 +266,7 @@
     .dogboxx-section .box-summary{background:rgba(74,21,16,.4)}
     .dogboxx-section .summary-row.total span:last-child{color:#D4442A}
     .dogboxx-section .order-now-link:hover{border-color:#D4442A;color:#D4442A}
-    .dog-hero{text-align:center;margin-bottom:20px;padding:20px 0}
+    .dog-hero{text-align:center;margin-bottom:12px;padding:12px 0}
     .dog-box-visual{position:relative;display:inline-block}
     .dog-box-icon{margin-bottom:8px}
     .dog-count-display{font-family:var(--font1);font-size:48px;color:#E8A817;letter-spacing:2px}
@@ -660,15 +664,52 @@
     
     .modal-brownie-visual{width:80px!important;height:80px!important}
     
-    /* Compact 3-Column Grid */
-    .cookie-grid-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
-    .cookie-card{background:var(--gray2);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .2s;position:relative;border:2px solid transparent;touch-action:manipulation}
-    .cookie-card:hover{border-color:rgba(212,165,116,.5)}
-    .cookie-card.has-qty{border-color:#D4A574;background:rgba(212,165,116,0.15)}
-    .cookie-card .name{font-size:10px;font-weight:600;color:var(--white);line-height:1.2;min-height:24px;display:flex;align-items:center;justify-content:center}
-    .cookie-card .price{font-family:var(--font1);font-size:14px;color:#D4A574;margin-top:2px}
-    .cookie-card .qty-badge{position:absolute;top:-6px;right:-6px;width:22px;height:22px;background:#D4A574;color:var(--dark);border-radius:50%;font-family:var(--font1);font-size:13px;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:all .2s}
-    .cookie-card.has-qty .qty-badge{opacity:1;transform:scale(1)}
+    /* Crumbl-Style Cookie List */
+    .cookie-list{display:flex;flex-direction:column;gap:0;margin-bottom:16px;background:var(--gray1);border-radius:16px;overflow:hidden}
+    .cookie-list-header{padding:14px 16px;background:var(--gray2);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .cookie-list-header span{font-size:12px;color:var(--gray3);letter-spacing:1px;font-weight:500}
+    .cookie-list-header .always-tag{font-size:10px;color:rgba(212,165,116,0.8);letter-spacing:0}
+    .cookie-item{display:flex;align-items:center;padding:12px 16px;gap:14px;border-bottom:1px solid rgba(255,255,255,0.03);transition:background .15s}
+    .cookie-item:last-child{border-bottom:none}
+    .cookie-item:active{background:rgba(212,165,116,0.08)}
+    .cookie-item.has-qty{background:rgba(212,165,116,0.06)}
+    .cookie-item-visual{width:52px;height:52px;border-radius:50%;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+    .cookie-item-info{flex:1;min-width:0}
+    .cookie-item-name{font-size:15px;font-weight:600;color:var(--white);margin-bottom:2px}
+    .cookie-item-cal{font-size:12px;color:var(--gray3)}
+    .cookie-item-controls{display:flex;align-items:center;gap:8px}
+    .cookie-qty-btn{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--gray3);background:transparent;color:var(--gray3);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;-webkit-tap-highlight-color:transparent}
+    .cookie-qty-btn:hover{border-color:#D4A574;color:#D4A574}
+    .cookie-qty-btn:disabled{opacity:0.3;cursor:not-allowed}
+    .cookie-qty-btn.plus{border-color:#D4A574;color:#D4A574}
+    .cookie-qty-btn.plus:hover{background:#D4A574;color:var(--dark)}
+    .cookie-item-qty{font-family:var(--font1);font-size:18px;min-width:28px;text-align:center;color:var(--white)}
+    .cookie-item-qty.has-qty{color:#D4A574}
+    
+    /* Pack Size Selector - Crumbl Style */
+    .pack-selector{margin-bottom:20px}
+    .pack-selector-label{font-size:28px;font-family:var(--font1);color:var(--white);margin-bottom:16px;letter-spacing:1px}
+    .pack-selector-label span{color:#D4A574}
+    .pack-chips{display:flex;gap:8px;flex-wrap:wrap}
+    .pack-chip{padding:10px 18px;border-radius:24px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
+    .pack-chip:hover{border-color:rgba(212,165,116,0.5)}
+    .pack-chip.selected{border-color:#D4A574;background:#D4A574;color:var(--dark)}
+    .pack-chip .chip-price{font-size:12px;opacity:0.7;margin-left:4px}
+    
+    /* Sticky Order Button */
+    .sticky-order-bar{position:sticky;bottom:0;left:0;right:0;background:linear-gradient(to top,var(--dark) 80%,transparent);padding:16px 0 8px;margin-top:16px;z-index:50}
+    .sticky-order-btn{width:100%;background:var(--gray2);color:var(--gray3);border:none;padding:16px 24px;font-family:var(--font1);font-size:16px;letter-spacing:2px;border-radius:14px;cursor:not-allowed;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+    .sticky-order-btn.ready{background:#D4A574;color:var(--dark);cursor:pointer}
+    .sticky-order-btn.ready:hover{background:#c49660}
+    .sticky-order-btn .btn-text{display:flex;align-items:center;gap:8px}
+    .sticky-order-btn .btn-price{font-size:18px}
+    
+    /* Progress indicator */
+    .pack-progress{margin-bottom:20px;padding:16px;background:var(--gray1);border-radius:12px}
+    .pack-progress-text{font-size:14px;color:var(--white);margin-bottom:10px;display:flex;justify-content:space-between}
+    .pack-progress-text span{color:#D4A574;font-weight:600}
+    .pack-progress-bar{height:6px;background:var(--gray2);border-radius:3px;overflow:hidden}
+    .pack-progress-fill{height:100%;background:linear-gradient(90deg,#D4A574,#E8C59B);border-radius:3px;transition:width .3s ease;width:0%}
     
     /* Cookie Modal */
     .cookie-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:1000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;touch-action:manipulation}
@@ -1171,13 +1212,14 @@
 
     <div class="trust" style="margin:8px 0">
         <div class="trust-item"><h4>FREE DELIVERY</h4><p>No hidden fees</p></div>
-        <div class="trust-item"><h4>BIG PORTIONS</h4><p>Fully loaded</p></div>
+        <div class="trust-item"><h4>LOADED DOGS</h4><p>Fully loaded</p></div>
         <div class="trust-item"><h4>HOT & READY</h4><p>Made fresh</p></div>
       </div>
 
     <div class="toggle-wrap">
-      <div class="menu-toggle">
+      <div class="menu-toggle" style="display:flex;gap:6px">
         <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')">PARTY</button>
+        <button id="toggleVegan" onclick="toggleMenu('vegan')" style="background:#4CAF50">🌱 VEGAN</button>
         <button id="toggleDessert" onclick="toggleMenu('dessert')">DESSERTS</button>
       </div>
     </div>
@@ -1194,7 +1236,7 @@
             <div class="dessert-card-icon cookie">🍪</div>
             <div class="dessert-card-info">
               <div class="dessert-card-name">COOKIEBOXX</div>
-              <div class="dessert-card-desc">by Fudge & Crumble · Stuffed cookies baked fresh</div>
+              <div class="dessert-card-desc">by @_fudgeandcrumble_ · Stuffed cookies</div>
               <div class="dessert-card-price">From $20</div>
             </div>
             <div class="dessert-card-arrow">›</div>
@@ -1203,8 +1245,8 @@
             <div class="dessert-card-icon brownie">🍫</div>
             <div class="dessert-card-info">
               <div class="dessert-card-name">BROWNIEBOXX</div>
-              <div class="dessert-card-desc">by Fudge & Crumble · Fudgy brownies baked fresh</div>
-              <div class="dessert-card-price">From $30</div>
+              <div class="dessert-card-desc">by @_fudgeandcrumble_ · 8x8 Brownie Tray</div>
+              <div class="dessert-card-price">From $25</div>
             </div>
             <div class="dessert-card-arrow">›</div>
           </div>
@@ -1217,14 +1259,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back to Desserts
         </button>
-        <div class="dessert-header">
-          <h2>COOKIEBOXX</h2>
-          <p class="partner">by <span>Fudge & Crumble Patisserie</span></p>
-        </div>
         
-        <!-- Partner Badge -->
-        <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
-          <div class="partner-badge">
+        <!-- Partner Badge - Compact -->
+        <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="text-decoration:none">
+          <div class="partner-badge" style="margin-bottom:16px">
             <div class="pb-avatar">🍪</div>
             <div class="pb-text">
               <strong>Fudge & Crumble</strong>
@@ -1233,245 +1271,46 @@
             <span class="pb-arrow">›</span>
           </div>
         </a>
-        
-        <!-- Weekly Flavor Drop -->
-        <div class="flavor-drop">
-          <div class="drop-label">📋 PRE-ORDER</div>
-          <div class="drop-title">9 Flavors Available</div>
-          <div class="drop-timer">Baked fresh to order · <span>Same-day or next-day delivery</span></div>
-        </div>
 
-        <!-- Pre-order Notice -->
-        <div class="preorder-notice">
-          <span class="notice-icon">📋</span>
-          <div><strong>Pre-order:</strong> Pick your flavors & box size. You'll choose your delivery date at checkout — same-day or next-day available.</div>
-        </div>
-
-        <!-- Quick Packs -->
-        <div class="quick-packs" id="quickPacksAvail">
-          <div class="quick-pack" onclick="selectQuickPack('five')">
-            <div class="quick-pack-name">5 PACK</div>
-            <div class="quick-pack-desc">Try a mix</div>
-            <div class="quick-pack-price">$20</div>
-          </div>
-          <div class="quick-pack" onclick="selectQuickPack('ten')">
-            <div class="quick-pack-name">10 PACK</div>
-            <div class="quick-pack-desc">Share with friends</div>
-            <div class="quick-pack-price">$40</div>
-          </div>
-          <div class="quick-pack" onclick="selectQuickPack('twenty')">
-            <div class="quick-pack-name">20 PACK</div>
-            <div class="quick-pack-desc">Perfect for parties</div>
-            <div class="quick-pack-price">$75</div>
-          </div>
-          <div class="quick-pack" onclick="selectQuickPack('thirty')">
-            <div class="quick-pack-tag">POPULAR</div>
-            <div class="quick-pack-name">30 PACK</div>
-            <div class="quick-pack-desc">Small events</div>
-            <div class="quick-pack-price">$104</div>
-          </div>
-          <div class="quick-pack" onclick="selectQuickPack('fifty')">
-            <div class="quick-pack-tag">BEST VALUE</div>
-            <div class="quick-pack-name">50 PACK</div>
-            <div class="quick-pack-desc">Office & events</div>
-            <div class="quick-pack-price">$170</div>
-          </div>
-          <div class="quick-pack" onclick="selectQuickPack('hundred')">
-            <div class="quick-pack-name">100 PACK</div>
-            <div class="quick-pack-desc">Catering & bulk</div>
-            <div class="quick-pack-price">$310</div>
+        <!-- Pack Size Selector -->
+        <div class="pack-selector">
+          <div class="pack-selector-label">Select <span id="packSizeLabel">10</span> Flavors</div>
+          <div class="pack-chips">
+            <div class="pack-chip selected" onclick="selectPackSize(10)" data-size="10">10 <span class="chip-price">$40</span></div>
+            <div class="pack-chip" onclick="selectPackSize(20)" data-size="20">20 <span class="chip-price">$75</span></div>
+            <div class="pack-chip" onclick="selectPackSize(30)" data-size="30">30 <span class="chip-price">$105</span></div>
+            <div class="pack-chip" onclick="selectPackSize(50)" data-size="50">50 <span class="chip-price">$170</span></div>
+            <div class="pack-chip" onclick="selectPackSize(100)" data-size="100">100 <span class="chip-price">$310</span></div>
           </div>
         </div>
 
-        <!-- Meet the Baker -->
-        <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
-          <div class="baker-card">
-            <div class="baker-img">👩‍🍳</div>
-            <div class="baker-info">
-              <div class="baker-name">Fudge & Crumble Patisserie</div>
-              <div class="baker-role">Official LUNCHBOXX Partner</div>
-              <div class="baker-desc">Homemade treats, crafted to excellence. Custom orders + gluten free options available.</div>
-              <div class="baker-ig">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153A4.904 4.904 0 012.525 18.55c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.25-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
-                @_fudgeandcrumble_
-              </div>
-            </div>
+        <!-- Visual Cookie Box -->
+        <div class="cookie-box-visual">
+          <div class="box-lid" id="boxLid">
+            <div class="lid-top"></div>
           </div>
-        </a>
-        
-        <div class="cookie-builder">
-          <!-- Visual Cookie Box with Custom Label -->
-          <div class="cookie-box-visual">
-            <input type="text" class="box-label-input" id="boxLabelInput" placeholder="✨ Add a custom label..." maxlength="30" oninput="updateBoxLabel()">
-            <div class="box-lid" id="boxLid">
-              <div class="lid-top"></div>
-            </div>
-            <div class="box-container" id="cookieBox">
-              <div class="box-inner" id="boxInner"></div>
-              <div class="box-label" id="boxLabelDisplay">COOKIEBOXX</div>
-            </div>
-            <div class="box-count" id="boxCount">0 cookies</div>
-            <button class="clear-box-btn" id="clearBoxBtn" onclick="clearCookieBox()" style="display:none">✕ Clear Box</button>
+          <div class="box-container" id="cookieBox">
+            <div class="box-inner" id="boxInner"></div>
           </div>
-
-          <!-- Progress Bar -->
-          <div class="progress-section" id="progressSection">
-            <div class="progress-header">
-              <span class="progress-title">PACK SIZE</span>
-              <span class="progress-reward" id="progressReward">Select a pack to start!</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" id="progressFill" style="width:0%"></div>
-            </div>
-            <div class="progress-milestones">
-              <div class="milestone" id="mile5">5</div>
-              <div class="milestone" id="mile10">10</div>
-              <div class="milestone" id="mile20">20</div>
-              <div class="milestone" id="mile50">50</div>
-              <div class="milestone" id="mile100">100</div>
-            </div>
-          </div>
-
-        <!-- Flying cookie animation target -->
-        <div class="flying-cookie" id="flyingCookie">🍪</div>
-        
-        <p class="tap-hint">Tap a cookie to add • Mix & match flavors</p>
-        
-        <div class="cookie-grid-compact" id="cookieGrid"></div>
-
-        <!-- Smart Suggestion -->
-        <div class="smart-suggestion" id="smartSuggestion" onclick="addSuggestedCookies()">
-          <span>💡</span>
-          <p id="suggestionText">Add <strong>2 more</strong> to unlock <strong>5% off!</strong></p>
-          <button id="suggestionBtn">+2</button>
-        </div>
-        
-        <div class="cream-cheese-global">
-          <label>
-            <span>🧀</span>
-            Cream Cheese Stuffing
-          </label>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span class="cc-price">+$1/ea</span>
-            <div class="toggle-switch" id="creamCheeseToggle" onclick="toggleCreamCheese()"></div>
-          </div>
+          <div class="box-count" id="boxCount">0 of 10 cookies</div>
         </div>
 
-        <!-- Gift Mode -->
-        <div class="gift-toggle" id="giftToggle" onclick="toggleGiftMode()">
-          <div class="gift-toggle-left">
-            <span>🎁</span>
-            <div class="gift-toggle-info">
-              <h4>SEND AS GIFT</h4>
-              <p>Add a personal message & recipient details</p>
-            </div>
+        <!-- Cookie List - Crumbl Style -->
+        <div class="cookie-list" id="cookieListNew">
+          <div class="cookie-list-header">
+            <span>Stuffed Cookies</span>
+            <span class="always-tag">Mix & match</span>
           </div>
-          <div class="toggle-switch" id="giftSwitch"></div>
+          <!-- Cookies rendered by JS -->
         </div>
 
-        <!-- Gift Form -->
-        <div class="gift-form" id="giftForm">
-          <h4>🎁 GIFT DETAILS</h4>
-          <div class="form-row">
-            <label>Recipient Name</label>
-            <input type="text" id="giftRecipient" placeholder="Who's the lucky person?">
-          </div>
-          <div class="form-row">
-            <label>Delivery Address</label>
-            <input type="text" id="giftAddress" placeholder="Where should we deliver?">
-          </div>
-          <div class="form-row">
-            <label>Personal Message</label>
-            <textarea id="giftMessage" placeholder="Write a heartfelt message..." maxlength="150" oninput="updateCharCount()"></textarea>
-            <div class="char-count"><span id="charCount">0</span>/150</div>
-          </div>
-          <div class="form-row">
-            <label>Special Instructions (optional)</label>
-            <input type="text" id="giftNotes" placeholder="Allergies, delivery notes, etc.">
-          </div>
+        <!-- Sticky Order Button -->
+        <div class="sticky-order-bar">
+          <button class="sticky-order-btn" id="stickyOrderBtn" onclick="orderCookiesNew()">
+            <span class="btn-text">Add <span id="btnQtyText">10</span> More</span>
+            <span class="btn-price" id="btnPriceText">$40.00</span>
+          </button>
         </div>
-
-        <!-- Add-ons Section -->
-        <div class="addons-section">
-          <h4>✨ EXTRAS</h4>
-          <div class="addon-item" onclick="toggleAddon('giftWrap')">
-            <div class="addon-left">
-              <span>🎀</span>
-              <div class="addon-info">
-                <h5>Premium Gift Wrap</h5>
-                <p>Ribbon, tissue & gift tag</p>
-              </div>
-            </div>
-            <div class="addon-price">+$5</div>
-            <div class="addon-check" id="addonGiftWrap"></div>
-          </div>
-        </div>
-
-        <!-- Delivery Details -->
-        <div class="delivery-section" id="cookieDeliverySection">
-          <h4>📍 DELIVERY DETAILS</h4>
-          <div class="form-row">
-            <label>Your Name</label>
-            <input type="text" id="cookieYourName" placeholder="Your name">
-          </div>
-          <div class="form-row">
-            <label>Phone Number</label>
-            <input type="tel" id="cookiePhone" placeholder="For delivery updates">
-          </div>
-          <div class="form-row">
-            <label>Delivery Address</label>
-            <input type="text" id="cookieDeliveryAddress" placeholder="Full delivery address">
-          </div>
-          <div class="form-row">
-            <label>Delivery Date</label>
-            <div class="calendar-trigger" onclick="openCalendar('cookie')">
-              <span id="cookieDateDisplay">Select date</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <input type="hidden" id="cookieDeliveryDate">
-          </div>
-          <div class="form-row">
-            <label>Delivery Notes (optional)</label>
-            <input type="text" id="cookieDeliveryNotes" placeholder="Gate code, leave at door, etc.">
-          </div>
-        </div>
-
-        <div class="box-summary" id="boxSummary">
-          <div class="summary-row">
-            <span>Cookies</span>
-            <span id="totalCookies">0</span>
-          </div>
-          <div class="summary-row" id="creamCheeseRow" style="display:none">
-            <span>Cream cheese stuffing</span>
-            <span id="creamCheeseTotal">$0</span>
-          </div>
-          <div class="summary-row" id="addonsRow" style="display:none">
-            <span>Extras</span>
-            <span id="addonsTotal">$0</span>
-          </div>
-          <div class="summary-row discount-row" id="discountRow" style="display:none">
-            <span id="discountLabel">Bulk discount</span>
-            <span id="discountAmt" class="green">-$0</span>
-          </div>
-          <div class="summary-row total">
-            <span>Total</span>
-            <span id="cookieTotal">$0.00</span>
-          </div>
-        </div>
-
-        <div class="bulk-tiers">
-          <div class="tier-badge" id="tier5">5 Pack $20</div>
-          <div class="tier-badge" id="tier10">10 Pack $40</div>
-          <div class="tier-badge" id="tier20">20 Pack $75</div>
-          <div class="tier-badge" id="tier30">30 Pack $104</div>
-          <div class="tier-badge" id="tier50">50 Pack $170</div>
-          <div class="tier-badge" id="tier100">100 Pack $310</div>
-        </div>
-        
-        <div class="free-delivery-banner">Delivery included with all orders</div>
-
-        <button class="dessert-cta" id="dessertCta" onclick="addCookiesToCart()" disabled>SELECT A PACK</button>
-        <div class="order-now-link" id="cookieOrderNowLink" onclick="orderCookies()" style="display:none">ORDER NOW</div>
       </div>
     </div>
     <!-- End COOKIEBOXX Section -->
@@ -1484,11 +1323,11 @@
       </button>
       <div class="dessert-header">
         <h2>BROWNIEBOXX</h2>
-        <p class="partner">by <span>Fudge & Crumble Patisserie</span></p>
+        <p class="partner">by <span>@_fudgeandcrumble_</span></p>
       </div>
       
       <!-- Partner Badge -->
-      <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
+      <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="text-decoration:none">
         <div class="partner-badge">
           <div class="pb-avatar">🍫</div>
           <div class="pb-text">
@@ -1498,226 +1337,49 @@
           <span class="pb-arrow">›</span>
         </div>
       </a>
-      
-      <!-- Weekly Flavor Drop -->
-      <div class="flavor-drop">
-        <div class="drop-label">📋 PRE-ORDER</div>
-        <div class="drop-title">Fudgy Brownies, Fresh Baked</div>
-        <div class="drop-timer">Baked fresh to order · <span>Same-day or next-day delivery</span></div>
-      </div>
 
-      <!-- Pre-order Notice -->
-      <div class="preorder-notice">
-        <span class="notice-icon">📋</span>
-        <div><strong>Pre-order:</strong> Pick your flavors & box size. You'll choose your delivery date at checkout — same-day or next-day available.</div>
-      </div>
-
-      <!-- Quick Packs -->
-      <div class="quick-packs" id="browniePacksAvail">
-        <div class="quick-pack" onclick="selectBrowniePack('six')">
-          <div class="quick-pack-name">6 PACK</div>
-          <div class="quick-pack-desc">Try a mix</div>
-          <div class="quick-pack-price">$30</div>
-        </div>
-        <div class="quick-pack" onclick="selectBrowniePack('twelve')">
-          <div class="quick-pack-name">12 PACK</div>
-          <div class="quick-pack-desc">Perfect for sharing</div>
-          <div class="quick-pack-price">$60</div>
-        </div>
-        <div class="quick-pack" onclick="selectBrowniePack('twentyfour')">
-          <div class="quick-pack-tag">POPULAR</div>
-          <div class="quick-pack-name">24 PACK</div>
-          <div class="quick-pack-desc">Office treats</div>
-          <div class="quick-pack-price">$110</div>
-        </div>
-        <div class="quick-pack" onclick="selectBrowniePack('fortyeight')">
-          <div class="quick-pack-tag">BEST VALUE</div>
-          <div class="quick-pack-name">48 PACK</div>
-          <div class="quick-pack-desc">Events & parties</div>
-          <div class="quick-pack-price">$200</div>
-        </div>
-      </div>
-
-      <!-- Meet the Baker -->
-      <a href="https://instagram.com/_fudgeandcrumble_" target="_blank" style="text-decoration:none">
-        <div class="baker-card">
-          <div class="baker-img">👩‍🍳</div>
-          <div class="baker-info">
-            <div class="baker-name">Fudge & Crumble Patisserie</div>
-            <div class="baker-role">Official LUNCHBOXX Partner</div>
-            <div class="baker-desc">Homemade treats, crafted to excellence. Custom orders + gluten free options available.</div>
-            <div class="baker-ig">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153A4.904 4.904 0 012.525 18.55c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.25-3.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
-              @_fudgeandcrumble_
-            </div>
-          </div>
-        </div>
-      </a>
-      
       <div class="cookie-builder">
-        <!-- Visual Brownie Box -->
-        <div class="cookie-box-visual">
-          <input type="text" class="box-label-input" id="brownieBoxLabelInput" placeholder="✨ Add a custom label..." maxlength="30" oninput="updateBrownieBoxLabel()">
-          <div class="box-lid" id="brownieBoxLid">
-            <div class="lid-top"></div>
-          </div>
-          <div class="box-container" id="brownieBox">
-            <div class="box-inner" id="brownieBoxInner"></div>
-            <div class="box-label" id="brownieBoxLabelDisplay">BROWNIEBOXX</div>
-          </div>
-          <div class="box-count" id="brownieBoxCount">0 brownies</div>
-          <button class="clear-box-btn" id="clearBrownieBtn" onclick="clearBrownieBox()" style="display:none">✕ Clear Box</button>
+        <!-- Brownie Tray Visual -->
+        <div style="background:linear-gradient(135deg,#3D2314,#2C1810);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:0.1">🍫</div>
+          <div style="font-size:48px;margin-bottom:8px">🍫</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:2px;margin-bottom:4px">8x8 INCH</div>
+          <div style="font-size:24px;color:#fff;font-family:var(--font1);font-weight:700">BROWNIE TRAY</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.8);margin-top:8px">Cuts into 9-12 pieces</div>
         </div>
 
-        <!-- Progress Bar -->
-        <div class="progress-section" id="brownieProgressSection">
-          <div class="progress-header">
-            <span class="progress-title">PACK SIZE</span>
-            <span class="progress-reward" id="brownieProgressReward">Select a pack to start!</span>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill" id="brownieProgressFill" style="width:0%"></div>
-          </div>
-          <div class="progress-milestones">
-            <div class="milestone" id="bmile6">6</div>
-            <div class="milestone" id="bmile12">12</div>
-            <div class="milestone" id="bmile24">24</div>
-            <div class="milestone" id="bmile48">48</div>
-          </div>
-        </div>
-
-        <!-- Flying brownie animation target -->
-        <div class="flying-cookie" id="flyingBrownie">🍫</div>
-        
-        <p class="tap-hint">Tap a brownie to add • Mix & match flavors</p>
-        
-        <!-- Brownie Grid -->
-        <div class="cookie-grid-compact" id="brownieGrid"></div>
-
-        <!-- Smart Suggestion -->
-        <div class="smart-suggestion" id="brownieSuggestion" onclick="addSuggestedBrownies()" style="display:none">
-          <span>💡</span>
-          <p id="brownieSuggestionText">Add <strong>2 more</strong> to reach next tier!</p>
-          <button id="brownieSuggestionBtn">+2</button>
-        </div>
-
-        <!-- Gift Mode -->
-        <div class="gift-toggle" id="brownieGiftToggle" onclick="toggleBrownieGiftMode()">
-          <div class="gift-toggle-left">
-            <span>🎁</span>
-            <div class="gift-toggle-info">
-              <h4>SEND AS GIFT</h4>
-              <p>Add a personal message & recipient details</p>
-            </div>
-          </div>
-          <div class="toggle-switch" id="brownieGiftSwitch"></div>
-        </div>
-
-        <!-- Gift Form -->
-        <div class="gift-form" id="brownieGiftForm">
-          <h4>🎁 GIFT DETAILS</h4>
-          <div class="form-row">
-            <label>Recipient Name</label>
-            <input type="text" id="brownieGiftRecipient" placeholder="Who's the lucky person?">
-          </div>
-          <div class="form-row">
-            <label>Delivery Address</label>
-            <input type="text" id="brownieGiftAddress" placeholder="Where should we deliver?">
-          </div>
-          <div class="form-row">
-            <label>Personal Message</label>
-            <textarea id="brownieGiftMessage" placeholder="Write a heartfelt message..." maxlength="150" oninput="updateBrownieCharCount()"></textarea>
-            <div class="char-count"><span id="brownieCharCount">0</span>/150</div>
-          </div>
-          <div class="form-row">
-            <label>Special Instructions (optional)</label>
-            <input type="text" id="brownieGiftNotes" placeholder="Allergies, delivery notes, etc.">
-          </div>
-        </div>
-
-        <!-- Add-ons Section -->
-        <div class="addons-section">
-          <h4>✨ EXTRAS</h4>
-          <div class="addon-item" onclick="toggleBrownieAddon('giftWrap')">
-            <div class="addon-left">
-              <span>🎀</span>
-              <div class="addon-info">
-                <h5>Premium Gift Wrap</h5>
-                <p>Ribbon, tissue & gift tag</p>
+        <!-- Flavor Selection -->
+        <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px;letter-spacing:1px">CHOOSE YOUR FLAVOR</label>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+          <div class="brownie-flavor-card selected" data-flavor="fudge" onclick="selectBrownieFlavor('fudge')" style="background:var(--gray1);border:2px solid #D4442A;border-radius:12px;padding:16px;cursor:pointer;transition:all .2s">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-size:16px;color:var(--white);font-weight:600">Chocolate Fudge</div>
+                <div style="font-size:11px;color:var(--gray3);margin-top:2px">Rich, dense, classic fudgy brownie</div>
               </div>
+              <div style="font-size:18px;font-family:var(--font1);color:#D4442A">$25</div>
             </div>
-            <div class="addon-price">+$5</div>
-            <div class="addon-check" id="brownieAddonGiftWrap"></div>
           </div>
-          <div class="addon-item" onclick="toggleBrownieAddon('iceCream')">
-            <div class="addon-left">
-              <span>🍨</span>
-              <div class="addon-info">
-                <h5>Vanilla Ice Cream</h5>
-                <p>Perfect pairing (pint)</p>
+          <div class="brownie-flavor-card" data-flavor="smores" onclick="selectBrownieFlavor('smores')" style="background:var(--gray1);border:2px solid var(--gray2);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-size:16px;color:var(--white);font-weight:600">S'mores</div>
+                <div style="font-size:11px;color:var(--gray3);margin-top:2px">Graham base, marshmallow, chocolate</div>
               </div>
+              <div style="font-size:18px;font-family:var(--font1);color:var(--white)">$28</div>
             </div>
-            <div class="addon-price">+$8</div>
-            <div class="addon-check" id="brownieAddonIceCream"></div>
           </div>
         </div>
 
-        <!-- Delivery Details -->
-        <div class="delivery-section" id="brownieDeliverySection">
-          <h4>📍 DELIVERY DETAILS</h4>
-          <div class="form-row">
-            <label>Your Name</label>
-            <input type="text" id="brownieYourName" placeholder="Your name">
-          </div>
-          <div class="form-row">
-            <label>Phone Number</label>
-            <input type="tel" id="browniePhone" placeholder="For delivery updates">
-          </div>
-          <div class="form-row">
-            <label>Delivery Address</label>
-            <input type="text" id="brownieDeliveryAddress" placeholder="Full delivery address">
-          </div>
-          <div class="form-row">
-            <label>Delivery Date</label>
-            <div class="calendar-trigger" onclick="openCalendar('brownie')">
-              <span id="brownieDateDisplay">Select date</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <input type="hidden" id="brownieDeliveryDate">
-          </div>
-          <div class="form-row">
-            <label>Delivery Notes (optional)</label>
-            <input type="text" id="brownieDeliveryNotes" placeholder="Gate code, leave at door, etc.">
-          </div>
+        <!-- Order Summary -->
+        <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--gray3)">8x8 Brownie Tray</span><span id="brownieFlavorLabel" style="color:var(--white)">Chocolate Fudge</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">FREE</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--gray2);font-weight:600"><span style="color:var(--white)">Total</span><span id="brownieTrayTotal" style="color:#D4442A;font-size:20px">$25.00</span></div>
         </div>
 
-        <!-- Box Summary -->
-        <div class="box-summary" id="brownieBoxSummary">
-          <div class="summary-row">
-            <span>Brownies</span>
-            <span id="totalBrownies">0</span>
-          </div>
-          <div class="summary-row" id="brownieAddonsRow" style="display:none">
-            <span>Extras</span>
-            <span id="brownieAddonsTotal">$0</span>
-          </div>
-          <div class="summary-row total">
-            <span>Total</span>
-            <span id="brownieTotal">$0.00</span>
-          </div>
-        </div>
-
-        <div class="bulk-tiers">
-          <div class="tier-badge" id="btier6">6 Pack $30</div>
-          <div class="tier-badge" id="btier12">12 Pack $60</div>
-          <div class="tier-badge" id="btier24">24 Pack $110</div>
-          <div class="tier-badge" id="btier48">48 Pack $200</div>
-        </div>
-        
-        <div class="free-delivery-banner">Delivery included with all orders</div>
-
-        <button class="dessert-cta" id="brownieCta" onclick="addBrowniesToCart()" disabled>SELECT A PACK</button>
-        <div class="order-now-link" id="brownieOrderNowLink" onclick="orderBrownies()" style="display:none">ORDER NOW</div>
+        <!-- Order Button -->
+        <button id="brownieTrayOrderBtn" onclick="orderBrownieTray()" style="width:100%;padding:18px;border-radius:12px;border:none;background:linear-gradient(135deg,#3D2314,#2C1810);color:#fff;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;margin-top:14px;letter-spacing:1px">ORDER NOW • $25.00</button>
       </div>
     </div>
     <!-- End BROWNIEBOXX Section -->
@@ -1729,7 +1391,7 @@
 
     <!-- DOGBOXX Section -->
     <div class="dogboxx-section show" id="dogboxxSection">
-      <div class="dessert-header">
+      <div class="dessert-header" style="margin-bottom:8px">
         <h2>DOGBOXX</h2>
         <div class="partner"><span>Loaded Dogs</span></div>
       </div>
@@ -1737,7 +1399,7 @@
       <div class="cookie-builder dog-builder">
         <!-- Dog Visual -->
         <div class="dog-hero">
-          <div class="dog-box-visual" style="background:linear-gradient(135deg,#D4442A,#8B1E0D);border-radius:16px;padding:20px 30px">
+          <div class="dog-box-visual" style="background:linear-gradient(135deg,#D4442A,#8B1E0D);border-radius:16px;padding:16px 24px">
             <div style="font-size:24px;color:#FFD700;font-family:var(--font1);font-weight:700;margin-bottom:4px">DOGBOXX</div>
             <div class="dog-count-display" id="dogCountDisplay" style="color:#FFF">10</div>
             <div class="dog-label" style="color:rgba(255,255,255,0.8)">LOADED DOGS</div>
@@ -1903,6 +1565,102 @@
     <!-- End DOGBOXX Section -->
   </div>
   <!-- End SNACKS SECTION -->
+
+  <!-- VEGAN SECTION -->
+  <div id="veganSection" class="vegan-section">
+    <div class="dogboxx-section show" id="paneerSubSection">
+      <div class="dessert-header" style="text-align:center;margin-bottom:16px">
+        <div style="display:inline-block;background:linear-gradient(135deg,#4CAF50,#2E7D32);padding:6px 16px;border-radius:20px;margin-bottom:12px">
+          <span style="font-size:11px;color:#fff;letter-spacing:2px;font-weight:600">🌱 VEGAN MENU</span>
+        </div>
+        <h2 style="color:#4CAF50;font-size:28px;margin:0">TANDOORI PANEER SUB</h2>
+        <p style="color:var(--gray3);font-size:12px;margin-top:4px">High protein • 100% Vegetarian</p>
+      </div>
+
+      <div class="cookie-builder sub-builder">
+        <!-- Sub Visual -->
+        <div style="background:linear-gradient(135deg,#4CAF50,#2E7D32);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:-30px;right:-30px;font-size:100px;opacity:0.1">🌱</div>
+          <div style="font-size:48px;margin-bottom:8px">🥪</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.8);letter-spacing:3px;margin-bottom:4px">2 PACK DEAL</div>
+          <div style="font-size:32px;color:#fff;font-family:var(--font1);font-weight:700">$10</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:4px">50g protein total</div>
+        </div>
+
+        <!-- What's in it -->
+        <div style="background:var(--gray2);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:10px;color:#4CAF50;letter-spacing:2px;margin-bottom:12px;font-weight:600">EACH SUB STACKED WITH</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-size:20px">🧀</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:500">Tandoori Spiced Paneer</div>
+                <div style="font-size:10px;color:var(--gray3)">70g per sub • 13g protein</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-size:20px">🧀</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:500">Mexi Blend Cheese</div>
+                <div style="font-size:10px;color:var(--gray3)">Melty & savory</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-size:20px">🧅</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:500">Crispy Fried Onions</div>
+                <div style="font-size:10px;color:var(--gray3)">Extra crunch</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-size:20px">🥖</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:500">Garlic Butter Toasted Bun</div>
+                <div style="font-size:10px;color:var(--gray3)">Soft & toasted</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="font-size:20px">🔥</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:500">House Sauce</div>
+                <div style="font-size:10px;color:var(--gray3)">Creamy with a kick</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Macros per sub -->
+        <div style="display:flex;justify-content:space-around;background:var(--gray2);border-radius:10px;padding:14px 8px;margin-bottom:14px;text-align:center">
+          <div>
+            <div style="font-family:var(--font1);font-size:20px;color:#4CAF50">~500</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">CAL/SUB</div>
+          </div>
+          <div style="width:1px;background:var(--gray1)"></div>
+          <div>
+            <div style="font-family:var(--font1);font-size:20px;color:#4CAF50">25g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">PROTEIN/SUB</div>
+          </div>
+          <div style="width:1px;background:var(--gray1)"></div>
+          <div>
+            <div style="font-family:var(--font1);font-size:20px;color:var(--white)">100%</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">VEGETARIAN</div>
+          </div>
+        </div>
+        <div style="text-align:center;font-size:10px;color:var(--gray3);margin-bottom:16px">2 subs = 50g protein • Full meal deal</div>
+
+        <!-- Order Summary -->
+        <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--gray3)">2x Tandoori Paneer Sub</span><span style="color:var(--white)">$10.00</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">FREE</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--gray2);font-weight:600"><span style="color:var(--white)">Total</span><span style="color:#4CAF50;font-size:20px">$10.00</span></div>
+        </div>
+
+        <!-- Order Button -->
+        <button id="subOrderBtn" onclick="orderPaneerSub()" style="width:100%;padding:18px;border-radius:12px;border:none;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;margin-top:14px;letter-spacing:1px;box-shadow:0 4px 15px rgba(76,175,80,0.3)">ORDER 2 PACK • $10.00</button>
+      </div>
+    </div>
+  </div>
+  <!-- End VEGAN SECTION -->
 
     <!-- Cookie Detail Modal -->
     <div class="cookie-modal-overlay" id="cookieModal" onclick="closeCookieModal()">
@@ -2162,10 +1920,14 @@ let pStep=1,pWin=null,pLoc=null,pCustomSelected=false;
 function toggleMenu(t){
   document.getElementById('toggleSnacks').classList.remove('snacks-active');
   document.getElementById('toggleDessert').classList.remove('dessert-active');
+  var toggleVegan = document.getElementById('toggleVegan');
+  if(toggleVegan) toggleVegan.classList.remove('vegan-active');
   var personalEl = document.getElementById('personalSection');
   if(personalEl) personalEl.style.display='none';
   document.getElementById('dessertSection').classList.remove('show');
   document.getElementById('snacksSection').classList.remove('show');
+  var veganEl = document.getElementById('veganSection');
+  if(veganEl) veganEl.classList.remove('show');
   var teamEl = document.getElementById('teamSection');
   if(teamEl) teamEl.classList.remove('show');
   
@@ -2178,6 +1940,9 @@ function toggleMenu(t){
   }else if(t==='snacks'){
     document.getElementById('toggleSnacks').classList.add('snacks-active');
     document.getElementById('snacksSection').classList.add('show');
+  }else if(t==='vegan'){
+    if(toggleVegan) toggleVegan.classList.add('vegan-active');
+    if(veganEl) veganEl.classList.add('show');
   }else if(t==='team'){
     if(teamEl) { var btn2 = document.getElementById('toggleTeam'); if(btn2) btn2.classList.add('team-active'); teamEl.classList.add('show'); }
   }
@@ -2191,7 +1956,7 @@ function openDessertType(type) {
   
   if (type === 'cookie') {
     document.getElementById('cookieboxxSection').classList.add('show');
-    initCookieGrid();
+    initCookieListNew();
   } else if (type === 'brownie') {
     document.getElementById('brownieboxxSection').classList.add('show');
     initBrownieGrid();
@@ -2209,7 +1974,7 @@ function setCookieMode(mode) {
   document.querySelectorAll('#quickPacksAvail .quick-pack').forEach(el => el.classList.remove('selected'));
   selectedPackId = null;
   cookieCart = {};
-  initCookieGrid();
+  initCookieListNew();
   updateCookieSummary();
   
   if (mode === 'available') {
@@ -2329,6 +2094,7 @@ const SHOPIFY_VARIANTS = {
   'carnivore-xl': '47048199897242'
 };
 const SHOPIFY_COOKIE_PACKS = {
+  10: '47308152570010',
   20: '47048673525914',
   30: '47048673689754',
   50: '47048673984666',
@@ -2402,70 +2168,215 @@ function reset(){bowlType=size=win=loc=null;q=1;step=1;customSelected=false;tCar
 
 // Cookie Builder System
 const COOKIES = [
-  {id: 'lemon', name: 'Lemon White Chocolate', price: 3.17,
-   desc: 'Bright, zesty lemon cookie studded with creamy white chocolate chips. A perfect balance of citrus tang and sweet indulgence.',
-   tags: ['Citrus', 'White Choc']},
-  {id: 'redvelvet', name: 'Red Velvet', price: 3.17,
-   desc: 'Classic red velvet with a hint of cocoa, finished with cream cheese frosting drizzle. Rich, velvety, and irresistible.',
-   tags: ['Fan Favorite', 'Cream Cheese']},
-  {id: 'cookiescream', name: 'Cookies N Cream', price: 3.33,
-   desc: 'Loaded with crushed Oreo pieces throughout a vanilla bean base. Cookies inside a cookie - what more could you want?',
+  {id: 'thaitea', name: 'Thai Tea', price: 4.00, cal: 580,
+   desc: 'Thai tea cookie dough base with white chocolate, macadamia, and Thai tea ganache. Creamy, aromatic, and addictive.',
+   tags: ['Signature', 'Thai Tea']},
+  {id: 'blacksesame', name: 'Black Sesame Salted Egg Yolk', price: 4.50, cal: 620,
+   desc: 'Black sesame swirl dough with salted egg yolk, dark chocolate chunks and chips. Sweet meets savory perfection.',
+   tags: ['Premium', 'Salted Egg']},
+  {id: 'biscoff', name: 'Biscoff', price: 4.00, cal: 590,
+   desc: 'Loaded with macadamia, white chocolate, Biscoff spread, and Skor pieces. Caramel lovers dream cookie.',
+   tags: ['Fan Favorite', 'Biscoff']},
+  {id: 'cookiescream', name: 'Cookies N Cream', price: 4.00, cal: 560,
+   desc: 'Vanilla bean cookie base with white and dark chips, loaded with Oreo pieces. Cookies inside a cookie.',
    tags: ['Classic', 'Oreo']},
-  {id: 'smores', name: "S'mores", price: 3.33,
-   desc: 'Graham cracker base with gooey marshmallow and rich chocolate chunks. Tastes like a campfire in cookie form.',
+  {id: 'smores', name: "S'mores", price: 4.00, cal: 610,
+   desc: 'Graham crackers, dark and milk chocolate chunks, gooey marshmallow. Campfire vibes in cookie form.',
    tags: ['Campfire', 'Marshmallow']},
-  {id: 'caramel', name: 'Salted Caramel', price: 3.50,
-   desc: 'Buttery caramel swirled throughout with flaky sea salt on top. The sweet-salty combo that hits different.',
-   tags: ['Sweet & Salty', 'Popular']},
-  {id: 'matcha', name: 'Matcha', price: 3.83,
-   desc: 'Premium Japanese matcha green tea powder folded into white chocolate. Earthy, sophisticated, Instagram-worthy.',
-   tags: ['Premium', 'Japanese']},
-  {id: 'espresso', name: 'Espresso Double Choc', price: 3.83,
-   desc: 'Real espresso baked into a double chocolate base. Coffee lovers, this is your wake-up call in cookie form.',
-   tags: ['Coffee', 'Double Choc']},
-  {id: 'ferrero', name: 'Ferrero Choc Chip', price: 3.83,
-   desc: 'Inspired by Ferrero Rocher - hazelnut butter swirled with milk chocolate chips. Fancy, crunchy, decadent.',
-   tags: ['Hazelnut', 'Luxe']},
-  {id: 'nutella', name: 'Nutella', price: 3.83,
-   desc: 'Stuffed with a gooey Nutella center that oozes when warm. Our best seller for a reason. Trust us on this one.',
-   tags: ['Best Seller', 'Stuffed']},
+  {id: 'raspberry', name: 'Raspberry Pistachio', price: 4.50, cal: 540,
+   desc: 'Fresh raspberry with pistachio paste, white chocolate chips, and pistachio ganache. Elegant and indulgent.',
+   tags: ['Premium', 'Pistachio']},
 ];
 
 function getCookieVisual(id, isModal = false) {
   const cls = isModal ? 'cookie-visual modal-cookie-visual' : 'cookie-visual';
+  const itemCls = 'cookie-item-visual';
   const visuals = {
-    lemon: `<div class="${cls} cookie-lemon"><div class="chips"></div><div class="extra"></div></div>`,
-    redvelvet: `<div class="${cls} cookie-redvelvet"><div class="drizzle"></div></div>`,
-    cookiescream: `<div class="${cls} cookie-cookiescream"><div class="chunks"></div><div class="extra1"></div><div class="extra2"></div></div>`,
-    smores: `<div class="${cls} cookie-smores"><div class="toppings"></div><div class="marsh"></div><div class="choc"></div><div class="choc2"></div></div>`,
-    caramel: `<div class="${cls} cookie-caramel"><div class="swirl"></div><div class="salt"></div><div class="salt2"></div><div class="salt3"></div></div>`,
-    matcha: `<div class="${cls} cookie-matcha"><div class="chips"></div><div class="extra"></div></div>`,
-    espresso: `<div class="${cls} cookie-espresso"><div class="chips"></div><div class="bean"></div></div>`,
-    ferrero: `<div class="${cls} cookie-ferrero"><div class="chips"></div><div class="nut"></div></div>`,
-    nutella: `<div class="${cls} cookie-nutella"><div class="filling"></div><div class="swirl"></div></div>`
+    thaitea: `background:linear-gradient(135deg,#E8A04C,#C67B30)`,
+    blacksesame: `background:linear-gradient(135deg,#2C2C2C,#1a1a1a)`,
+    biscoff: `background:linear-gradient(135deg,#C4956A,#A67B5B)`,
+    cookiescream: `background:linear-gradient(135deg,#F5F5DC,#E8E4C9)`,
+    smores: `background:linear-gradient(135deg,#D2A679,#B8956C)`,
+    raspberry: `background:linear-gradient(135deg,#E8B4C8,#D4A5B9)`
   };
-  return visuals[id] || `<div class="${cls}">🍪</div>`;
+  if (isModal) {
+    return `<div class="${cls}" style="${visuals[id] || 'background:#D2691E'};border-radius:50%;position:relative"></div>`;
+  }
+  return visuals[id] || 'background:#D2691E';
 }
 
+// Pack pricing
+const PACK_PRICES = {
+  10: 40,
+  20: 75,
+  30: 105,
+  50: 170,
+  100: 310
+};
+
 let cookieCart = {};
+let selectedPackSize = 10;
 let creamCheese = false;
 let currentCookie = null;
 
-function initCookieGrid() {
-  const grid = document.getElementById('cookieGrid');
-  if (!grid) return;
+// Initialize Crumbl-style cookie list
+function initCookieListNew() {
+  const list = document.getElementById('cookieListNew');
+  if (!list) return;
   
-  grid.innerHTML = COOKIES.map(c => `
-    <div class="cookie-card ${cookieCart[c.id] > 0 ? 'has-qty' : ''}" onclick="openCookieModal('${c.id}')">
-      ${getCookieVisual(c.id)}
-      <span class="name">${c.name}</span>
-      <span class="price">$${c.price.toFixed(2)}</span>
-      <div class="qty-badge" id="badge-${c.id}">${cookieCart[c.id] || 0}</div>
+  const header = list.querySelector('.cookie-list-header');
+  const headerHTML = header ? header.outerHTML : '';
+  
+  list.innerHTML = headerHTML + COOKIES.map(c => `
+    <div class="cookie-item ${cookieCart[c.id] > 0 ? 'has-qty' : ''}" data-id="${c.id}">
+      <div class="cookie-item-visual" style="${getCookieVisual(c.id)}"></div>
+      <div class="cookie-item-info">
+        <div class="cookie-item-name">${c.name}</div>
+        <div class="cookie-item-cal">${c.cal} cal</div>
+      </div>
+      <div class="cookie-item-controls">
+        <button class="cookie-qty-btn minus" onclick="adjustCookieQty('${c.id}', -1)" ${!cookieCart[c.id] ? 'disabled' : ''}>−</button>
+        <span class="cookie-item-qty ${cookieCart[c.id] > 0 ? 'has-qty' : ''}">${cookieCart[c.id] || 0}</span>
+        <button class="cookie-qty-btn plus" onclick="adjustCookieQty('${c.id}', 1)">+</button>
+      </div>
     </div>
   `).join('');
   
-  updateBoxVisual();
+  updateCookieUI();
 }
+
+// Adjust cookie quantity
+function adjustCookieQty(id, delta) {
+  if (!cookieCart[id]) cookieCart[id] = 0;
+  cookieCart[id] = Math.max(0, cookieCart[id] + delta);
+  
+  // Update the specific item
+  const item = document.querySelector(`.cookie-item[data-id="${id}"]`);
+  if (item) {
+    const qty = cookieCart[id];
+    item.classList.toggle('has-qty', qty > 0);
+    item.querySelector('.cookie-item-qty').textContent = qty;
+    item.querySelector('.cookie-item-qty').classList.toggle('has-qty', qty > 0);
+    item.querySelector('.cookie-qty-btn.minus').disabled = qty === 0;
+  }
+  
+  // Animate box on add
+  if (delta > 0) {
+    const box = document.getElementById('cookieBox');
+    if (box) {
+      box.classList.add('shake');
+      setTimeout(() => box.classList.remove('shake'), 400);
+    }
+  }
+  
+  updateCookieUI();
+  updateBoxVisualNew();
+}
+
+// Update the visual cookie box
+function updateBoxVisualNew() {
+  const boxInner = document.getElementById('boxInner');
+  if (!boxInner) return;
+  
+  let cookiesHTML = '';
+  COOKIES.forEach(c => {
+    const qty = cookieCart[c.id] || 0;
+    for (let i = 0; i < qty; i++) {
+      cookiesHTML += getMiniCookieVisual(c.id);
+    }
+  });
+  
+  boxInner.innerHTML = cookiesHTML;
+  
+  // Update box count
+  const totalQty = Object.values(cookieCart).reduce((a, b) => a + b, 0);
+  const boxCount = document.getElementById('boxCount');
+  if (boxCount) {
+    boxCount.textContent = `${totalQty} of ${selectedPackSize} cookies`;
+  }
+}
+
+// Select pack size
+function selectPackSize(size) {
+  selectedPackSize = size;
+  
+  // Update pack chips
+  document.querySelectorAll('.pack-chip').forEach(chip => {
+    chip.classList.toggle('selected', parseInt(chip.dataset.size) === size);
+  });
+  
+  // Update label
+  const label = document.getElementById('packSizeLabel');
+  if (label) label.textContent = size;
+  
+  updateCookieUI();
+}
+
+// Update all UI elements
+function updateCookieUI() {
+  const totalQty = Object.values(cookieCart).reduce((a, b) => a + b, 0);
+  const targetQty = selectedPackSize;
+  const remaining = Math.max(0, targetQty - totalQty);
+  const price = PACK_PRICES[selectedPackSize];
+  
+  // Update progress
+  const progressCount = document.getElementById('progressCount');
+  const progressTarget = document.getElementById('progressTarget');
+  const progressFill = document.getElementById('progressFillNew');
+  
+  if (progressCount) progressCount.textContent = totalQty;
+  if (progressTarget) progressTarget.textContent = targetQty;
+  if (progressFill) progressFill.style.width = Math.min(100, (totalQty / targetQty) * 100) + '%';
+  
+  // Update sticky button
+  const btn = document.getElementById('stickyOrderBtn');
+  const btnQtyText = document.getElementById('btnQtyText');
+  const btnPriceText = document.getElementById('btnPriceText');
+  const btnTextEl = btn?.querySelector('.btn-text');
+  
+  if (btn) {
+    if (totalQty >= targetQty) {
+      btn.classList.add('ready');
+      if (btnTextEl) btnTextEl.innerHTML = `<span>ORDER NOW</span>`;
+    } else {
+      btn.classList.remove('ready');
+      if (btnQtyText) btnQtyText.textContent = remaining;
+      if (btnTextEl) btnTextEl.innerHTML = `Add <span id="btnQtyText">${remaining}</span> More`;
+    }
+    if (btnPriceText) btnPriceText.textContent = '$' + price.toFixed(2);
+  }
+}
+
+// Order cookies (checkout)
+function orderCookiesNew() {
+  const totalQty = Object.values(cookieCart).reduce((a, b) => a + b, 0);
+  if (totalQty < selectedPackSize) {
+    showToast(`Add ${selectedPackSize - totalQty} more cookies to complete your ${selectedPackSize} pack!`);
+    return;
+  }
+  
+  // Get the appropriate pack size and variant ID
+  const packSize = selectedPackSize;
+  const variantId = SHOPIFY_COOKIE_PACKS[packSize];
+  
+  if (!variantId) {
+    showToast('Pack size not available. Please try a different size.');
+    return;
+  }
+  
+  // Build the Shopify checkout URL
+  const checkoutUrl = `https://meesge-h5.myshopify.com/cart/${variantId}:1`;
+  
+  showToast(`Redirecting to checkout for ${packSize} Pack...`);
+  setTimeout(() => {
+    window.location.href = checkoutUrl;
+  }, 800);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+  initCookieListNew();
+});
 
 function openCookieModal(id) {
   currentCookie = COOKIES.find(c => c.id === id);
@@ -2588,7 +2499,7 @@ function clearCookieBox() {
   document.getElementById('creamCheeseToggle')?.classList.remove('on');
   document.querySelectorAll('.quick-pack').forEach(el => el.classList.remove('selected'));
   
-  initCookieGrid();
+  initCookieListNew();
   updateBoxVisual();
   updateCookieSummary();
   
@@ -2599,17 +2510,21 @@ function clearCookieBox() {
 
 function getMiniCookieVisual(id) {
   const visuals = {
+    thaitea: `<div class="mini-cookie" style="background:linear-gradient(135deg,#E8A04C,#C67B30)"></div>`,
+    blacksesame: `<div class="mini-cookie" style="background:linear-gradient(135deg,#2C2C2C,#1a1a1a)"></div>`,
+    biscoff: `<div class="mini-cookie" style="background:linear-gradient(135deg,#C4956A,#A67B5B)"></div>`,
+    cookiescream: `<div class="mini-cookie" style="background:linear-gradient(135deg,#F5F5DC,#E8E4C9)"></div>`,
+    smores: `<div class="mini-cookie" style="background:linear-gradient(135deg,#D2A679,#B8956C)"></div>`,
+    raspberry: `<div class="mini-cookie" style="background:linear-gradient(135deg,#E8B4C8,#D4A5B9)"></div>`,
     lemon: `<div class="mini-cookie cookie-lemon"><div class="chips"></div></div>`,
     redvelvet: `<div class="mini-cookie cookie-redvelvet"><div class="drizzle"></div></div>`,
-    cookiescream: `<div class="mini-cookie cookie-cookiescream"><div class="chunks"></div></div>`,
-    smores: `<div class="mini-cookie cookie-smores"><div class="marsh"></div></div>`,
     caramel: `<div class="mini-cookie cookie-caramel"><div class="swirl"></div></div>`,
     matcha: `<div class="mini-cookie cookie-matcha"><div class="chips"></div></div>`,
     espresso: `<div class="mini-cookie cookie-espresso"><div class="chips"></div></div>`,
     ferrero: `<div class="mini-cookie cookie-ferrero"><div class="chips"></div></div>`,
     nutella: `<div class="mini-cookie cookie-nutella"><div class="filling"></div></div>`
   };
-  return visuals[id] || `<div class="mini-cookie">🍪</div>`;
+  return visuals[id] || `<div class="mini-cookie" style="background:#D2691E"></div>`;
 }
 
 function toggleCreamCheese() {
@@ -2640,7 +2555,7 @@ function updateCookieSummary() {
     total = 170;
     packName = '50 Pack';
   } else if (totalQty >= 30) {
-    total = 104;
+    total = 105;
     packName = '30 Pack';
   } else if (totalQty >= 20) {
     total = 75;
@@ -2812,7 +2727,7 @@ function updateSmartSuggestion(qty) {
   if (qty > 0 && qty < 100) {
     let target, savings;
     if (qty < 20) { target = 20; savings = '$75'; }
-    else if (qty < 30) { target = 30; savings = '$104'; }
+    else if (qty < 30) { target = 30; savings = '$105'; }
     else if (qty < 50) { target = 50; savings = '$170'; }
     else { target = 100; savings = '$310'; }
     
@@ -2835,7 +2750,7 @@ function addSuggestedCookies() {
   // Add popular cookie (Nutella)
   if (!cookieCart['nutella']) cookieCart['nutella'] = 0;
   cookieCart['nutella'] += suggestionQty;
-  initCookieGrid();
+  initCookieListNew();
   updateCookieSummary();
   
   const box = document.getElementById('cookieBox');
@@ -2872,10 +2787,9 @@ function updateBoxLabel() {
 
 // Quick packs - auto-fill with best sellers
 const QUICK_PACKS = {
-  five: { name: '5 Pack', qty: 5, price: 20, cookies: {} },
   ten: { name: '10 Pack', qty: 10, price: 40, cookies: {} },
   twenty: { name: '20 Pack', qty: 20, price: 75, cookies: {} },
-  thirty: { name: '30 Pack', qty: 30, price: 104, cookies: {} },
+  thirty: { name: '30 Pack', qty: 30, price: 105, cookies: {} },
   fifty: { name: '50 Pack', qty: 50, price: 170, cookies: {} },
   hundred: { name: '100 Pack', qty: 100, price: 310, cookies: {} }
 };
@@ -2906,7 +2820,7 @@ function selectQuickPack(packId) {
   // Highlight selected pack
   clickedEl.classList.add('selected');
   
-  initCookieGrid();
+  initCookieListNew();
   updateCookieSummary();
   
   const box = document.getElementById('cookieBox');
@@ -3680,6 +3594,58 @@ function resetDogBuilder() {
 }
 // ==================== END DOGBOXX SECTION ====================
 
+// ==================== PANEER SUB SECTION ====================
+const SHOPIFY_PANEER_SUB = '47080319811739'; // Update with real Shopify variant ID for 2-pack
+
+function orderPaneerSub() {
+  const variantId = SHOPIFY_PANEER_SUB;
+  
+  if (variantId && variantId.startsWith('4708')) {
+    // Shopify checkout
+    const shopifyUrl = 'https://meesge-h5.myshopify.com/cart/' + variantId + ':1?checkout[note]=2x%20Tandoori%20Paneer%20Sub';
+    window.open(shopifyUrl, '_blank');
+  } else {
+    showToast('Opening order form...', 'success', 2000);
+    // Fallback - could open a form or message
+  }
+}
+
+// ==================== END PANEER SUB SECTION ====================
+
+// ==================== BROWNIE TRAY SECTION ====================
+const BROWNIE_FLAVORS = {
+  fudge: { name: 'Chocolate Fudge', price: 25 },
+  smores: { name: "S'mores", price: 28 }
+};
+
+let selectedBrownieFlavor = 'fudge';
+
+function selectBrownieFlavor(flavor) {
+  selectedBrownieFlavor = flavor;
+  
+  document.querySelectorAll('.brownie-flavor-card').forEach(card => {
+    if (card.dataset.flavor === flavor) {
+      card.style.borderColor = '#D4442A';
+      card.querySelector('div > div:last-child').style.color = '#D4442A';
+    } else {
+      card.style.borderColor = 'var(--gray2)';
+      card.querySelector('div > div:last-child').style.color = 'var(--white)';
+    }
+  });
+  
+  const price = BROWNIE_FLAVORS[flavor].price;
+  document.getElementById('brownieFlavorLabel').textContent = BROWNIE_FLAVORS[flavor].name;
+  document.getElementById('brownieTrayTotal').textContent = '$' + price.toFixed(2);
+  document.getElementById('brownieTrayOrderBtn').textContent = 'ORDER NOW • $' + price.toFixed(2);
+}
+
+function orderBrownieTray() {
+  const flavor = BROWNIE_FLAVORS[selectedBrownieFlavor];
+  showToast('Brownie tray ordering coming soon!', 'success', 2000);
+}
+
+// ==================== END BROWNIE TRAY SECTION ====================
+
 // ==================== WINGBOXX SECTION ====================
 const WING_SIZES = {
   small: { count: 24, label: 'Small', serves: '4-6', price: 40 },
@@ -3983,9 +3949,12 @@ function orderCookies() {
   } else if (totalQty >= 20) {
     packSize = 20;
     packQty = 1;
+  } else if (totalQty >= 10) {
+    packSize = 10;
+    packQty = 1;
   } else {
-    // Less than 20 - round up to 20 pack
-    packSize = 20;
+    // Less than 10 - round up to 10 pack
+    packSize = 10;
     packQty = 1;
   }
   
@@ -4062,7 +4031,7 @@ function resetCookies() {
   if (giftNotes) giftNotes.value = '';
   if (charCount) charCount.textContent = '0';
   
-  initCookieGrid();
+  initCookieListNew();
   updateCookieSummary();
 }
 
@@ -4160,7 +4129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTeamL();
   renderPlanW();
   renderPlanL();
-  initCookieGrid();
+  initCookieListNew();
   
   // Update iPhone status bar time
   function updateStatusTime() {
@@ -4514,7 +4483,7 @@ function addCookiesToCart() {
   let packName = '';
   if (totalQty >= 100) { price = 310; packName = '100 Pack'; }
   else if (totalQty >= 50) { price = 170; packName = '50 Pack'; }
-  else if (totalQty >= 30) { price = 104; packName = '30 Pack'; }
+  else if (totalQty >= 30) { price = 105; packName = '30 Pack'; }
   else if (totalQty >= 20) { price = 75; packName = '20 Pack'; }
   else if (totalQty >= 10) { price = 40; packName = '10 Pack'; }
   else { price = 20; packName = '5 Pack'; }
@@ -4555,7 +4524,7 @@ function addCookiesToCart() {
   document.getElementById('addonGiftWrap')?.classList.remove('checked');
   document.getElementById('boxLabelInput').value = '';
   document.getElementById('boxLabelDisplay').textContent = 'COOKIEBOXX';
-  initCookieGrid();
+  initCookieListNew();
   updateCookieSummary();
 }
 
