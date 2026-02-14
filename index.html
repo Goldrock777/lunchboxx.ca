@@ -210,7 +210,7 @@
     .logo{text-align:center;padding:20px;font-family:var(--font1);font-size:28px;letter-spacing:10px;color:var(--orange)}
     .hero{padding:16px 24px 16px;text-align:center}
     .hero h1{font-family:var(--font1);font-size:clamp(42px,12vw,64px);line-height:.9;color:var(--white);margin-bottom:16px;letter-spacing:3px}
-    .hero h1 span{color:var(--green)}
+    .hero h1 span{color:#D4442A}
     .hero .subline{font-size:15px;color:var(--gray3);margin-bottom:28px;line-height:1.5;max-width:320px;margin-left:auto;margin-right:auto}
 
     /* Trust Strip */
@@ -1217,10 +1217,10 @@
       </div>
 
     <div class="toggle-wrap">
-      <div class="menu-toggle" style="display:flex;gap:6px">
-        <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')">MAINS</button>
-        <button id="toggleVegan" onclick="toggleMenu('vegan')" style="background:#4CAF50">VEGGIE</button>
-        <button id="toggleDessert" onclick="toggleMenu('dessert')">DESSERTS</button>
+      <div class="menu-toggle" style="display:flex;gap:6px;flex-wrap:wrap">
+        <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')" style="background:#D4442A;display:flex;flex-direction:column;align-items:center;padding:12px 16px">MAINS<span style="font-size:9px;opacity:0.7;font-weight:400;margin-top:2px;letter-spacing:1px">CRAVINGS</span></button>
+        <button id="toggleVegan" onclick="toggleMenu('vegan')" style="background:#4CAF50;display:flex;flex-direction:column;align-items:center;padding:12px 16px">VEGGIE<span style="font-size:9px;opacity:0.7;font-weight:400;margin-top:2px;letter-spacing:1px">HEALTHY</span></button>
+        <button id="toggleDessert" onclick="toggleMenu('dessert')" style="background:#FFB6C1;color:#000;display:flex;flex-direction:column;align-items:center;padding:12px 16px">DESSERTS<span style="font-size:9px;opacity:0.7;font-weight:400;margin-top:2px;letter-spacing:1px">INDULGE</span></button>
       </div>
     </div>
 
@@ -1608,6 +1608,8 @@
     </div>
   </div>
   <!-- End VEGGIE SECTION -->
+
+
     <div id="dessertSection" class="dessert-section">
       <div class="dessert-menu" id="dessertMenu">
         <div class="dessert-menu-header">
@@ -1631,174 +1633,96 @@
       <div class="cookieboxx-section" id="cookieboxxSection">
         <button class="dessert-back" onclick="backToDessertMenu()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back
         </button>
         
-        <!-- Partner Hero Banner -->
-        <div style="background:linear-gradient(145deg,#2C1810,#1a0f0a);border-radius:20px;padding:24px;text-align:center;margin-bottom:20px;border:1px solid #3D2510">
-          <div style="font-size:10px;color:#D4A574;letter-spacing:3px;margin-bottom:12px;font-weight:500">HANDCRAFTED BY OUR PARTNER</div>
-          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank">
-            <img src="/mnt/user-data/uploads/1771091517852_image.png" alt="Fudge & Crumble" style="max-width:200px;height:auto;margin-bottom:12px">
+        <!-- Partner Header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;margin-bottom:8px;border-bottom:1px solid rgba(212,165,116,0.2)">
+          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank"><img src="/mnt/user-data/uploads/1771091517852_image.png" alt="Fudge & Crumble" style="height:44px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))"></a>
+          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="display:flex;align-items:center;gap:6px;font-size:11px;color:#D4A574;text-decoration:none;background:rgba(212,165,116,0.1);padding:8px 12px;border-radius:20px;border:1px solid rgba(212,165,116,0.2)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4A574"><path d="M12 2c3.2 0 3.6.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.25.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.22-1.66 4.77-4.92 4.92-1.25.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2.01-3.6.07-4.85C2.38 3.76 3.89 2.22 7.15 2.07 8.4 2.01 8.8 2 12 2zm0 1.8c-3.15 0-3.53.01-4.77.07-2.47.11-3.62 1.27-3.73 3.73-.06 1.24-.07 1.62-.07 4.77 0 3.15.01 3.53.07 4.77.11 2.46 1.26 3.62 3.73 3.73 1.24.06 1.62.07 4.77.07 3.15 0 3.53-.01 4.77-.07 2.46-.11 3.62-1.27 3.73-3.73.06-1.24.07-1.62.07-4.77 0-3.15-.01-3.53-.07-4.77-.11-2.46-1.27-3.62-3.73-3.73-1.24-.06-1.62-.07-4.77-.07zM12 6.86a5.14 5.14 0 110 10.28 5.14 5.14 0 010-10.28zm0 8.47a3.33 3.33 0 100-6.66 3.33 3.33 0 000 6.66zm5.34-9.71a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
+            Follow
           </a>
-          <div style="font-size:24px;font-family:var(--font1);color:#fff;letter-spacing:3px;margin-top:16px">COOKIEBOXX</div>
-          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#D4A574;text-decoration:none;margin-top:8px;background:rgba(212,165,116,0.1);padding:6px 14px;border-radius:20px;border:1px solid rgba(212,165,116,0.3)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4A574"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            @_fudgeandcrumble_
-          </a>
+        </div>
+
+        <!-- Premium Cookie Box -->
+        <div style="position:relative;margin-bottom:24px">
+          <div style="position:absolute;inset:-20px;background:radial-gradient(ellipse at center,rgba(212,165,116,0.15) 0%,transparent 70%);pointer-events:none"></div>
+          <div style="position:relative;background:linear-gradient(180deg,#5D3A1A 0%,#3D2510 8%,#2C1810 100%);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1)">
+            <div style="background:linear-gradient(180deg,#6B4423 0%,#5D3A1A 50%,#4A2E15 100%);padding:12px 20px;border-bottom:3px solid #3D2510;position:relative">
+              <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)"></div>
+              <div style="text-align:center">
+                <div style="font-family:Georgia,serif;font-size:22px;color:#F5E6D3;letter-spacing:4px;text-shadow:0 2px 4px rgba(0,0,0,0.3)">COOKIEBOXX</div>
+                <div style="font-size:10px;color:#D4A574;letter-spacing:2px;margin-top:2px">STUFFED COOKIES</div>
+              </div>
+            </div>
+            <div style="padding:20px;background:linear-gradient(180deg,#1a0f0a 0%,#0d0805 100%)">
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;min-height:110px" id="pinkBoxInner"></div>
+              <div style="margin-top:16px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                  <span style="font-size:12px;color:#D4A574" id="boxCount">0 / 10</span>
+                  <span style="font-size:11px;color:rgba(212,165,116,0.6)">cookies selected</span>
+                </div>
+                <div style="height:4px;background:#1a0f0a;border-radius:2px;overflow:hidden">
+                  <div id="cookieProgressBar" style="height:100%;width:0%;background:linear-gradient(90deg,#D4A574,#E8C89E);border-radius:2px;transition:width 0.4s"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pack Size -->
+        <div style="margin-bottom:24px">
+          <div style="font-size:11px;color:rgba(212,165,116,0.7);letter-spacing:2px;margin-bottom:10px">SELECT YOUR BOX</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+            <button class="cookie-pack-chip selected" onclick="selectCookiePack(10)" data-size="10" style="padding:12px 8px;border-radius:12px;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-family:var(--font1);font-size:13px;font-weight:600;cursor:pointer;border:none;box-shadow:0 4px 15px rgba(212,165,116,0.3);text-align:center"><div style="font-size:18px;font-weight:700">10</div><div style="font-size:10px;opacity:0.8">$40</div></button>
+            <button class="cookie-pack-chip" onclick="selectCookiePack(20)" data-size="20" style="padding:12px 8px;border-radius:12px;background:#1a1a1a;color:#D4A574;font-family:var(--font1);font-size:13px;font-weight:600;cursor:pointer;border:2px solid #3D2510;text-align:center"><div style="font-size:18px;font-weight:700">20</div><div style="font-size:10px;opacity:0.7">$75</div></button>
+            <button class="cookie-pack-chip" onclick="selectCookiePack(30)" data-size="30" style="padding:12px 8px;border-radius:12px;background:#1a1a1a;color:#D4A574;font-family:var(--font1);font-size:13px;font-weight:600;cursor:pointer;border:2px solid #3D2510;text-align:center"><div style="font-size:18px;font-weight:700">30</div><div style="font-size:10px;opacity:0.7">$105</div></button>
+            <button class="cookie-pack-chip" onclick="selectCookiePack(50)" data-size="50" style="padding:12px 8px;border-radius:12px;background:#1a1a1a;color:#D4A574;font-family:var(--font1);font-size:13px;font-weight:600;cursor:pointer;border:2px solid #3D2510;text-align:center"><div style="font-size:18px;font-weight:700">50</div><div style="font-size:10px;opacity:0.7">$170</div></button>
+          </div>
+        </div>
+
+        <!-- Weekly Menu Header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-family:Georgia,serif;font-size:18px;color:#F5E6D3">This Week's Selection</div>
+          <div style="background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:9px;padding:5px 10px;border-radius:4px;font-weight:700;letter-spacing:1px">STUFFED</div>
+        </div>
+
+        <!-- Cookie Cards -->
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#E8A87C,#D4956A);flex-shrink:0;box-shadow:0 8px 20px rgba(232,168,124,0.3)"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">Thai Tea</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Creamy Thai tea filling</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.00</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('thaitea',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_thaitea" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('thaitea',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#2D2D2D,#1a1a1a);flex-shrink:0;box-shadow:0 8px 20px rgba(0,0,0,0.4);border:3px solid #FFD700"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">Black Sesame Salted Egg</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Rich & savory fusion</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.50</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('blacksesame',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_blacksesame" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('blacksesame',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#C4956A,#A67B5B);flex-shrink:0;box-shadow:0 8px 20px rgba(196,149,106,0.3)"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">Biscoff</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Classic speculoos cookie butter</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.00</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('biscoff',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_biscoff" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('biscoff',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#1a1a1a,#0d0d0d);flex-shrink:0;box-shadow:0 8px 20px rgba(0,0,0,0.4);border:3px solid #fff"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">Cookies N Cream</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Oreo lovers dream</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.00</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('cookiescream',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_cookiescream" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('cookiescream',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#8B4513,#5D2E0C);flex-shrink:0;box-shadow:0 8px 20px rgba(139,69,19,0.3)"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">S'mores</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Graham, marshmallow, chocolate</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.00</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('smores',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_smores" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('smores',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
+          <div class="cookie-card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:14px;border:2px solid transparent;transition:all .3s"><div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#C41E3A,#8B0000);flex-shrink:0;box-shadow:0 8px 20px rgba(196,30,58,0.3)"></div><div style="flex:1"><div style="font-size:15px;color:#F5E6D3;font-weight:600">Raspberry Pistachio</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Fruity meets nutty</div><div style="font-size:14px;color:#D4A574;font-weight:700;margin-top:4px">$4.50</div></div><div style="display:flex;align-items:center;gap:8px"><button onclick="adjustCookieQty('raspberry',-1)" style="width:34px;height:34px;border-radius:50%;border:2px solid #3D2510;background:transparent;color:#D4A574;font-size:18px;cursor:pointer">-</button><span id="qty_raspberry" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:24px;text-align:center">0</span><button onclick="adjustCookieQty('raspberry',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-size:18px;cursor:pointer">+</button></div></div>
         </div>
 
         <!-- Gift Toggle -->
-        <div onclick="toggleCookieGift()" style="display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:2px solid #2a2a2a;border-radius:14px;padding:16px 18px;margin-bottom:20px;cursor:pointer;transition:all .2s" id="cookieGiftToggle">
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:40px;height:40px;background:linear-gradient(135deg,#D4A574,#B8956C);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">🎁</div>
-            <div>
-              <div style="font-size:14px;color:#fff;font-weight:600">Send as Gift</div>
-              <div style="font-size:11px;color:var(--gray3)">Add a personal message</div>
-            </div>
-          </div>
-          <div id="cookieGiftSwitch" style="width:50px;height:28px;background:#2a2a2a;border-radius:14px;position:relative;transition:all .3s">
-            <div style="position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:all .3s" id="cookieGiftKnob"></div>
-          </div>
+        <div onclick="toggleCookieGift()" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:16px;margin-bottom:20px;cursor:pointer;border:2px solid #3D2510" id="cookieGiftToggle">
+          <div style="font-size:24px">🎁</div>
+          <div style="flex:1"><div style="font-size:14px;color:#F5E6D3;font-weight:600">Send as a Gift</div><div style="font-size:11px;color:rgba(212,165,116,0.6)">Add a personal message</div></div>
+          <div id="cookieGiftSwitch" style="width:50px;height:26px;background:#2a2a2a;border-radius:13px;position:relative"><div style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:#D4A574;border-radius:50%;transition:all .3s" id="cookieGiftKnob"></div></div>
         </div>
 
-        <!-- Gift Message (hidden by default) -->
-        <div id="cookieGiftMessage" style="display:none;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:18px;margin-bottom:20px">
-          <div style="font-size:11px;color:#D4A574;letter-spacing:2px;margin-bottom:10px">GIFT MESSAGE</div>
-          <textarea id="cookieGiftText" placeholder="Write your message here..." style="width:100%;height:80px;background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:#fff;font-size:13px;resize:none;outline:none;box-sizing:border-box"></textarea>
-          <input type="text" id="cookieRecipient" placeholder="Recipient's name" style="width:100%;padding:12px;background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;color:#fff;font-size:13px;outline:none;margin-top:10px;box-sizing:border-box">
+        <!-- Gift Message -->
+        <div id="cookieGiftMessage" style="display:none;background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border-radius:16px;padding:16px;margin-bottom:20px;border:2px solid #3D2510">
+          <textarea id="cookieGiftText" placeholder="Write your gift message..." style="width:100%;height:70px;background:#0d0d0d;border:1px solid #3D2510;border-radius:10px;padding:12px;color:#F5E6D3;font-size:13px;resize:none;outline:none;box-sizing:border-box"></textarea>
+          <input type="text" id="cookieRecipient" placeholder="Recipient's name" style="width:100%;padding:12px;background:#0d0d0d;border:1px solid #3D2510;border-radius:10px;color:#F5E6D3;font-size:13px;outline:none;margin-top:10px;box-sizing:border-box">
         </div>
 
-        <!-- Pack Size Selector -->
-        <div style="margin-bottom:20px">
-          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:12px">SELECT BOX SIZE</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <div class="cookie-pack-chip" onclick="selectPackSize(10)" data-size="10" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
-              <div style="font-family:var(--font1);font-size:22px;color:#fff">10</div>
-              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$40</div>
-            </div>
-            <div class="cookie-pack-chip" onclick="selectPackSize(20)" data-size="20" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
-              <div style="font-family:var(--font1);font-size:22px;color:#fff">20</div>
-              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$75</div>
-            </div>
-            <div class="cookie-pack-chip" onclick="selectPackSize(30)" data-size="30" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
-              <div style="font-family:var(--font1);font-size:22px;color:#fff">30</div>
-              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$105</div>
-            </div>
-            <div class="cookie-pack-chip" onclick="selectPackSize(50)" data-size="50" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
-              <div style="font-family:var(--font1);font-size:22px;color:#fff">50</div>
-              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$170</div>
-            </div>
-            <div class="cookie-pack-chip" onclick="selectPackSize(100)" data-size="100" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
-              <div style="font-family:var(--font1);font-size:22px;color:#fff">100</div>
-              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$310</div>
-            </div>
-          </div>
+        <!-- Sticky Order Button -->
+        <div style="position:sticky;bottom:0;left:0;right:0;background:linear-gradient(to top,#0d0d0d 85%,transparent);padding:20px 0 10px;z-index:10">
+          <button id="cookieOrderBtn" onclick="orderCookiesNew()" style="width:100%;padding:18px;border-radius:14px;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-family:var(--font1);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(212,165,116,0.4)">
+            <span id="cookieBtnText">Add 10 more to fill your box</span>
+            <span style="display:block;font-size:12px;opacity:0.8;margin-top:2px" id="cookieBtnPrice">$40.00</span>
+          </button>
         </div>
-
-        <!-- Visual Cookie Box -->
-        <div style="background:linear-gradient(145deg,#2C1810,#1a0f0a);border-radius:20px;padding:20px;margin-bottom:20px;border:1px solid #3D2510">
-          <div style="background:#0d0808;border-radius:14px;padding:16px;min-height:80px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center" id="boxInner"></div>
-          <div style="text-align:center;margin-top:12px;font-size:13px;color:#D4A574" id="boxCount">0 of 10 cookies</div>
-        </div>
-
-        <!-- Flavor Selection -->
-        <div style="margin-bottom:20px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-            <div style="font-size:11px;color:var(--gray3);letter-spacing:2px">CHOOSE FLAVORS</div>
-            <div style="font-size:11px;color:#D4A574">Mix & match</div>
-          </div>
-          
-          <div style="display:flex;flex-direction:column;gap:10px" id="cookieFlavorList">
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#E8A87C,#C38D6B);border-radius:50%"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">Thai Tea</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('thaitea',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_thaitea" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('thaitea',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#2D2D2D,#1a1a1a);border-radius:50%;border:2px solid #FFD700"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">Black Sesame Salted Egg</div><div style="font-size:11px;color:var(--gray3)">$4.50</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('blacksesame',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_blacksesame" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('blacksesame',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#C4956A,#A67B5B);border-radius:50%"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">Biscoff</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('biscoff',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_biscoff" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('biscoff',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border-radius:50%;border:2px solid #fff"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">Cookies N Cream</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('cookiescream',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_cookiescream" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('cookiescream',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#8B4513,#5D2E0C);border-radius:50%"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">S'mores</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('smores',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_smores" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('smores',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-
-            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
-              <div style="display:flex;align-items:center;gap:14px">
-                <div style="width:44px;height:44px;background:linear-gradient(135deg,#C41E3A,#8B0000);border-radius:50%"></div>
-                <div><div style="font-size:14px;color:#fff;font-weight:500">Raspberry Pistachio</div><div style="font-size:11px;color:var(--gray3)">$4.50</div></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <button onclick="adjustCookieQty('raspberry',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
-                <span id="qty_raspberry" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
-                <button onclick="adjustCookieQty('raspberry',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Order Summary -->
-        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:18px;margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Cookies</span><span id="cookieSummaryQty" style="color:#fff">0 selected</span></div>
-          <div id="cookieGiftRow" style="display:none;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Gift</span><span style="color:#D4A574">Yes</span></div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Delivery</span><span style="color:#4CAF50">FREE</span></div>
-          <div style="display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid #2a2a2a;font-size:16px;font-weight:600"><span style="color:#fff">Total</span><span id="cookieTotal" style="color:#D4A574">$0.00</span></div>
-        </div>
-
-        <!-- Order Button -->
-        <button id="cookieOrderBtn" onclick="orderCookiesNew()" style="width:100%;padding:20px;border-radius:14px;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-bottom:10px">SELECT COOKIES FIRST</button>
-        <div onclick="addCookiesToCart()" style="text-align:center;padding:14px;color:var(--gray3);font-size:13px;cursor:pointer;border:1px solid #2a2a2a;border-radius:12px">OR ADD TO CART</div>
       </div>
     </div>
     <!-- End COOKIEBOXX Section -->
     
   </div>
+
 
 
     <!-- Cookie Detail Modal -->
@@ -2061,12 +1985,16 @@ function toggleMenu(t){
   document.getElementById('toggleDessert').classList.remove('dessert-active');
   var toggleVegan = document.getElementById('toggleVegan');
   if(toggleVegan) toggleVegan.classList.remove('vegan-active');
+  var toggleLastbite = document.getElementById('toggleLastbite');
+  if(toggleLastbite) toggleLastbite.classList.remove('lastbite-active');
   var personalEl = document.getElementById('personalSection');
   if(personalEl) personalEl.style.display='none';
   document.getElementById('dessertSection').classList.remove('show');
   document.getElementById('snacksSection').classList.remove('show');
   var veganEl = document.getElementById('veganSection');
   if(veganEl) veganEl.classList.remove('show');
+  var lastbiteEl = document.getElementById('lastbiteSection');
+  if(lastbiteEl) lastbiteEl.classList.remove('show');
   var teamEl = document.getElementById('teamSection');
   if(teamEl) teamEl.classList.remove('show');
   
@@ -2082,6 +2010,9 @@ function toggleMenu(t){
   }else if(t==='vegan'){
     if(toggleVegan) toggleVegan.classList.add('vegan-active');
     if(veganEl) veganEl.classList.add('show');
+  }else if(t==='lastbite'){
+    if(toggleLastbite) toggleLastbite.classList.add('lastbite-active');
+    if(lastbiteEl) lastbiteEl.classList.add('show');
   }else if(t==='team'){
     if(teamEl) { var btn2 = document.getElementById('toggleTeam'); if(btn2) btn2.classList.add('team-active'); teamEl.classList.add('show'); }
   }
@@ -2243,6 +2174,11 @@ const SHOPIFY_DOG_PACKS = {
   'student': '47080319811738',
   'regular': '47078075728026',
   'party': '47078075793562'
+};
+// TODO: Add these variant IDs in Shopify
+const SHOPIFY_PANEER = {
+  'sub': '', // Need to create 2-pack Paneer Sub product in Shopify
+  'bowl': '' // Need to create Paneer Bowl product in Shopify
 };
 const SHOPIFY_STORE = 'meesge-h5.myshopify.com';
 
@@ -2443,11 +2379,11 @@ function toggleCookieGift() {
   if (cookieGiftMode) {
     toggle.style.borderColor = '#D4A574';
     switchEl.style.background = '#D4A574';
-    knob.style.left = '25px';
+    knob.style.left = '27px';
     if (messageBox) messageBox.style.display = 'block';
     if (giftRow) giftRow.style.display = 'flex';
   } else {
-    toggle.style.borderColor = '#2a2a2a';
+    toggle.style.borderColor = 'transparent';
     switchEl.style.background = '#2a2a2a';
     knob.style.left = '3px';
     if (messageBox) messageBox.style.display = 'none';
@@ -2455,28 +2391,82 @@ function toggleCookieGift() {
   }
 }
 
-// Select pack size
-function selectPackSize(size) {
+// Select cookie pack with new pink UI
+function selectCookiePack(size) {
   selectedPackSize = size;
   
-  // Update pack chips - new style
+  // Update pills with chocolate theme
   document.querySelectorAll('.cookie-pack-chip').forEach(chip => {
     const isSelected = parseInt(chip.dataset.size) === size;
-    chip.style.borderColor = isSelected ? '#D4A574' : '#2a2a2a';
-    const priceEl = chip.querySelector('div:last-child');
-    if (priceEl) priceEl.style.color = isSelected ? '#D4A574' : 'var(--gray3)';
+    if (isSelected) {
+      chip.style.background = 'linear-gradient(135deg,#D4A574,#B8956C)';
+      chip.style.color = '#2C1810';
+      chip.style.border = 'none';
+      chip.style.boxShadow = '0 4px 15px rgba(212,165,116,0.3)';
+      chip.classList.add('selected');
+    } else {
+      chip.style.background = '#1a1a1a';
+      chip.style.color = '#D4A574';
+      chip.style.border = '2px solid #3D2510';
+      chip.style.boxShadow = 'none';
+      chip.classList.remove('selected');
+    }
   });
   
-  // Also update old style chips if they exist
-  document.querySelectorAll('.pack-chip').forEach(chip => {
-    chip.classList.toggle('selected', parseInt(chip.dataset.size) === size);
-  });
-  
-  // Update label
-  const label = document.getElementById('packSizeLabel');
-  if (label) label.textContent = size;
-  
+  // Update box slots
+  updatePinkBoxSlots();
   updateCookieUI();
+}
+
+// Update chocolate box visual
+function updatePinkBoxSlots() {
+  const boxInner = document.getElementById('pinkBoxInner');
+  if (!boxInner) return;
+  
+  const totalQty = Object.values(cookieCart).reduce((a, b) => a + b, 0);
+  const targetQty = selectedPackSize;
+  
+  // Cookie color pairs
+  const colorPairs = {
+    thaitea: ['#E8A87C','#D4956A'],
+    blacksesame: ['#2D2D2D','#1a1a1a'],
+    biscoff: ['#C4956A','#A67B5B'],
+    cookiescream: ['#1a1a1a','#0d0d0d'],
+    smores: ['#8B4513','#5D2E0C'],
+    raspberry: ['#C41E3A','#8B0000']
+  };
+  
+  // Build slots HTML
+  let slotsHTML = '';
+  let filledCount = 0;
+  
+  // Add filled cookies with nice gradients
+  Object.entries(cookieCart).forEach(([flavor, qty]) => {
+    for (let i = 0; i < qty; i++) {
+      const [c1, c2] = colorPairs[flavor] || ['#E8A87C','#C38D6B'];
+      slotsHTML += `<div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,${c1},${c2});box-shadow:0 4px 12px rgba(0,0,0,0.3),inset 0 -2px 6px rgba(0,0,0,0.2);position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3) 0%,transparent 50%)"></div></div>`;
+      filledCount++;
+    }
+  });
+  
+  // Add empty slots
+  const emptySlots = Math.max(0, targetQty - filledCount);
+  for (let i = 0; i < Math.min(emptySlots, 20); i++) {
+    slotsHTML += `<div style="width:48px;height:48px;border-radius:50%;border:2px dashed rgba(212,165,116,0.2);background:rgba(212,165,116,0.05)"></div>`;
+  }
+  
+  boxInner.innerHTML = slotsHTML;
+  
+  // Update progress bar
+  const progressBar = document.getElementById('cookieProgressBar');
+  if (progressBar) {
+    progressBar.style.width = Math.min(100, (totalQty / targetQty) * 100) + '%';
+  }
+}
+
+// Select pack size (legacy support)
+function selectPackSize(size) {
+  selectCookiePack(size);
 }
 
 // Update all UI elements
@@ -2495,24 +2485,41 @@ function updateCookieUI() {
   if (progressTarget) progressTarget.textContent = targetQty;
   if (progressFill) progressFill.style.width = Math.min(100, (totalQty / targetQty) * 100) + '%';
   
+  // Update pink box
+  updatePinkBoxSlots();
+  
+  // Update box count
+  const boxCountEl = document.getElementById('boxCount');
+  if (boxCountEl) boxCountEl.textContent = totalQty + ' / ' + targetQty;
+  
+  // Update new pink button
+  const cookieBtnText = document.getElementById('cookieBtnText');
+  const cookieBtnPrice = document.getElementById('cookieBtnPrice');
+  const cookieOrderBtn = document.getElementById('cookieOrderBtn');
+  
+  if (cookieBtnText && cookieBtnPrice) {
+    if (totalQty >= targetQty) {
+      cookieBtnText.textContent = 'Complete Order';
+      if (cookieOrderBtn) {
+        cookieOrderBtn.style.background = 'linear-gradient(135deg,#4CAF50,#2E7D32)';
+        cookieOrderBtn.style.boxShadow = '0 8px 24px rgba(76,175,80,0.4)';
+      }
+    } else {
+      cookieBtnText.textContent = 'Add ' + remaining + ' more to fill your box';
+      if (cookieOrderBtn) {
+        cookieOrderBtn.style.background = 'linear-gradient(135deg,#D4A574,#B8956C)';
+        cookieOrderBtn.style.boxShadow = '0 8px 24px rgba(212,165,116,0.4)';
+      }
+    }
+    cookieBtnPrice.textContent = '$' + price.toFixed(2);
+  }
+  
   // Update new summary elements
   const summaryQty = document.getElementById('cookieSummaryQty');
   const totalEl = document.getElementById('cookieTotal');
-  const orderBtn = document.getElementById('cookieOrderBtn');
-  const boxCountEl = document.getElementById('boxCount');
-  
+
   if (summaryQty) summaryQty.textContent = totalQty + ' of ' + targetQty;
   if (totalEl) totalEl.textContent = '$' + price.toFixed(2);
-  if (boxCountEl) boxCountEl.textContent = totalQty + ' of ' + targetQty + ' cookies';
-  if (orderBtn) {
-    if (totalQty >= targetQty) {
-      orderBtn.textContent = 'ORDER NOW • $' + price.toFixed(2);
-      orderBtn.style.opacity = '1';
-    } else {
-      orderBtn.textContent = 'SELECT ' + remaining + ' MORE COOKIES';
-      orderBtn.style.opacity = '0.7';
-    }
-  }
   
   // Update sticky button (legacy)
   const btn = document.getElementById('stickyOrderBtn');
@@ -3950,6 +3957,7 @@ function addBowlToCart() {
 }
 
 // ==================== END VEGGIE SECTION ====================
+
 
 // ==================== BROWNIE TRAY SECTION ====================
 const BROWNIE_FLAVORS = {
