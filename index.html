@@ -229,14 +229,14 @@
     .menu-toggle button.team-active{background:var(--blue);color:var(--white)}
 
     /* Dessert Section */
-    .dessert-section{padding:0 20px;display:none}
-    .dessert-section.show{display:block}
+    .dessert-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
+    .dessert-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px}
     
     /* Snacks Section */
-    .snacks-section{padding:0 20px;display:none}
-    .snacks-section.show{display:block}
-    .vegan-section{padding:0 20px;display:none}
-    .vegan-section.show{display:block}
+    .snacks-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
+    .snacks-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px}
+    .vegan-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
+    .vegan-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px}
     #toggleVegan{background:#4CAF50;color:#fff}
     #toggleVegan.vegan-active{background:#2E7D32;box-shadow:0 0 15px rgba(76,175,80,0.4)}
     .snacks-menu{padding-top:10px}
@@ -255,17 +255,17 @@
     .snacks-card-price span{font-size:12px;color:var(--gray3);font-family:var(--font2)}
     .snacks-card-cta{font-size:12px;color:#8B9A46;font-weight:600;display:flex;align-items:center;gap:4px}
     
-    /* DOGBOXX Section */
-    .dogboxx-section{display:none}
-    .dogboxx-section.show{display:block}
-    .dogboxx-section .dessert-header h2{color:#D4442A}
-    .dogboxx-section .dessert-header .partner span{color:#D4442A}
-    .dogboxx-section .cookie-builder{border-color:#4A1510;background:linear-gradient(135deg,#1a1210,#0d0908)}
-    .dogboxx-section .dessert-cta{background:linear-gradient(135deg,#D4442A,#8B1E0D)}
-    .dogboxx-section .dessert-cta:hover{background:linear-gradient(135deg,#E85540,#D4442A)}
-    .dogboxx-section .box-summary{background:rgba(74,21,16,.4)}
-    .dogboxx-section .summary-row.total span:last-child{color:#D4442A}
-    .dogboxx-section .order-now-link:hover{border-color:#D4442A;color:#D4442A}
+    /* MUNCHBOXX Section */
+    .munchboxx-section{display:none}
+    .munchboxx-section.show{display:block}
+    .munchboxx-section .dessert-header h2{color:#D4442A}
+    .munchboxx-section .dessert-header .partner span{color:#D4442A}
+    .munchboxx-section .cookie-builder{border-color:#4A1510;background:linear-gradient(135deg,#1a1210,#0d0908)}
+    .munchboxx-section .dessert-cta{background:linear-gradient(135deg,#D4442A,#8B1E0D)}
+    .munchboxx-section .dessert-cta:hover{background:linear-gradient(135deg,#E85540,#D4442A)}
+    .munchboxx-section .box-summary{background:rgba(74,21,16,.4)}
+    .munchboxx-section .summary-row.total span:last-child{color:#D4442A}
+    .munchboxx-section .order-now-link:hover{border-color:#D4442A;color:#D4442A}
     .dog-hero{text-align:center;margin-bottom:12px;padding:12px 0}
     .dog-box-visual{position:relative;display:inline-block}
     .dog-box-icon{margin-bottom:8px}
@@ -1207,219 +1207,58 @@
       <div id="landing" class="page active">
     <div class="logo">LUNCHBOXX</div>
     <div class="hero">
-      <h1>PARTY FOOD<br><span>DELIVERED</span></h1>
+      <h1>FOOD THAT<br><span>HITS.</span></h1>
     </div>
 
-    <div class="trust" style="margin:8px 0">
-        <div class="trust-item"><h4>FREE DELIVERY</h4><p>No hidden fees</p></div>
-        <div class="trust-item"><h4>LOADED DOGS</h4><p>Fully loaded</p></div>
+    <div class="trust" style="margin:8px 20px">
+        <div class="trust-item"><h4>FREE DELIVERY</h4><p>SFU Surrey</p></div>
+        <div class="trust-item"><h4>BIG PORTIONS</h4><p>Generous servings</p></div>
         <div class="trust-item"><h4>HOT & READY</h4><p>Made fresh</p></div>
       </div>
 
     <div class="toggle-wrap">
       <div class="menu-toggle" style="display:flex;gap:6px">
-        <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')">PARTY</button>
-        <button id="toggleVegan" onclick="toggleMenu('vegan')" style="background:#4CAF50">🌱 VEGAN</button>
+        <button id="toggleSnacks" class="snacks-active" onclick="toggleMenu('snacks')">MAINS</button>
+        <button id="toggleVegan" onclick="toggleMenu('vegan')" style="background:#4CAF50">VEGGIE</button>
         <button id="toggleDessert" onclick="toggleMenu('dessert')">DESSERTS</button>
       </div>
     </div>
 
-    <div id="dessertSection" class="dessert-section">
-      <!-- Dessert Menu -->
-      <div class="dessert-menu" id="dessertMenu">
-        <div class="dessert-menu-header">
-          <h2>DESSERTS</h2>
-          <p>Handcrafted by our partners, delivered by us</p>
-        </div>
-        <div class="dessert-cards">
-          <div class="dessert-card" onclick="openDessertType('cookie')">
-            <div class="dessert-card-icon cookie">🍪</div>
-            <div class="dessert-card-info">
-              <div class="dessert-card-name">COOKIEBOXX</div>
-              <div class="dessert-card-desc">by @_fudgeandcrumble_ · Stuffed cookies</div>
-              <div class="dessert-card-price">From $20</div>
-            </div>
-            <div class="dessert-card-arrow">›</div>
-          </div>
-          <div class="dessert-card brownie-card" onclick="openDessertType('brownie')">
-            <div class="dessert-card-icon brownie">🍫</div>
-            <div class="dessert-card-info">
-              <div class="dessert-card-name">BROWNIEBOXX</div>
-              <div class="dessert-card-desc">by @_fudgeandcrumble_ · 8x8 Brownie Tray</div>
-              <div class="dessert-card-price">From $25</div>
-            </div>
-            <div class="dessert-card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- COOKIEBOXX Section -->
-      <div class="cookieboxx-section" id="cookieboxxSection">
-        <button class="dessert-back" onclick="backToDessertMenu()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back to Desserts
-        </button>
-        
-        <!-- Partner Badge - Compact -->
-        <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="text-decoration:none">
-          <div class="partner-badge" style="margin-bottom:16px">
-            <div class="pb-avatar">🍪</div>
-            <div class="pb-text">
-              <strong>Fudge & Crumble</strong>
-              <span class="pb-ig">@_fudgeandcrumble_</span>
-            </div>
-            <span class="pb-arrow">›</span>
-          </div>
-        </a>
-
-        <!-- Pack Size Selector -->
-        <div class="pack-selector">
-          <div class="pack-selector-label">Select <span id="packSizeLabel">10</span> Flavors</div>
-          <div class="pack-chips">
-            <div class="pack-chip selected" onclick="selectPackSize(10)" data-size="10">10 <span class="chip-price">$40</span></div>
-            <div class="pack-chip" onclick="selectPackSize(20)" data-size="20">20 <span class="chip-price">$75</span></div>
-            <div class="pack-chip" onclick="selectPackSize(30)" data-size="30">30 <span class="chip-price">$105</span></div>
-            <div class="pack-chip" onclick="selectPackSize(50)" data-size="50">50 <span class="chip-price">$170</span></div>
-            <div class="pack-chip" onclick="selectPackSize(100)" data-size="100">100 <span class="chip-price">$310</span></div>
-          </div>
-        </div>
-
-        <!-- Visual Cookie Box -->
-        <div class="cookie-box-visual">
-          <div class="box-lid" id="boxLid">
-            <div class="lid-top"></div>
-          </div>
-          <div class="box-container" id="cookieBox">
-            <div class="box-inner" id="boxInner"></div>
-          </div>
-          <div class="box-count" id="boxCount">0 of 10 cookies</div>
-        </div>
-
-        <!-- Cookie List - Crumbl Style -->
-        <div class="cookie-list" id="cookieListNew">
-          <div class="cookie-list-header">
-            <span>Stuffed Cookies</span>
-            <span class="always-tag">Mix & match</span>
-          </div>
-          <!-- Cookies rendered by JS -->
-        </div>
-
-        <!-- Sticky Order Button -->
-        <div class="sticky-order-bar">
-          <button class="sticky-order-btn" id="stickyOrderBtn" onclick="orderCookiesNew()">
-            <span class="btn-text">Add <span id="btnQtyText">10</span> More</span>
-            <span class="btn-price" id="btnPriceText">$40.00</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- End COOKIEBOXX Section -->
-    
-    <!-- BROWNIEBOXX Section -->
-    <div class="brownieboxx-section" id="brownieboxxSection">
-      <button class="dessert-back" onclick="backToDessertMenu()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Desserts
-      </button>
-      <div class="dessert-header">
-        <h2>BROWNIEBOXX</h2>
-        <p class="partner">by <span>@_fudgeandcrumble_</span></p>
-      </div>
-      
-      <!-- Partner Badge -->
-      <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="text-decoration:none">
-        <div class="partner-badge">
-          <div class="pb-avatar">🍫</div>
-          <div class="pb-text">
-            <strong>Fudge & Crumble</strong>
-            <span class="pb-ig">@_fudgeandcrumble_</span>
-          </div>
-          <span class="pb-arrow">›</span>
-        </div>
-      </a>
-
-      <div class="cookie-builder">
-        <!-- Brownie Tray Visual -->
-        <div style="background:linear-gradient(135deg,#3D2314,#2C1810);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden">
-          <div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:0.1">🍫</div>
-          <div style="font-size:48px;margin-bottom:8px">🍫</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:2px;margin-bottom:4px">8x8 INCH</div>
-          <div style="font-size:24px;color:#fff;font-family:var(--font1);font-weight:700">BROWNIE TRAY</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.8);margin-top:8px">Cuts into 9-12 pieces</div>
-        </div>
-
-        <!-- Flavor Selection -->
-        <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px;letter-spacing:1px">CHOOSE YOUR FLAVOR</label>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
-          <div class="brownie-flavor-card selected" data-flavor="fudge" onclick="selectBrownieFlavor('fudge')" style="background:var(--gray1);border:2px solid #D4442A;border-radius:12px;padding:16px;cursor:pointer;transition:all .2s">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div>
-                <div style="font-size:16px;color:var(--white);font-weight:600">Chocolate Fudge</div>
-                <div style="font-size:11px;color:var(--gray3);margin-top:2px">Rich, dense, classic fudgy brownie</div>
-              </div>
-              <div style="font-size:18px;font-family:var(--font1);color:#D4442A">$25</div>
-            </div>
-          </div>
-          <div class="brownie-flavor-card" data-flavor="smores" onclick="selectBrownieFlavor('smores')" style="background:var(--gray1);border:2px solid var(--gray2);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div>
-                <div style="font-size:16px;color:var(--white);font-weight:600">S'mores</div>
-                <div style="font-size:11px;color:var(--gray3);margin-top:2px">Graham base, marshmallow, chocolate</div>
-              </div>
-              <div style="font-size:18px;font-family:var(--font1);color:var(--white)">$28</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Order Summary -->
-        <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:12px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--gray3)">8x8 Brownie Tray</span><span id="brownieFlavorLabel" style="color:var(--white)">Chocolate Fudge</span></div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">FREE</span></div>
-          <div style="display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--gray2);font-weight:600"><span style="color:var(--white)">Total</span><span id="brownieTrayTotal" style="color:#D4442A;font-size:20px">$25.00</span></div>
-        </div>
-
-        <!-- Order Button -->
-        <button id="brownieTrayOrderBtn" onclick="orderBrownieTray()" style="width:100%;padding:18px;border-radius:12px;border:none;background:linear-gradient(135deg,#3D2314,#2C1810);color:#fff;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;margin-top:14px;letter-spacing:1px">ORDER NOW • $25.00</button>
-      </div>
-    </div>
-    <!-- End BROWNIEBOXX Section -->
-  </div>
-
   <!-- SNACKS SECTION -->
   <div id="snacksSection" class="snacks-section show">
-    <!-- DOGBOXX loads directly, no menu needed -->
+    <!-- MUNCHBOXX loads directly, no menu needed -->
 
-    <!-- DOGBOXX Section -->
-    <div class="dogboxx-section show" id="dogboxxSection">
+    <!-- MUNCHBOXX Section -->
+    <div class="munchboxx-section show" id="munchboxxSection">
       <div class="dessert-header" style="margin-bottom:8px">
-        <h2>DOGBOXX</h2>
-        <div class="partner"><span>Loaded Dogs</span></div>
+        <h2>MUNCHBOXX</h2>
+        <div class="partner"><span>Big Portions</span></div>
       </div>
 
       <div class="cookie-builder dog-builder">
         <!-- Dog Visual -->
         <div class="dog-hero">
           <div class="dog-box-visual" style="background:linear-gradient(135deg,#D4442A,#8B1E0D);border-radius:16px;padding:16px 24px">
-            <div style="font-size:24px;color:#FFD700;font-family:var(--font1);font-weight:700;margin-bottom:4px">DOGBOXX</div>
+            <div style="font-size:24px;color:#FFD700;font-family:var(--font1);font-weight:700;margin-bottom:4px">MUNCHBOXX</div>
             <div class="dog-count-display" id="dogCountDisplay" style="color:#FFF">10</div>
-            <div class="dog-label" style="color:rgba(255,255,255,0.8)">LOADED DOGS</div>
+            <div class="dog-label" style="color:rgba(255,255,255,0.8)">BIG PORTIONS</div>
           </div>
         </div>
 
         <!-- Size Selection -->
         <label style="font-size:11px;color:var(--gray3);display:block;margin-bottom:8px;letter-spacing:1px">CHOOSE YOUR SIZE</label>
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-          <div class="dog-size-card" data-size="student" onclick="selectDogSize('student')" style="flex:1;min-width:90px;position:relative;border:2px solid #4CAF50">
+          <div class="dog-size-card" data-size="student" onclick="selectDogSize('student')" style="flex:1;min-width:90px;position:relative;border:2px solid var(--gray2)">
             <div class="dog-size-count">2</div>
             <div class="dog-size-label">STUDENT</div>
             <div class="dog-size-serves">Feeds 1-2</div>
-            <div class="dog-size-price" style="color:#4CAF50">$10</div>
+            <div class="dog-size-price">$10</div>
             <div style="font-size:8px;color:#4CAF50;margin-top:4px">SFU Only • Free Delivery</div>
             <div class="dog-pop-badge" style="background:#4CAF50">SPECIAL</div>
           </div>
-          <div class="dog-size-card selected" data-size="regular" onclick="selectDogSize('regular')" style="flex:1;min-width:90px">
+          <div class="dog-size-card" data-size="regular" onclick="selectDogSize('regular')" style="flex:1;min-width:90px">
             <div class="dog-size-count">10</div>
-            <div class="dog-size-label">PARTY</div>
+            <div class="dog-size-label">MAINS</div>
             <div class="dog-size-serves">Feeds 8-10</div>
             <div class="dog-size-price">$60</div>
             <div style="font-size:8px;color:var(--gray3);margin-top:4px">+ Free 2L Drink</div>
@@ -1513,12 +1352,12 @@
           <div style="text-align:center;font-size:12px;color:#D4442A;font-weight:600;margin-bottom:10px">SFU SURREY ONLY</div>
           
           <div style="margin-bottom:10px">
-            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">LUNCH 12PM-3PM</div>
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">LUNCH 12PM-4PM</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">
               <button onclick="selectTimeSlot(this,'12PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">12PM</button>
               <button onclick="selectTimeSlot(this,'1PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">1PM</button>
               <button onclick="selectTimeSlot(this,'2PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">2PM</button>
-              <button onclick="selectTimeSlot(this,'3PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">3PM</button>
+              <button onclick="selectTimeSlot(this,'3PM')" class="time-slot-btn" style="padding:8px 14px;border-radius:6px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:11px;cursor:pointer">4PM</button>
             </div>
           </div>
           
@@ -1528,7 +1367,8 @@
             <div style="font-size:10px;color:var(--gray3);margin-bottom:6px;text-align:center">MEET UP SPOT</div>
             <select id="studentLocation" onchange="toggleOtherLocation()" style="width:100%;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;cursor:pointer">
               <option value="">Select a location</option>
-              <option value="SFU Main Entrance (Steps)">SFU Main Entrance (Steps)</option>
+              <option value="SFU Surrey Central (Front Steps)">SFU Surrey Central (Front Steps)</option>
+              <option value="SFU Engineering Building">SFU Engineering Building</option>
               <option value="other">Other (specify below)</option>
             </select>
             <input type="text" id="otherLocationInput" placeholder="Floor, office number, building..." style="display:none;width:100%;padding:10px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;outline:none;box-sizing:border-box;margin-top:8px">
@@ -1562,105 +1402,404 @@
         <div class="order-now-link" id="dogAddToCart" onclick="addDogsToCart()" style="display:block">OR ADD TO CART</div>
       </div>
     </div>
-    <!-- End DOGBOXX Section -->
+    <!-- End MUNCHBOXX Section -->
   </div>
   <!-- End SNACKS SECTION -->
-
-  <!-- VEGAN SECTION -->
+  <!-- VEGGIE SECTION -->
   <div id="veganSection" class="vegan-section">
-    <div class="dogboxx-section show" id="paneerSubSection">
-      <div class="dessert-header" style="text-align:center;margin-bottom:16px">
-        <div style="display:inline-block;background:linear-gradient(135deg,#4CAF50,#2E7D32);padding:6px 16px;border-radius:20px;margin-bottom:12px">
-          <span style="font-size:11px;color:#fff;letter-spacing:2px;font-weight:600">🌱 VEGAN MENU</span>
-        </div>
-        <h2 style="color:#4CAF50;font-size:28px;margin:0">TANDOORI PANEER SUB</h2>
-        <p style="color:var(--gray3);font-size:12px;margin-top:4px">High protein • 100% Vegetarian</p>
+    <div class="munchboxx-section show" id="vegetarianSection">
+      
+      <!-- Product Toggle -->
+      <div style="display:flex;gap:8px;margin-bottom:20px">
+        <button id="vegSubBtn" onclick="showVegProduct('sub')" style="flex:1;padding:14px;border-radius:10px;border:2px solid #4CAF50;background:rgba(76,175,80,0.15);color:#4CAF50;font-family:var(--font1);font-size:13px;cursor:pointer;letter-spacing:1px">PANEER SUB</button>
+        <button id="vegBowlBtn" onclick="showVegProduct('bowl')" style="flex:1;padding:14px;border-radius:10px;border:2px solid var(--gray2);background:var(--gray1);color:var(--gray3);font-family:var(--font1);font-size:13px;cursor:pointer;letter-spacing:1px">PANEER BOWL</button>
       </div>
 
-      <div class="cookie-builder sub-builder">
-        <!-- Sub Visual -->
-        <div style="background:linear-gradient(135deg,#4CAF50,#2E7D32);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden">
-          <div style="position:absolute;top:-30px;right:-30px;font-size:100px;opacity:0.1">🌱</div>
-          <div style="font-size:48px;margin-bottom:8px">🥪</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.8);letter-spacing:3px;margin-bottom:4px">2 PACK DEAL</div>
-          <div style="font-size:32px;color:#fff;font-family:var(--font1);font-weight:700">$10</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-top:4px">50g protein total</div>
+      <!-- PANEER SUB PRODUCT -->
+      <div id="vegSubProduct" class="cookie-builder">
+        
+        <!-- Hero Card -->
+        <div style="background:linear-gradient(145deg,#1a1a1a,#0d0d0d);border:1px solid #2a2a2a;border-radius:20px;padding:28px 24px;text-align:center;margin-bottom:20px">
+          <div style="font-size:11px;color:#4CAF50;letter-spacing:4px;margin-bottom:8px;font-weight:500">TANDOORI PANEER</div>
+          <div style="font-size:36px;color:#fff;font-family:var(--font1);font-weight:700;letter-spacing:2px">SUB</div>
+          <div style="font-size:13px;color:var(--gray3);margin-top:8px">2 pack</div>
+          <div style="font-size:42px;color:#4CAF50;font-family:var(--font1);margin-top:12px">$10</div>
         </div>
 
-        <!-- What's in it -->
-        <div style="background:var(--gray2);border-radius:12px;padding:16px;margin-bottom:12px">
-          <div style="font-size:10px;color:#4CAF50;letter-spacing:2px;margin-bottom:12px;font-weight:600">EACH SUB STACKED WITH</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="font-size:20px">🧀</span>
-              <div>
-                <div style="font-size:13px;color:var(--white);font-weight:500">Tandoori Spiced Paneer</div>
-                <div style="font-size:10px;color:var(--gray3)">70g per sub • 13g protein</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="font-size:20px">🧀</span>
-              <div>
-                <div style="font-size:13px;color:var(--white);font-weight:500">Mexi Blend Cheese</div>
-                <div style="font-size:10px;color:var(--gray3)">Melty & savory</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="font-size:20px">🧅</span>
-              <div>
-                <div style="font-size:13px;color:var(--white);font-weight:500">Crispy Fried Onions</div>
-                <div style="font-size:10px;color:var(--gray3)">Extra crunch</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="font-size:20px">🥖</span>
-              <div>
-                <div style="font-size:13px;color:var(--white);font-weight:500">Garlic Butter Toasted Bun</div>
-                <div style="font-size:10px;color:var(--gray3)">Soft & toasted</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <span style="font-size:20px">🔥</span>
-              <div>
-                <div style="font-size:13px;color:var(--white);font-weight:500">House Sauce</div>
-                <div style="font-size:10px;color:var(--gray3)">Creamy with a kick</div>
-              </div>
-            </div>
+        <!-- Macros Bar -->
+        <div style="display:flex;justify-content:space-between;background:#1a1a1a;border-radius:12px;padding:16px 12px;margin-bottom:20px;border:1px solid #2a2a2a">
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:#4CAF50">40g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">PROTEIN</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">600</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">CALS</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">48g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">CARBS</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">28g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">FAT</div>
           </div>
         </div>
 
-        <!-- Macros per sub -->
-        <div style="display:flex;justify-content:space-around;background:var(--gray2);border-radius:10px;padding:14px 8px;margin-bottom:14px;text-align:center">
-          <div>
-            <div style="font-family:var(--font1);font-size:20px;color:#4CAF50">~500</div>
-            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">CAL/SUB</div>
-          </div>
-          <div style="width:1px;background:var(--gray1)"></div>
-          <div>
-            <div style="font-family:var(--font1);font-size:20px;color:#4CAF50">25g</div>
-            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">PROTEIN/SUB</div>
-          </div>
-          <div style="width:1px;background:var(--gray1)"></div>
-          <div>
-            <div style="font-family:var(--font1);font-size:20px;color:var(--white)">100%</div>
-            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px">VEGETARIAN</div>
+        <!-- What's Included -->
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:14px">WHAT'S INSIDE</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="font-size:13px;color:var(--white)">Tandoori Paneer</div>
+            <div style="font-size:13px;color:var(--white)">Mexi Cheese</div>
+            <div style="font-size:13px;color:var(--white)">Crispy Onions</div>
+            <div style="font-size:13px;color:var(--white)">Toasted Bun</div>
           </div>
         </div>
-        <div style="text-align:center;font-size:10px;color:var(--gray3);margin-bottom:16px">2 subs = 50g protein • Full meal deal</div>
+
+        <!-- Sauce Selection -->
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:12px">ADD SAUCE</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button onclick="toggleSubSauce(this,'Spicy Mayo')" class="sub-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Spicy Mayo</button>
+            <button onclick="toggleSubSauce(this,'Ranch')" class="sub-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Ranch</button>
+            <button onclick="toggleSubSauce(this,'Caesar')" class="sub-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Caesar</button>
+            <button onclick="toggleSubSauce(this,'Hot Sauce')" class="sub-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Hot Sauce</button>
+          </div>
+        </div>
+
+        <!-- Delivery Section -->
+        <div style="background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.2);border-radius:12px;padding:18px;margin-bottom:16px">
+          <div style="text-align:center;font-size:12px;color:#4CAF50;font-weight:600;margin-bottom:14px;letter-spacing:1px">FREE DELIVERY TO SFU SURREY</div>
+          
+          <div style="margin-bottom:14px">
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:8px;letter-spacing:1px">TIME</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <button onclick="selectSubTimeSlot(this,'12PM')" class="sub-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">12PM</button>
+              <button onclick="selectSubTimeSlot(this,'1PM')" class="sub-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">1PM</button>
+              <button onclick="selectSubTimeSlot(this,'2PM')" class="sub-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">2PM</button>
+              <button onclick="selectSubTimeSlot(this,'3PM')" class="sub-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">4PM</button>
+            </div>
+          </div>
+          
+          <div>
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:8px;letter-spacing:1px">LOCATION</div>
+            <select id="subLocation" onchange="updateSubLocation()" style="width:100%;padding:14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-size:13px;outline:none;cursor:pointer">
+              <option value="">Select location</option>
+              <option value="SFU Surrey Central (Front Steps)">SFU Surrey Central (Front Steps)</option>
+              <option value="SFU Engineering Building">SFU Engineering Building</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="text" id="subOtherLocationInput" placeholder="Specify location..." style="display:none;width:100%;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-size:13px;outline:none;margin-top:8px;box-sizing:border-box">
+          </div>
+        </div>
 
         <!-- Order Summary -->
-        <div style="background:var(--gray1);border-radius:12px;padding:16px;margin-top:12px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--gray3)">2x Tandoori Paneer Sub</span><span style="color:var(--white)">$10.00</span></div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:var(--gray3)"><span>Delivery</span><span style="color:#4CAF50">FREE</span></div>
-          <div style="display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--gray2);font-weight:600"><span style="color:var(--white)">Total</span><span style="color:#4CAF50;font-size:20px">$10.00</span></div>
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">2x Paneer Sub</span><span style="color:var(--white)">$10.00</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Sauce</span><span id="subSauceLabel" style="color:var(--gray3)">None</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Delivery</span><span style="color:#4CAF50">FREE</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid #2a2a2a;font-size:15px;font-weight:600"><span style="color:var(--white)">Total</span><span style="color:#4CAF50">$10.00</span></div>
         </div>
 
         <!-- Order Button -->
-        <button id="subOrderBtn" onclick="orderPaneerSub()" style="width:100%;padding:18px;border-radius:12px;border:none;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;margin-top:14px;letter-spacing:1px;box-shadow:0 4px 15px rgba(76,175,80,0.3)">ORDER 2 PACK • $10.00</button>
+        <button id="subOrderBtn" onclick="orderPaneerSub()" style="width:100%;padding:18px;border-radius:12px;border:none;background:#4CAF50;color:#fff;font-family:var(--font1);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:1px">ORDER NOW</button>
+        <div onclick="addSubToCart()" style="text-align:center;padding:14px;color:var(--gray3);font-size:13px;cursor:pointer;margin-top:8px;border:1px solid var(--gray2);border-radius:10px">OR ADD TO CART</div>
       </div>
+
+      <!-- PANEER BOWL PRODUCT -->
+      <div id="vegBowlProduct" class="cookie-builder" style="display:none">
+        
+        <!-- Hero Card -->
+        <div style="background:linear-gradient(145deg,#1a1a1a,#0d0d0d);border:1px solid #2a2a2a;border-radius:20px;padding:28px 24px;text-align:center;margin-bottom:20px">
+          <div style="font-size:11px;color:#4CAF50;letter-spacing:4px;margin-bottom:8px;font-weight:500">TANDOORI PANEER</div>
+          <div style="font-size:36px;color:#fff;font-family:var(--font1);font-weight:700;letter-spacing:2px">BOWL</div>
+          <div style="font-size:13px;color:var(--gray3);margin-top:8px">Low carb, gluten free</div>
+          <div style="font-size:42px;color:#4CAF50;font-family:var(--font1);margin-top:12px">$10</div>
+        </div>
+
+        <!-- Macros Bar -->
+        <div style="display:flex;justify-content:space-between;background:#1a1a1a;border-radius:12px;padding:16px 12px;margin-bottom:20px;border:1px solid #2a2a2a">
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:#4CAF50">40g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">PROTEIN</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">450</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">CALS</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">8g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">CARBS</div>
+          </div>
+          <div style="width:1px;background:#2a2a2a"></div>
+          <div style="text-align:center;flex:1">
+            <div style="font-family:var(--font1);font-size:22px;color:var(--white)">32g</div>
+            <div style="font-size:9px;color:var(--gray3);letter-spacing:1px;margin-top:2px">FAT</div>
+          </div>
+        </div>
+
+        <!-- What's Included -->
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:14px">WHAT'S INSIDE</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="font-size:13px;color:var(--white)">Tandoori Paneer</div>
+            <div style="font-size:13px;color:var(--white)">Mexi Cheese</div>
+            <div style="font-size:13px;color:var(--white)">Shredded Lettuce</div>
+            <div style="font-size:13px;color:var(--white)">Crispy Onions</div>
+          </div>
+        </div>
+
+        <!-- Sauce Selection -->
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:12px">ADD SAUCE</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button onclick="toggleBowlSauce(this,'Spicy Mayo')" class="bowl-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Spicy Mayo</button>
+            <button onclick="toggleBowlSauce(this,'Ranch')" class="bowl-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Ranch</button>
+            <button onclick="toggleBowlSauce(this,'Caesar')" class="bowl-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Caesar</button>
+            <button onclick="toggleBowlSauce(this,'Balsamic')" class="bowl-sauce-btn" style="padding:10px 16px;border-radius:8px;border:2px solid var(--gray2);background:transparent;color:var(--white);font-size:12px;cursor:pointer;transition:all .2s">Balsamic</button>
+          </div>
+        </div>
+
+        <!-- Delivery Section -->
+        <div style="background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.2);border-radius:12px;padding:18px;margin-bottom:16px">
+          <div style="text-align:center;font-size:12px;color:#4CAF50;font-weight:600;margin-bottom:14px;letter-spacing:1px">FREE DELIVERY TO SFU SURREY</div>
+          
+          <div style="margin-bottom:14px">
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:8px;letter-spacing:1px">TIME</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <button onclick="selectBowlTimeSlot(this,'12PM')" class="bowl-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">12PM</button>
+              <button onclick="selectBowlTimeSlot(this,'1PM')" class="bowl-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">1PM</button>
+              <button onclick="selectBowlTimeSlot(this,'2PM')" class="bowl-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">2PM</button>
+              <button onclick="selectBowlTimeSlot(this,'3PM')" class="bowl-time-slot-btn" style="flex:1;min-width:60px;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-family:var(--font1);font-size:12px;cursor:pointer">4PM</button>
+            </div>
+          </div>
+          
+          <div>
+            <div style="font-size:10px;color:var(--gray3);margin-bottom:8px;letter-spacing:1px">LOCATION</div>
+            <select id="bowlLocation" onchange="updateBowlLocation()" style="width:100%;padding:14px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-size:13px;outline:none;cursor:pointer">
+              <option value="">Select location</option>
+              <option value="SFU Surrey Central (Front Steps)">SFU Surrey Central (Front Steps)</option>
+              <option value="SFU Engineering Building">SFU Engineering Building</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="text" id="bowlOtherLocationInput" placeholder="Specify location..." style="display:none;width:100%;padding:12px;border-radius:8px;border:2px solid var(--gray2);background:var(--gray1);color:var(--white);font-size:13px;outline:none;margin-top:8px;box-sizing:border-box">
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div style="background:#1a1a1a;border-radius:12px;padding:18px;margin-bottom:16px;border:1px solid #2a2a2a">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Paneer Bowl</span><span style="color:var(--white)">$10.00</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Sauce</span><span id="bowlSauceLabel" style="color:var(--gray3)">None</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Delivery</span><span style="color:#4CAF50">FREE</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid #2a2a2a;font-size:15px;font-weight:600"><span style="color:var(--white)">Total</span><span style="color:#4CAF50">$10.00</span></div>
+        </div>
+
+        <!-- Order Button -->
+        <button id="bowlOrderBtn" onclick="orderPaneerBowl()" style="width:100%;padding:18px;border-radius:12px;border:none;background:#4CAF50;color:#fff;font-family:var(--font1);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:1px">ORDER NOW</button>
+        <div onclick="addBowlToCart()" style="text-align:center;padding:14px;color:var(--gray3);font-size:13px;cursor:pointer;margin-top:8px;border:1px solid var(--gray2);border-radius:10px">OR ADD TO CART</div>
+      </div>
+
     </div>
   </div>
-  <!-- End VEGAN SECTION -->
+  <!-- End VEGGIE SECTION -->
+    <div id="dessertSection" class="dessert-section">
+      <div class="dessert-menu" id="dessertMenu">
+        <div class="dessert-menu-header">
+          <h2>DESSERTS</h2>
+          <p>Handcrafted by our partners, delivered by us</p>
+        </div>
+        <div class="dessert-cards">
+          <div class="dessert-card" onclick="openDessertType('cookie')">
+            <div class="dessert-card-icon cookie">🍪</div>
+            <div class="dessert-card-info">
+              <div class="dessert-card-name">COOKIEBOXX</div>
+              <div class="dessert-card-desc">by @_fudgeandcrumble_ · Stuffed cookies</div>
+              <div class="dessert-card-price">From $40</div>
+            </div>
+            <div class="dessert-card-arrow">›</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- COOKIEBOXX Section - Premium -->
+      <div class="cookieboxx-section" id="cookieboxxSection">
+        <button class="dessert-back" onclick="backToDessertMenu()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        
+        <!-- Partner Hero Banner -->
+        <div style="background:linear-gradient(145deg,#2C1810,#1a0f0a);border-radius:20px;padding:24px;text-align:center;margin-bottom:20px;border:1px solid #3D2510">
+          <div style="font-size:10px;color:#D4A574;letter-spacing:3px;margin-bottom:12px;font-weight:500">HANDCRAFTED BY OUR PARTNER</div>
+          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank">
+            <img src="/mnt/user-data/uploads/1771091517852_image.png" alt="Fudge & Crumble" style="max-width:200px;height:auto;margin-bottom:12px">
+          </a>
+          <div style="font-size:24px;font-family:var(--font1);color:#fff;letter-spacing:3px;margin-top:16px">COOKIEBOXX</div>
+          <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#D4A574;text-decoration:none;margin-top:8px;background:rgba(212,165,116,0.1);padding:6px 14px;border-radius:20px;border:1px solid rgba(212,165,116,0.3)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4A574"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @_fudgeandcrumble_
+          </a>
+        </div>
+
+        <!-- Gift Toggle -->
+        <div onclick="toggleCookieGift()" style="display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:2px solid #2a2a2a;border-radius:14px;padding:16px 18px;margin-bottom:20px;cursor:pointer;transition:all .2s" id="cookieGiftToggle">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#D4A574,#B8956C);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">🎁</div>
+            <div>
+              <div style="font-size:14px;color:#fff;font-weight:600">Send as Gift</div>
+              <div style="font-size:11px;color:var(--gray3)">Add a personal message</div>
+            </div>
+          </div>
+          <div id="cookieGiftSwitch" style="width:50px;height:28px;background:#2a2a2a;border-radius:14px;position:relative;transition:all .3s">
+            <div style="position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:all .3s" id="cookieGiftKnob"></div>
+          </div>
+        </div>
+
+        <!-- Gift Message (hidden by default) -->
+        <div id="cookieGiftMessage" style="display:none;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:18px;margin-bottom:20px">
+          <div style="font-size:11px;color:#D4A574;letter-spacing:2px;margin-bottom:10px">GIFT MESSAGE</div>
+          <textarea id="cookieGiftText" placeholder="Write your message here..." style="width:100%;height:80px;background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:#fff;font-size:13px;resize:none;outline:none;box-sizing:border-box"></textarea>
+          <input type="text" id="cookieRecipient" placeholder="Recipient's name" style="width:100%;padding:12px;background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;color:#fff;font-size:13px;outline:none;margin-top:10px;box-sizing:border-box">
+        </div>
+
+        <!-- Pack Size Selector -->
+        <div style="margin-bottom:20px">
+          <div style="font-size:11px;color:var(--gray3);letter-spacing:2px;margin-bottom:12px">SELECT BOX SIZE</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div class="cookie-pack-chip" onclick="selectPackSize(10)" data-size="10" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
+              <div style="font-family:var(--font1);font-size:22px;color:#fff">10</div>
+              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$40</div>
+            </div>
+            <div class="cookie-pack-chip" onclick="selectPackSize(20)" data-size="20" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
+              <div style="font-family:var(--font1);font-size:22px;color:#fff">20</div>
+              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$75</div>
+            </div>
+            <div class="cookie-pack-chip" onclick="selectPackSize(30)" data-size="30" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
+              <div style="font-family:var(--font1);font-size:22px;color:#fff">30</div>
+              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$105</div>
+            </div>
+            <div class="cookie-pack-chip" onclick="selectPackSize(50)" data-size="50" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
+              <div style="font-family:var(--font1);font-size:22px;color:#fff">50</div>
+              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$170</div>
+            </div>
+            <div class="cookie-pack-chip" onclick="selectPackSize(100)" data-size="100" style="flex:1;min-width:55px;background:#1a1a1a;border:2px solid #2a2a2a;border-radius:12px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s">
+              <div style="font-family:var(--font1);font-size:22px;color:#fff">100</div>
+              <div style="font-size:10px;color:var(--gray3);margin-top:2px">$310</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Cookie Box -->
+        <div style="background:linear-gradient(145deg,#2C1810,#1a0f0a);border-radius:20px;padding:20px;margin-bottom:20px;border:1px solid #3D2510">
+          <div style="background:#0d0808;border-radius:14px;padding:16px;min-height:80px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center" id="boxInner"></div>
+          <div style="text-align:center;margin-top:12px;font-size:13px;color:#D4A574" id="boxCount">0 of 10 cookies</div>
+        </div>
+
+        <!-- Flavor Selection -->
+        <div style="margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <div style="font-size:11px;color:var(--gray3);letter-spacing:2px">CHOOSE FLAVORS</div>
+            <div style="font-size:11px;color:#D4A574">Mix & match</div>
+          </div>
+          
+          <div style="display:flex;flex-direction:column;gap:10px" id="cookieFlavorList">
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#E8A87C,#C38D6B);border-radius:50%"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">Thai Tea</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('thaitea',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_thaitea" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('thaitea',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#2D2D2D,#1a1a1a);border-radius:50%;border:2px solid #FFD700"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">Black Sesame Salted Egg</div><div style="font-size:11px;color:var(--gray3)">$4.50</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('blacksesame',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_blacksesame" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('blacksesame',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#C4956A,#A67B5B);border-radius:50%"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">Biscoff</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('biscoff',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_biscoff" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('biscoff',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border-radius:50%;border:2px solid #fff"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">Cookies N Cream</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('cookiescream',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_cookiescream" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('cookiescream',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#8B4513,#5D2E0C);border-radius:50%"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">S'mores</div><div style="font-size:11px;color:var(--gray3)">$4.00</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('smores',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_smores" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('smores',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+
+            <div class="cookie-flavor-row" style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:14px 16px">
+              <div style="display:flex;align-items:center;gap:14px">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,#C41E3A,#8B0000);border-radius:50%"></div>
+                <div><div style="font-size:14px;color:#fff;font-weight:500">Raspberry Pistachio</div><div style="font-size:11px;color:var(--gray3)">$4.50</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onclick="adjustCookieQty('raspberry',-1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#2a2a2a;color:#fff;font-size:16px;cursor:pointer">−</button>
+                <span id="qty_raspberry" style="font-family:var(--font1);font-size:18px;color:#D4A574;min-width:20px;text-align:center">0</span>
+                <button onclick="adjustCookieQty('raspberry',1)" style="width:34px;height:34px;border-radius:50%;border:none;background:#D4A574;color:#2C1810;font-size:16px;cursor:pointer">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;padding:18px;margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Cookies</span><span id="cookieSummaryQty" style="color:#fff">0 selected</span></div>
+          <div id="cookieGiftRow" style="display:none;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Gift</span><span style="color:#D4A574">Yes</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px"><span style="color:var(--gray3)">Delivery</span><span style="color:#4CAF50">FREE</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid #2a2a2a;font-size:16px;font-weight:600"><span style="color:#fff">Total</span><span id="cookieTotal" style="color:#D4A574">$0.00</span></div>
+        </div>
+
+        <!-- Order Button -->
+        <button id="cookieOrderBtn" onclick="orderCookiesNew()" style="width:100%;padding:20px;border-radius:14px;border:none;background:linear-gradient(135deg,#D4A574,#B8956C);color:#2C1810;font-family:var(--font1);font-size:16px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-bottom:10px">SELECT COOKIES FIRST</button>
+        <div onclick="addCookiesToCart()" style="text-align:center;padding:14px;color:var(--gray3);font-size:13px;cursor:pointer;border:1px solid #2a2a2a;border-radius:12px">OR ADD TO CART</div>
+      </div>
+    </div>
+    <!-- End COOKIEBOXX Section -->
+    
+  </div>
+
 
     <!-- Cookie Detail Modal -->
     <div class="cookie-modal-overlay" id="cookieModal" onclick="closeCookieModal()">
@@ -1952,14 +2091,9 @@ function toggleMenu(t){
 function openDessertType(type) {
   document.getElementById('dessertMenu').style.display = 'none';
   document.getElementById('cookieboxxSection').classList.remove('show');
-  document.getElementById('brownieboxxSection').classList.remove('show');
   
   if (type === 'cookie') {
     document.getElementById('cookieboxxSection').classList.add('show');
-    initCookieListNew();
-  } else if (type === 'brownie') {
-    document.getElementById('brownieboxxSection').classList.add('show');
-    initBrownieGrid();
   }
 }
 
@@ -2296,11 +2430,44 @@ function updateBoxVisualNew() {
   }
 }
 
+// Cookie gift toggle
+let cookieGiftMode = false;
+function toggleCookieGift() {
+  cookieGiftMode = !cookieGiftMode;
+  const toggle = document.getElementById('cookieGiftToggle');
+  const knob = document.getElementById('cookieGiftKnob');
+  const switchEl = document.getElementById('cookieGiftSwitch');
+  const messageBox = document.getElementById('cookieGiftMessage');
+  const giftRow = document.getElementById('cookieGiftRow');
+  
+  if (cookieGiftMode) {
+    toggle.style.borderColor = '#D4A574';
+    switchEl.style.background = '#D4A574';
+    knob.style.left = '25px';
+    if (messageBox) messageBox.style.display = 'block';
+    if (giftRow) giftRow.style.display = 'flex';
+  } else {
+    toggle.style.borderColor = '#2a2a2a';
+    switchEl.style.background = '#2a2a2a';
+    knob.style.left = '3px';
+    if (messageBox) messageBox.style.display = 'none';
+    if (giftRow) giftRow.style.display = 'none';
+  }
+}
+
 // Select pack size
 function selectPackSize(size) {
   selectedPackSize = size;
   
-  // Update pack chips
+  // Update pack chips - new style
+  document.querySelectorAll('.cookie-pack-chip').forEach(chip => {
+    const isSelected = parseInt(chip.dataset.size) === size;
+    chip.style.borderColor = isSelected ? '#D4A574' : '#2a2a2a';
+    const priceEl = chip.querySelector('div:last-child');
+    if (priceEl) priceEl.style.color = isSelected ? '#D4A574' : 'var(--gray3)';
+  });
+  
+  // Also update old style chips if they exist
   document.querySelectorAll('.pack-chip').forEach(chip => {
     chip.classList.toggle('selected', parseInt(chip.dataset.size) === size);
   });
@@ -2328,7 +2495,26 @@ function updateCookieUI() {
   if (progressTarget) progressTarget.textContent = targetQty;
   if (progressFill) progressFill.style.width = Math.min(100, (totalQty / targetQty) * 100) + '%';
   
-  // Update sticky button
+  // Update new summary elements
+  const summaryQty = document.getElementById('cookieSummaryQty');
+  const totalEl = document.getElementById('cookieTotal');
+  const orderBtn = document.getElementById('cookieOrderBtn');
+  const boxCountEl = document.getElementById('boxCount');
+  
+  if (summaryQty) summaryQty.textContent = totalQty + ' of ' + targetQty;
+  if (totalEl) totalEl.textContent = '$' + price.toFixed(2);
+  if (boxCountEl) boxCountEl.textContent = totalQty + ' of ' + targetQty + ' cookies';
+  if (orderBtn) {
+    if (totalQty >= targetQty) {
+      orderBtn.textContent = 'ORDER NOW • $' + price.toFixed(2);
+      orderBtn.style.opacity = '1';
+    } else {
+      orderBtn.textContent = 'SELECT ' + remaining + ' MORE COOKIES';
+      orderBtn.style.opacity = '0.7';
+    }
+  }
+  
+  // Update sticky button (legacy)
   const btn = document.getElementById('stickyOrderBtn');
   const btnQtyText = document.getElementById('btnQtyText');
   const btnPriceText = document.getElementById('btnPriceText');
@@ -3232,14 +3418,14 @@ function orderBrownies() {
 
 // ==================== SNACKS NAVIGATION ====================
 function openSnackType(type) {
-  // DOGBOXX is the only item, always visible
+  // MUNCHBOXX is the only item, always visible
 }
 
 function backToSnacksMenu() {
-  // No menu to go back to, DOGBOXX is always shown
+  // No menu to go back to, MUNCHBOXX is always shown
 }
 
-// ==================== DOGBOXX SECTION ====================
+// ==================== MUNCHBOXX SECTION ====================
 const DOG_SIZES = {
   student: { count: 2, label: 'Student Special', serves: 'Feeds 1-2', price: 10, noDrink: true, unlimitedSauce: true },
   regular: { count: 10, label: 'Party', serves: 'Feeds 8-10', price: 60 },
@@ -3468,7 +3654,7 @@ function addDogsToCart() {
   
   addToCart({
     type: 'dogs',
-    name: 'DOGBOXX ' + size.count + (selectedDogSize === 'student' ? ' Student Deal' : ' Pack'),
+    name: 'MUNCHBOXX ' + size.count + (selectedDogSize === 'student' ? ' Student Deal' : ' Pack'),
     details: details,
     price: size.price,
     size: selectedDogSize,
@@ -3592,25 +3778,178 @@ function resetDogBuilder() {
   
   updateDogSummary();
 }
-// ==================== END DOGBOXX SECTION ====================
+// ==================== END MUNCHBOXX SECTION ====================
 
-// ==================== PANEER SUB SECTION ====================
-const SHOPIFY_PANEER_SUB = '47080319811739'; // Update with real Shopify variant ID for 2-pack
+// ==================== VEGGIE SECTION ====================
+let selectedSubTime = '';
+let selectedSubLocation = '';
+let selectedSubSauces = [];
+let selectedBowlTime = '';
+let selectedBowlLocation = '';
+let selectedBowlSauces = [];
 
-function orderPaneerSub() {
-  const variantId = SHOPIFY_PANEER_SUB;
+function showVegProduct(product) {
+  document.getElementById('vegSubProduct').style.display = 'none';
+  document.getElementById('vegBowlProduct').style.display = 'none';
+  document.getElementById('vegSubBtn').style.borderColor = 'var(--gray2)';
+  document.getElementById('vegSubBtn').style.background = 'var(--gray1)';
+  document.getElementById('vegSubBtn').style.color = 'var(--gray3)';
+  document.getElementById('vegBowlBtn').style.borderColor = 'var(--gray2)';
+  document.getElementById('vegBowlBtn').style.background = 'var(--gray1)';
+  document.getElementById('vegBowlBtn').style.color = 'var(--gray3)';
   
-  if (variantId && variantId.startsWith('4708')) {
-    // Shopify checkout
-    const shopifyUrl = 'https://meesge-h5.myshopify.com/cart/' + variantId + ':1?checkout[note]=2x%20Tandoori%20Paneer%20Sub';
-    window.open(shopifyUrl, '_blank');
+  if (product === 'sub') {
+    document.getElementById('vegSubProduct').style.display = 'block';
+    document.getElementById('vegSubBtn').style.borderColor = '#4CAF50';
+    document.getElementById('vegSubBtn').style.background = 'rgba(76,175,80,0.15)';
+    document.getElementById('vegSubBtn').style.color = '#4CAF50';
   } else {
-    showToast('Opening order form...', 'success', 2000);
-    // Fallback - could open a form or message
+    document.getElementById('vegBowlProduct').style.display = 'block';
+    document.getElementById('vegBowlBtn').style.borderColor = '#4CAF50';
+    document.getElementById('vegBowlBtn').style.background = 'rgba(76,175,80,0.15)';
+    document.getElementById('vegBowlBtn').style.color = '#4CAF50';
   }
 }
 
-// ==================== END PANEER SUB SECTION ====================
+function selectSubTimeSlot(btn, time) {
+  document.querySelectorAll('.sub-time-slot-btn').forEach(b => {
+    b.style.borderColor = 'var(--gray2)';
+    b.style.background = 'var(--gray1)';
+  });
+  btn.style.borderColor = '#4CAF50';
+  btn.style.background = 'rgba(76,175,80,0.2)';
+  selectedSubTime = time;
+}
+
+function updateSubLocation() {
+  const select = document.getElementById('subLocation');
+  const otherInput = document.getElementById('subOtherLocationInput');
+  if (select.value === 'other') {
+    otherInput.style.display = 'block';
+    selectedSubLocation = '';
+  } else {
+    otherInput.style.display = 'none';
+    selectedSubLocation = select.value;
+  }
+}
+
+function toggleSubSauce(btn, sauce) {
+  const idx = selectedSubSauces.indexOf(sauce);
+  if (idx > -1) {
+    selectedSubSauces.splice(idx, 1);
+    btn.style.borderColor = 'var(--gray2)';
+    btn.style.background = 'transparent';
+  } else {
+    selectedSubSauces.push(sauce);
+    btn.style.borderColor = '#4CAF50';
+    btn.style.background = 'rgba(76,175,80,0.2)';
+  }
+  document.getElementById('subSauceLabel').textContent = selectedSubSauces.length > 0 ? selectedSubSauces.join(', ') : 'None';
+  document.getElementById('subSauceLabel').style.color = selectedSubSauces.length > 0 ? 'var(--white)' : 'var(--gray3)';
+}
+
+function selectBowlTimeSlot(btn, time) {
+  document.querySelectorAll('.bowl-time-slot-btn').forEach(b => {
+    b.style.borderColor = 'var(--gray2)';
+    b.style.background = 'var(--gray1)';
+  });
+  btn.style.borderColor = '#4CAF50';
+  btn.style.background = 'rgba(76,175,80,0.2)';
+  selectedBowlTime = time;
+}
+
+function updateBowlLocation() {
+  const select = document.getElementById('bowlLocation');
+  const otherInput = document.getElementById('bowlOtherLocationInput');
+  if (select.value === 'other') {
+    otherInput.style.display = 'block';
+    selectedBowlLocation = '';
+  } else {
+    otherInput.style.display = 'none';
+    selectedBowlLocation = select.value;
+  }
+}
+
+function toggleBowlSauce(btn, sauce) {
+  const idx = selectedBowlSauces.indexOf(sauce);
+  if (idx > -1) {
+    selectedBowlSauces.splice(idx, 1);
+    btn.style.borderColor = 'var(--gray2)';
+    btn.style.background = 'transparent';
+  } else {
+    selectedBowlSauces.push(sauce);
+    btn.style.borderColor = '#4CAF50';
+    btn.style.background = 'rgba(76,175,80,0.2)';
+  }
+  document.getElementById('bowlSauceLabel').textContent = selectedBowlSauces.length > 0 ? selectedBowlSauces.join(', ') : 'None';
+  document.getElementById('bowlSauceLabel').style.color = selectedBowlSauces.length > 0 ? 'var(--white)' : 'var(--gray3)';
+}
+
+function orderPaneerSub() {
+  const time = selectedSubTime;
+  const location = selectedSubLocation || document.getElementById('subOtherLocationInput').value;
+  const sauces = selectedSubSauces.join(', ') || 'None';
+  
+  if (!time) {
+    showToast('Please select a time', 'info', 2000);
+    return;
+  }
+  if (!location) {
+    showToast('Please select a location', 'info', 2000);
+    return;
+  }
+  
+  const note = `2x Paneer Sub | Time: ${time} | Location: ${location} | Sauce: ${sauces}`;
+  showToast('Opening checkout...', 'success', 2000);
+  // Add Shopify integration here when ready
+  console.log(note);
+}
+
+function orderPaneerBowl() {
+  const time = selectedBowlTime;
+  const location = selectedBowlLocation || document.getElementById('bowlOtherLocationInput').value;
+  const sauces = selectedBowlSauces.join(', ') || 'None';
+  
+  if (!time) {
+    showToast('Please select a time', 'info', 2000);
+    return;
+  }
+  if (!location) {
+    showToast('Please select a location', 'info', 2000);
+    return;
+  }
+  
+  const note = `Paneer Bowl | Time: ${time} | Location: ${location} | Sauce: ${sauces}`;
+  showToast('Opening checkout...', 'success', 2000);
+  // Add Shopify integration here when ready
+  console.log(note);
+}
+
+function addSubToCart() {
+  const sauces = selectedSubSauces.join(', ') || 'None';
+  addToCart({
+    id: 'paneer-sub',
+    name: 'Paneer Sub 2-Pack',
+    price: 10,
+    quantity: 1,
+    notes: 'Sauce: ' + sauces
+  });
+  showToast('Added to cart!', 'success', 2000);
+}
+
+function addBowlToCart() {
+  const sauces = selectedBowlSauces.join(', ') || 'None';
+  addToCart({
+    id: 'paneer-bowl',
+    name: 'Paneer Bowl',
+    price: 10,
+    quantity: 1,
+    notes: 'Sauce: ' + sauces
+  });
+  showToast('Added to cart!', 'success', 2000);
+}
+
+// ==================== END VEGGIE SECTION ====================
 
 // ==================== BROWNIE TRAY SECTION ====================
 const BROWNIE_FLAVORS = {
