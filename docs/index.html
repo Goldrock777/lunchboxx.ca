@@ -2488,7 +2488,13 @@ function adjustCookieQty(id, delta) {
   if (!cookieCart[id]) cookieCart[id] = 0;
   cookieCart[id] = Math.max(0, cookieCart[id] + delta);
   
-  // Update the specific item
+  // Update the qty span by ID
+  const qtySpan = document.getElementById('qty_' + id);
+  if (qtySpan) {
+    qtySpan.textContent = cookieCart[id];
+  }
+  
+  // Update the specific item (for other UI)
   const item = document.querySelector(`.cookie-item[data-id="${id}"]`);
   if (item) {
     const qty = cookieCart[id];
