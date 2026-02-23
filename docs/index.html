@@ -229,14 +229,14 @@
     .menu-toggle button.team-active{background:var(--blue);color:var(--white)}
 
     /* Dessert Section */
-    .dessert-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
-    .dessert-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px;margin-top:-16px}
+    .dessert-section{display:none}
+    .dessert-section.show{display:block;padding:0 20px}
     
     /* Snacks Section */
-    .snacks-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
-    .snacks-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px}
-    .vegan-section{display:none!important;visibility:hidden;position:absolute;left:-9999px}
-    .vegan-section.show{display:block!important;visibility:visible;position:relative;left:0;padding:0 20px}
+    .snacks-section{display:none}
+    .snacks-section.show{display:block;padding:0 20px}
+    .vegan-section{display:none}
+    .vegan-section.show{display:block;padding:0 20px}
     #toggleVegan{background:#4CAF50;color:#fff}
     #toggleVegan.vegan-active{background:#2E7D32;box-shadow:0 0 15px rgba(76,175,80,0.4)}
     .snacks-menu{padding-top:10px}
@@ -349,11 +349,9 @@
     .wing-dip .dip-dot{width:20px;height:20px;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.2)}
     
     /* Dessert Menu */
-    .dessert-menu{padding:0}
-    .dessert-menu-header{text-align:center;margin-bottom:8px;margin-top:0;padding-top:0}
-    .dessert-menu-header h2{font-family:var(--font1);font-size:24px;color:var(--white);margin-bottom:2px;letter-spacing:3px}
-    .dessert-menu-header p{font-size:11px;color:var(--gray3)}
-    .dessert-cards{display:flex;flex-direction:column;gap:10px}
+    .dessert-menu{padding:0;margin:0}
+    .dessert-menu-header{display:none}
+    .dessert-cards{display:flex;flex-direction:column;gap:10px;margin:0;padding:0}
     .dessert-card{background:linear-gradient(135deg,#2a2318,#1a1510);border:2px solid #3d3428;border-radius:14px;padding:14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px}
     .dessert-card:hover{border-color:#D4A574;transform:translateY(-2px)}
     .dessert-card:active{transform:scale(.98)}
