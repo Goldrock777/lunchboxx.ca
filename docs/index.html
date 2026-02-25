@@ -220,7 +220,7 @@
     .trust-item p{font-size:clamp(10px,2.5vw,12px);color:var(--gray3)}
 
     /* Toggle - 3 options */
-    .toggle-wrap{padding:0 20px 0}
+    .toggle-wrap{padding:0 20px 0;margin-bottom:16px;position:relative;z-index:100}
     .menu-toggle{display:flex;background:var(--gray2);border-radius:10px;padding:4px}
     .menu-toggle button{flex:1;padding:12px 8px;border:none;background:transparent;color:var(--gray3);font-family:var(--font1);font-size:13px;letter-spacing:1px;cursor:pointer;border-radius:8px;transition:all .2s}
     .menu-toggle button.active{background:var(--orange);color:var(--white)}
@@ -229,8 +229,8 @@
     .menu-toggle button.team-active{background:var(--blue);color:var(--white)}
 
     /* Dessert Section */
-    .dessert-section{display:none}
-    .dessert-section.show{display:block;padding:0 20px}
+    .dessert-section{display:none;background:transparent}
+    .dessert-section.show{display:block;padding:0 20px;background:transparent}
     
     /* Snacks Section */
     .snacks-section{display:none}
@@ -368,8 +368,8 @@
     .dessert-card.brownie-card .dessert-card-price{color:#8B6914}
     
     /* Sub-sections hidden by default */
-    .cookieboxx-section,.brownieboxx-section{display:none}
-    .cookieboxx-section.show,.brownieboxx-section.show{display:block}
+    .cookieboxx-section,.brownieboxx-section{display:none;background:transparent}
+    .cookieboxx-section.show,.brownieboxx-section.show{display:block;background:transparent}
     
     /* Back button */
     .dessert-back{display:flex;align-items:center;gap:8px;background:none;border:none;color:var(--gray3);font-size:13px;cursor:pointer;padding:4px 0;margin-bottom:4px}
@@ -1616,7 +1616,7 @@
       </div>
       
       <!-- COOKIEBOXX Section - Premium -->
-      <div class="cookieboxx-section" id="cookieboxxSection" style="background:linear-gradient(180deg,#FFF5F7,#FCEEF1);margin:-20px;padding:20px;border-radius:0">
+      <div class="cookieboxx-section" id="cookieboxxSection" style="background:transparent;margin:0;padding:0;padding-top:16px">
         <button class="dessert-back" onclick="backToDessertMenu()" style="margin-bottom:4px;color:#8B5A6B">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         </button>
