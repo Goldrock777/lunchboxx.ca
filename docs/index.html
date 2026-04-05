@@ -99,6 +99,8 @@
     .menu-card:active { transform:scale(.98); }
     .menu-card.popular { border-color:var(--orange); }
     .menu-card.popular::before { content:'MOST POPULAR'; position:absolute; top:0; right:0; background:var(--orange); color:var(--bg); font-family:var(--f1); font-size:10px; padding:4px 12px; border-radius:0 0 0 10px; letter-spacing:1px; }
+    .menu-card.best-value { border-color:var(--green); }
+    .menu-card.best-value::before { content:'BEST VALUE'; position:absolute; top:0; right:0; background:var(--green); color:var(--bg); font-family:var(--f1); font-size:10px; padding:4px 12px; border-radius:0 0 0 10px; letter-spacing:1px; }
     .mc-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
     .mc-name { font-family:var(--f1); font-size:22px; letter-spacing:1px; line-height:1; }
     .mc-price { font-family:var(--f1); font-size:30px; color:var(--amber); }
@@ -145,9 +147,8 @@
     .zone-head { padding:14px 16px; display:flex; align-items:center; gap:10px; }
     .zone-head h3 { font-family:var(--f1); font-size:16px; letter-spacing:1px; }
     .zone-head span { font-size:10px; color:var(--green); font-weight:600; }
-    .zone-map { position:relative; width:100%; height:280px; }
-    .zone-map iframe { display:none; }
-    #zoneMap { width:100%; height:100%; z-index:1; }
+    .zone-map { position:relative; width:100%; height:280px; overflow:hidden; }
+    #zoneMap { width:100%; height:280px; z-index:1; }
     .leaflet-control-zoom a { background:var(--s2)!important; color:var(--white)!important; border-color:var(--s3)!important; }
     .leaflet-bar { border:none!important; box-shadow:0 2px 8px rgba(0,0,0,.4)!important; }
     .zone-badges { display:flex; gap:6px; padding:10px 14px; flex-wrap:wrap; justify-content:center; border-top:1px solid var(--s3); }
@@ -350,19 +351,19 @@
 
     <div class="menu">
       <div class="menu-card" onclick="openBuilder('duo')">
-        <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">40g PROTEIN</span></div><div class="mc-price">$12</div></div>
-        <div class="mc-desc">2 loaded dogs. Perfect solo late-night fuel.</div>
+        <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">40g PROTEIN</span></div><div class="mc-price">$15</div></div>
+        <div class="mc-desc">Better than a solo pizza. More protein, more flavor, no wait.</div>
         <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">~900</div><div class="lbl">CAL</div></div><div class="mc-stat"><div class="val">40g</div><div class="lbl">PROTEIN</div></div></div>
       </div>
       <div class="menu-card popular" onclick="openBuilder('quad')">
         <div class="mc-top"><div><div class="mc-name">QUAD</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">80g PROTEIN</span></div><div class="mc-price">$20</div></div>
-        <div class="mc-desc">4 loaded dogs. Split with a friend.</div>
+        <div class="mc-desc">Built for real hunger or splitting. The late-night move.</div>
         <div class="mc-stats"><div class="mc-stat"><div class="val">4</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">~1800</div><div class="lbl">CAL</div></div><div class="mc-stat"><div class="val">80g</div><div class="lbl">PROTEIN</div></div></div>
       </div>
-      <div class="menu-card" onclick="openBuilder('party')">
+      <div class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">200g PROTEIN</span></div><div class="mc-price">$50</div></div>
-        <div class="mc-desc">10 loaded dogs + 2 free 2L drinks. Feed the whole crew.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">10</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">2×2L</div><div class="lbl">DRINKS</div></div><div class="mc-stat"><div class="val">200g</div><div class="lbl">PROTEIN</div></div></div>
+        <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">10</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">LARGE</div></div><div class="mc-stat"><div class="val">1×2L</div><div class="lbl">DRINK</div></div></div>
       </div>
     </div>
 
@@ -372,11 +373,9 @@
       <label style="font-size:10px;color:var(--gray);letter-spacing:1px;display:block;margin-bottom:4px">SPECIAL REQUESTS</label>
       <input type="text" id="specialReq" placeholder="e.g. No cheese, no sauce, extra mayo..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--s3);background:var(--s1);color:var(--white);font-size:12px;outline:none;box-sizing:border-box">
       <div class="drink-wrap" id="drinkWrap" style="display:none">
-        <h4>2 FREE 2L DRINKS</h4>
-        <p style="font-size:9px;color:var(--gray);text-align:center;margin-bottom:6px">Drink 1</p>
+        <h4>1 FREE 2L DRINK INCLUDED</h4>
+        <p style="font-size:9px;color:var(--gray);text-align:center;margin-bottom:6px">Pick your drink</p>
         <div class="drink-opts" id="drinkOpts1"><button class="drink-opt" onclick="pickDrink(1,this,'Pepsi')">Pepsi</button><button class="drink-opt" onclick="pickDrink(1,this,'Coke')">Coke</button><button class="drink-opt" onclick="pickDrink(1,this,'Sprite')">Sprite</button><button class="drink-opt" onclick="pickDrink(1,this,'Dr Pepper')">Dr Pepper</button></div>
-        <p style="font-size:9px;color:var(--gray);text-align:center;margin:6px 0">Drink 2</p>
-        <div class="drink-opts" id="drinkOpts2"><button class="drink-opt" onclick="pickDrink(2,this,'Pepsi')">Pepsi</button><button class="drink-opt" onclick="pickDrink(2,this,'Coke')">Coke</button><button class="drink-opt" onclick="pickDrink(2,this,'Sprite')">Sprite</button><button class="drink-opt" onclick="pickDrink(2,this,'Dr Pepper')">Dr Pepper</button></div>
       </div>
       <div class="summary">
         <div class="sum-row"><span id="sumLabel">2 Loaded Dogs</span><span id="sumSize">DUO</span></div>
@@ -483,9 +482,9 @@
 <script>
 // ═══ CONFIG ═══
 var PACKS = {
-  duo:   { count:2,  price:12, label:'DUO',        drinks:0 },
+  duo:   { count:2,  price:15, label:'DUO',        drinks:0 },
   quad:  { count:4,  price:20, label:'QUAD',       drinks:0 },
-  party: { count:10, price:50, label:'PARTY PACK', drinks:2 }
+  party: { count:10, price:50, label:'PARTY PACK', drinks:1 }
 };
 
 var SHOPIFY = 'meesge-h5.myshopify.com';
@@ -582,7 +581,7 @@ function updateSummary() {
   document.getElementById('sumTotal').textContent = '$' + pk.price.toFixed(2);
   document.getElementById('orderBtn').textContent = 'ORDER NOW · $' + pk.price.toFixed(2);
   if (pk.drinks > 0) {
-    var d = [selectedDrinks[1], selectedDrinks[2]].filter(Boolean).join(', ');
+    var d = selectedDrinks[1];
     var sd = document.getElementById('sumDrinks');
     sd.textContent = d || 'Pick above';
     sd.style.color = d ? 'var(--green)' : 'var(--gray)';
@@ -600,8 +599,8 @@ function addToCart() {
   var pk = PACKS[currentPack];
   var detail = pk.count + ' loaded dogs';
   if (pk.drinks > 0) {
-    var d = [selectedDrinks[1], selectedDrinks[2]].filter(Boolean).join(' & ');
-    if (d) detail += ' · ' + d;
+    detail += ' · Yam Fries';
+    if (selectedDrinks[1]) detail += ' · ' + selectedDrinks[1] + ' 2L';
   }
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
@@ -870,75 +869,6 @@ function pickDate(y, m, d) {
 function pickTomorrow() { var d = new Date(); d.setDate(d.getDate() + 1); pickDate(d.getFullYear(), d.getMonth(), d.getDate()); }
 function pickDayAfter() { var d = new Date(); d.setDate(d.getDate() + 2); pickDate(d.getFullYear(), d.getMonth(), d.getDate()); }
 
-// ═══ ADDRESS CHECK ═══
-function checkAddress() {
-  var input = document.getElementById('zoneSearch').value.trim();
-  var result = document.getElementById('zoneResult');
-  if (!input) { showToast('Enter an address'); return; }
-
-  // Add Surrey BC context if not specified
-  var query = input;
-  if (query.toLowerCase().indexOf('surrey') === -1 && query.toLowerCase().indexOf('bc') === -1) {
-    query += ', Surrey, BC, Canada';
-  }
-
-  result.style.display = 'block';
-  result.style.background = 'var(--s2)';
-  result.style.color = 'var(--gray)';
-  result.textContent = 'Checking...';
-
-  fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query))
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (!data || !data.length) {
-        result.style.background = 'rgba(232,57,44,.15)';
-        result.style.color = '#ff6b6b';
-        result.textContent = '❌ Address not found. Try including street number.';
-        return;
-      }
-
-      var lat = parseFloat(data[0].lat);
-      var lng = parseFloat(data[0].lon);
-
-      // Remove old marker
-      if (window._userMarker) window._zoneMap.removeLayer(window._userMarker);
-
-      // Add new marker
-      window._userMarker = L.marker([lat, lng], {
-        icon: L.divIcon({
-          className: '',
-          html: '<div style="background:#fff;color:#000;font-size:9px;padding:3px 8px;border-radius:6px;white-space:nowrap;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.5);font-weight:700">📍 YOU</div>',
-          iconSize: [0, 0],
-          iconAnchor: [0, 0]
-        })
-      }).addTo(window._zoneMap);
-
-      // Pan to show the marker
-      window._zoneMap.setView([lat, lng], 14);
-
-      // Check distance
-      var centerLatLng = L.latLng(window._zoneCenter[0], window._zoneCenter[1]);
-      var userLatLng = L.latLng(lat, lng);
-      var distance = centerLatLng.distanceTo(userLatLng);
-
-      if (distance <= window._zoneRadius) {
-        result.style.background = 'rgba(0,210,106,.15)';
-        result.style.color = 'var(--green)';
-        result.textContent = '✅ You\'re in the zone! We deliver to you for FREE.';
-      } else {
-        var overBy = Math.round((distance - window._zoneRadius) / 100) / 10;
-        result.style.background = 'rgba(232,57,44,.15)';
-        result.style.color = '#ff6b6b';
-        result.textContent = '❌ Sorry, ' + overBy.toFixed(1) + 'km outside our delivery zone.';
-      }
-    })
-    .catch(function() {
-      result.style.background = 'rgba(232,57,44,.15)';
-      result.style.color = '#ff6b6b';
-      result.textContent = '❌ Could not check address. Try again.';
-    });
-}
-
 // ═══ TOAST ═══
 function showToast(msg) {
   var wrap = document.getElementById('toastWrap');
@@ -958,6 +888,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // Leaflet Map
   var center = [49.1867, -122.849];
   var map = L.map('zoneMap', { scrollWheelZoom:false, zoomControl:true, attributionControl:false }).setView(center, 13);
+
+  // Fix tiles not rendering in scroll containers
+  setTimeout(function() { map.invalidateSize(); }, 300);
+  setTimeout(function() { map.invalidateSize(); }, 1000);
+  
+  // Fix when scrolled into view
+  var mapEl = document.getElementById('zoneMap');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) map.invalidateSize();
+    }).observe(mapEl);
+  }
 
   // Dark tiles
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
