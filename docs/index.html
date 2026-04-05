@@ -323,7 +323,7 @@
   </div>
 
   <!-- Trust -->
-  <div class="trust">
+  <div class="trust" id="trustStrip">
     <div class="trust-item"><h4>FREE DELIVERY</h4><p>Surrey Central</p></div>
     <div class="trust-item"><h4>8PM – 2AM</h4><p>Every Night</p></div>
     <div class="trust-item"><h4>20g PROTEIN</h4><p>Per Dog</p></div>
@@ -541,6 +541,7 @@ function switchTab(tab) {
   document.getElementById('secDesserts').classList.toggle('visible', !isMains);
   document.getElementById('heroMains').style.display = isMains ? '' : 'none';
   document.getElementById('heroCookie').style.display = isMains ? 'none' : '';
+  document.getElementById('trustStrip').style.display = isMains ? '' : 'none';
   closeBuilder();
   // Scroll to top
   var app = document.getElementById('appScroll');
@@ -616,6 +617,9 @@ function addToCart() {
 // ═══ COOKIE BUILDER ═══
 function renderCookieList() {
   var el = document.getElementById('cookieList');
+  var totalInBox = 0;
+  for (var k in cookieCart) totalInBox += cookieCart[k] || 0;
+  var isFull = totalInBox >= cookieBoxSize;
   var html = '';
   for (var i = 0; i < COOKIES.length; i++) {
     var c = COOKIES[i];
@@ -626,7 +630,7 @@ function renderCookieList() {
     html += '<div class="cookie-ctrl">';
     html += '<button class="ck-btn minus" onclick="adjustCookie(\'' + c.id + '\',-1)"' + (qty ? '' : ' disabled') + '>−</button>';
     html += '<span class="ck-qty">' + qty + '</span>';
-    html += '<button class="ck-btn plus" onclick="adjustCookie(\'' + c.id + '\',1)">+</button>';
+    html += '<button class="ck-btn plus" onclick="adjustCookie(\'' + c.id + '\',1)"' + (isFull ? ' disabled style="opacity:.3"' : '') + '>+</button>';
     html += '</div></div>';
   }
   el.innerHTML = html;
@@ -635,17 +639,31 @@ function renderCookieList() {
 }
 
 function adjustCookie(id, delta) {
+  if (delta > 0) {
+    var total = 0;
+    for (var k in cookieCart) total += cookieCart[k] || 0;
+    if (total >= cookieBoxSize) { showToast('Box is full!'); return; }
+  }
   cookieCart[id] = Math.max(0, (cookieCart[id] || 0) + delta);
   renderCookieList();
 }
 
 function selectPack(size) {
   cookieBoxSize = size;
+  // Trim if current cookies exceed new size
+  var total = 0;
+  for (var k in cookieCart) total += cookieCart[k] || 0;
+  while (total > cookieBoxSize) {
+    // Remove from last added
+    var keys = Object.keys(cookieCart);
+    for (var i = keys.length - 1; i >= 0; i--) {
+      if (cookieCart[keys[i]] > 0) { cookieCart[keys[i]]--; total--; break; }
+    }
+  }
   document.querySelectorAll('.pack-chip').forEach(function(c) {
     c.classList.toggle('selected', parseInt(c.dataset.size) === size);
   });
-  renderCookieBox();
-  updateCookieButton();
+  renderCookieList();
 }
 
 function renderCookieBox() {
