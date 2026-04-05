@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>LUNCHBOXX – Late Night Loaded Dogs &amp; Cookies</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     :root {
@@ -143,13 +145,11 @@
     .zone-head { padding:14px 16px; display:flex; align-items:center; gap:10px; }
     .zone-head h3 { font-family:var(--f1); font-size:16px; letter-spacing:1px; }
     .zone-head span { font-size:10px; color:var(--green); font-weight:600; }
-    .zone-map { position:relative; width:100%; height:200px; }
-    .zone-map iframe { width:100%; height:100%; border:none; display:block; filter:grayscale(.6) invert(.92) contrast(1.1); }
-    .zone-circle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:140px; height:140px; border-radius:50%; background:rgba(255,107,0,.15); border:2px solid rgba(255,107,0,.5); box-shadow:0 0 30px rgba(255,107,0,.2); pointer-events:none; }
-    .zone-pin { position:absolute; font-size:8px; font-weight:700; color:var(--orange); white-space:nowrap; pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,.8); }
-    .zp1 { top:22%; left:50%; transform:translateX(-50%); }
-    .zp2 { top:50%; left:50%; transform:translate(-50%,-50%); }
-    .zp3 { bottom:22%; left:50%; transform:translateX(-50%); }
+    .zone-map { position:relative; width:100%; height:220px; }
+    .zone-map iframe { display:none; }
+    #zoneMap { width:100%; height:100%; z-index:1; }
+    .leaflet-control-zoom a { background:var(--s2)!important; color:var(--white)!important; border-color:var(--s3)!important; }
+    .leaflet-bar { border:none!important; box-shadow:0 2px 8px rgba(0,0,0,.4)!important; }
     .zone-badges { display:flex; gap:6px; padding:10px 14px; flex-wrap:wrap; justify-content:center; border-top:1px solid var(--s3); }
     .zone-badge { font-size:10px; padding:5px 12px; background:var(--s2); border-radius:16px; color:var(--white); font-weight:600; }
 
@@ -392,7 +392,7 @@
     <div class="zone">
       <div class="zone-head"><h3>📍 DELIVERY ZONE</h3><span>Free delivery nightly</span></div>
       <div class="zone-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5208!2d-122.849!3d49.1867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca" loading="lazy"></iframe>
+        <div id="zoneMap"></div>
       </div>
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
     </div>
@@ -882,6 +882,53 @@ document.addEventListener('DOMContentLoaded', function() {
   updateLiveStatus();
   setInterval(updateLiveStatus, 60000);
   renderCookieList();
+
+  // Leaflet Map
+  var center = [49.1867, -122.849];
+  var map = L.map('zoneMap', { scrollWheelZoom:false, zoomControl:true, attributionControl:false }).setView(center, 15);
+
+  // Dark tiles
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom:19
+  }).addTo(map);
+
+  // Delivery radius circle
+  L.circle(center, {
+    radius: 1200,
+    color: '#FF6B00',
+    weight: 2,
+    fillColor: '#FF6B00',
+    fillOpacity: 0.12,
+    dashArray: '6,4'
+  }).addTo(map);
+
+  // Station markers
+  var stations = [
+    { pos:[49.1897, -122.8479], name:'Gateway Stn' },
+    { pos:[49.1867, -122.849],  name:'Surrey Central' },
+    { pos:[49.1826, -122.8449], name:'King George Stn' },
+    { pos:[49.1874, -122.852],  name:'SFU Surrey' }
+  ];
+
+  var orangeIcon = L.divIcon({
+    className:'',
+    html:'<div style="background:var(--orange);color:#fff;font-family:Bebas Neue,sans-serif;font-size:10px;padding:3px 8px;border-radius:6px;white-space:nowrap;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.4);letter-spacing:1px"></div>',
+    iconSize:[0,0]
+  });
+
+  stations.forEach(function(s) {
+    L.marker(s.pos, {
+      icon: L.divIcon({
+        className:'',
+        html:'<div style="background:#FF6B00;color:#fff;font-family:Bebas Neue,sans-serif;font-size:10px;padding:3px 8px;border-radius:6px;white-space:nowrap;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.4);letter-spacing:1px">📍 '+s.name+'</div>',
+        iconSize:[0,0],
+        iconAnchor:[0,0]
+      })
+    }).addTo(map);
+  });
+
+  // Enable scroll zoom after first click
+  map.on('click', function() { map.scrollWheelZoom.enable(); });
 });
 </script>
 </body>
