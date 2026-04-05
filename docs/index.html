@@ -52,7 +52,7 @@
     .live-bar.off .live-dot { background:var(--gray); animation:none; }
 
     /* Heroes */
-    .hero-main, .hero-cookie { position:relative; overflow:hidden; }
+    .hero-main, .hero-cookie { position:relative; overflow:hidden; margin-bottom:12px; }
     .hero-main img, .hero-cookie img { width:100%; height:260px; object-fit:cover; display:block; filter:brightness(.6); }
     .hero-overlay { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:20px; }
     .hero-main .hero-overlay { background:linear-gradient(180deg,rgba(10,10,10,.2) 0%,rgba(10,10,10,.95) 85%); }
@@ -171,12 +171,12 @@
     .cookie-box-lid { background:linear-gradient(135deg,var(--pink),#F8D7E0,var(--pinkD)); height:36px; display:flex; align-items:center; justify-content:center; position:relative; }
     .cookie-box-lid span { font-family:var(--f1); font-size:11px; color:var(--brown); letter-spacing:3px; z-index:1; }
     .cookie-box-lid::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,transparent 60%); }
-    .cookie-box-base { background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border:3px solid var(--pink); border-top:none; border-radius:0 0 14px 14px; padding:8px; }
-    .cookie-slots { display:grid; gap:4px; }
+    .cookie-box-base { background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border:3px solid var(--pink); border-top:none; border-radius:0 0 14px 14px; padding:12px; }
+    .cookie-slots { display:grid; gap:6px; }
     .cookie-slot { aspect-ratio:1; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; }
     .cookie-slot.empty { background:radial-gradient(circle,rgba(247,183,197,.3),rgba(252,238,242,.6)); box-shadow:inset 0 2px 6px rgba(212,114,138,.15); }
     .cookie-slot.filled { background:none; animation:cookieDrop .3s ease; }
-    .cookie-slot.filled img { width:100%; height:100%; object-fit:contain; }
+    .cookie-slot.filled img { width:100%; height:100%; object-fit:cover; }
     @keyframes cookieDrop { from { opacity:0; transform:translateY(-8px) scale(1.2); } to { opacity:1; transform:translateY(0) scale(1); } }
     .cookie-count { text-align:center; margin-top:6px; font-size:10px; color:#8B5A6B; font-weight:600; }
 
@@ -184,7 +184,7 @@
     .cookie-list { padding:0 16px; margin-bottom:8px; }
     .cookie-card { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:10px; border:2px solid #F8D7E0; margin-bottom:6px; transition:all .2s; }
     .cookie-card.has { border-color:var(--pinkD); }
-    .cookie-card-img { width:56px; height:56px; flex-shrink:0; object-fit:contain; border-radius:8px; }
+    .cookie-card-img { width:112px; height:112px; flex-shrink:0; object-fit:contain; border-radius:8px; }
     .cookie-info { flex:1; min-width:0; }
     .cookie-name { font-size:13px; color:var(--brown); font-weight:600; margin-bottom:1px; }
     .cookie-cal { font-size:10px; color:#8B5A6B; }
