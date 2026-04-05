@@ -171,8 +171,8 @@
     .cookie-box-lid { background:linear-gradient(135deg,var(--pink),#F8D7E0,var(--pinkD)); height:36px; display:flex; align-items:center; justify-content:center; position:relative; }
     .cookie-box-lid span { font-family:var(--f1); font-size:11px; color:var(--brown); letter-spacing:3px; z-index:1; }
     .cookie-box-lid::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,transparent 60%); }
-    .cookie-box-base { background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border:3px solid var(--pink); border-top:none; border-radius:0 0 14px 14px; padding:12px; }
-    .cookie-slots { display:grid; gap:6px; }
+    .cookie-box-base { background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border:3px solid var(--pink); border-top:none; border-radius:0 0 14px 14px; padding:14px; }
+    .cookie-slots { display:grid; gap:8px; }
     .cookie-slot { aspect-ratio:1; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; }
     .cookie-slot.empty { background:radial-gradient(circle,rgba(247,183,197,.3),rgba(252,238,242,.6)); box-shadow:inset 0 2px 6px rgba(212,114,138,.15); }
     .cookie-slot.filled { background:none; animation:cookieDrop .3s ease; }
@@ -182,7 +182,7 @@
 
     /* Cookie Cards */
     .cookie-list { padding:0 16px; margin-bottom:8px; }
-    .cookie-card { display:flex; align-items:center; gap:14px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:14px; padding:14px; border:2px solid #F8D7E0; margin-bottom:8px; transition:all .2s; }
+    .cookie-card { display:flex; align-items:center; gap:14px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:14px; padding:6px 14px 6px 6px; border:2px solid #F8D7E0; margin-bottom:8px; transition:all .2s; }
     .cookie-card.has { border-color:var(--pinkD); }
     .cookie-card-img { width:140px; height:140px; flex-shrink:0; object-fit:contain; border-radius:10px; }
     .cookie-info { flex:1; min-width:0; }
@@ -391,7 +391,6 @@
     <!-- Zone -->
     <div class="zone">
       <div class="zone-head"><h3>📍 DELIVERY ZONE</h3><span>Free delivery nightly</span></div>
-      <div style="padding:0 14px 10px"><input type="text" id="zoneSearch" placeholder="Enter your address to check..." style="width:100%;padding:10px 12px;border-radius:8px;border:2px solid var(--s3);background:var(--bg);color:var(--white);font-size:12px;font-family:var(--f2);outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')checkAddress()"><button onclick="checkAddress()" style="width:100%;margin-top:6px;padding:10px;border:none;border-radius:8px;background:var(--orange);color:var(--white);font-family:var(--f1);font-size:12px;letter-spacing:1px">CHECK IF WE DELIVER</button><div id="zoneResult" style="display:none;text-align:center;padding:8px;margin-top:6px;border-radius:8px;font-size:12px;font-weight:600"></div></div>
       <div class="zone-map">
         <div id="zoneMap"></div>
       </div>
@@ -672,7 +671,9 @@ function renderCookieBox() {
     for (var j = 0; j < (cookieCart[id] || 0); j++) filled.push(id);
   }
   var total = filled.length;
-  var cols = cookieBoxSize > 20 ? 6 : 5;
+  var cols = 3;
+  if (cookieBoxSize > 10) cols = 4;
+  if (cookieBoxSize > 20) cols = 5;
   slotsEl.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
   var html = '';
   for (var i = 0; i < cookieBoxSize; i++) {
