@@ -145,7 +145,7 @@
     .zone-head { padding:14px 16px; display:flex; align-items:center; gap:10px; }
     .zone-head h3 { font-family:var(--f1); font-size:16px; letter-spacing:1px; }
     .zone-head span { font-size:10px; color:var(--green); font-weight:600; }
-    .zone-map { position:relative; width:100%; height:220px; }
+    .zone-map { position:relative; width:100%; height:280px; }
     .zone-map iframe { display:none; }
     #zoneMap { width:100%; height:100%; z-index:1; }
     .leaflet-control-zoom a { background:var(--s2)!important; color:var(--white)!important; border-color:var(--s3)!important; }
@@ -886,7 +886,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Leaflet Map
   var center = [49.1867, -122.849];
-  var map = L.map('zoneMap', { scrollWheelZoom:false, zoomControl:true, attributionControl:false }).setView(center, 14);
+  var map = L.map('zoneMap', { scrollWheelZoom:false, zoomControl:true, attributionControl:false }).setView(center, 13);
 
   // Dark tiles
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
