@@ -391,6 +391,7 @@
     <!-- Zone -->
     <div class="zone">
       <div class="zone-head"><h3>📍 DELIVERY ZONE</h3><span>Free delivery nightly</span></div>
+      <div style="padding:0 14px 10px"><input type="text" id="zoneSearch" placeholder="Enter your address to check..." style="width:100%;padding:10px 12px;border-radius:8px;border:2px solid var(--s3);background:var(--bg);color:var(--white);font-size:12px;font-family:var(--f2);outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')checkAddress()"><button onclick="checkAddress()" style="width:100%;margin-top:6px;padding:10px;border:none;border-radius:8px;background:var(--orange);color:var(--white);font-family:var(--f1);font-size:12px;letter-spacing:1px">CHECK IF WE DELIVER</button><div id="zoneResult" style="display:none;text-align:center;padding:8px;margin-top:6px;border-radius:8px;font-size:12px;font-weight:600"></div></div>
       <div class="zone-map">
         <div id="zoneMap"></div>
       </div>
@@ -868,6 +869,75 @@ function pickDate(y, m, d) {
 function pickTomorrow() { var d = new Date(); d.setDate(d.getDate() + 1); pickDate(d.getFullYear(), d.getMonth(), d.getDate()); }
 function pickDayAfter() { var d = new Date(); d.setDate(d.getDate() + 2); pickDate(d.getFullYear(), d.getMonth(), d.getDate()); }
 
+// ═══ ADDRESS CHECK ═══
+function checkAddress() {
+  var input = document.getElementById('zoneSearch').value.trim();
+  var result = document.getElementById('zoneResult');
+  if (!input) { showToast('Enter an address'); return; }
+
+  // Add Surrey BC context if not specified
+  var query = input;
+  if (query.toLowerCase().indexOf('surrey') === -1 && query.toLowerCase().indexOf('bc') === -1) {
+    query += ', Surrey, BC, Canada';
+  }
+
+  result.style.display = 'block';
+  result.style.background = 'var(--s2)';
+  result.style.color = 'var(--gray)';
+  result.textContent = 'Checking...';
+
+  fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data || !data.length) {
+        result.style.background = 'rgba(232,57,44,.15)';
+        result.style.color = '#ff6b6b';
+        result.textContent = '❌ Address not found. Try including street number.';
+        return;
+      }
+
+      var lat = parseFloat(data[0].lat);
+      var lng = parseFloat(data[0].lon);
+
+      // Remove old marker
+      if (window._userMarker) window._zoneMap.removeLayer(window._userMarker);
+
+      // Add new marker
+      window._userMarker = L.marker([lat, lng], {
+        icon: L.divIcon({
+          className: '',
+          html: '<div style="background:#fff;color:#000;font-size:9px;padding:3px 8px;border-radius:6px;white-space:nowrap;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.5);font-weight:700">📍 YOU</div>',
+          iconSize: [0, 0],
+          iconAnchor: [0, 0]
+        })
+      }).addTo(window._zoneMap);
+
+      // Pan to show the marker
+      window._zoneMap.setView([lat, lng], 14);
+
+      // Check distance
+      var centerLatLng = L.latLng(window._zoneCenter[0], window._zoneCenter[1]);
+      var userLatLng = L.latLng(lat, lng);
+      var distance = centerLatLng.distanceTo(userLatLng);
+
+      if (distance <= window._zoneRadius) {
+        result.style.background = 'rgba(0,210,106,.15)';
+        result.style.color = 'var(--green)';
+        result.textContent = '✅ You\'re in the zone! We deliver to you for FREE.';
+      } else {
+        var overBy = Math.round((distance - window._zoneRadius) / 100) / 10;
+        result.style.background = 'rgba(232,57,44,.15)';
+        result.style.color = '#ff6b6b';
+        result.textContent = '❌ Sorry, ' + overBy.toFixed(1) + 'km outside our delivery zone.';
+      }
+    })
+    .catch(function() {
+      result.style.background = 'rgba(232,57,44,.15)';
+      result.style.color = '#ff6b6b';
+      result.textContent = '❌ Could not check address. Try again.';
+    });
+}
+
 // ═══ TOAST ═══
 function showToast(msg) {
   var wrap = document.getElementById('toastWrap');
@@ -930,6 +1000,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Enable scroll zoom after first click
   map.on('click', function() { map.scrollWheelZoom.enable(); });
+
+  // Store map reference globally for address check
+  window._zoneMap = map;
+  window._zoneCenter = center;
+  window._zoneRadius = 1200;
+  window._userMarker = null;
 });
 </script>
 </body>
