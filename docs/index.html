@@ -143,7 +143,7 @@
     .zone-head { padding:14px 16px; display:flex; align-items:center; gap:10px; }
     .zone-head h3 { font-family:var(--f1); font-size:16px; letter-spacing:1px; }
     .zone-head span { font-size:10px; color:var(--green); font-weight:600; }
-    .zone-map { position:relative; width:100%; height:200px; pointer-events:none; }
+    .zone-map { position:relative; width:100%; height:200px; }
     .zone-map iframe { width:100%; height:100%; border:none; display:block; filter:grayscale(.6) invert(.92) contrast(1.1); }
     .zone-circle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:140px; height:140px; border-radius:50%; background:rgba(255,107,0,.15); border:2px solid rgba(255,107,0,.5); box-shadow:0 0 30px rgba(255,107,0,.2); pointer-events:none; }
     .zone-pin { position:absolute; font-size:8px; font-weight:700; color:var(--orange); white-space:nowrap; pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,.8); }
@@ -393,10 +393,6 @@
       <div class="zone-head"><h3>📍 DELIVERY ZONE</h3><span>Free delivery nightly</span></div>
       <div class="zone-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5208!2d-122.849!3d49.1867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca" loading="lazy"></iframe>
-        <div class="zone-circle"></div>
-        <div class="zone-pin zp1">📍 Gateway Stn</div>
-        <div class="zone-pin zp2">📍 Surrey Central</div>
-        <div class="zone-pin zp3">📍 King George Stn</div>
       </div>
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
     </div>
