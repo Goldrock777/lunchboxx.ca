@@ -28,55 +28,49 @@
     .home-ind { display:none; }
 
     @media(min-width:768px) {
-      .app { max-width:1100px; }
-      /* Full-bleed heroes */
-      .hero-main, .hero-cookie, .live-bar { width:100vw; margin-left:calc(-50vw + 50%); position:relative; }
-      .hero-main img, .hero-cookie img { height:420px; object-position:center 30%; }
-      .hero-title { font-size:72px; }
+      .app { max-width:1100px; padding:0 20px; }
+      /* Hero */
+      .hero-main, .hero-cookie { border-radius:16px; }
+      .hero-main img, .hero-cookie img { height:400px; border-radius:16px; object-position:center 30%; }
+      .hero-overlay { padding:48px; border-radius:16px; }
+      .hero-title { font-size:64px; }
       .hero-brand { font-size:15px; }
       .hero-desc { font-size:16px; max-width:500px; }
-      .hero-overlay { padding:50px calc((100vw - 1100px) / 2 + 24px); }
-      .trust { margin:0 24px 16px; padding:14px 20px; }
+      /* Trust */
+      .trust { padding:16px 24px; }
       .trust-item h4 { font-size:15px; }
       .trust-item p { font-size:11px; }
-      .tabs { padding:0 24px; margin-bottom:18px; gap:10px; }
+      /* Tabs */
+      .tabs { gap:10px; }
       .tab { padding:16px 12px; font-size:18px; border-radius:12px; }
-      .dog-detail { margin:0 24px 16px; padding:18px 24px; }
+      /* Dog detail */
+      .dog-detail { padding:18px 24px; }
       .dog-detail h3 { font-size:14px; }
       .dog-grid span { font-size:13px; }
-      .sec-head { padding:0 28px; }
-      .sec-head p { font-size:14px; }
-      .menu { padding:0 24px 20px; }
-      .menu-card { padding:24px; }
+      /* Menu */
+      .menu { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+      .menu-card { padding:24px; margin-bottom:0; }
       .mc-name { font-size:28px; }
       .mc-price { font-size:38px; }
       .mc-desc { font-size:15px; }
       .mc-stat .val { font-size:18px; }
       .mc-stat .lbl { font-size:9px; }
       .mc-tag { font-size:10px; padding:4px 10px; }
-      .builder { padding:0 24px 20px; }
-      .zone { margin:0 24px 20px; }
+      /* Builder */
+      .builder { max-width:600px; }
+      /* Zone */
       .zone-map { height:340px; }
       #zoneMap { height:340px; }
       .zone-head h3 { font-size:18px; }
+      /* Footer */
       .footer { padding:40px 24px; }
       .footer .brand { font-size:20px; }
-      /* Cookie section desktop */
-      .ck-brand { padding:4px 24px 10px; }
+      /* Cookie section - side by side */
+      .ck-brand { padding:4px 0 10px; }
       .ck-brand-name { font-size:28px; }
       .ck-brand-sub { font-size:12px; }
-      .pack-chips { padding:0 24px; }
-      .cookie-box { margin:0 24px 8px; }
-      .cookie-list { padding:0 24px; }
-      .gift-row { margin:0 24px 6px; }
-      .gift-form { padding:0 24px; }
-      .ck-order-wrap { padding:0 24px 16px; }
-    }
-
-    @media(min-width:768px) {
-      /* Side-by-side cookie layout */
-      .desktop-cookie-layout { display:flex; gap:28px; padding:0 24px; align-items:flex-start; }
-      .desktop-cookie-left { flex:0 0 340px; position:sticky; top:20px; }
+      .desktop-cookie-layout { display:flex; gap:28px; align-items:flex-start; }
+      .desktop-cookie-left { flex:0 0 380px; position:sticky; top:20px; }
       .desktop-cookie-right { flex:1; min-width:0; }
       .desktop-cookie-left .cookie-box { margin:0 0 8px; }
       .desktop-cookie-left .pack-chips { padding:0; margin-bottom:6px; }
@@ -88,9 +82,6 @@
       .desktop-cookie-right .ck-label { padding:0!important; }
       .desktop-cookie-right .ck-date-wrap { padding:0!important; }
       .desktop-cookie-right .ck-order-wrap { padding:0 0 16px; }
-      /* Menu grid */
-      .menu { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-      .menu-card { margin-bottom:0; }
     }
     .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
