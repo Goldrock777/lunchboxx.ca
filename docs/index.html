@@ -405,7 +405,7 @@
       <div class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">240g PROTEIN</span></div><div class="mc-price">$50</div></div>
         <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">XL FRIES</div><div class="lbl">YAM</div></div><div class="mc-stat"><div class="val">1×2L</div><div class="lbl">DRINK</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">XL FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat"><div class="val">1×2L</div><div class="lbl">DRINK</div></div></div>
       </div>
     </div>
 
@@ -778,18 +778,24 @@ function setTip(amt) {
   tipAmount = amt;
   document.getElementById('tipCustom').style.display = 'none';
   document.querySelectorAll('.tip-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.tip == String(amt)); });
-  updateCartUI();
+  // Just update total, don't re-render
+  var subtotal = 0;
+  for (var i = 0; i < cart.length; i++) subtotal += cart[i].price;
+  document.getElementById('drawerTotal').textContent = '$' + (subtotal + tipAmount).toFixed(2);
 }
 
 function setTipCustom() {
   document.querySelectorAll('.tip-btn').forEach(function(b) { b.classList.remove('active'); });
   document.querySelector('.tip-btn[data-tip="custom"]').classList.add('active');
   document.getElementById('tipCustom').style.display = 'block';
+  document.getElementById('tipInput').focus();
 }
 
 function updateTipInput() {
   tipAmount = Math.max(0, parseFloat(document.getElementById('tipInput').value) || 0);
-  updateCartUI();
+  var subtotal = 0;
+  for (var i = 0; i < cart.length; i++) subtotal += cart[i].price;
+  document.getElementById('drawerTotal').textContent = '$' + (subtotal + tipAmount).toFixed(2);
 }
 
 // ═══ CART + CHECKOUT ═══
@@ -817,7 +823,13 @@ function renderDrawer() {
     html += '<div class="cart-item"><div class="cart-icon ' + iconClass + '">' + emoji + '</div><div class="cart-info"><div class="cart-name">' + item.name + '</div><div class="cart-detail">' + item.detail + '</div><div class="cart-price">$' + item.price.toFixed(2) + '</div></div><button class="cart-remove" onclick="removeItem(' + i + ')">×</button></div>';
   }
   // Tip
-  html += '<div class="tip-section"><div class="tip-label">ADD A TIP 💛</div><div class="tip-row"><button class="tip-btn active" data-tip="0" onclick="setTip(0)">NONE</button><button class="tip-btn" data-tip="3" onclick="setTip(3)">$3</button><button class="tip-btn" data-tip="5" onclick="setTip(5)">$5</button><button class="tip-btn" data-tip="10" onclick="setTip(10)">$10</button><button class="tip-btn" data-tip="custom" onclick="setTipCustom()">Other</button></div><div class="tip-custom" id="tipCustom"><input type="number" id="tipInput" placeholder="$" min="0" oninput="updateTipInput()"></div></div>';
+  var tipNone = tipAmount === 0 ? ' active' : '';
+  var tip3 = tipAmount === 3 ? ' active' : '';
+  var tip5 = tipAmount === 5 ? ' active' : '';
+  var tip10 = tipAmount === 10 ? ' active' : '';
+  var tipC = (tipAmount > 0 && tipAmount !== 3 && tipAmount !== 5 && tipAmount !== 10) ? ' active' : '';
+  var tipCShow = tipC ? 'block' : 'none';
+  html += '<div class="tip-section"><div class="tip-label">ADD A TIP 💛</div><div class="tip-row"><button class="tip-btn' + tipNone + '" data-tip="0" onclick="setTip(0)">NONE</button><button class="tip-btn' + tip3 + '" data-tip="3" onclick="setTip(3)">$3</button><button class="tip-btn' + tip5 + '" data-tip="5" onclick="setTip(5)">$5</button><button class="tip-btn' + tip10 + '" data-tip="10" onclick="setTip(10)">$10</button><button class="tip-btn' + tipC + '" data-tip="custom" onclick="setTipCustom()">Other</button></div><div class="tip-custom" id="tipCustom" style="display:' + tipCShow + '"><input type="number" id="tipInput" placeholder="$" min="0" value="' + (tipC ? tipAmount : '') + '" oninput="updateTipInput()"></div></div>';
   body.innerHTML = html;
   foot.style.display = 'block';
   document.getElementById('drawerTotal').textContent = '$' + (subtotal + tipAmount).toFixed(2);
