@@ -767,8 +767,6 @@ function renderDrawer() {
     var emoji = item.type === 'cookies' ? '🍪' : '🌭';
     html += '<div class="cart-item"><div class="cart-icon ' + iconClass + '">' + emoji + '</div><div class="cart-info"><div class="cart-name">' + item.name + '</div><div class="cart-detail">' + item.detail + '</div><div class="cart-price">$' + item.price.toFixed(2) + '</div></div><button class="cart-remove" onclick="removeItem(' + i + ')">×</button></div>';
   }
-  // Checkout form
-  html += '<div class="co-form"><label>Your Name *</label><input type="text" id="coName" placeholder="Full name"><label>Phone *</label><input type="tel" id="coPhone" placeholder="For delivery updates"><label>Delivery Address *</label><input type="text" id="coAddr" placeholder="Full address"><label>Notes (optional)</label><textarea id="coNotes" placeholder="Gate code, leave at door..."></textarea></div>';
   // Tip
   html += '<div class="tip-section"><div class="tip-label">ADD A TIP 💛</div><div class="tip-row"><button class="tip-btn active" data-tip="0" onclick="setTip(0)">NONE</button><button class="tip-btn" data-tip="3" onclick="setTip(3)">$3</button><button class="tip-btn" data-tip="5" onclick="setTip(5)">$5</button><button class="tip-btn" data-tip="10" onclick="setTip(10)">$10</button><button class="tip-btn" data-tip="custom" onclick="setTipCustom()">Other</button></div><div class="tip-custom" id="tipCustom"><input type="number" id="tipInput" placeholder="$" min="0" oninput="updateTipInput()"></div></div>';
   body.innerHTML = html;
@@ -802,27 +800,24 @@ function closeDrawer() {
 }
 
 function placeOrder() {
-  var nm = document.getElementById('coName');
-  var ph = document.getElementById('coPhone');
-  var ad = document.getElementById('coAddr');
-  if (!nm || !nm.value || !ph.value || !ad.value) { showToast('Fill in name, phone & address'); return; }
   var items = [];
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].packId && VARIANTS[cart[i].packId]) items.push(VARIANTS[cart[i].packId] + ':1');
   }
   if (items.length > 0) {
-    var notes = document.getElementById('coNotes');
-    var noteStr = 'Name: ' + nm.value + ' | Phone: ' + ph.value + ' | Addr: ' + ad.value;
-    if (notes.value) noteStr += ' | ' + notes.value;
+    var noteStr = '';
+    // Pass special requests and tip as order note
+    for (var j = 0; j < cart.length; j++) {
+      if (cart[j].detail) noteStr += cart[j].detail;
+      if (j < cart.length - 1) noteStr += ' | ';
+    }
     if (tipAmount > 0) noteStr += ' | Tip: $' + tipAmount.toFixed(2);
-    window.location.href = 'https://' + SHOPIFY + '/cart/' + items.join(',') + '?note=' + encodeURIComponent(noteStr);
+    var url = 'https://' + SHOPIFY + '/cart/' + items.join(',');
+    if (noteStr) url += '?note=' + encodeURIComponent(noteStr);
+    window.location.href = url;
     return;
   }
-  closeDrawer();
-  showToast('🎉 Order placed!');
-  cart = [];
-  tipAmount = 0;
-  updateCartUI();
+  showToast('Add items to your cart first');
 }
 
 // ═══ CALENDAR ═══
