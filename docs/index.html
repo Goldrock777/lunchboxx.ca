@@ -29,27 +29,42 @@
 
     @media(min-width:768px) {
       .app { max-width:1100px; }
-      .hero-main img, .hero-cookie img { height:360px; }
-      .hero-title { font-size:68px; }
-      .hero-desc { font-size:15px; max-width:500px; }
-      .hero-overlay { padding:40px; }
+      /* Full-bleed heroes */
+      .hero-main, .hero-cookie, .live-bar { width:100vw; margin-left:calc(-50vw + 50%); position:relative; }
+      .hero-main img, .hero-cookie img { height:420px; object-position:center 30%; }
+      .hero-title { font-size:72px; }
+      .hero-brand { font-size:15px; }
+      .hero-desc { font-size:16px; max-width:500px; }
+      .hero-overlay { padding:50px 60px; }
       .trust { margin:0 24px 16px; padding:14px 20px; }
+      .trust-item h4 { font-size:15px; }
+      .trust-item p { font-size:11px; }
       .tabs { padding:0 24px; margin-bottom:18px; gap:10px; }
-      .tab { padding:14px 12px; font-size:16px; }
-      .dog-detail { margin:0 24px 16px; padding:16px 20px; }
+      .tab { padding:16px 12px; font-size:18px; border-radius:12px; }
+      .dog-detail { margin:0 24px 16px; padding:18px 24px; }
+      .dog-detail h3 { font-size:14px; }
+      .dog-grid span { font-size:13px; }
       .sec-head { padding:0 28px; }
+      .sec-head p { font-size:14px; }
       .menu { padding:0 24px 20px; }
-      .menu-card { padding:22px; }
-      .mc-name { font-size:26px; }
-      .mc-price { font-size:34px; }
-      .mc-desc { font-size:14px; }
+      .menu-card { padding:24px; }
+      .mc-name { font-size:28px; }
+      .mc-price { font-size:38px; }
+      .mc-desc { font-size:15px; }
+      .mc-stat .val { font-size:18px; }
+      .mc-stat .lbl { font-size:9px; }
+      .mc-tag { font-size:10px; padding:4px 10px; }
       .builder { padding:0 24px 20px; }
       .zone { margin:0 24px 20px; }
       .zone-map { height:340px; }
       #zoneMap { height:340px; }
-      .footer { padding:32px 24px; }
-      /* Cookie section desktop - side by side */
-      .ck-brand { padding:4px 24px 8px; }
+      .zone-head h3 { font-size:18px; }
+      .footer { padding:40px 24px; }
+      .footer .brand { font-size:20px; }
+      /* Cookie section desktop */
+      .ck-brand { padding:4px 24px 10px; }
+      .ck-brand-name { font-size:28px; }
+      .ck-brand-sub { font-size:12px; }
       .pack-chips { padding:0 24px; }
       .cookie-box { margin:0 24px 8px; }
       .cookie-list { padding:0 24px; }
@@ -78,7 +93,7 @@
       .menu-card { margin-bottom:0; }
       .menu-card:last-child { grid-column:1 / -1; }
     }
-    .app { background:var(--bg); position:relative; }
+    .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
 
     /* Toast */
