@@ -91,7 +91,6 @@
       /* Menu grid */
       .menu { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
       .menu-card { margin-bottom:0; }
-      .menu-card:last-child { grid-column:1 / -1; }
     }
     .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
@@ -400,27 +399,22 @@
       <div class="dog-grid">
         <span>Jumbo Beef Dog</span><span>Toasted Buttered Bun</span>
         <span>Crispy Bacon</span><span>Cheddar Cheese</span>
-        <span>Spicy Mayo</span><span>Crispy Fried Onions</span>
+        <span>Spicy Mayo</span>
       </div>
     </div>
 
     <div class="sec-head"><p>Tap a pack to customize</p></div>
 
     <div class="menu">
-      <div class="menu-card" onclick="openBuilder('duo')">
-        <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">60g PROTEIN</span></div><div class="mc-price">$15</div></div>
+      <div class="menu-card popular" onclick="openBuilder('duo')">
+        <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">60g PROTEIN</span></div><div class="mc-price">$20</div></div>
         <div class="mc-desc">Better than a solo pizza. More protein, more flavor, no wait.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">~900</div><div class="lbl">CAL</div></div><div class="mc-stat"><div class="val">60g</div><div class="lbl">PROTEIN</div></div></div>
-      </div>
-      <div class="menu-card popular" onclick="openBuilder('quad')">
-        <div class="mc-top"><div><div class="mc-name">QUAD</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">120g PROTEIN</span></div><div class="mc-price">$20</div></div>
-        <div class="mc-desc">Built for real hunger or splitting. The late-night move.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">4</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">~1800</div><div class="lbl">CAL</div></div><div class="mc-stat"><div class="val">120g</div><div class="lbl">PROTEIN</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat"><div class="val">60g</div><div class="lbl">PROTEIN</div></div></div>
       </div>
       <div class="menu-card best-value" onclick="openBuilder('party')">
-        <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">300g PROTEIN</span></div><div class="mc-price">$50</div></div>
+        <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">240g PROTEIN</span></div><div class="mc-price">$50</div></div>
         <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">10</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">LARGE</div></div><div class="mc-stat"><div class="val">1×2L</div><div class="lbl">DRINK</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">XL FRIES</div><div class="lbl">YAM</div></div><div class="mc-stat"><div class="val">1×2L</div><div class="lbl">DRINK</div></div></div>
       </div>
     </div>
 
@@ -546,13 +540,12 @@
 <script>
 // ═══ CONFIG ═══
 var PACKS = {
-  duo:   { count:2,  price:15, label:'DUO',        drinks:0 },
-  quad:  { count:4,  price:20, label:'QUAD',       drinks:0 },
-  party: { count:10, price:50, label:'PARTY PACK', drinks:1 }
+  duo:   { count:2,  price:20, label:'DUO',        drinks:0 },
+  party: { count:8, price:50, label:'PARTY PACK', drinks:1 }
 };
 
 var SHOPIFY = 'meesge-h5.myshopify.com';
-var VARIANTS = { duo:'47080319811738', quad:'47078075728026', party:'47078075793562' };
+var VARIANTS = { duo:'47080319811738', party:'47078075793562' };
 var CK_VARIANTS = { 10:'47308152570010', 20:'47048673525914', 30:'47048673689754', 50:'47048673984666' };
 var CK_PRICES = { 10:40, 20:75, 30:105, 50:170 };
 
@@ -661,10 +654,10 @@ function orderNow() {
 function addToCart() {
   if (!currentPack) return;
   var pk = PACKS[currentPack];
-  var detail = pk.count + ' loaded dogs';
+  var detail = pk.count + ' loaded dogs + Yam Fries';
   if (pk.drinks > 0) {
-    detail += ' · Yam Fries';
-    if (selectedDrinks[1]) detail += ' · ' + selectedDrinks[1] + ' 2L';
+    detail = pk.count + ' loaded dogs + XL Yam Fries';
+    if (selectedDrinks[1]) detail += ' + ' + selectedDrinks[1] + ' 2L';
   }
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
