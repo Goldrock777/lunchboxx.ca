@@ -35,28 +35,28 @@
       .hero-overlay { padding:48px; border-radius:16px; }
       .hero-title { font-size:64px; }
       .hero-brand { font-size:15px; }
-      .hero-desc { font-size:16px; max-width:500px; }
+      .hero-desc { font-size:18px; max-width:500px; }
       /* Trust */
       .trust { padding:16px 24px; }
-      .trust-item h4 { font-size:15px; }
-      .trust-item p { font-size:11px; }
+      .trust-item h4 { font-size:17px; }
+      .trust-item p { font-size:12px; }
       /* Tabs */
       .tabs { gap:10px; }
-      .tab { padding:16px 12px; font-size:18px; border-radius:12px; }
+      .tab { padding:16px 12px; font-size:20px; border-radius:12px; }
       /* Dog detail */
       .dog-detail { padding:18px 24px; }
-      .dog-detail h3 { font-size:14px; }
-      .dog-grid span { font-size:13px; }
+      .dog-detail h3 { font-size:16px; }
+      .dog-grid span { font-size:15px; }
       /* Menu */
       .menu { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
       .menu-card { padding:24px; margin-bottom:0; }
-      .mc-name { font-size:28px; }
-      .mc-price { font-size:38px; }
-      .mc-desc { font-size:15px; }
-      .mc-stat .val { font-size:18px; }
-      .mc-stat .lbl { font-size:9px; }
-      .mc-tag { font-size:10px; padding:4px 10px; }
-      /* Builder */
+      .mc-name { font-size:32px; }
+      .mc-price { font-size:42px; }
+      .mc-desc { font-size:16px; }
+      .mc-stat .val { font-size:20px; }
+      .mc-stat .lbl { font-size:10px; }
+      .mc-tag { font-size:11px; padding:5px 12px; }
+      .sec-head p { font-size:16px; }      /* Builder */
       .builder { max-width:600px; }
       /* Zone */
       .zone-map { height:340px; }
@@ -67,8 +67,8 @@
       .footer .brand { font-size:20px; }
       /* Cookie section - side by side */
       .ck-brand { padding:4px 0 10px; }
-      .ck-brand-name { font-size:28px; }
-      .ck-brand-sub { font-size:12px; }
+      .ck-brand-name { font-size:32px; }
+      .ck-brand-sub { font-size:14px; }
       .desktop-cookie-layout { display:flex; gap:28px; align-items:flex-start; }
       .desktop-cookie-left { flex:0 0 380px; position:sticky; top:20px; }
       .desktop-cookie-right { flex:1; min-width:0; }
@@ -77,11 +77,15 @@
       .desktop-cookie-left .ck-label { padding:0!important; }
       .desktop-cookie-right .cookie-list { padding:0; }
       .desktop-cookie-right .cookie-card-img { width:100px; height:100px; }
+      .desktop-cookie-right .cookie-name { font-size:18px; }
+      .desktop-cookie-right .cookie-cal { font-size:13px; }
+      .desktop-cookie-right .cookie-price { font-size:16px; }
       .desktop-cookie-right .gift-row { margin:0 0 6px; }
       .desktop-cookie-right .gift-form { padding:0; }
-      .desktop-cookie-right .ck-label { padding:0!important; }
+      .desktop-cookie-right .ck-label { padding:0!important; font-size:11px!important; }
       .desktop-cookie-right .ck-date-wrap { padding:0!important; }
       .desktop-cookie-right .ck-order-wrap { padding:0 0 16px; }
+      .desktop-cookie-right .ck-order-btn { font-size:18px; padding:18px; }
     }
     .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
@@ -113,15 +117,15 @@
     .hero-main .hero-title { color:var(--white); }
     .hero-main .hero-title span { color:var(--orange); }
     .hero-cookie .hero-title { color:var(--pink); }
-    .hero-desc { font-size:13px; line-height:1.5; max-width:300px; }
+    .hero-desc { font-size:14px; line-height:1.5; max-width:300px; }
     .hero-main .hero-desc { color:var(--grayL); }
     .hero-cookie .hero-desc { color:var(--pinkD); }
 
     /* Trust */
     .trust { display:flex; gap:6px; padding:10px 14px; margin:0 16px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
     .trust-item { flex:1; text-align:center; padding:6px 2px; }
-    .trust-item h4 { font-family:var(--f1); font-size:clamp(11px,2.8vw,13px); letter-spacing:.5px; margin-bottom:1px; }
-    .trust-item p { font-size:clamp(8px,2vw,10px); color:var(--gray); }
+    .trust-item h4 { font-family:var(--f1); font-size:clamp(12px,3vw,14px); letter-spacing:.5px; margin-bottom:1px; }
+    .trust-item p { font-size:clamp(9px,2.2vw,11px); color:var(--gray); }
 
     /* Tabs */
     .tabs { display:flex; gap:6px; padding:0 16px; margin-bottom:14px; }
@@ -137,7 +141,7 @@
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
     .sec-head { padding:0 20px; margin-bottom:12px; }
-    .sec-head p { font-size:12px; color:var(--gray); margin-top:2px; }
+    .sec-head p { font-size:14px; color:var(--gray); margin-top:2px; }
 
     /* Menu */
     .menu { padding:0 16px 16px; }
@@ -149,9 +153,9 @@
     .menu-card.best-value { border-color:var(--green); }
     .menu-card.best-value::before { content:'BEST VALUE'; position:absolute; top:0; right:0; background:var(--green); color:var(--bg); font-family:var(--f1); font-size:10px; padding:4px 12px; border-radius:0 0 0 10px; letter-spacing:1px; }
     .mc-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
-    .mc-name { font-family:var(--f1); font-size:22px; letter-spacing:1px; line-height:1; }
+    .mc-name { font-family:var(--f1); font-size:24px; letter-spacing:1px; line-height:1; }
     .mc-price { font-family:var(--f1); font-size:30px; color:var(--amber); }
-    .mc-desc { font-size:12px; color:var(--gray); line-height:1.5; margin-bottom:10px; }
+    .mc-desc { font-size:13px; color:var(--gray); line-height:1.5; margin-bottom:10px; }
     .mc-stats { display:flex; gap:6px; }
     .mc-stat { background:var(--s2); border-radius:8px; padding:7px 10px; text-align:center; flex:1; }
     .mc-stat .val { font-family:var(--f1); font-size:16px; }
@@ -164,7 +168,7 @@
     .dog-detail { padding:12px 16px; margin:0 16px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
     .dog-detail h3 { font-family:var(--f1); font-size:12px; letter-spacing:2px; color:var(--orange); margin-bottom:8px; }
     .dog-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
-    .dog-grid span { font-size:11px; color:var(--grayL); display:flex; align-items:center; gap:5px; }
+    .dog-grid span { font-size:13px; color:var(--grayL); display:flex; align-items:center; gap:5px; }
     .dog-grid span::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--orange); flex-shrink:0; }
 
     /* Builder */
@@ -205,7 +209,7 @@
     .ck-brand { text-align:center; padding:2px 16px 4px; }
     .ck-brand-name { font-family:var(--script); font-size:24px; color:var(--rose); }
     .ck-brand-name a { color:inherit; text-decoration:none; }
-    .ck-brand-sub { font-size:10px; color:var(--gray); margin-top:1px; }
+    .ck-brand-sub { font-size:12px; color:var(--gray); margin-top:1px; }
     .ck-brand-late { display:inline-block; font-size:9px; color:var(--orange); font-weight:600; background:rgba(255,107,0,.1); padding:3px 8px; border-radius:6px; margin-top:3px; }
 
     .pack-chips { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; padding:0 16px; margin-bottom:4px; }
@@ -259,7 +263,7 @@
 
     /* Cookie Order */
     .ck-order-wrap { padding:0 16px 14px; position:sticky; bottom:0; background:linear-gradient(to top,var(--bg) 85%,transparent); z-index:10; }
-    .ck-order-btn { width:100%; padding:14px; border-radius:14px; border:none; font-family:var(--f1); font-size:13px; font-weight:700; box-shadow:0 8px 24px rgba(232,164,184,.4); transition:all .2s; }
+    .ck-order-btn { width:100%; padding:16px; border-radius:14px; border:none; font-family:var(--f1); font-size:16px; font-weight:700; box-shadow:0 8px 24px rgba(232,164,184,.4); transition:all .2s; }
     .ck-order-btn.fill { background:linear-gradient(135deg,var(--pink),var(--pinkD)); color:var(--brown); }
     .ck-order-btn.ready { background:linear-gradient(135deg,#4CAF50,#2E7D32); color:var(--white); box-shadow:0 8px 24px rgba(76,175,80,.4); }
 
@@ -366,7 +370,7 @@
     <div class="hero-overlay">
       <div class="hero-brand">LUNCHBOXX</div>
       <div class="hero-title">COOKIES</div>
-      <p class="hero-desc">Handcrafted stuffed cookies by Fudge &amp; Crumble. Baked daily. Pre-order 24 hours in advance.</p>
+      <p class="hero-desc">Handcrafted stuffed cookies by Fudge &amp; Crumble. Baked daily. Pre-order at least 24 hours in advance.</p>
     </div>
   </div>
 
@@ -446,7 +450,7 @@
     <div class="ck-brand">
       <div class="ck-brand-name"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank">Fudge &amp; Crumble</a></div>
       <div class="ck-brand-sub">Handcrafted stuffed cookies · Made fresh to order</div>
-      <div style="font-size:10px;color:var(--orange);font-weight:600;margin-top:4px">⏰ 24hr advance order required</div>
+      <div style="font-size:11px;color:var(--orange);font-weight:600;margin-top:4px">⏰ Pre-order at least 24 hours in advance</div>
     </div>
 
     <div class="desktop-cookie-layout">
