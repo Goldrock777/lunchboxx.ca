@@ -347,7 +347,7 @@
   <!-- Live Bar -->
   <div class="live-bar" id="liveBar">
     <div class="live-dot"></div>
-    <span id="liveText">DELIVERING NOW · 8PM – 2AM</span>
+    <span id="liveText">DELIVERING NOW</span>
   </div>
 
   <!-- MAINS HERO -->
@@ -373,7 +373,8 @@
   <!-- Trust -->
   <div class="trust" id="trustStrip">
     <div class="trust-item"><h4>FREE DELIVERY</h4><p>Surrey Central</p></div>
-    <div class="trust-item"><h4>8PM – 2AM</h4><p>Every Night</p></div>
+    <div class="trust-item"><h4>8PM – 2AM</h4><p>Monday – Friday</p></div>
+    <div class="trust-item"><h4>24/7</h4><p>Saturday – Sunday</p></div>
     <div class="trust-item"><h4>30g PROTEIN</h4><p>Per Dog</p></div>
   </div>
 
@@ -491,7 +492,7 @@
     </div>
   </div>
 
-  <div class="footer"><div class="brand">LUNCHBOXX</div><p><span class="loc">Late Night · Surrey, BC</span></p><p style="margin-top:2px">8PM – 2AM Every Night</p></div>
+  <div class="footer"><div class="brand">LUNCHBOXX</div><p><span class="loc">Late Night · Surrey, BC</span></p><p style="margin-top:2px">Mon–Fri 8PM–2AM · Sat–Sun 24/7</p></div>
 
 </div>
 </div>
@@ -562,17 +563,26 @@ var tipAmount = 0;
 
 // ═══ LIVE STATUS ═══
 function updateLiveStatus() {
-  var h = new Date().getHours();
+  var now = new Date();
+  var h = now.getHours();
+  var day = now.getDay(); // 0=Sun, 6=Sat
+  var isWeekend = (day === 0 || day === 6);
   var bar = document.getElementById('liveBar');
   var txt = document.getElementById('liveText');
-  if (h >= 20 || h < 2) {
+
+  if (isWeekend) {
+    // Weekend: always open
     bar.classList.remove('off');
-    txt.textContent = 'DELIVERING NOW · 8PM – 2AM';
+    txt.textContent = 'DELIVERING NOW · SAT & SUN 24/7';
+  } else if (h >= 20 || h < 2) {
+    // Weekday: open 8PM-2AM
+    bar.classList.remove('off');
+    txt.textContent = 'DELIVERING NOW · MON–FRI 8PM – 2AM';
   } else {
     bar.classList.add('off');
     var until = 20 - h;
     if (until < 0) until += 24;
-    txt.textContent = 'OPENS IN ' + until + 'H · 8PM NIGHTLY';
+    txt.textContent = 'OPENS IN ' + until + 'H · 8PM TONIGHT';
   }
 }
 
