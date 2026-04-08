@@ -211,18 +211,20 @@
     .pack-chip.selected { background:linear-gradient(135deg,var(--pink),var(--pinkD)); color:var(--brown); border-color:transparent; box-shadow:0 4px 15px rgba(232,164,184,.3); }
 
     /* Pink Box */
-    .cookie-box { margin:0 16px 4px; border-radius:14px; overflow:hidden; }
-    .cookie-box-lid { background:linear-gradient(135deg,var(--pink),#F8D7E0,var(--pinkD)); height:26px; display:flex; align-items:center; justify-content:center; position:relative; }
-    .cookie-box-lid span { font-family:var(--f1); font-size:11px; color:var(--brown); letter-spacing:3px; z-index:1; }
-    .cookie-box-lid::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,transparent 60%); }
-    .cookie-box-base { background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border:3px solid var(--pink); border-top:none; border-radius:0 0 14px 14px; padding:4px; }
-    .cookie-slots { display:grid; gap:2px; }
+    .cookie-box { margin:0 16px 4px; position:relative; }
+    .cookie-box-lid { background:linear-gradient(180deg,#F8C8D4,#F0B0C0); height:70px; border-radius:14px 14px 0 0; display:flex; align-items:center; justify-content:center; position:relative; box-shadow:0 2px 8px rgba(200,140,160,.25); z-index:2; }
+    .cookie-box-lid span { font-family:var(--f1); font-size:14px; color:var(--brown); letter-spacing:5px; z-index:1; }
+    .cookie-box-lid::before { content:''; position:absolute; inset:0; border-radius:14px 14px 0 0; background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.08) 50%,transparent 100%); }
+    /* Lid flap hanging down */
+    .cookie-box-lid::after { content:''; position:absolute; bottom:-20px; left:8%; right:8%; height:22px; background:linear-gradient(180deg,#EDA8B8,#F0B0C0); border-radius:0 0 10px 10px; box-shadow:0 3px 6px rgba(200,140,160,.15); z-index:1; }
+    .cookie-box-base { background:linear-gradient(180deg,#FFF8FA,#FFF0F3); border:3px solid #F0B0C0; border-top:none; border-radius:0 0 14px 14px; padding:14px; padding-top:28px; min-height:140px; position:relative; z-index:0; }
+    .cookie-slots { display:grid; gap:8px; }
     .cookie-slot { aspect-ratio:1; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; }
-    .cookie-slot.empty { background:radial-gradient(circle,rgba(247,183,197,.3),rgba(252,238,242,.6)); box-shadow:inset 0 2px 6px rgba(212,114,138,.15); }
+    .cookie-slot.empty { background:radial-gradient(circle,rgba(240,176,192,.12),rgba(255,240,243,.3)); box-shadow:inset 0 2px 6px rgba(212,114,138,.06); }
     .cookie-slot.filled { background:none; animation:cookieDrop .3s ease; }
     .cookie-slot.filled img { width:100%; height:100%; object-fit:cover; transform:scale(1.4); }
     @keyframes cookieDrop { from { opacity:0; transform:translateY(-8px) scale(1.2); } to { opacity:1; transform:translateY(0) scale(1); } }
-    .cookie-count { text-align:center; margin-top:2px; font-size:10px; color:#8B5A6B; font-weight:600; }
+    .cookie-count { text-align:center; margin-top:8px; font-size:12px; color:#8B5A6B; font-weight:600; }
 
     /* Cookie Cards */
     .cookie-list { padding:0 16px; margin-bottom:4px; }
@@ -560,7 +562,8 @@ var tipAmount = 0;
 
 // ═══ LIVE STATUS ═══
 function updateLiveStatus() {
-  var now = new Date();
+  // Always use Pacific time
+  var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Vancouver' }));
   var h = now.getHours();
   var day = now.getDay(); // 0=Sun, 6=Sat
   var isWeekend = (day === 0 || day === 6);
@@ -568,11 +571,9 @@ function updateLiveStatus() {
   var txt = document.getElementById('liveText');
 
   if (isWeekend) {
-    // Weekend: always open
     bar.classList.remove('off');
     txt.textContent = 'DELIVERING NOW · SAT & SUN 24/7';
   } else if (h >= 20 || h < 2) {
-    // Weekday: open 8PM-2AM
     bar.classList.remove('off');
     txt.textContent = 'DELIVERING NOW · MON–FRI 8PM – 2AM';
   } else {
