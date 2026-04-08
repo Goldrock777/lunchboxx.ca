@@ -71,6 +71,7 @@
       .mc-desc { font-size:18px; }
       .mc-stat .val { font-size:22px; }
       .mc-stat .lbl { font-size:12px; }
+      .mc-stat.coke-stat img { height:68px; margin-top:-20px; }
       .mc-tag { font-size:12px; padding:5px 14px; }
       .builder { max-width:600px; }
       .zone-map { height:340px; }
@@ -168,10 +169,13 @@
     .mc-name { font-family:var(--f1); font-size:24px; letter-spacing:1px; line-height:1; }
     .mc-price { font-family:var(--f1); font-size:30px; color:var(--amber); }
     .mc-desc { font-size:13px; color:var(--gray); line-height:1.5; margin-bottom:10px; }
-    .mc-stats { display:flex; gap:6px; }
-    .mc-stat { background:var(--s2); border-radius:8px; padding:7px 10px; text-align:center; flex:1; }
+    .mc-stats { display:flex; gap:6px; align-items:stretch; }
+    .mc-stat { background:var(--s2); border-radius:8px; padding:7px 10px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:center; }
     .mc-stat .val { font-family:var(--f1); font-size:16px; }
     .mc-stat .lbl { font-size:8px; color:var(--gray); letter-spacing:1px; margin-top:1px; }
+    .mc-stat.coke-stat { position:relative; overflow:visible; padding:0; }
+    .mc-stat.coke-stat img { height:52px; object-fit:contain; margin-top:-16px; filter:drop-shadow(0 3px 6px rgba(0,0,0,.4)); }
+    .mc-stat.coke-stat .lbl { margin-top:2px; }
     .mc-tag { display:inline-block; font-size:9px; padding:3px 8px; border-radius:20px; font-weight:600; margin-right:4px; }
     .mc-tag.free { background:rgba(0,210,106,.12); color:var(--green); }
     .mc-tag.prot { background:rgba(255,184,0,.12); color:var(--amber); }
@@ -419,12 +423,12 @@
       <div class="menu-card popular" onclick="openBuilder('duo')">
         <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">60g PROTEIN</span></div><div class="mc-price">$20</div></div>
         <div class="mc-desc">Better than a solo pizza. More protein, more flavor, no wait.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat"><div class="val">🥤</div><div class="lbl">VANILLA COKE</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">VANILLA COKE</div></div></div>
       </div>
       <div class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">240g PROTEIN</span></div><div class="mc-price">$50</div></div>
         <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat"><div class="val">4×🥤</div><div class="lbl">VANILLA COKE</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat"><div class="val">YAM FRIES</div><div class="lbl">INCLUDED</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">4 VANILLA COKES</div></div></div>
       </div>
     </div>
 
