@@ -34,33 +34,33 @@
       .hero-overlay { padding:48px; border-radius:16px; }
       .hero-title { font-size:72px; }
       .hero-brand { font-size:15px; }
-      .hero-desc { font-size:18px; max-width:500px; }
+      .hero-desc { font-size:20px; max-width:500px; }
       .trust { padding:16px 24px; }
-      .trust-item h4 { font-size:17px; }
-      .trust-item p { font-size:12px; }
+      .trust-item h4 { font-size:20px; }
+      .trust-item p { font-size:14px; }
       .tabs { gap:10px; }
       .tab { padding:16px 12px; font-size:20px; border-radius:12px; }
       .dog-detail { padding:18px 24px; }
-      .dog-detail h3 { font-size:16px; }
-      .dog-grid span { font-size:15px; }
-      .sec-head p { font-size:16px; }
+      .dog-detail h3 { font-size:18px; }
+      .dog-grid span { font-size:17px; }
+      .sec-head p { font-size:18px; }
       .menu { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
       .menu-card { padding:24px; margin-bottom:0; }
-      .mc-name { font-size:32px; }
-      .mc-price { font-size:42px; }
-      .mc-desc { font-size:16px; }
-      .mc-stat .val { font-size:20px; }
-      .mc-stat .lbl { font-size:10px; }
-      .mc-tag { font-size:11px; padding:5px 12px; }
+      .mc-name { font-size:36px; }
+      .mc-price { font-size:48px; }
+      .mc-desc { font-size:18px; }
+      .mc-stat .val { font-size:22px; }
+      .mc-stat .lbl { font-size:12px; }
+      .mc-tag { font-size:12px; padding:5px 14px; }
       .builder { max-width:600px; }
       .zone-map { height:340px; }
       #zoneMap { height:340px; }
-      .zone-head h3 { font-size:18px; }
+      .zone-head h3 { font-size:20px; }
       .footer { padding:40px 24px; }
       .footer .brand { font-size:20px; }
       .ck-brand { padding:0 0 4px; }
       .ck-brand-name { font-size:32px; }
-      .ck-brand-sub { font-size:14px; }
+      .ck-brand-sub { font-size:16px; }
       .desktop-cookie-layout { display:flex; gap:20px; align-items:flex-start; }
       .desktop-cookie-left { flex:0 0 45%; position:sticky; top:20px; }
       .desktop-cookie-right { flex:1; min-width:0; }
@@ -69,15 +69,15 @@
       .desktop-cookie-left .ck-label { padding:0!important; margin-bottom:2px!important; }
       .desktop-cookie-right .cookie-list { padding:0; }
       .desktop-cookie-right .cookie-card-img { width:100px; height:100px; }
-      .desktop-cookie-right .cookie-name { font-size:18px; }
-      .desktop-cookie-right .cookie-cal { font-size:13px; }
-      .desktop-cookie-right .cookie-price { font-size:16px; }
+      .desktop-cookie-right .cookie-name { font-size:20px; }
+      .desktop-cookie-right .cookie-cal { font-size:15px; }
+      .desktop-cookie-right .cookie-price { font-size:18px; }
       .desktop-cookie-right .gift-row { margin:0 0 4px; }
       .desktop-cookie-right .gift-form { padding:0; }
       .desktop-cookie-right .ck-label { padding:0!important; font-size:11px!important; margin-bottom:2px!important; }
       .desktop-cookie-right .ck-date-wrap { padding:0!important; }
       .desktop-cookie-right .ck-order-wrap { padding:0 0 16px; }
-      .desktop-cookie-right .ck-order-btn { font-size:18px; padding:18px; }
+      .desktop-cookie-right .ck-order-btn { font-size:20px; padding:20px; }
     }
     .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
@@ -224,7 +224,7 @@
     .cookie-slot.filled { background:none; animation:cookieDrop .3s ease; }
     .cookie-slot.filled img { width:100%; height:100%; object-fit:cover; transform:scale(1.4); }
     @keyframes cookieDrop { from { opacity:0; transform:translateY(-8px) scale(1.2); } to { opacity:1; transform:translateY(0) scale(1); } }
-    .cookie-count { text-align:center; margin-top:8px; font-size:12px; color:#8B5A6B; font-weight:600; }
+    .cookie-count { text-align:center; margin-top:8px; font-size:14px; color:#8B5A6B; font-weight:600; }
 
     /* Cookie Cards */
     .cookie-list { padding:0 16px; margin-bottom:4px; }
@@ -244,8 +244,8 @@
     /* Gift */
     .gift-row { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:10px; margin:0 16px 4px; border:2px solid #F8D7E0; cursor:pointer; }
     .gift-info { flex:1; }
-    .gift-info div:first-child { font-size:12px; color:var(--brown); font-weight:600; }
-    .gift-info div:last-child { font-size:9px; color:#8B5A6B; }
+    .gift-info div:first-child { font-size:15px; color:var(--brown); font-weight:600; }
+    .gift-info div:last-child { font-size:12px; color:#8B5A6B; }
     .gift-switch { width:40px; height:22px; background:#ddd; border-radius:11px; position:relative; transition:all .2s; }
     .gift-switch.on { background:var(--pinkD); }
     .gift-switch::after { content:''; position:absolute; top:2px; left:2px; width:18px; height:18px; background:var(--white); border-radius:50%; transition:all .2s; }
@@ -257,7 +257,7 @@
 
     /* Cookie Order */
     .ck-order-wrap { padding:0 16px 14px; position:sticky; bottom:0; background:linear-gradient(to top,var(--bg) 85%,transparent); z-index:10; }
-    .ck-order-btn { width:100%; padding:16px; border-radius:14px; border:none; font-family:var(--f1); font-size:16px; font-weight:700; box-shadow:0 8px 24px rgba(232,164,184,.4); transition:all .2s; }
+    .ck-order-btn { width:100%; padding:18px; border-radius:14px; border:none; font-family:var(--f1); font-size:18px; font-weight:700; box-shadow:0 8px 24px rgba(232,164,184,.4); transition:all .2s; }
     .ck-order-btn.fill { background:linear-gradient(135deg,var(--pink),var(--pinkD)); color:var(--brown); }
     .ck-order-btn.ready { background:linear-gradient(135deg,#4CAF50,#2E7D32); color:var(--white); box-shadow:0 8px 24px rgba(76,175,80,.4); }
 
@@ -444,13 +444,13 @@
     <div class="ck-brand">
       <div class="ck-brand-name"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank">Fudge &amp; Crumble</a></div>
       <div class="ck-brand-sub">Handcrafted stuffed cookies · Made fresh to order</div>
-      <div style="font-size:11px;color:var(--orange);font-weight:600;margin-top:4px">⏰ Pre-order at least 24 hours in advance</div>
+      <div style="font-size:13px;color:var(--orange);font-weight:600;margin-top:4px">⏰ Pre-order at least 24 hours in advance</div>
     </div>
 
     <div class="desktop-cookie-layout">
       <!-- LEFT: Box selector + visual -->
       <div class="desktop-cookie-left">
-        <div style="font-size:9px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px" class="ck-label">SELECT YOUR BOX</div>
+        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px" class="ck-label">SELECT YOUR BOX</div>
         <div class="pack-chips">
           <button class="pack-chip selected" data-size="10" onclick="selectPack(10)"><span class="num">10</span><span class="price">$40</span></button>
           <button class="pack-chip" data-size="20" onclick="selectPack(20)"><span class="num">20</span><span class="price">$75</span></button>
@@ -469,15 +469,15 @@
 
       <!-- RIGHT: Cookie picker + options -->
       <div class="desktop-cookie-right">
-        <div style="font-size:9px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px;display:flex;justify-content:space-between" class="ck-label"><span>THIS WEEK</span><span style="color:var(--rose)">STUFFED</span></div>
+        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px;display:flex;justify-content:space-between" class="ck-label"><span>THIS WEEK</span><span style="color:var(--rose)">STUFFED</span></div>
         <div class="cookie-list" id="cookieList"></div>
 
         <div class="gift-row" onclick="toggleGift()"><div style="font-size:20px">🎁</div><div class="gift-info"><div>Send as a Gift</div><div>Add a personal message</div></div><div class="gift-switch" id="giftSwitch"></div></div>
         <div class="gift-form" id="giftForm"><textarea id="giftMsg" placeholder="Gift message..."></textarea><input type="text" id="giftName" placeholder="Recipient's name"></div>
 
         <div style="padding:0 16px;margin-bottom:6px" class="ck-date-wrap">
-          <div style="font-size:9px;color:var(--gray);letter-spacing:1px;margin-bottom:4px">DELIVERY DATE</div>
-          <button onclick="openCalendar()" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--s1);border:2px solid var(--s3);border-radius:10px;padding:10px 12px;color:var(--gray);font-size:12px;font-family:var(--f2)"><span id="dateDisplay">Select date (24hr+ advance)</span><span>📅</span></button>
+          <div style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px">DELIVERY DATE</div>
+          <button onclick="openCalendar()" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--s1);border:2px solid var(--s3);border-radius:10px;padding:12px 14px;color:var(--gray);font-size:14px;font-family:var(--f2)"><span id="dateDisplay">Select date (24hr+ advance)</span><span>📅</span></button>
           <input type="hidden" id="dateValue">
         </div>
 
