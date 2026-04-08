@@ -28,7 +28,7 @@
     .home-ind { display:none; }
 
     @media(min-width:768px) {
-      .app { max-width:100%; padding:0 40px; }
+      .app { max-width:100%; padding:0 80px; }
       .hero-main, .hero-cookie { border-radius:16px; }
       .hero-main img, .hero-cookie img { height:420px; border-radius:16px; object-position:center 30%; }
       .hero-overlay { padding:48px; border-radius:16px; }
@@ -114,13 +114,13 @@
     .hero-cookie .hero-desc { color:var(--pinkD); }
 
     /* Trust */
-    .trust { display:flex; gap:6px; padding:10px 14px; margin:0 16px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
+    .trust { display:flex; gap:6px; padding:10px 14px; margin:0 20px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
     .trust-item { flex:1; text-align:center; padding:6px 2px; }
     .trust-item h4 { font-family:var(--f1); font-size:clamp(12px,3vw,14px); letter-spacing:.5px; margin-bottom:1px; }
     .trust-item p { font-size:clamp(9px,2.2vw,11px); color:var(--gray); }
 
     /* Tabs */
-    .tabs { display:flex; gap:6px; padding:0 16px; margin-bottom:14px; }
+    .tabs { display:flex; gap:6px; padding:0 20px; margin-bottom:14px; }
     .tab { flex:1; padding:12px 8px; border:none; border-radius:10px; font-family:var(--f1); font-size:14px; letter-spacing:1px; text-align:center; transition:all .2s; }
     .tab-mains { background:var(--orange); color:var(--white); opacity:.4; }
     .tab-mains.active { opacity:1; box-shadow:0 4px 12px rgba(255,107,0,.3); }
@@ -136,7 +136,7 @@
     .sec-head p { font-size:14px; color:var(--gray); margin-top:2px; }
 
     /* Menu */
-    .menu { padding:0 16px 16px; }
+    .menu { padding:0 20px 16px; }
     .menu-card { background:var(--s1); border:2px solid var(--s3); border-radius:16px; padding:18px; margin-bottom:10px; cursor:pointer; transition:all .2s; position:relative; overflow:hidden; }
     .menu-card:hover { border-color:rgba(255,107,0,.4); transform:translateY(-2px); }
     .menu-card:active { transform:scale(.98); }
@@ -157,14 +157,14 @@
     .mc-tag.prot { background:rgba(255,184,0,.12); color:var(--amber); }
 
     /* Dog detail */
-    .dog-detail { padding:12px 16px; margin:0 16px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
+    .dog-detail { padding:12px 16px; margin:0 20px 12px; background:var(--s1); border-radius:12px; border:1px solid var(--s3); }
     .dog-detail h3 { font-family:var(--f1); font-size:12px; letter-spacing:2px; color:var(--orange); margin-bottom:8px; }
     .dog-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
     .dog-grid span { font-size:13px; color:var(--grayL); display:flex; align-items:center; gap:5px; }
     .dog-grid span::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--orange); flex-shrink:0; }
 
     /* Builder */
-    .builder { padding:0 16px 16px; display:none; }
+    .builder { padding:0 20px 16px; display:none; }
     .builder.show { display:block; animation:fadeIn .3s ease; }
     .builder-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
     .builder-head h3 { font-family:var(--f1); font-size:20px; letter-spacing:1px; }
@@ -186,7 +186,7 @@
     .order-btn.secondary { background:transparent; border:2px solid var(--s3); color:var(--white); }
 
     /* Zone */
-    .zone { margin:0 16px 16px; background:var(--s1); border-radius:14px; overflow:hidden; border:1px solid var(--s3); }
+    .zone { margin:0 20px 16px; background:var(--s1); border-radius:14px; overflow:hidden; border:1px solid var(--s3); }
     .zone-head { padding:14px 16px; display:flex; align-items:center; gap:10px; }
     .zone-head h3 { font-family:var(--f1); font-size:16px; letter-spacing:1px; }
     .zone-head span { font-size:10px; color:var(--green); font-weight:600; }
@@ -204,14 +204,14 @@
     .ck-brand-sub { font-size:12px; color:var(--gray); margin-top:1px; }
     .ck-brand-late { display:inline-block; font-size:9px; color:var(--orange); font-weight:600; background:rgba(255,107,0,.1); padding:3px 8px; border-radius:6px; margin-top:3px; }
 
-    .pack-chips { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; padding:0 16px; margin-bottom:4px; }
+    .pack-chips { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; padding:0 20px; margin-bottom:4px; }
     .pack-chip { padding:14px 6px; border-radius:12px; border:2px solid var(--s3); font-family:var(--f1); font-size:14px; text-align:center; transition:all .2s; background:var(--s2); color:var(--grayL); }
     .pack-chip .num { font-size:28px; font-weight:700; display:block; }
     .pack-chip .price { font-size:16px; opacity:.7; }
     .pack-chip.selected { background:linear-gradient(135deg,var(--pink),var(--pinkD)); color:var(--brown); border-color:transparent; box-shadow:0 4px 15px rgba(232,164,184,.3); }
 
     /* Pink Box */
-    .cookie-box { margin:0 16px 4px; position:relative; }
+    .cookie-box { margin:0 20px 4px; position:relative; }
     .cookie-box-lid { background:linear-gradient(180deg,#F8C8D4,#F0B0C0); height:70px; border-radius:14px 14px 0 0; display:flex; align-items:center; justify-content:center; position:relative; box-shadow:0 2px 8px rgba(200,140,160,.25); z-index:2; }
     .cookie-box-lid span { font-family:var(--f1); font-size:14px; color:var(--brown); letter-spacing:5px; z-index:1; }
     .cookie-box-lid::before { content:''; position:absolute; inset:0; border-radius:14px 14px 0 0; background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.08) 50%,transparent 100%); }
@@ -227,7 +227,7 @@
     .cookie-count { text-align:center; margin-top:8px; font-size:14px; color:#8B5A6B; font-weight:600; }
 
     /* Cookie Cards */
-    .cookie-list { padding:0 16px; margin-bottom:4px; }
+    .cookie-list { padding:0 20px; margin-bottom:4px; }
     .cookie-card { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:4px 10px 4px 4px; border:2px solid #F8D7E0; margin-bottom:4px; transition:all .2s; }
     .cookie-card.has { border-color:var(--pinkD); }
     .cookie-card-img { width:130px; height:130px; flex-shrink:0; object-fit:contain; border-radius:8px; }
@@ -242,7 +242,7 @@
     .ck-qty { font-family:var(--f1); font-size:20px; min-width:24px; text-align:center; color:var(--rose); }
 
     /* Gift */
-    .gift-row { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:10px; margin:0 16px 4px; border:2px solid #F8D7E0; cursor:pointer; }
+    .gift-row { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:10px; margin:0 20px 4px; border:2px solid #F8D7E0; cursor:pointer; }
     .gift-info { flex:1; }
     .gift-info div:first-child { font-size:15px; color:var(--brown); font-weight:600; }
     .gift-info div:last-child { font-size:12px; color:#8B5A6B; }
@@ -250,13 +250,13 @@
     .gift-switch.on { background:var(--pinkD); }
     .gift-switch::after { content:''; position:absolute; top:2px; left:2px; width:18px; height:18px; background:var(--white); border-radius:50%; transition:all .2s; }
     .gift-switch.on::after { left:20px; }
-    .gift-form { display:none; padding:0 16px; margin-bottom:6px; }
+    .gift-form { display:none; padding:0 20px; margin-bottom:6px; }
     .gift-form.show { display:block; animation:fadeIn .3s; }
     .gift-form textarea, .gift-form input { width:100%; background:#fff; border:1px solid #F8D7E0; border-radius:8px; padding:8px; color:var(--brown); font-size:11px; outline:none; box-sizing:border-box; font-family:var(--f2); }
     .gift-form textarea { height:50px; resize:none; margin-bottom:4px; }
 
     /* Cookie Order */
-    .ck-order-wrap { padding:0 16px 14px; position:sticky; bottom:0; background:linear-gradient(to top,var(--bg) 85%,transparent); z-index:10; }
+    .ck-order-wrap { padding:0 20px 14px; position:sticky; bottom:0; background:linear-gradient(to top,var(--bg) 85%,transparent); z-index:10; }
     .ck-order-btn { width:100%; padding:18px; border-radius:14px; border:none; font-family:var(--f1); font-size:18px; font-weight:700; box-shadow:0 8px 24px rgba(232,164,184,.4); transition:all .2s; }
     .ck-order-btn.fill { background:linear-gradient(135deg,var(--pink),var(--pinkD)); color:var(--brown); }
     .ck-order-btn.ready { background:linear-gradient(135deg,#4CAF50,#2E7D32); color:var(--white); box-shadow:0 8px 24px rgba(76,175,80,.4); }
@@ -450,7 +450,7 @@
     <div class="desktop-cookie-layout">
       <!-- LEFT: Box selector + visual -->
       <div class="desktop-cookie-left">
-        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px" class="ck-label">SELECT YOUR BOX</div>
+        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 20px;margin-bottom:4px" class="ck-label">SELECT YOUR BOX</div>
         <div class="pack-chips">
           <button class="pack-chip selected" data-size="10" onclick="selectPack(10)"><span class="num">10</span><span class="price">$40</span></button>
           <button class="pack-chip" data-size="20" onclick="selectPack(20)"><span class="num">20</span><span class="price">$75</span></button>
@@ -469,13 +469,13 @@
 
       <!-- RIGHT: Cookie picker + options -->
       <div class="desktop-cookie-right">
-        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 16px;margin-bottom:4px;display:flex;justify-content:space-between" class="ck-label"><span>THIS WEEK</span><span style="color:var(--rose)">STUFFED</span></div>
+        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 20px;margin-bottom:4px;display:flex;justify-content:space-between" class="ck-label"><span>THIS WEEK</span><span style="color:var(--rose)">STUFFED</span></div>
         <div class="cookie-list" id="cookieList"></div>
 
         <div class="gift-row" onclick="toggleGift()"><div style="font-size:20px">🎁</div><div class="gift-info"><div>Send as a Gift</div><div>Add a personal message</div></div><div class="gift-switch" id="giftSwitch"></div></div>
         <div class="gift-form" id="giftForm"><textarea id="giftMsg" placeholder="Gift message..."></textarea><input type="text" id="giftName" placeholder="Recipient's name"></div>
 
-        <div style="padding:0 16px;margin-bottom:6px" class="ck-date-wrap">
+        <div style="padding:0 20px;margin-bottom:6px" class="ck-date-wrap">
           <div style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px">DELIVERY DATE</div>
           <button onclick="openCalendar()" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--s1);border:2px solid var(--s3);border-radius:10px;padding:12px 14px;color:var(--gray);font-size:14px;font-family:var(--f2)"><span id="dateDisplay">Select date (24hr+ advance)</span><span>📅</span></button>
           <input type="hidden" id="dateValue">
