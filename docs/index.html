@@ -430,6 +430,11 @@
         <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
         <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries"><div class="lbl">YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">4 VANILLA COKES</div></div></div>
       </div>
+      <div class="menu-card" onclick="openBuilder('catering')" style="grid-column:1/-1;border-color:var(--amber);background:linear-gradient(135deg,var(--s1),rgba(255,184,0,.05))">
+        <div class="mc-top"><div><div class="mc-name">CATERING BOXX</div><span class="mc-tag free">FREE DELIVERY</span><span class="mc-tag prot">900g PROTEIN</span></div><div class="mc-price">$200</div></div>
+        <div class="mc-desc">Feeds 15–20 people. Office parties, events, late-night groups. The full spread.</div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries"><div class="lbl">1.5KG YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">12-PACK</div></div></div>
+      </div>
     </div>
 
     <!-- Vanilla Coke Showcase -->
@@ -450,7 +455,7 @@
       <input type="text" id="specialReq" placeholder="e.g. No cheese, no sauce, extra mayo..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--s3);background:var(--s1);color:var(--white);font-size:12px;outline:none;box-sizing:border-box">
       <div class="summary">
         <div class="sum-row"><span id="sumLabel">2 Loaded Dogs</span><span id="sumSize">DUO</span></div>
-        <div class="sum-row"><span>Includes</span><span style="color:var(--grayL)">Yam Fries + Vanilla Coke</span></div>
+        <div class="sum-row"><span>Includes</span><span id="sumIncludes" style="color:var(--grayL)">Yam Fries + Vanilla Coke</span></div>
         <div class="sum-row"><span>Delivery</span><span class="green">FREE</span></div>
         <div class="sum-row total"><span>Total</span><span id="sumTotal">$12.00</span></div>
       </div>
@@ -561,12 +566,13 @@
 <script>
 // ═══ CONFIG ═══
 var PACKS = {
-  duo:   { count:2,  price:20, label:'DUO' },
-  party: { count:8, price:50, label:'PARTY PACK' }
+  duo:      { count:2,  price:20,  label:'DUO' },
+  party:    { count:8,  price:50,  label:'PARTY PACK' },
+  catering: { count:30, price:200, label:'CATERING BOXX' }
 };
 
 var SHOPIFY = 'meesge-h5.myshopify.com';
-var VARIANTS = { duo:'47080319811738', party:'47078075793562' };
+var VARIANTS = { duo:'47080319811738', party:'47078075793562', catering:'CATERING_VARIANT_ID' };
 var CK_VARIANTS = { 10:'47308152570010', 20:'47048673525914', 30:'47048673689754', 50:'47048673984666' };
 var CK_PRICES = { 10:40, 20:75, 30:105, 50:170 };
 
@@ -665,6 +671,10 @@ function updateSummary() {
   var pk = PACKS[currentPack];
   document.getElementById('sumLabel').textContent = pk.count + ' Loaded Dogs';
   document.getElementById('sumSize').textContent = pk.label;
+  var includes = 'Yam Fries + Vanilla Coke';
+  if (pk.count >= 8 && pk.count < 30) includes = 'Yam Fries + 4 Vanilla Cokes';
+  if (pk.count >= 30) includes = '1.5kg Yam Fries + 12-Pack Vanilla Coke';
+  document.getElementById('sumIncludes').textContent = includes;
   document.getElementById('sumTotal').textContent = '$' + pk.price.toFixed(2);
   document.getElementById('orderBtn').textContent = 'ORDER NOW · $' + pk.price.toFixed(2);
 }
@@ -679,7 +689,8 @@ function addToCart() {
   if (!currentPack) return;
   var pk = PACKS[currentPack];
   var detail = pk.count + ' loaded dogs + Yam Fries + Vanilla Coke';
-  if (pk.count >= 8) detail = pk.count + ' loaded dogs + Yam Fries + 4 Vanilla Cokes';
+  if (pk.count >= 8 && pk.count < 30) detail = pk.count + ' loaded dogs + Yam Fries + 4 Vanilla Cokes';
+  if (pk.count >= 30) detail = pk.count + ' loaded dogs + 1.5kg Yam Fries + 12-pack Vanilla Coke';
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
   cart.push({ type:'dogs', packId:currentPack, name:pk.label, detail:detail, price:pk.price });
