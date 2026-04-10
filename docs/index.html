@@ -708,16 +708,24 @@ function updateSummary() {
 
 function orderNow() {
   if (!currentPack) return;
+  if (currentPack === 'catering' && selectedDrinks.length < 2) {
+    showToast('Please select 2 drinks for your catering order');
+    return;
+  }
   addToCart();
   openDrawer();
 }
 
 function addToCart() {
   if (!currentPack) return;
+  if (currentPack === 'catering' && selectedDrinks.length < 2) {
+    showToast('Please select 2 drinks for your catering order');
+    return;
+  }
   var pk = PACKS[currentPack];
   var detail = pk.count + ' Loaded Dogs + Vanilla Coke';
   if (currentPack === 'party') detail = pk.count + ' Loaded Dogs + 2 Large Yam Fries + 4 Vanilla Cokes';
-  if (currentPack === 'catering') detail = pk.count + ' Loaded Dogs + 5 Large Yam Fries + 2×2L ' + (selectedDrinks.length > 0 ? selectedDrinks.join(' & ') : 'Pop');
+  if (currentPack === 'catering') detail = pk.count + ' Loaded Dogs + 5 Large Yam Fries + 2×2L ' + selectedDrinks.join(' & ');
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
   cart.push({ type:'dogs', packId:currentPack, name:pk.label, detail:detail, price:pk.price });
