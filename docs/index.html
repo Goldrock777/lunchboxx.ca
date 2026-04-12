@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Primary Meta Tags -->
   <title>LUNCHBOXX — Late Night Hot Dog Delivery | Surrey BC</title>
   <meta name="description" content="Surrey's late-night ghost kitchen. Loaded hot dogs & fresh-baked cookies delivered to your door. Open late when everywhere else is closed. Order now at lunchboxx.ca">
   <meta name="keywords" content="late night delivery Surrey, ghost kitchen Surrey BC, hot dog delivery, late night food Surrey, LUNCHBOXX, cookie delivery Surrey">
+  <meta name="theme-color" content="#0a0a0a">
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lunchboxx.ca">
@@ -17,6 +18,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LUNCHBOXX — Late Night Hot Dog Delivery">
   <meta name="twitter:description" content="Surrey's ghost kitchen. Hot dogs & cookies delivered when everywhere else is closed.">
+  <!-- Preconnect for faster resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -29,8 +33,8 @@
       --white:#fff; --gray:#888; --grayL:#bbb;
       --f1:'Bebas Neue',sans-serif; --f2:'Space Grotesk',sans-serif; --script:'Pacifico',cursive;
     }
-    html, body { font-family:var(--f2); background:#000; color:var(--white); -webkit-font-smoothing:antialiased; min-height:100vh; }
-    body { display:flex; justify-content:center; align-items:center; }
+    html { font-family:var(--f2); background:#000; color:var(--white); -webkit-font-smoothing:antialiased; min-height:100vh; scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; }
     button { touch-action:manipulation; cursor:pointer; }
 
     /* Frame - responsive */
@@ -43,12 +47,49 @@
     @media(max-width:767px) {
       .app { max-width:100%; padding:0; }
       .hero-main, .hero-cookie { border-radius:0; }
-      .hero-main img, .hero-cookie img { border-radius:0; }
+      .hero-main img, .hero-cookie img { border-radius:0; height:300px; }
       .hero-overlay { border-radius:0; }
+      .cookie-card { padding:6px 12px 6px 6px; }
+      .cookie-card-img { width:90px; height:90px; }
     }
 
-    @media(min-width:768px) {
-      .app { max-width:100%; padding:0 160px; }
+    /* Tablet */
+    @media(min-width:768px) and (max-width:1023px) {
+      .app { max-width:100%; padding:0 40px; }
+      .hero-main, .hero-cookie { border-radius:14px; }
+      .hero-main img, .hero-cookie img { height:340px; border-radius:14px; object-position:center 30%; }
+      .hero-overlay { padding:32px; border-radius:14px; }
+      .hero-title { font-size:60px; }
+      .hero-brand { font-size:14px; }
+      .hero-desc { font-size:17px; max-width:420px; }
+      .trust { padding:14px 20px; }
+      .trust-item h4 { font-size:17px; }
+      .trust-item p { font-size:12px; }
+      .tabs { gap:8px; }
+      .tab { padding:14px 10px; font-size:17px; border-radius:11px; }
+      .menu { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+      .menu-card { padding:20px; margin-bottom:0; }
+      .mc-name { font-size:28px; }
+      .mc-price { font-size:38px; }
+      .mc-desc { font-size:15px; }
+      .mc-stat .val { font-size:18px; }
+      .mc-stat .lbl { font-size:10px; }
+      .mc-stat.coke-stat img { height:56px; margin-top:-16px; }
+      .dog-detail { padding:16px 20px; }
+      .dog-detail h3 { font-size:15px; }
+      .dog-grid span { font-size:15px; }
+      .builder { max-width:520px; }
+      .zone-map { height:300px; }
+      #zoneMap { height:300px; }
+      .footer { padding:32px 20px; }
+      .footer .brand { font-size:18px; }
+      .ck-brand-name { font-size:28px; }
+      .cookie-card-img { width:110px; height:110px; }
+    }
+
+    /* Desktop */
+    @media(min-width:1024px) {
+      .app { max-width:1200px; margin:0 auto; padding:0 60px; }
       .hero-main, .hero-cookie { border-radius:16px; }
       .hero-main img, .hero-cookie img { height:420px; border-radius:16px; object-position:center 30%; }
       .hero-overlay { padding:48px; border-radius:16px; }
@@ -102,6 +143,40 @@
     }
     .app { background:var(--bg); position:relative; overflow-x:hidden; }
     .app::-webkit-scrollbar { display:none; }
+    .app { scrollbar-width:none; }
+
+    /* Vanilla Coke showcase */
+    .coke-showcase { margin:0 20px 16px; background:linear-gradient(135deg,#1a0000,#2a0a0a); border-radius:14px; border:1px solid #3a1515; padding:20px; display:flex; align-items:center; gap:16px; overflow:hidden; position:relative; }
+    .coke-showcase-glow { position:absolute; top:-20px; right:-20px; width:120px; height:120px; background:radial-gradient(circle,rgba(200,0,0,.15),transparent); border-radius:50%; }
+    .coke-showcase img { width:80px; height:auto; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,.5)); }
+    .coke-showcase-title { font-family:var(--f1); font-size:16px; letter-spacing:2px; color:var(--red); margin-bottom:4px; }
+    .coke-showcase-name { font-size:14px; color:var(--white); font-weight:600; margin-bottom:4px; }
+    .coke-showcase-desc { font-size:12px; color:var(--grayL); line-height:1.5; }
+
+    /* Catering card full-width */
+    .menu-card.catering { grid-column:1/-1; border-color:var(--amber); background:linear-gradient(135deg,var(--s1),rgba(255,184,0,.05)); }
+    .catering-drinks { display:flex; flex-direction:column; align-items:center; }
+    .catering-drinks-row { display:flex; gap:4px; }
+    .catering-drinks-row img { height:36px; }
+
+    /* Builder special request */
+    .builder-label { font-size:10px; color:var(--gray); letter-spacing:1px; display:block; margin-bottom:4px; }
+    .builder-input { width:100%; padding:10px; border-radius:8px; border:2px solid var(--s3); background:var(--s1); color:var(--white); font-size:12px; outline:none; box-sizing:border-box; }
+
+    /* Cookie section labels */
+    .ck-label { font-size:12px; color:var(--gray); letter-spacing:1px; padding:0 20px; margin-bottom:4px; }
+    .ck-label-row { display:flex; justify-content:space-between; }
+    .ck-label .accent { color:var(--rose); }
+    .ck-preorder { font-size:13px; color:var(--orange); font-weight:600; margin-top:4px; }
+
+    /* Date picker button */
+    .date-picker-btn { width:100%; display:flex; align-items:center; justify-content:space-between; background:var(--s1); border:2px solid var(--s3); border-radius:10px; padding:12px 14px; color:var(--gray); font-size:14px; font-family:var(--f2); cursor:pointer; }
+    .ck-date-wrap { padding:0 20px; margin-bottom:6px; }
+    .ck-date-label { font-size:12px; color:var(--gray); letter-spacing:1px; margin-bottom:4px; }
+
+    /* Drink select label */
+    .drink-hint { font-size:9px; color:var(--gray); text-align:center; margin-bottom:6px; }
+    .drink-status { font-size:10px; color:var(--gray); margin-top:6px; text-align:center; }
 
     /* Toast */
     .toast-wrap { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:10000; width:90%; max-width:380px; pointer-events:none; }
@@ -374,20 +449,20 @@
 
   <!-- MAINS HERO -->
   <div class="hero-main" id="heroMains">
-    <img src="./hero.png" alt="Loaded Dogs">
+    <img src="./hero.png" alt="Loaded hot dogs with bacon, cheddar and spicy mayo" width="800" height="420">
     <div class="hero-overlay">
       <div class="hero-brand">LUNCHBOXX</div>
-      <div class="hero-title">LATE NIGHT<br><span>LOADED.</span></div>
+      <h1 class="hero-title">LATE NIGHT<br><span>LOADED.</span></h1>
       <p class="hero-desc">Jumbo beef dogs loaded with crispy bacon, cheddar &amp; spicy mayo. Free delivery in Surrey Central.</p>
     </div>
   </div>
 
   <!-- COOKIE HERO (hidden by default) -->
   <div class="hero-cookie" id="heroCookie" style="display:none">
-    <img src="./cookie.png" alt="Cookies">
+    <img src="./cookie.png" alt="Handcrafted stuffed cookies" width="800" height="420">
     <div class="hero-overlay">
       <div class="hero-brand">LUNCHBOXX</div>
-      <div class="hero-title">COOKIES</div>
+      <h1 class="hero-title">COOKIES</h1>
       <p class="hero-desc">Handcrafted stuffed cookies by Fudge &amp; Crumble. Baked daily. Pre-order at least 24 hours in advance.</p>
     </div>
   </div>
@@ -401,13 +476,13 @@
   </div>
 
   <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab tab-mains active" id="tabMains" onclick="switchTab('mains')">MAINS</button>
-    <button class="tab tab-desserts" id="tabDesserts" onclick="switchTab('desserts')">DESSERTS</button>
+  <div class="tabs" role="tablist">
+    <button class="tab tab-mains active" id="tabMains" role="tab" aria-selected="true" aria-controls="secMains" onclick="switchTab('mains')">MAINS</button>
+    <button class="tab tab-desserts" id="tabDesserts" role="tab" aria-selected="false" aria-controls="secDesserts" onclick="switchTab('desserts')">DESSERTS</button>
   </div>
 
   <!-- ═══ MAINS SECTION ═══ -->
-  <div class="section visible" id="secMains">
+  <div class="section visible" id="secMains" role="tabpanel" aria-labelledby="tabMains">
     <div class="dog-detail">
       <h3>THE LOADED DOG</h3>
       <div class="dog-grid">
@@ -423,41 +498,41 @@
       <div class="menu-card popular" onclick="openBuilder('duo')">
         <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$20</div></div>
         <div class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">VANILLA COKE</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke" loading="lazy"><div class="lbl">VANILLA COKE</div></div></div>
       </div>
       <div class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$50</div></div>
         <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries"><div class="lbl">2 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke"><div class="lbl">4 VANILLA COKES</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries" loading="lazy"><div class="lbl">2 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke" loading="lazy"><div class="lbl">4 VANILLA COKES</div></div></div>
       </div>
-      <div class="menu-card" onclick="openBuilder('catering')" style="grid-column:1/-1;border-color:var(--amber);background:linear-gradient(135deg,var(--s1),rgba(255,184,0,.05))">
+      <div class="menu-card catering" onclick="openBuilder('catering')">
         <div class="mc-top"><div><div class="mc-name">CATERING BOXX</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$200</div></div>
         <div class="mc-desc">Feeds 15–20 people. Office parties, events, late-night groups. The full spread.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries"><div class="lbl">5 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat" style="display:flex;flex-direction:column;align-items:center"><div style="display:flex;gap:4px"><img src="./cola.png" alt="Coke" style="height:36px"><img src="./sprite.png" alt="Sprite" style="height:36px"></div><div class="lbl">2 × 2L POP</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries" loading="lazy"><div class="lbl">5 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat catering-drinks"><div class="catering-drinks-row"><img src="./cola.png" alt="Coke" loading="lazy"><img src="./sprite.png" alt="Sprite" loading="lazy"></div><div class="lbl">2 × 2L POP</div></div></div>
       </div>
     </div>
 
     <!-- Vanilla Coke Showcase -->
-    <div style="margin:0 20px 16px;background:linear-gradient(135deg,#1a0000,#2a0a0a);border-radius:14px;border:1px solid #3a1515;padding:20px;display:flex;align-items:center;gap:16px;overflow:hidden;position:relative">
-      <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(200,0,0,.15),transparent);border-radius:50%"></div>
-      <img src="./vanillacoke.png" alt="Vanilla Coke" style="width:80px;height:auto;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))">
+    <div class="coke-showcase">
+      <div class="coke-showcase-glow"></div>
+      <img src="./vanillacoke.png" alt="Vanilla Coke bottle" loading="lazy">
       <div>
-        <div style="font-family:var(--f1);font-size:16px;letter-spacing:2px;color:#E8392C;margin-bottom:4px">COMPLIMENTARY WITH EVERY ORDER</div>
-        <div style="font-size:14px;color:var(--white);font-weight:600;margin-bottom:4px">Vanilla Coke</div>
-        <div style="font-size:12px;color:var(--grayL);line-height:1.5">The classic 2000s throwback. Crisp, smooth, ice-cold. The perfect match for Loaded Dogs.</div>
+        <div class="coke-showcase-title">COMPLIMENTARY WITH EVERY ORDER</div>
+        <div class="coke-showcase-name">Vanilla Coke</div>
+        <div class="coke-showcase-desc">The classic 2000s throwback. Crisp, smooth, ice-cold. The perfect match for Loaded Dogs.</div>
       </div>
     </div>
 
     <!-- Builder -->
     <div class="builder" id="builder">
-      <div class="builder-head"><h3 id="builderTitle">CUSTOMIZE</h3><button class="builder-close" onclick="closeBuilder()">×</button></div>
-      <label style="font-size:10px;color:var(--gray);letter-spacing:1px;display:block;margin-bottom:4px">SPECIAL REQUESTS</label>
-      <input type="text" id="specialReq" placeholder="e.g. No cheese, no sauce, extra mayo..." style="width:100%;padding:10px;border-radius:8px;border:2px solid var(--s3);background:var(--s1);color:var(--white);font-size:12px;outline:none;box-sizing:border-box">
+      <div class="builder-head"><h3 id="builderTitle">CUSTOMIZE</h3><button class="builder-close" onclick="closeBuilder()" aria-label="Close customizer">×</button></div>
+      <label class="builder-label" for="specialReq">SPECIAL REQUESTS</label>
+      <input type="text" id="specialReq" class="builder-input" placeholder="e.g. No cheese, no sauce, extra mayo...">
       <div class="drink-wrap" id="drinkWrap" style="display:none">
         <h4>CHOOSE YOUR 2 × 2L DRINKS</h4>
-        <p style="font-size:9px;color:var(--gray);text-align:center;margin-bottom:6px">Pick 2 drinks</p>
+        <p class="drink-hint">Pick 2 drinks</p>
         <div class="drink-opts" id="drinkOpts"><button class="drink-opt" onclick="pickDrink(this,'Coke')">Coke</button><button class="drink-opt" onclick="pickDrink(this,'Sprite')">Sprite</button><button class="drink-opt" onclick="pickDrink(this,'Dr Pepper')">Dr Pepper</button><button class="drink-opt" onclick="pickDrink(this,'Root Beer')">Root Beer</button><button class="drink-opt" onclick="pickDrink(this,'Cream Soda')">Cream Soda</button></div>
-        <div style="font-size:10px;color:var(--gray);margin-top:6px;text-align:center" id="drinkSelections"></div>
+        <div class="drink-status" id="drinkSelections"></div>
       </div>
       <div class="summary">
         <div class="sum-row"><span id="sumLabel">2 Loaded Dogs</span><span id="sumSize">DUO</span></div>
@@ -476,22 +551,22 @@
         <div id="zoneMap"></div>
       </div>
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
-      <a href="https://www.google.com/maps/@49.1867,-122.849,15z" target="_blank" style="display:block;text-align:center;padding:10px 14px;font-size:12px;color:var(--orange);font-weight:600;text-decoration:none;border-top:1px solid var(--s3)">Open in Google Maps → Check your address</a>
+      <a href="https://www.google.com/maps/@49.1867,-122.849,15z" target="_blank" rel="noopener" style="display:block;text-align:center;padding:10px 14px;font-size:12px;color:var(--orange);font-weight:600;text-decoration:none;border-top:1px solid var(--s3)">Open in Google Maps → Check your address</a>
     </div>
   </div>
 
   <!-- ═══ DESSERTS SECTION ═══ -->
-  <div class="section" id="secDesserts">
+  <div class="section" id="secDesserts" role="tabpanel" aria-labelledby="tabDesserts">
     <div class="ck-brand">
-      <div class="ck-brand-name"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank">Fudge &amp; Crumble</a></div>
+      <div class="ck-brand-name"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" rel="noopener">Fudge &amp; Crumble</a></div>
       <div class="ck-brand-sub">Handcrafted stuffed cookies · Made fresh to order</div>
-      <div style="font-size:13px;color:var(--orange);font-weight:600;margin-top:4px">⏰ Pre-order at least 24 hours in advance</div>
+      <div class="ck-preorder">⏰ Pre-order at least 24 hours in advance</div>
     </div>
 
     <div class="desktop-cookie-layout">
       <!-- LEFT: Box selector + visual -->
       <div class="desktop-cookie-left">
-        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 20px;margin-bottom:4px" class="ck-label">SELECT YOUR BOX</div>
+        <div class="ck-label">SELECT YOUR BOX</div>
         <div class="pack-chips">
           <button class="pack-chip selected" data-size="10" onclick="selectPack(10)"><span class="num">10</span><span class="price">$40</span></button>
           <button class="pack-chip" data-size="20" onclick="selectPack(20)"><span class="num">20</span><span class="price">$75</span></button>
@@ -510,15 +585,15 @@
 
       <!-- RIGHT: Cookie picker + options -->
       <div class="desktop-cookie-right">
-        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;padding:0 20px;margin-bottom:4px;display:flex;justify-content:space-between" class="ck-label"><span>THIS WEEK</span><span style="color:var(--rose)">STUFFED</span></div>
+        <div class="ck-label ck-label-row"><span>THIS WEEK</span><span class="accent">STUFFED</span></div>
         <div class="cookie-list" id="cookieList"></div>
 
-        <div class="gift-row" onclick="toggleGift()"><div style="font-size:20px">🎁</div><div class="gift-info"><div>Send as a Gift</div><div>Add a personal message</div></div><div class="gift-switch" id="giftSwitch"></div></div>
-        <div class="gift-form" id="giftForm"><textarea id="giftMsg" placeholder="Gift message..."></textarea><input type="text" id="giftName" placeholder="Recipient's name"></div>
+        <div class="gift-row" onclick="toggleGift()"><div aria-hidden="true" style="font-size:20px">🎁</div><div class="gift-info"><div>Send as a Gift</div><div>Add a personal message</div></div><div class="gift-switch" id="giftSwitch" role="switch" aria-checked="false"></div></div>
+        <div class="gift-form" id="giftForm"><textarea id="giftMsg" placeholder="Gift message..." aria-label="Gift message"></textarea><input type="text" id="giftName" placeholder="Recipient's name" aria-label="Recipient name"></div>
 
-        <div style="padding:0 20px;margin-bottom:6px" class="ck-date-wrap">
-          <div style="font-size:12px;color:var(--gray);letter-spacing:1px;margin-bottom:4px">DELIVERY DATE</div>
-          <button onclick="openCalendar()" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--s1);border:2px solid var(--s3);border-radius:10px;padding:12px 14px;color:var(--gray);font-size:14px;font-family:var(--f2)"><span id="dateDisplay">Select date (24hr+ advance)</span><span>📅</span></button>
+        <div class="ck-date-wrap">
+          <div class="ck-date-label">DELIVERY DATE</div>
+          <button class="date-picker-btn" onclick="openCalendar()" aria-label="Select delivery date"><span id="dateDisplay">Select date (24hr+ advance)</span><span aria-hidden="true">📅</span></button>
           <input type="hidden" id="dateValue">
         </div>
 
@@ -532,7 +607,11 @@
     </div>
   </div>
 
-  <div class="footer"><div class="brand">LUNCHBOXX</div><p><span class="loc">Late Night · Surrey, BC</span></p><p style="margin-top:2px">Mon–Fri 8PM–2AM · Sat–Sun 24/7</p></div>
+  <footer class="footer">
+    <div class="brand">LUNCHBOXX</div>
+    <p><span class="loc">Late Night · Surrey, BC</span></p>
+    <p style="margin-top:2px">Mon–Fri 8PM–2AM · Sat–Sun 24/7</p>
+  </footer>
 
 </div>
 </div>
@@ -540,15 +619,15 @@
 </div>
 
 <!-- Cart FAB -->
-<button class="cart-fab" id="cartFab" onclick="openDrawer()">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-  <div class="cart-fab-badge" id="cartBadge">0</div>
+<button class="cart-fab" id="cartFab" onclick="openDrawer()" aria-label="Open cart">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <div class="cart-fab-badge" id="cartBadge" aria-live="polite">0</div>
 </button>
 
 <!-- Drawer -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
-  <div class="drawer-head"><h3>🛒 YOUR ORDER</h3><button class="drawer-x" onclick="closeDrawer()">×</button></div>
+  <div class="drawer-head"><h3>🛒 YOUR ORDER</h3><button class="drawer-x" onclick="closeDrawer()" aria-label="Close order drawer">×</button></div>
   <div class="drawer-body" id="drawerBody"><div class="cart-empty"><span>🌙</span><p>Your cart is empty</p></div></div>
   <div class="drawer-foot" id="drawerFoot" style="display:none">
     <div class="drawer-total"><span>Total</span><span id="drawerTotal">$0</span></div>
@@ -640,17 +719,18 @@ function updateLiveStatus() {
 // ═══ TABS ═══
 function switchTab(tab) {
   var isMains = tab === 'mains';
-  document.getElementById('tabMains').classList.toggle('active', isMains);
-  document.getElementById('tabDesserts').classList.toggle('active', !isMains);
+  var tabMains = document.getElementById('tabMains');
+  var tabDesserts = document.getElementById('tabDesserts');
+  tabMains.classList.toggle('active', isMains);
+  tabDesserts.classList.toggle('active', !isMains);
+  tabMains.setAttribute('aria-selected', isMains ? 'true' : 'false');
+  tabDesserts.setAttribute('aria-selected', isMains ? 'false' : 'true');
   document.getElementById('secMains').classList.toggle('visible', isMains);
   document.getElementById('secDesserts').classList.toggle('visible', !isMains);
   document.getElementById('heroMains').style.display = isMains ? '' : 'none';
   document.getElementById('heroCookie').style.display = isMains ? 'none' : '';
   document.getElementById('trustStrip').style.display = isMains ? '' : 'none';
   closeBuilder();
-  // Scroll to top
-  var app = document.getElementById('appScroll');
-  if (app) app.scrollTop = 0;
   window.scrollTo(0, 0);
 }
 
@@ -745,7 +825,7 @@ function renderCookieList() {
     var c = COOKIES[i];
     var qty = cookieCart[c.id] || 0;
     html += '<div class="cookie-card' + (qty > 0 ? ' has' : '') + '">';
-    html += '<img class="cookie-card-img" src="' + c.img + '" alt="' + c.name + '">';
+    html += '<img class="cookie-card-img" src="' + c.img + '" alt="' + c.name + ' cookie" loading="lazy">';
     html += '<div class="cookie-info"><div class="cookie-name">' + c.name + '</div><div class="cookie-cal">' + c.cal + ' cal</div><div class="cookie-price">$' + c.price.toFixed(2) + '</div></div>';
     html += '<div class="cookie-ctrl">';
     html += '<button class="ck-btn minus" onclick="adjustCookie(\'' + c.id + '\',-1)"' + (qty ? '' : ' disabled') + '>−</button>';
@@ -805,7 +885,7 @@ function renderCookieBox() {
       for (var k = 0; k < COOKIES.length; k++) {
         if (COOKIES[k].id === filled[i]) { cookie = COOKIES[k]; break; }
       }
-      html += '<div class="cookie-slot filled"><img src="' + cookie.img + '" alt=""></div>';
+      html += '<div class="cookie-slot filled"><img src="' + cookie.img + '" alt="' + cookie.name + '" loading="lazy"></div>';
     } else {
       html += '<div class="cookie-slot empty"></div>';
     }
@@ -833,7 +913,9 @@ function updateCookieButton() {
 
 function toggleGift() {
   giftOn = !giftOn;
-  document.getElementById('giftSwitch').classList.toggle('on', giftOn);
+  var sw = document.getElementById('giftSwitch');
+  sw.classList.toggle('on', giftOn);
+  sw.setAttribute('aria-checked', giftOn ? 'true' : 'false');
   document.getElementById('giftForm').classList.toggle('show', giftOn);
 }
 
@@ -1054,12 +1136,6 @@ document.addEventListener('DOMContentLoaded', function() {
     { pos:[49.1826, -122.8449], name:'King George Stn' },
     { pos:[49.1874, -122.852],  name:'SFU Surrey' }
   ];
-
-  var orangeIcon = L.divIcon({
-    className:'',
-    html:'<div style="background:var(--orange);color:#fff;font-family:Bebas Neue,sans-serif;font-size:10px;padding:3px 8px;border-radius:6px;white-space:nowrap;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.4);letter-spacing:1px"></div>',
-    iconSize:[0,0]
-  });
 
   stations.forEach(function(s) {
     L.marker(s.pos, {
