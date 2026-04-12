@@ -51,6 +51,12 @@
       .hero-overlay { border-radius:0; }
       .cookie-card { padding:6px 12px 6px 6px; }
       .cookie-card-img { width:90px; height:90px; }
+      .desktop-cookie-left { position:sticky; top:0; z-index:5; background:var(--bg); padding-bottom:8px; }
+      .desktop-cookie-left .cookie-box { margin:0 20px 0; }
+      .desktop-cookie-left .cookie-box-lid { height:50px; }
+      .desktop-cookie-left .cookie-box-lid span { font-size:12px; }
+      .desktop-cookie-left .cookie-box-base { min-height:90px; padding:10px; padding-top:22px; }
+      .desktop-cookie-left .cookie-slot { max-height:50px; }
     }
 
     /* Tablet */
@@ -85,6 +91,7 @@
       .footer .brand { font-size:18px; }
       .ck-brand-name { font-size:28px; }
       .cookie-card-img { width:110px; height:110px; }
+      .desktop-cookie-left { position:sticky; top:0; z-index:5; background:var(--bg); padding-bottom:8px; }
     }
 
     /* Desktop */
@@ -321,7 +328,7 @@
     .cookie-slot { aspect-ratio:1; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; }
     .cookie-slot.empty { background:radial-gradient(circle,rgba(240,176,192,.12),rgba(255,240,243,.3)); box-shadow:inset 0 2px 6px rgba(212,114,138,.06); }
     .cookie-slot.filled { background:none; animation:cookieDrop .3s ease; }
-    .cookie-slot.filled img { width:100%; height:100%; object-fit:cover; transform:scale(1.4); }
+    .cookie-slot.filled img { width:100%; height:100%; object-fit:cover; transform:scale(1.4); mix-blend-mode:screen; }
     @keyframes cookieDrop { from { opacity:0; transform:translateY(-8px) scale(1.2); } to { opacity:1; transform:translateY(0) scale(1); } }
     .cookie-count { text-align:center; margin-top:8px; font-size:14px; color:#8B5A6B; font-weight:600; }
 
@@ -329,7 +336,7 @@
     .cookie-list { padding:0 20px; margin-bottom:4px; }
     .cookie-card { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#FFF5F7,#FCEEF1); border-radius:12px; padding:4px 10px 4px 4px; border:2px solid #F8D7E0; margin-bottom:4px; transition:all .2s; }
     .cookie-card.has { border-color:var(--pinkD); }
-    .cookie-card-img { width:130px; height:130px; flex-shrink:0; object-fit:contain; border-radius:8px; }
+    .cookie-card-img { width:130px; height:130px; flex-shrink:0; object-fit:contain; border-radius:8px; mix-blend-mode:screen; }
     .cookie-info { flex:1; min-width:0; }
     .cookie-name { font-size:16px; color:var(--brown); font-weight:600; margin-bottom:2px; }
     .cookie-cal { font-size:12px; color:#8B5A6B; }
