@@ -339,7 +339,8 @@
     .cookie-card-img { width:130px; height:130px; flex-shrink:0; object-fit:contain; border-radius:8px; }
     .cookie-info { flex:1; min-width:0; }
     .cookie-name { font-size:16px; color:var(--brown); font-weight:600; margin-bottom:2px; }
-    .cookie-cal { font-size:12px; color:#8B5A6B; }
+    .cookie-desc { font-size:11px; color:#9B6A7B; line-height:1.4; margin-bottom:2px; }
+    .cookie-cal { font-size:11px; color:#8B5A6B; }
     .cookie-price { font-size:15px; color:var(--rose); font-weight:700; margin-top:3px; }
     .cookie-ctrl { display:flex; align-items:center; gap:8px; }
     .ck-btn { width:36px; height:36px; border-radius:50%; border:none; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all .15s; }
@@ -669,24 +670,24 @@ var CK_VARIANTS = { 10:'47308152570010', 20:'47048673525914', 30:'47048673689754
 var CK_PRICES = { 10:40, 20:75, 30:105, 50:170 };
 
 var COOKIES = [
-  { id:'thaitea',         name:'Thai Tea',                price:4,   cal:580, img:'./thaitea.png' },
-  { id:'blacksesame',     name:'Black Sesame',             price:4.5, cal:620, img:'./blacksesame.png' },
-  { id:'biscoff',         name:'Biscoff',                  price:4,   cal:590, img:'./biscoff.png' },
-  { id:'oreo',            name:'Cookies N Cream',          price:4,   cal:560, img:'./oreo.png' },
-  { id:'smores',          name:"S'mores",                  price:4,   cal:610, img:'./smores.png' },
-  { id:'raspberry',       name:'Raspberry Pistachio',      price:4.5, cal:540, img:'./rasberryp.png' },
-  { id:'birthdaycake',    name:'Birthday Cake',            price:4.5, cal:590, img:'./birthdaycake.png' },
-  { id:'rockyroad',       name:'Rocky Road',               price:4.5, cal:620, img:'./rockyroad.png' },
-  { id:'nutella',         name:'Nutella',                  price:4.5, cal:610, img:'./nutella.png' },
-  { id:'chocolatechip',   name:'Chocolate Chip',           price:4,   cal:560, img:'./chocolatechip.png' },
-  { id:'doublechoc',      name:'Double Chocolate',         price:4.5, cal:630, img:'./doublechoc.png' },
-  { id:'lemonwhite',      name:'Lemon White Chocolate',    price:4,   cal:540, img:'./lemonwhite.png' },
-  { id:'carrot',          name:'Cream Cheese Carrot',      price:4.5, cal:570, img:'./carrot.png' },
-  { id:'hokjicha',        name:'Hojicha Dark Chocolate',   price:4.5, cal:580, img:'./hokjicha.png' },
-  { id:'skor',            name:'Skor',                     price:4.5, cal:600, img:'./skor.png' },
-  { id:'cookiemonster',   name:'Cookie Monster',           price:4.5, cal:590, img:'./cookiemonster.png' },
-  { id:'ferrero',         name:'Ferrero Chocolate Chip',   price:5,   cal:640, img:'./ferrero.png' },
-  { id:'espressodouble',  name:'Espresso Double Chocolate',price:4.5, cal:610, img:'./espressodouble.png' }
+  { id:'thaitea',         name:'Thai Tea',                price:4,   cal:580, img:'./thaitea.png', desc:'Thai tea cookie dough base, white chocolate & macadamia, Thai tea ganache' },
+  { id:'blacksesame',     name:'Black Sesame',             price:4.5, cal:620, img:'./blacksesame.png', desc:'Black sesame cookie dough swirl with white & dark chocolate' },
+  { id:'biscoff',         name:'Biscoff',                  price:4,   cal:590, img:'./biscoff.png', desc:'Macadamia, white chocolate, Biscoff & Skor' },
+  { id:'oreo',            name:'Cookies N Cream',          price:4,   cal:560, img:'./oreo.png', desc:'Vanilla bean cookie base with white & dark chips and Oreo' },
+  { id:'smores',          name:"S'mores",                  price:4,   cal:610, img:'./smores.png', desc:'Graham crackers, chocolate chunks & chips (dark & milk), marshmallow' },
+  { id:'raspberry',       name:'Raspberry Pistachio',      price:4.5, cal:540, img:'./rasberryp.png', desc:'Fresh raspberry, pistachio paste, white chocolate chips & pistachio ganache' },
+  { id:'birthdaycake',    name:'Birthday Cake',            price:4.5, cal:590, img:'./birthdaycake.png', desc:'White chocolate chips & funfetti' },
+  { id:'rockyroad',       name:'Rocky Road',               price:4.5, cal:620, img:'./rockyroad.png', desc:'Double chocolate chip base, marshmallows, M&Ms & pretzels' },
+  { id:'nutella',         name:'Nutella',                  price:4.5, cal:610, img:'./nutella.png', desc:'Hazelnuts, dark chocolate chips & Nutella' },
+  { id:'chocolatechip',   name:'Chocolate Chip',           price:4,   cal:560, img:'./chocolatechip.png', desc:'Chocolate chips and chunks' },
+  { id:'doublechoc',      name:'Double Chocolate Chip',    price:4.5, cal:630, img:'./doublechoc.png', desc:'Chocolate cookie dough with dark & milk chocolate chips and chunks' },
+  { id:'lemonwhite',      name:'Lemon Raspberry White Choco', price:4, cal:540, img:'./lemonwhite.png', desc:'Lemon base, fresh raspberry, white chocolate chips & macadamia' },
+  { id:'carrot',          name:'Cream Cheese Carrot',      price:4.5, cal:570, img:'./carrot.png', desc:'Cream cheese filling, white chocolate chips, walnuts & carrot base' },
+  { id:'hokjicha',        name:'Hojicha Dark Chocolate',   price:4.5, cal:580, img:'./hokjicha.png', desc:'Hojicha base cookie dough, dark chocolate chips & macadamia' },
+  { id:'skor',            name:'Caramel',                  price:4.5, cal:600, img:'./skor.png', desc:'Skor, caramel & white chocolate chips' },
+  { id:'cookiemonster',   name:'Cookie Monster',           price:4.5, cal:590, img:'./cookiemonster.png', desc:'Blue cookie dough, marshmallow, chocolate chip mix, Chip Ahoys & Oreo' },
+  { id:'ferrero',         name:'Ferrero Chocolate Chip',   price:5,   cal:640, img:'./ferrero.png', desc:'Hazelnuts, Ferrero & chocolate chips base' },
+  { id:'espressodouble',  name:'Espresso Double Chip',     price:4.5, cal:610, img:'./espressodouble.png', desc:'Espresso cookie base, dark & white chips' }
 ];
 
 // ═══ STATE ═══
@@ -833,7 +834,7 @@ function renderCookieList() {
     var qty = cookieCart[c.id] || 0;
     html += '<div class="cookie-card' + (qty > 0 ? ' has' : '') + '">';
     html += '<img class="cookie-card-img" src="' + c.img + '" alt="' + c.name + ' cookie" loading="lazy">';
-    html += '<div class="cookie-info"><div class="cookie-name">' + c.name + '</div><div class="cookie-cal">' + c.cal + ' cal</div><div class="cookie-price">$' + c.price.toFixed(2) + '</div></div>';
+    html += '<div class="cookie-info"><div class="cookie-name">' + c.name + '</div><div class="cookie-desc">' + c.desc + '</div><div class="cookie-cal">' + c.cal + ' cal</div><div class="cookie-price">$' + c.price.toFixed(2) + '</div></div>';
     html += '<div class="cookie-ctrl">';
     html += '<button class="ck-btn minus" onclick="adjustCookie(\'' + c.id + '\',-1)"' + (qty ? '' : ' disabled') + '>−</button>';
     html += '<span class="ck-qty">' + qty + '</span>';
