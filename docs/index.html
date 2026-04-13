@@ -72,11 +72,11 @@
       .cookie-card { padding:6px 10px 6px 6px; }
       .cookie-card-img { width:80px; height:80px; }
       .cookie-list { padding:0 14px; }
-      /* Smaller pack chips */
-      .pack-chips { padding:0 14px; gap:4px; margin-bottom:2px; }
-      .pack-chip { padding:8px 4px; border-radius:8px; }
-      .pack-chip .num { font-size:20px; }
-      .pack-chip .price { font-size:13px; }
+      /* Smaller pack chips - inline row */
+      .pack-chips { padding:0 14px; gap:6px; margin-bottom:2px; display:flex; }
+      .pack-chip { padding:6px 0; border-radius:8px; flex:1; }
+      .pack-chip .num { font-size:16px; display:inline; }
+      .pack-chip .price { font-size:12px; display:inline; margin-left:2px; }
       /* Cookie box - sticky & compact but visible */
       .desktop-cookie-left { position:sticky; top:0; z-index:5; background:var(--bg); padding-bottom:4px; }
       .desktop-cookie-left .ck-label { padding:0 14px; margin-bottom:2px; font-size:10px; }
