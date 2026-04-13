@@ -46,18 +46,67 @@
 
     @media(max-width:767px) {
       .app { max-width:100%; padding:0; }
-      .hero-main, .hero-cookie { border-radius:0; }
-      .hero-main img, .hero-cookie img { border-radius:0; height:300px; }
-      .hero-overlay { border-radius:0; }
-      .cookie-card { padding:6px 12px 6px 6px; }
-      .cookie-card-img { width:90px; height:90px; }
-      .desktop-cookie-left { position:sticky; top:0; z-index:5; background:var(--bg); padding-bottom:8px; }
-      .desktop-cookie-left .cookie-box { margin:0 20px 0; }
-      .desktop-cookie-left .cookie-box-lid { height:40px; }
-      .desktop-cookie-left .cookie-box-lid span { font-size:11px; }
-      .desktop-cookie-left .cookie-box-base { min-height:0; max-height:120px; overflow-y:auto; padding:8px; padding-top:20px; }
-      .desktop-cookie-left .cookie-slot { max-height:36px; }
-      .desktop-cookie-left .cookie-count { font-size:12px; margin-top:4px; }
+      /* Shorter heroes */
+      .hero-main, .hero-cookie { border-radius:0; margin-bottom:6px; }
+      .hero-main img, .hero-cookie img { border-radius:0; height:180px; }
+      .hero-overlay { padding:14px 16px; border-radius:0; }
+      .hero-title { font-size:36px; }
+      .hero-brand { font-size:11px; letter-spacing:6px; }
+      .hero-desc { font-size:12px; max-width:260px; }
+      /* Tighter live bar */
+      .live-bar { padding:7px 12px; font-size:11px; }
+      /* Tighter trust */
+      .trust { padding:6px 10px; margin:0 14px 6px; }
+      .trust-item { padding:4px 2px; }
+      .trust-item h4 { font-size:11px; }
+      .trust-item p { font-size:8px; }
+      /* Smaller tabs */
+      .tabs { padding:0 14px; margin-bottom:8px; gap:4px; }
+      .tab { padding:10px 6px; font-size:13px; }
+      /* Tighter menu */
+      .menu { padding:0 14px 10px; }
+      .menu-card { padding:14px; margin-bottom:8px; }
+      .sec-head { padding:0 14px; margin-bottom:8px; }
+      .dog-detail { padding:10px 14px; margin:0 14px 8px; }
+      /* Cookie cards */
+      .cookie-card { padding:6px 10px 6px 6px; }
+      .cookie-card-img { width:80px; height:80px; }
+      .cookie-list { padding:0 14px; }
+      /* Smaller pack chips */
+      .pack-chips { padding:0 14px; gap:4px; margin-bottom:2px; }
+      .pack-chip { padding:8px 4px; border-radius:8px; }
+      .pack-chip .num { font-size:20px; }
+      .pack-chip .price { font-size:13px; }
+      /* Cookie box - sticky & compact but visible */
+      .desktop-cookie-left { position:sticky; top:0; z-index:5; background:var(--bg); padding-bottom:4px; }
+      .desktop-cookie-left .ck-label { padding:0 14px; margin-bottom:2px; font-size:10px; }
+      .desktop-cookie-left .cookie-box { margin:0 14px 0; }
+      .desktop-cookie-left .cookie-box-lid { height:32px; }
+      .desktop-cookie-left .cookie-box-lid span { font-size:10px; letter-spacing:3px; }
+      .desktop-cookie-left .cookie-box-lid::after { height:14px; bottom:-14px; }
+      .desktop-cookie-left .cookie-box-base { min-height:0; max-height:150px; overflow-y:auto; padding:6px 8px; padding-top:16px; }
+      .desktop-cookie-left .cookie-slot { max-height:40px; }
+      .desktop-cookie-left .cookie-slots { gap:4px; }
+      .desktop-cookie-left .cookie-count { font-size:11px; margin-top:2px; }
+      /* Tighter cookie section brand */
+      .ck-brand { padding:2px 14px 2px; }
+      .ck-brand-name { font-size:20px; }
+      .ck-brand-sub { font-size:10px; }
+      .ck-preorder { font-size:11px; }
+      /* Gift & date */
+      .gift-row { margin:0 14px 4px; padding:8px; }
+      .ck-date-wrap { padding:0 14px; }
+      .ck-order-wrap { padding:0 14px 10px; }
+      /* Zone */
+      .zone { margin:0 14px 12px; }
+      /* Coke showcase */
+      .coke-showcase { margin:0 14px 10px; padding:14px; gap:12px; }
+      .coke-showcase img { width:60px; }
+      .coke-showcase-title { font-size:13px; }
+      .coke-showcase-name { font-size:12px; }
+      .coke-showcase-desc { font-size:11px; }
+      /* Footer */
+      .footer { padding:16px 14px; }
     }
 
     /* Tablet */
