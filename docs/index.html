@@ -670,24 +670,24 @@ var CK_VARIANTS = { 10:'47308152570010', 20:'47048673525914', 30:'47048673689754
 var CK_PRICES = { 10:40, 20:75, 30:105, 50:170 };
 
 var COOKIES = [
-  { id:'thaitea',         name:'Thai Tea',                price:4,   cal:580, img:'./thaitea.png', desc:'Thai tea cookie dough base, white chocolate & macadamia, Thai tea ganache' },
-  { id:'blacksesame',     name:'Black Sesame',             price:4.5, cal:620, img:'./blacksesame.png', desc:'Black sesame cookie dough swirl with white & dark chocolate' },
   { id:'biscoff',         name:'Biscoff',                  price:4,   cal:590, img:'./biscoff.png', desc:'Macadamia, white chocolate, Biscoff & Skor' },
-  { id:'oreo',            name:'Cookies N Cream',          price:4,   cal:560, img:'./oreo.png', desc:'Vanilla bean cookie base with white & dark chips and Oreo' },
-  { id:'smores',          name:"S'mores",                  price:4,   cal:610, img:'./smores.png', desc:'Graham crackers, chocolate chunks & chips (dark & milk), marshmallow' },
-  { id:'raspberry',       name:'Raspberry Pistachio',      price:4.5, cal:540, img:'./rasberryp.png', desc:'Fresh raspberry, pistachio paste, white chocolate chips & pistachio ganache' },
   { id:'birthdaycake',    name:'Birthday Cake',            price:4.5, cal:590, img:'./birthdaycake.png', desc:'White chocolate chips & funfetti' },
-  { id:'rockyroad',       name:'Rocky Road',               price:4.5, cal:620, img:'./rockyroad.png', desc:'Double chocolate chip base, marshmallows, M&Ms & pretzels' },
-  { id:'nutella',         name:'Nutella',                  price:4.5, cal:610, img:'./nutella.png', desc:'Hazelnuts, dark chocolate chips & Nutella' },
-  { id:'chocolatechip',   name:'Chocolate Chip',           price:4,   cal:560, img:'./chocolatechip.png', desc:'Chocolate chips and chunks' },
-  { id:'doublechoc',      name:'Double Chocolate Chip',    price:4.5, cal:630, img:'./doublechoc.png', desc:'Chocolate cookie dough with dark & milk chocolate chips and chunks' },
-  { id:'lemonwhite',      name:'Lemon Raspberry White Choco', price:4, cal:540, img:'./lemonwhite.png', desc:'Lemon base, fresh raspberry, white chocolate chips & macadamia' },
-  { id:'carrot',          name:'Cream Cheese Carrot',      price:4.5, cal:570, img:'./carrot.png', desc:'Cream cheese filling, white chocolate chips, walnuts & carrot base' },
-  { id:'hokjicha',        name:'Hojicha Dark Chocolate',   price:4.5, cal:580, img:'./hokjicha.png', desc:'Hojicha base cookie dough, dark chocolate chips & macadamia' },
+  { id:'blacksesame',     name:'Black Sesame',             price:4.5, cal:620, img:'./blacksesame.png', desc:'Black sesame cookie dough swirl with white & dark chocolate' },
   { id:'skor',            name:'Caramel',                  price:4.5, cal:600, img:'./skor.png', desc:'Skor, caramel & white chocolate chips' },
+  { id:'chocolatechip',   name:'Chocolate Chip',           price:4,   cal:560, img:'./chocolatechip.png', desc:'Chocolate chips and chunks' },
   { id:'cookiemonster',   name:'Cookie Monster',           price:4.5, cal:590, img:'./cookiemonster.png', desc:'Blue cookie dough, marshmallow, chocolate chip mix, Chip Ahoys & Oreo' },
+  { id:'oreo',            name:'Cookies N Cream',          price:4,   cal:560, img:'./oreo.png', desc:'Vanilla bean cookie base with white & dark chips and Oreo' },
+  { id:'carrot',          name:'Cream Cheese Carrot',      price:4.5, cal:570, img:'./carrot.png', desc:'Cream cheese filling, white chocolate chips, walnuts & carrot base' },
+  { id:'doublechoc',      name:'Double Chocolate Chip',    price:4.5, cal:630, img:'./doublechoc.png', desc:'Chocolate cookie dough with dark & milk chocolate chips and chunks' },
+  { id:'espressodouble',  name:'Espresso Double Chip',     price:4.5, cal:610, img:'./espressodouble.png', desc:'Espresso cookie base, dark & white chips' },
   { id:'ferrero',         name:'Ferrero Chocolate Chip',   price:5,   cal:640, img:'./ferrero.png', desc:'Hazelnuts, Ferrero & chocolate chips base' },
-  { id:'espressodouble',  name:'Espresso Double Chip',     price:4.5, cal:610, img:'./espressodouble.png', desc:'Espresso cookie base, dark & white chips' }
+  { id:'hokjicha',        name:'Hojicha Dark Chocolate',   price:4.5, cal:580, img:'./hokjicha.png', desc:'Hojicha base cookie dough, dark chocolate chips & macadamia' },
+  { id:'lemonwhite',      name:'Lemon Raspberry White Choco', price:4, cal:540, img:'./lemonwhite.png', desc:'Lemon base, fresh raspberry, white chocolate chips & macadamia' },
+  { id:'nutella',         name:'Nutella',                  price:4.5, cal:610, img:'./nutella.png', desc:'Hazelnuts, dark chocolate chips & Nutella' },
+  { id:'raspberry',       name:'Raspberry Pistachio',      price:4.5, cal:540, img:'./rasberryp.png', desc:'Fresh raspberry, pistachio paste, white chocolate chips & pistachio ganache' },
+  { id:'rockyroad',       name:'Rocky Road',               price:4.5, cal:620, img:'./rockyroad.png', desc:'Double chocolate chip base, marshmallows, M&Ms & pretzels' },
+  { id:'smores',          name:"S'mores",                  price:4,   cal:610, img:'./smores.png', desc:'Graham crackers, chocolate chunks & chips (dark & milk), marshmallow' },
+  { id:'thaitea',         name:'Thai Tea',                 price:4,   cal:580, img:'./thaitea.png', desc:'Thai tea cookie dough base, white chocolate & macadamia, Thai tea ganache' }
 ];
 
 // ═══ STATE ═══
@@ -725,7 +725,7 @@ function updateLiveStatus() {
 }
 
 // ═══ TABS ═══
-function switchTab(tab) {
+function switchTab(tab, skipPush) {
   var isMains = tab === 'mains';
   var tabMains = document.getElementById('tabMains');
   var tabDesserts = document.getElementById('tabDesserts');
@@ -740,6 +740,25 @@ function switchTab(tab) {
   document.getElementById('trustStrip').style.display = isMains ? '' : 'none';
   closeBuilder();
   window.scrollTo(0, 0);
+  if (!skipPush && window.history && history.pushState) {
+    history.pushState({ tab: tab }, '', isMains ? '/' : '/desserts');
+  }
+}
+
+window.addEventListener('popstate', function(e) {
+  var tab = (e.state && e.state.tab) ? e.state.tab : getTabFromPath();
+  switchTab(tab, true);
+});
+
+function getTabFromPath() {
+  var redirect = sessionStorage.getItem('spa-redirect');
+  if (redirect) {
+    sessionStorage.removeItem('spa-redirect');
+    var rPath = redirect.replace(/\/+$/, '').toLowerCase();
+    if (rPath === '/desserts') { history.replaceState(null, '', '/desserts'); return 'desserts'; }
+  }
+  var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
+  return path === '/desserts' ? 'desserts' : 'mains';
 }
 
 // ═══ MAINS BUILDER ═══
@@ -1105,6 +1124,11 @@ document.addEventListener('DOMContentLoaded', function() {
   updateLiveStatus();
   setInterval(updateLiveStatus, 60000);
   renderCookieList();
+
+  // Route to correct tab based on URL
+  var startTab = getTabFromPath();
+  if (startTab !== 'mains') switchTab(startTab, true);
+  history.replaceState({ tab: startTab }, '', startTab === 'mains' ? '/' : '/desserts');
 
   // Leaflet Map
   var center = [49.1867, -122.849];
