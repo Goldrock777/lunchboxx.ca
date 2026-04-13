@@ -834,7 +834,7 @@ function renderCookieList() {
     var qty = cookieCart[c.id] || 0;
     html += '<div class="cookie-card' + (qty > 0 ? ' has' : '') + '">';
     html += '<img class="cookie-card-img" src="' + c.img + '" alt="' + c.name + ' cookie" loading="lazy">';
-    html += '<div class="cookie-info"><div class="cookie-name">' + c.name + '</div><div class="cookie-desc">' + c.desc + '</div><div class="cookie-cal">' + c.cal + ' cal</div><div class="cookie-price">$' + c.price.toFixed(2) + '</div></div>';
+    html += '<div class="cookie-info"><div class="cookie-name">' + c.name + '</div><div class="cookie-desc">' + c.desc + '</div><div class="cookie-price">$' + c.price.toFixed(2) + '</div></div>';
     html += '<div class="cookie-ctrl">';
     html += '<button class="ck-btn minus" onclick="adjustCookie(\'' + c.id + '\',-1)"' + (qty ? '' : ' disabled') + '>−</button>';
     html += '<span class="ck-qty">' + qty + '</span>';
