@@ -4,26 +4,187 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Primary Meta Tags -->
-  <title>LUNCHBOXX — Late Night Hot Dog Delivery | Surrey BC</title>
-  <meta name="description" content="Surrey's late-night ghost kitchen. Loaded hot dogs & fresh-baked cookies delivered to your door. Open late when everywhere else is closed. Order now at lunchboxx.ca">
-  <meta name="keywords" content="late night delivery Surrey, ghost kitchen Surrey BC, hot dog delivery, late night food Surrey, LUNCHBOXX, cookie delivery Surrey">
+  <title>Late Night Hot Dog Delivery Surrey Central, Gateway & King George | LUNCHBOXX</title>
+  <meta name="description" content="Free late-night hot dog delivery to Surrey Central, Gateway Station & King George Hub. Loaded beef dogs with bacon, cheddar & spicy mayo. Open when everywhere else is closed. Order at lunchboxx.ca">
   <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="geo.region" content="CA-BC">
+  <meta name="geo.placename" content="Surrey, British Columbia">
+  <meta name="geo.position" content="49.1867;-122.849">
+  <meta name="ICBM" content="49.1867, -122.849">
+  <link rel="canonical" href="https://lunchboxx.ca/" id="canonicalLink">
   <!-- Open Graph / Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lunchboxx.ca">
-  <meta property="og:title" content="LUNCHBOXX — Late Night Hot Dog Delivery | Surrey BC">
-  <meta property="og:description" content="Loaded hot dogs & cookies delivered late night in Surrey. DUO or Party Pack. Order now.">
+  <meta property="og:type" content="restaurant.restaurant">
+  <meta property="og:url" content="https://lunchboxx.ca/">
+  <meta property="og:site_name" content="LUNCHBOXX">
+  <meta property="og:title" content="Late Night Hot Dog Delivery Surrey Central, Gateway & King George | LUNCHBOXX">
+  <meta property="og:description" content="Free delivery to Surrey Central, Gateway Station & King George Hub. Loaded dogs & fresh cookies when everywhere else is closed.">
   <meta property="og:image" content="https://lunchboxx.ca/og-image.jpg">
+  <meta property="og:locale" content="en_CA">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LUNCHBOXX — Late Night Hot Dog Delivery">
-  <meta name="twitter:description" content="Surrey's ghost kitchen. Hot dogs & cookies delivered when everywhere else is closed.">
+  <meta name="twitter:title" content="Late Night Hot Dog Delivery Surrey Central | LUNCHBOXX">
+  <meta name="twitter:description" content="Free delivery to Surrey Central, Gateway & King George. Loaded dogs when everywhere else is closed.">
+  <meta name="twitter:image" content="https://lunchboxx.ca/og-image.jpg">
   <!-- Preconnect for faster resource loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://basemaps.cartocdn.com">
+  <link rel="preload" as="image" href="./hero.png" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"></noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+
+  <!-- Structured Data: Restaurant + Menu -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://lunchboxx.ca/#restaurant",
+    "name": "LUNCHBOXX",
+    "description": "Late-night ghost kitchen delivering loaded hot dogs and stuffed cookies to Surrey Central, Gateway Station and King George Hub.",
+    "url": "https://lunchboxx.ca/",
+    "image": "https://lunchboxx.ca/hero.png",
+    "logo": "https://lunchboxx.ca/hero.png",
+    "servesCuisine": ["Hot Dogs", "American", "Late Night", "Comfort Food"],
+    "priceRange": "$$",
+    "paymentAccepted": ["Credit Card", "Debit Card", "Apple Pay", "Google Pay"],
+    "currenciesAccepted": "CAD",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Surrey",
+      "addressRegion": "BC",
+      "postalCode": "V3T",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.1867,
+      "longitude": -122.849
+    },
+    "areaServed": [
+      { "@type": "Place", "name": "Surrey Central", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
+      { "@type": "Place", "name": "Gateway Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1897, "longitude": -122.8479 } },
+      { "@type": "Place", "name": "King George Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1826, "longitude": -122.8449 } },
+      { "@type": "Place", "name": "SFU Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1874, "longitude": -122.852 } },
+      { "@type": "Place", "name": "Surrey City Centre", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } }
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "20:00", "closes": "02:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "00:00", "closes": "23:59" }
+    ],
+    "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet",
+    "acceptsReservations": false,
+    "hasMenu": { "@id": "https://lunchboxx.ca/#menu" },
+    "sameAs": ["https://www.instagram.com/_fudgeandcrumble_/"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "@id": "https://lunchboxx.ca/#menu",
+    "name": "LUNCHBOXX Late-Night Menu",
+    "inLanguage": "en-CA",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Mains",
+        "description": "Loaded beef hot dogs with free delivery to Surrey Central, Gateway and King George.",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "DUO",
+            "description": "2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza.",
+            "image": "https://lunchboxx.ca/hero.png",
+            "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "CAD", "availability": "https://schema.org/InStock" },
+            "suitableForDiet": "https://schema.org/OmnivoreDiet"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Party Pack",
+            "description": "8 Loaded Dogs + 1 XL Yam Fries + 4 Vanilla Cokes. Feeds the whole crew.",
+            "image": "https://lunchboxx.ca/hero.png",
+            "offers": { "@type": "Offer", "price": "50.00", "priceCurrency": "CAD", "availability": "https://schema.org/InStock" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Catering Boxx",
+            "description": "30 Loaded Dogs + 5 Large Yam Fries + 2x2L pop. Feeds 15-20 people. Perfect for offices near Surrey Central.",
+            "image": "https://lunchboxx.ca/hero.png",
+            "offers": { "@type": "Offer", "price": "200.00", "priceCurrency": "CAD", "availability": "https://schema.org/InStock" }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Desserts",
+        "description": "Handcrafted stuffed cookies by Fudge & Crumble. Pre-order at least 24 hours in advance.",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "CookieBoxx 10", "description": "Box of 10 handcrafted stuffed cookies.", "offers": { "@type": "Offer", "price": "50.00", "priceCurrency": "CAD" } },
+          { "@type": "MenuItem", "name": "CookieBoxx 20", "description": "Box of 20 handcrafted stuffed cookies.", "offers": { "@type": "Offer", "price": "95.00", "priceCurrency": "CAD" } },
+          { "@type": "MenuItem", "name": "CookieBoxx 30", "description": "Box of 30 handcrafted stuffed cookies.", "offers": { "@type": "Offer", "price": "140.00", "priceCurrency": "CAD" } },
+          { "@type": "MenuItem", "name": "CookieBoxx 50", "description": "Box of 50 handcrafted stuffed cookies.", "offers": { "@type": "Offer", "price": "225.00", "priceCurrency": "CAD" } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://lunchboxx.ca/#website",
+    "url": "https://lunchboxx.ca/",
+    "name": "LUNCHBOXX",
+    "description": "Late-night hot dog and cookie delivery in Surrey Central, Gateway Station and King George Hub.",
+    "publisher": { "@id": "https://lunchboxx.ca/#restaurant" },
+    "inLanguage": "en-CA"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you deliver to Gateway Station in Surrey?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. LUNCHBOXX delivers free to Gateway Station and the surrounding Surrey City Centre towers Monday to Friday 8PM to 2AM, and 24/7 on Saturday and Sunday." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are your late-night hours in Surrey?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We deliver Monday to Friday from 8PM until 2AM, and 24 hours a day on Saturday and Sunday across Surrey Central, Gateway and King George." }
+      },
+      {
+        "@type": "Question",
+        "name": "How late does LUNCHBOXX deliver near King George Station?",
+        "acceptedAnswer": { "@type": "Answer", "text": "LUNCHBOXX delivers loaded hot dogs to the King George Station area until 2AM on weeknights, and around the clock on weekends." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is delivery free in Surrey Central?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Delivery is free on every DUO, Party Pack and Catering Boxx order across our Surrey Central, Gateway Station and King George Hub delivery zone." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you cater offices and events in Surrey City Centre?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Catering Boxx feeds 15 to 20 people and includes 30 loaded dogs, 5 large yam fries and 2x2L pops for $200 with free delivery to offices around Surrey Central, Gateway and King George." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's on a LUNCHBOXX Loaded Dog?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every Loaded Dog is a jumbo beef dog on a toasted buttered bun with crispy bacon, cheddar cheese and spicy mayo, with 30g of protein per dog." }
+      }
+    ]
+  }
+  </script>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     :root {
@@ -509,21 +670,21 @@
 
   <!-- MAINS HERO -->
   <div class="hero-main" id="heroMains">
-    <img src="./hero.png" alt="Loaded hot dogs with bacon, cheddar and spicy mayo" width="800" height="420">
+    <img src="./hero.png" alt="Loaded hot dogs with bacon, cheddar and spicy mayo delivered late night in Surrey Central" width="800" height="420" fetchpriority="high">
     <div class="hero-overlay">
       <div class="hero-brand">LUNCHBOXX</div>
       <h1 class="hero-title">LATE NIGHT<br><span>LOADED.</span></h1>
-      <p class="hero-desc">Jumbo beef dogs loaded with crispy bacon, cheddar &amp; spicy mayo. Free delivery in Surrey Central.</p>
+      <p class="hero-desc">Jumbo beef dogs with crispy bacon, cheddar &amp; spicy mayo. Free delivery to Surrey Central, Gateway Station &amp; King George Hub.</p>
     </div>
   </div>
 
   <!-- COOKIE HERO (hidden by default) -->
   <div class="hero-cookie" id="heroCookie" style="display:none">
-    <img src="./cookie.png" alt="Handcrafted stuffed cookies" width="800" height="420">
+    <img src="./cookie.png" alt="Handcrafted stuffed cookies delivered in Surrey Central" width="800" height="420" loading="lazy">
     <div class="hero-overlay">
       <div class="hero-brand">LUNCHBOXX</div>
       <h1 class="hero-title">COOKIES</h1>
-      <p class="hero-desc">Handcrafted stuffed cookies by Fudge &amp; Crumble. Baked daily. Pre-order at least 24 hours in advance.</p>
+      <p class="hero-desc">Handcrafted stuffed cookies by Fudge &amp; Crumble. Baked fresh for Surrey Central, Gateway &amp; King George. Pre-order at least 24 hours in advance.</p>
     </div>
   </div>
 
@@ -542,9 +703,9 @@
   </div>
 
   <!-- ═══ MAINS SECTION ═══ -->
-  <div class="section visible" id="secMains" role="tabpanel" aria-labelledby="tabMains">
+  <section class="section visible" id="secMains" role="tabpanel" aria-labelledby="tabMains" aria-label="Hot dog menu">
     <div class="dog-detail">
-      <h3>THE LOADED DOG</h3>
+      <h2 style="font-family:var(--f1);font-size:inherit;letter-spacing:2px;color:var(--orange);margin-bottom:8px;font-weight:normal">THE LOADED DOG</h2>
       <div class="dog-grid">
         <span>Jumbo Beef Dog</span><span>Toasted Buttered Bun</span>
         <span>Crispy Bacon</span><span>Cheddar Cheese</span>
@@ -552,24 +713,24 @@
       </div>
     </div>
 
-    <div class="sec-head"><p>Tap a pack to customize</p></div>
+    <div class="sec-head"><h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Hot Dog Packs — Free Delivery to Surrey Central</h2><p>Tap a pack to customize</p></div>
 
     <div class="menu">
-      <div class="menu-card popular" onclick="openBuilder('duo')">
-        <div class="mc-top"><div><div class="mc-name">DUO</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$20</div></div>
-        <div class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke" loading="lazy"><div class="lbl">VANILLA COKE</div></div></div>
-      </div>
-      <div class="menu-card best-value" onclick="openBuilder('party')">
-        <div class="mc-top"><div><div class="mc-name">PARTY PACK</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$50</div></div>
-        <div class="mc-desc">Feeds the whole crew. Skip the pizza.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries" loading="lazy"><div class="lbl">2 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Coke" loading="lazy"><div class="lbl">4 VANILLA COKES</div></div></div>
-      </div>
-      <div class="menu-card catering" onclick="openBuilder('catering')">
-        <div class="mc-top"><div><div class="mc-name">CATERING BOXX</div><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$200</div></div>
-        <div class="mc-desc">Feeds 15–20 people. Office parties, events, late-night groups. The full spread.</div>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Yam Fries" loading="lazy"><div class="lbl">5 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat catering-drinks"><div class="catering-drinks-row"><img src="./cola.png" alt="Coke" loading="lazy"><img src="./sprite.png" alt="Sprite" loading="lazy"></div><div class="lbl">2 × 2L POP</div></div></div>
-      </div>
+      <article class="menu-card popular" onclick="openBuilder('duo')">
+        <div class="mc-top"><div><h3 class="mc-name">DUO</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$20</div></div>
+        <p class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza. Free delivery to Surrey Central.</p>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Complimentary Vanilla Coke" loading="lazy" width="80" height="80"><div class="lbl">VANILLA COKE</div></div></div>
+      </article>
+      <article class="menu-card best-value" onclick="openBuilder('party')">
+        <div class="mc-top"><div><h3 class="mc-name">PARTY PACK</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$50</div></div>
+        <p class="mc-desc">Feeds the whole crew around Gateway &amp; King George. Skip the pizza.</p>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="XL Yam Fries" loading="lazy" width="80" height="80"><div class="lbl">1 XL YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Cokes" loading="lazy" width="80" height="80"><div class="lbl">4 VANILLA COKES</div></div></div>
+      </article>
+      <article class="menu-card catering" onclick="openBuilder('catering')">
+        <div class="mc-top"><div><h3 class="mc-name">CATERING BOXX</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$200</div></div>
+        <p class="mc-desc">Feeds 15–20 people. Office parties and events around Surrey City Centre, Gateway Station and King George Hub. The full spread.</p>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Large Yam Fries for catering" loading="lazy" width="80" height="80"><div class="lbl">5 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat catering-drinks"><div class="catering-drinks-row"><img src="./cola.png" alt="2L Coke" loading="lazy" width="40" height="60"><img src="./sprite.png" alt="2L Sprite" loading="lazy" width="40" height="60"></div><div class="lbl">2 × 2L POP</div></div></div>
+      </article>
     </div>
 
     <!-- Vanilla Coke Showcase -->
@@ -605,21 +766,31 @@
     </div>
 
     <!-- Zone -->
-    <div class="zone">
-      <div class="zone-head"><h3>📍 DELIVERY ZONE</h3><span>Free delivery nightly</span></div>
+    <section class="zone" aria-label="Delivery zone">
+      <div class="zone-head"><h2 style="font-family:var(--f1);font-size:16px;letter-spacing:1px;font-weight:normal">📍 Late-Night Delivery to Surrey Central, Gateway &amp; King George Hub</h2><span>Free delivery nightly</span></div>
       <div class="zone-map">
         <div id="zoneMap"></div>
       </div>
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
       <a href="https://www.google.com/maps/@49.1867,-122.849,15z" target="_blank" rel="noopener" style="display:block;text-align:center;padding:10px 14px;font-size:12px;color:var(--orange);font-weight:600;text-decoration:none;border-top:1px solid var(--s3)">Open in Google Maps → Check your address</a>
-    </div>
-  </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-label="Frequently asked questions" style="margin:0 20px 16px;background:var(--s1);border-radius:14px;border:1px solid var(--s3);padding:18px 20px">
+      <h2 style="font-family:var(--f1);font-size:20px;letter-spacing:2px;color:var(--orange);margin-bottom:12px;font-weight:normal">FREQUENTLY ASKED</h2>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Do you deliver to Gateway Station?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. LUNCHBOXX delivers free to Gateway Station and the surrounding Surrey City Centre towers Monday to Friday 8PM to 2AM, and 24/7 on Saturday and Sunday.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">How late do you deliver near King George Station?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">We deliver loaded hot dogs to the King George Station area until 2AM on weeknights, and around the clock on weekends.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Is delivery really free in Surrey Central?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. Delivery is free on every DUO, Party Pack and Catering Boxx order across Surrey Central, Gateway Station and King George Hub.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Do you cater offices and events around Surrey City Centre?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. The Catering Boxx feeds 15–20 people with 30 loaded dogs, 5 large yam fries and 2x2L pops for $200 with free delivery to offices near Surrey Central, Gateway and King George.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0;border-bottom:1px solid var(--s3)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">What's on a LUNCHBOXX Loaded Dog?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">A jumbo beef dog on a toasted buttered bun with crispy bacon, cheddar cheese and spicy mayo — 30g of protein per dog.</p></details>
+    </section>
+  </section>
 
   <!-- ═══ DESSERTS SECTION ═══ -->
-  <div class="section" id="secDesserts" role="tabpanel" aria-labelledby="tabDesserts">
+  <section class="section" id="secDesserts" role="tabpanel" aria-labelledby="tabDesserts" aria-label="Cookie menu">
     <div class="ck-brand">
-      <div class="ck-brand-name"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" rel="noopener">Fudge &amp; Crumble</a></div>
-      <div class="ck-brand-sub">Handcrafted stuffed cookies · Made fresh to order</div>
+      <h2 class="ck-brand-name" style="font-weight:normal"><a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" rel="noopener">Fudge &amp; Crumble</a></h2>
+      <div class="ck-brand-sub">Handcrafted stuffed cookies · Delivered to Surrey Central, Gateway &amp; King George</div>
       <div class="ck-preorder">⏰ Pre-order at least 24 hours in advance</div>
     </div>
 
@@ -665,12 +836,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer class="footer">
     <div class="brand">LUNCHBOXX</div>
-    <p><span class="loc">Late Night · Surrey, BC</span></p>
+    <p><span class="loc">Late Night Delivery · Surrey Central · Gateway Station · King George Hub</span></p>
     <p style="margin-top:2px">Mon–Fri 8PM–2AM · Sat–Sun 24/7</p>
+    <nav aria-label="Footer" style="margin-top:10px;font-size:11px"><a href="/" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('mains')">Hot Dogs</a>·<a href="/desserts" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('desserts')">Cookies</a></nav>
   </footer>
 
 </div>
@@ -781,6 +953,38 @@ function updateLiveStatus() {
 }
 
 // ═══ TABS ═══
+var ROUTE_META = {
+  mains: {
+    title: 'Late Night Hot Dog Delivery Surrey Central, Gateway & King George | LUNCHBOXX',
+    description: 'Free late-night hot dog delivery to Surrey Central, Gateway Station & King George Hub. Loaded beef dogs with bacon, cheddar & spicy mayo. Order at lunchboxx.ca',
+    canonical: 'https://lunchboxx.ca/'
+  },
+  desserts: {
+    title: 'Stuffed Cookie Delivery Surrey · Fudge & Crumble | LUNCHBOXX',
+    description: 'Handcrafted stuffed cookies by Fudge & Crumble delivered to Surrey Central, Gateway & King George. Pre-order at least 24 hours in advance at lunchboxx.ca/desserts',
+    canonical: 'https://lunchboxx.ca/desserts'
+  }
+};
+
+function applyRouteMeta(tab) {
+  var meta = ROUTE_META[tab] || ROUTE_META.mains;
+  document.title = meta.title;
+  var descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', meta.description);
+  var canonicalEl = document.getElementById('canonicalLink');
+  if (canonicalEl) canonicalEl.setAttribute('href', meta.canonical);
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', meta.title);
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', meta.description);
+  var ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', meta.canonical);
+  var twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', meta.title);
+  var twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', meta.description);
+}
+
 function switchTab(tab, skipPush) {
   var isMains = tab === 'mains';
   var tabMains = document.getElementById('tabMains');
@@ -794,6 +998,7 @@ function switchTab(tab, skipPush) {
   document.getElementById('heroMains').style.display = isMains ? '' : 'none';
   document.getElementById('heroCookie').style.display = isMains ? 'none' : '';
   document.getElementById('trustStrip').style.display = isMains ? '' : 'none';
+  applyRouteMeta(isMains ? 'mains' : 'desserts');
   closeBuilder();
   window.scrollTo(0, 0);
   if (!skipPush && window.history && history.pushState) {
@@ -859,7 +1064,7 @@ function updateSummary() {
   document.getElementById('sumLabel').textContent = pk.count + ' Loaded Dogs';
   document.getElementById('sumSize').textContent = pk.label;
   var includes = 'Vanilla Coke';
-  if (currentPack === 'party') includes = '2 Large Yam Fries + 4 Vanilla Cokes';
+  if (currentPack === 'party') includes = '1 XL Yam Fries + 4 Vanilla Cokes';
   if (currentPack === 'catering') {
     var drinks = selectedDrinks.length > 0 ? selectedDrinks.join(' + ') : 'Pick 2 drinks';
     includes = '5 Large Yam Fries + 2×2L ' + drinks;
@@ -887,7 +1092,7 @@ function addToCart() {
   }
   var pk = PACKS[currentPack];
   var detail = pk.count + ' Loaded Dogs + Vanilla Coke';
-  if (currentPack === 'party') detail = pk.count + ' Loaded Dogs + 2 Large Yam Fries + 4 Vanilla Cokes';
+  if (currentPack === 'party') detail = pk.count + ' Loaded Dogs + 1 XL Yam Fries + 4 Vanilla Cokes';
   if (currentPack === 'catering') detail = pk.count + ' Loaded Dogs + 5 Large Yam Fries + 2×2L ' + selectedDrinks.join(' & ');
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
