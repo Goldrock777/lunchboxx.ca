@@ -106,7 +106,7 @@
           {
             "@type": "MenuItem",
             "name": "Party Pack",
-            "description": "8 Loaded Dogs + 2 Large Yam Fries + 4 Vanilla Cokes. Feeds the whole crew.",
+            "description": "8 Loaded Dogs + 1 XL Yam Fries + 4 Vanilla Cokes. Feeds the whole crew.",
             "image": "https://lunchboxx.ca/hero.png",
             "offers": { "@type": "Offer", "price": "50.00", "priceCurrency": "CAD", "availability": "https://schema.org/InStock" }
           },
@@ -724,7 +724,7 @@
       <article class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><h3 class="mc-name">PARTY PACK</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$50</div></div>
         <p class="mc-desc">Feeds the whole crew around Gateway &amp; King George. Skip the pizza.</p>
-        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Large Yam Fries" loading="lazy" width="80" height="80"><div class="lbl">2 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Cokes" loading="lazy" width="80" height="80"><div class="lbl">4 VANILLA COKES</div></div></div>
+        <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="XL Yam Fries" loading="lazy" width="80" height="80"><div class="lbl">1 XL YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Cokes" loading="lazy" width="80" height="80"><div class="lbl">4 VANILLA COKES</div></div></div>
       </article>
       <article class="menu-card catering" onclick="openBuilder('catering')">
         <div class="mc-top"><div><h3 class="mc-name">CATERING BOXX</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$200</div></div>
@@ -1064,7 +1064,7 @@ function updateSummary() {
   document.getElementById('sumLabel').textContent = pk.count + ' Loaded Dogs';
   document.getElementById('sumSize').textContent = pk.label;
   var includes = 'Vanilla Coke';
-  if (currentPack === 'party') includes = '2 Large Yam Fries + 4 Vanilla Cokes';
+  if (currentPack === 'party') includes = '1 XL Yam Fries + 4 Vanilla Cokes';
   if (currentPack === 'catering') {
     var drinks = selectedDrinks.length > 0 ? selectedDrinks.join(' + ') : 'Pick 2 drinks';
     includes = '5 Large Yam Fries + 2×2L ' + drinks;
@@ -1092,7 +1092,7 @@ function addToCart() {
   }
   var pk = PACKS[currentPack];
   var detail = pk.count + ' Loaded Dogs + Vanilla Coke';
-  if (currentPack === 'party') detail = pk.count + ' Loaded Dogs + 2 Large Yam Fries + 4 Vanilla Cokes';
+  if (currentPack === 'party') detail = pk.count + ' Loaded Dogs + 1 XL Yam Fries + 4 Vanilla Cokes';
   if (currentPack === 'catering') detail = pk.count + ' Loaded Dogs + 5 Large Yam Fries + 2×2L ' + selectedDrinks.join(' & ');
   var sp = document.getElementById('specialReq').value.trim();
   if (sp) detail += ' · ' + sp;
