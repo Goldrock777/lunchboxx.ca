@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://lunchboxx.ca/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lunchboxx.ca/hero.png</image:loc>
+      <image:title>Loaded Hot Dogs delivered late night in Surrey Central</image:title>
+      <image:caption>LUNCHBOXX Loaded Dogs with bacon, cheddar and spicy mayo</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lunchboxx.ca/desserts</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lunchboxx.ca/cookie.png</image:loc>
+      <image:title>Handcrafted stuffed cookies by Fudge &amp; Crumble</image:title>
+    </image:image>
+  </url>
+</urlset>
