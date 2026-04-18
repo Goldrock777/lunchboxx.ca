@@ -12,8 +12,8 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="geo.region" content="CA-BC">
   <meta name="geo.placename" content="Surrey, British Columbia">
-  <meta name="geo.position" content="49.1893;-122.8488">
-  <meta name="ICBM" content="49.1893, -122.8488">
+  <meta name="geo.position" content="49.1884;-122.8494">
+  <meta name="ICBM" content="49.1884, -122.8494">
   <link rel="canonical" href="https://lunchboxx.ca/" id="canonicalLink">
   <!-- Open Graph / Social -->
   <meta property="og:type" content="restaurant.restaurant">
@@ -71,8 +71,8 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 49.1893,
-      "longitude": -122.8488
+      "latitude": 49.1884,
+      "longitude": -122.8494
     },
     "areaServed": [
       { "@type": "Place", "name": "Surrey Central", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
@@ -106,8 +106,8 @@
         },
         "eligibleRegion": {
           "@type": "GeoCircle",
-          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.1893, "longitude": -122.8488 },
-          "geoRadius": "1000"
+          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.1884, "longitude": -122.8494 },
+          "geoRadius": "4000"
         }
       }
     },
@@ -1467,7 +1467,7 @@ function fetchSuggestions(q) {
     var request = {
       input: q,
       sessionToken: _gSessionToken,
-      locationBias: { center: { lat: 49.1893, lng: -122.8488 }, radius: 12000 },
+      locationBias: { center: { lat: 49.1884, lng: -122.8494 }, radius: 12000 },
       includedRegionCodes: ['ca'],
       language: 'en-CA',
       region: 'ca'
@@ -1597,7 +1597,7 @@ function setAddrResult(html, color) {
 }
 
 function renderZoneResult(lat, lon, label) {
-  var center = window._zoneCenter || [49.1893, -122.8488];
+  var center = window._zoneCenter || [49.1884, -122.8494];
   var radius = window._zoneRadius || 1000;
   var dist = haversineMeters(center[0], center[1], lat, lon);
   var pretty = (label || '').split(',').slice(0, 3).join(',');
@@ -1718,7 +1718,7 @@ document.addEventListener('DOMContentLoaded', function() {
   history.replaceState({ tab: startTab }, '', startTab === 'mains' ? '/' : '/desserts');
 
   // Leaflet Map
-  var center = [49.1893, -122.8488]; // SFU Surrey / Central City Tower
+  var center = [49.1884, -122.8494]; // SFU Surrey / Central City Tower (Google Maps pin)
   var map = L.map('zoneMap', { scrollWheelZoom:false, zoomControl:true, attributionControl:false }).setView(center, 14);
 
   // Fix tiles not rendering in scroll containers
@@ -1740,7 +1740,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Delivery radius circle
   L.circle(center, {
-    radius: 1000,
+    radius: 4000,
     color: '#FF6B00',
     weight: 2,
     fillColor: '#FF6B00',
@@ -1748,12 +1748,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dashArray: '6,4'
   }).addTo(map);
 
-  // Station markers (real SkyTrain + campus entrance coords)
+  // Station markers — coords match Google Maps pin positions
   var stations = [
     { pos:[49.1977, -122.8506], name:'Gateway Stn' },
-    { pos:[49.1897, -122.8483], name:'Surrey Central' },
+    { pos:[49.1898, -122.8481], name:'Surrey Central' },
     { pos:[49.1829, -122.8451], name:'King George Stn' },
-    { pos:[49.1893, -122.8488], name:'SFU Surrey' }
+    { pos:[49.1884, -122.8494], name:'SFU Surrey' }
   ];
 
   stations.forEach(function(s) {
@@ -1767,10 +1767,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }).addTo(map);
   });
 
-  // Fit the view to the delivery circle + all pins (1km radius)
+  // Fit the view to the full delivery circle (4km radius) + all station pins
   var fitBounds = L.latLngBounds(stations.map(function(s) { return s.pos; }));
-  fitBounds.extend([center[0] + 0.012, center[1] + 0.018]);
-  fitBounds.extend([center[0] - 0.012, center[1] - 0.018]);
+  fitBounds.extend([center[0] + 0.038, center[1] + 0.056]);
+  fitBounds.extend([center[0] - 0.038, center[1] - 0.056]);
   map.fitBounds(fitBounds, { padding: [20, 20] });
 
   // Enable scroll zoom after first click
@@ -1779,7 +1779,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Store map reference globally for address check
   window._zoneMap = map;
   window._zoneCenter = center;
-  window._zoneRadius = 1000;
+  window._zoneRadius = 4000;
   window._userMarker = null;
 });
 </script>
