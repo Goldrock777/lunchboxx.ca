@@ -39,6 +39,14 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"></noscript>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 
+  <!-- Google Maps JS API (Places library) — key is domain-restricted to lunchboxx.ca -->
+  <script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "AIzaSyCKOPvg6kqXDgGO0mjqBl-XQYgMZzHM6ak",
+    v: "weekly"
+  });
+  </script>
+
   <!-- Structured Data: Restaurant + Menu -->
   <script type="application/ld+json">
   {
@@ -1432,49 +1440,57 @@ function showToast(msg) {
 }
 
 // ═══ INIT ═══
-// ═══ ADDRESS AUTOCOMPLETE + CHECK (Photon suggestions + haversine distance) ═══
+// ═══ ADDRESS AUTOCOMPLETE + CHECK (Google Places suggestions + haversine distance) ═══
 var _addrDebounce = null;
 var _addrSuggestions = [];
 var _addrActiveIdx = -1;
 var _addrLastReq = 0;
 var _addrPicked = null; // {lat, lon, label} from a clicked/accepted suggestion
+var _gSessionToken = null;
+var _gPlacesLib = null;
 
 function onAddrInput() {
   var val = document.getElementById('addrInput').value.trim();
   _addrPicked = null;
   if (_addrDebounce) clearTimeout(_addrDebounce);
   if (val.length < 3) { closeAddrDropdown(); return; }
-  _addrDebounce = setTimeout(function() { fetchSuggestions(val); }, 400);
+  _addrDebounce = setTimeout(function() { fetchSuggestions(val); }, 180);
 }
 
 function fetchSuggestions(q) {
   var reqId = ++_addrLastReq;
-  var biased = /surrey/i.test(q) ? q : q + ', Surrey, BC';
-  var url = 'https://nominatim.openstreetmap.org/search' +
-            '?format=jsonv2&addressdetails=1&limit=8&countrycodes=ca' +
-            '&viewbox=-122.92,49.22,-122.78,49.05&bounded=0' +
-            '&q=' + encodeURIComponent(biased);
-  fetch(url, { headers: { 'Accept': 'application/json' } })
-    .then(function(r) { return r.ok ? r.json() : null; })
-    .then(function(data) {
-      if (reqId !== _addrLastReq) return; // stale
-      var results = data || [];
-      _addrSuggestions = results.slice(0, 6).map(function(r) {
-        var a = r.address || {};
-        var line1 = [a.house_number, a.road || r.name].filter(Boolean).join(' ') || r.display_name.split(',')[0];
-        var line2 = a.city || a.town || a.village || a.suburb || a.neighbourhood || '';
-        return { lat: parseFloat(r.lat), lon: parseFloat(r.lon), line1: line1, line2: line2 };
-      }).filter(function(s) { return s.line1 || s.line2; });
-      if (!_addrSuggestions.length) {
-        var el = document.getElementById('addrDrop');
-        el.innerHTML = '<div style="padding:10px 12px;font-size:12px;color:var(--grayL)">No match — try adding a street number or hit <strong>CHECK</strong>.</div>';
-        el.style.display = 'block';
-        document.getElementById('addrInput').setAttribute('aria-expanded', 'true');
-        return;
-      }
-      renderAddrDropdown();
-    })
-    .catch(function() { /* silent */ });
+  if (!(window.google && google.maps && google.maps.importLibrary)) return;
+  var libPromise = _gPlacesLib ? Promise.resolve(_gPlacesLib) :
+    google.maps.importLibrary('places').then(function(lib) { _gPlacesLib = lib; return lib; });
+  libPromise.then(function(lib) {
+    if (!_gSessionToken) _gSessionToken = new lib.AutocompleteSessionToken();
+    var request = {
+      input: q,
+      sessionToken: _gSessionToken,
+      locationBias: { center: { lat: 49.1867, lng: -122.849 }, radius: 12000 },
+      includedRegionCodes: ['ca'],
+      language: 'en-CA',
+      region: 'ca'
+    };
+    return lib.AutocompleteSuggestion.fetchAutocompleteSuggestions(request);
+  }).then(function(res) {
+    if (reqId !== _addrLastReq) return; // stale
+    var list = (res && res.suggestions) || [];
+    _addrSuggestions = list.slice(0, 6).map(function(s) {
+      var pp = s.placePrediction;
+      var main = pp.mainText ? pp.mainText.text : (pp.text && pp.text.text) || '';
+      var secondary = pp.secondaryText ? pp.secondaryText.text : '';
+      return { _pred: pp, line1: main, line2: secondary };
+    }).filter(function(s) { return s.line1; });
+    if (!_addrSuggestions.length) {
+      var el = document.getElementById('addrDrop');
+      el.innerHTML = '<div style="padding:10px 12px;font-size:12px;color:var(--grayL)">No match — try adding a street number or hit <strong>CHECK</strong>.</div>';
+      el.style.display = 'block';
+      document.getElementById('addrInput').setAttribute('aria-expanded', 'true');
+      return;
+    }
+    renderAddrDropdown();
+  }).catch(function() { /* silent */ });
 }
 
 function renderAddrDropdown() {
@@ -1512,12 +1528,23 @@ function closeAddrDropdown() {
 
 function pickSuggestion(idx) {
   var s = _addrSuggestions[idx];
-  if (!s) return;
-  _addrPicked = s;
+  if (!s || !s._pred) return;
   var full = [s.line1, s.line2].filter(Boolean).join(', ');
   document.getElementById('addrInput').value = full;
   closeAddrDropdown();
-  checkAddress();
+  setAddrResult('Checking…', 'var(--gray)');
+  var place = s._pred.toPlace();
+  place.fetchFields({ fields: ['location', 'formattedAddress'] }).then(function() {
+    var loc = place.location;
+    if (!loc) { setAddrResult('⚠️ Couldn\'t locate that address.', 'var(--amber)'); return; }
+    var lat = typeof loc.lat === 'function' ? loc.lat() : loc.lat;
+    var lon = typeof loc.lng === 'function' ? loc.lng() : loc.lng;
+    _addrPicked = { lat: lat, lon: lon, line1: s.line1, line2: s.line2 };
+    _gSessionToken = null; // session ends after details fetch
+    renderZoneResult(lat, lon, place.formattedAddress || full);
+  }).catch(function() {
+    setAddrResult('⚠️ Couldn\'t locate that address.', 'var(--amber)');
+  });
 }
 
 function highlightSuggestion(idx) {
