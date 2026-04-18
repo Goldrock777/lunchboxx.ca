@@ -1,0 +1,41 @@
+{
+  "$schema": "Edit this file to change the DUO promo. `active: true` on one promo at a time.",
+  "promos": [
+    {
+      "id": "vanilla-coke",
+      "active": true,
+      "name": "Free Vanilla Coke",
+      "short": "Complimentary Vanilla Coke with every DUO",
+      "tagline": "THE CLASSIC 2000s THROWBACK",
+      "description": "The classic 2000s throwback. Crisp, smooth, ice-cold. The perfect match for Loaded Dogs.",
+      "image": "./vanillacoke.png",
+      "menuDescription": "2 Loaded Dogs + a Vanilla Coke",
+      "startDate": "2026-01-01",
+      "endDate": null
+    },
+    {
+      "id": "yam-fries",
+      "active": false,
+      "name": "Free XL Yam Fries",
+      "short": "Free XL Yam Fries with every DUO",
+      "tagline": "HOT & CRISPY",
+      "description": "Golden-fried sweet yam fries with chipotle aioli. The perfect side for late-night Loaded Dogs.",
+      "image": "./yamfries.png",
+      "menuDescription": "2 Loaded Dogs + XL Yam Fries",
+      "startDate": null,
+      "endDate": null
+    },
+    {
+      "id": "onion-rings",
+      "active": false,
+      "name": "Free Onion Rings",
+      "short": "Free Onion Rings with every DUO",
+      "tagline": "BEER-BATTERED & STACKED",
+      "description": "Thick-cut, beer-battered onion rings. Crispy outside, tender inside.",
+      "image": "./hero.png",
+      "menuDescription": "2 Loaded Dogs + Onion Rings",
+      "startDate": null,
+      "endDate": null
+    }
+  ]
+}
