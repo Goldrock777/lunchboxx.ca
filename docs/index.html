@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="./hero.png">
-  <link rel="apple-touch-icon" href="./hero.png">
+  <link rel="icon" type="image/png" href="./lunchboxx.jpg">
+  <link rel="apple-touch-icon" href="./lunchboxx.jpg">
   <!-- Primary Meta Tags -->
   <title>Late Night Hot Dog Delivery Surrey Central, Gateway & King George | LUNCHBOXX</title>
   <meta name="description" content="Free late-night hot dog delivery to Surrey Central, Gateway Station & King George Hub. Loaded beef dogs with bacon, cheddar & spicy mayo. Open when everywhere else is closed. Order at lunchboxx.ca">
@@ -70,7 +70,7 @@
       { "@type": "Place", "name": "Surrey Central", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
       { "@type": "Place", "name": "Gateway Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1897, "longitude": -122.8479 } },
       { "@type": "Place", "name": "King George Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1826, "longitude": -122.8449 } },
-      { "@type": "Place", "name": "SFU Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1874, "longitude": -122.852 } },
+      { "@type": "Place", "name": "SFU Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1890, "longitude": -122.8484 } },
       { "@type": "Place", "name": "Surrey City Centre", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
       { "@type": "Place", "name": "Whalley" },
       { "@type": "Place", "name": "Central City Mall Surrey" },
@@ -733,17 +733,17 @@
     <div class="menu">
       <article class="menu-card popular" onclick="openBuilder('duo')">
         <div class="mc-top"><div><h3 class="mc-name">DUO</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$20</div></div>
-        <p class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Free ebike delivery — cheaper than pizza with Skip fees. <strong style="color:var(--green)">ETA ~15–20 min</strong> in Surrey Central.</p>
+        <p class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza.</p>
         <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Complimentary Vanilla Coke" loading="lazy" width="80" height="80"><div class="lbl">VANILLA COKE</div></div></div>
       </article>
       <article class="menu-card best-value" onclick="openBuilder('party')">
         <div class="mc-top"><div><h3 class="mc-name">PARTY PACK</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$50</div></div>
-        <p class="mc-desc">Feeds the whole crew around Gateway &amp; King George. Skip the pizza.</p>
+        <p class="mc-desc">Feeds the whole crew. Skip the pizza.</p>
         <div class="mc-stats"><div class="mc-stat"><div class="val">8</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="XL Yam Fries" loading="lazy" width="80" height="80"><div class="lbl">1 XL YAM FRIES</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Vanilla Cokes" loading="lazy" width="80" height="80"><div class="lbl">4 VANILLA COKES</div></div></div>
       </article>
       <article class="menu-card catering" onclick="openBuilder('catering')">
         <div class="mc-top"><div><h3 class="mc-name">CATERING BOXX</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$200</div></div>
-        <p class="mc-desc">Feeds 15–20 people. Office parties and events around Surrey City Centre, Gateway Station and King George Hub. The full spread.</p>
+        <p class="mc-desc">Feeds 15–20 people. Office parties, events, late-night groups. The full spread.</p>
         <div class="mc-stats"><div class="mc-stat"><div class="val">30</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./yamfries.png" alt="Large Yam Fries for catering" loading="lazy" width="80" height="80"><div class="lbl">5 LARGE YAM FRIES</div></div><div class="mc-stat coke-stat catering-drinks"><div class="catering-drinks-row"><img src="./cola.png" alt="2L Coke" loading="lazy" width="40" height="60"><img src="./sprite.png" alt="2L Sprite" loading="lazy" width="40" height="60"></div><div class="lbl">2 × 2L POP</div></div></div>
       </article>
     </div>
@@ -879,6 +879,10 @@
     </nav>
     <div style="margin-top:12px">
       <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" rel="noopener" aria-label="LUNCHBOXX on Instagram" style="color:var(--orange);text-decoration:none;font-weight:600;font-size:12px">📸 Instagram</a>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--s3);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap">
+      <img src="./lunchboxx.jpg" alt="LUNCHBOXX logo" width="20" height="20" loading="lazy" style="border-radius:4px">
+      <span style="font-size:10px;color:var(--grayL);letter-spacing:.5px">© 2026 LUNCHBOXX. All rights reserved.</span>
     </div>
   </footer>
 
@@ -1445,25 +1449,30 @@ function onAddrInput() {
 
 function fetchSuggestions(q) {
   var reqId = ++_addrLastReq;
-  // Photon: free, designed for autocomplete, biased around Surrey Central
-  var url = 'https://photon.komoot.io/api/?q=' + encodeURIComponent(q) +
-            '&lat=49.1867&lon=-122.849&zoom=14&lang=en&limit=6';
+  // Auto-append Surrey to short queries so results stay local
+  var biased = /surrey/i.test(q) ? q : q + ' Surrey BC';
+  var url = 'https://photon.komoot.io/api/?q=' + encodeURIComponent(biased) +
+            '&lat=49.1867&lon=-122.849&zoom=14&lang=en&limit=10';
   fetch(url)
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(data) {
       if (reqId !== _addrLastReq) return; // stale
       var feats = (data && data.features) || [];
-      // Prefer Canadian results; keep the order Photon returned otherwise
-      feats.sort(function(a, b) {
-        var ac = a.properties && a.properties.countrycode === 'CA' ? 0 : 1;
-        var bc = b.properties && b.properties.countrycode === 'CA' ? 0 : 1;
-        return ac - bc;
+      // Only keep Surrey-area BC results (within ~8km of Surrey Central)
+      var CENTER_LAT = 49.1867, CENTER_LON = -122.849;
+      feats = feats.filter(function(f) {
+        var p = f.properties || {};
+        if (p.countrycode && p.countrycode !== 'CA') return false;
+        var coords = (f.geometry && f.geometry.coordinates) || [0, 0];
+        var d = haversineMeters(CENTER_LAT, CENTER_LON, coords[1], coords[0]);
+        return d <= 8000;
       });
       _addrSuggestions = feats.slice(0, 6).map(function(f) {
         var p = f.properties || {};
         var coords = (f.geometry && f.geometry.coordinates) || [0, 0];
         var line1 = [p.housenumber, p.street || p.name].filter(Boolean).join(' ') || p.name || '';
-        var line2 = [p.city || p.town || p.village, p.state, p.country].filter(Boolean).join(', ');
+        // Only show the city/area as the secondary line — skip the obvious "BC, Canada"
+        var line2 = p.city || p.town || p.village || p.district || '';
         return { lat: coords[1], lon: coords[0], line1: line1, line2: line2 };
       }).filter(function(s) { return s.line1 || s.line2; });
       renderAddrDropdown();
@@ -1659,7 +1668,7 @@ function loadPromo() {
       // Update DUO card desc
       var duoCard = document.querySelector('.menu-card.popular .mc-desc');
       if (duoCard && active.menuDescription) {
-        duoCard.innerHTML = active.menuDescription + '. Free ebike delivery — cheaper than pizza with Skip fees. <strong style="color:var(--green)">ETA ~15–20 min</strong> in Surrey Central.';
+        duoCard.innerHTML = active.menuDescription + '. Better than a solo pizza.';
       }
       // Update meta description to mention the current promo
       var md = document.querySelector('meta[name="description"]');
@@ -1720,7 +1729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { pos:[49.1897, -122.8479], name:'Gateway Stn' },
     { pos:[49.1867, -122.849],  name:'Surrey Central' },
     { pos:[49.1826, -122.8449], name:'King George Stn' },
-    { pos:[49.1874, -122.852],  name:'SFU Surrey' }
+    { pos:[49.1890, -122.8484], name:'SFU Surrey' }
   ];
 
   stations.forEach(function(s) {
