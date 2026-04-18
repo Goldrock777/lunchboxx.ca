@@ -1444,36 +1444,33 @@ function onAddrInput() {
   _addrPicked = null;
   if (_addrDebounce) clearTimeout(_addrDebounce);
   if (val.length < 3) { closeAddrDropdown(); return; }
-  _addrDebounce = setTimeout(function() { fetchSuggestions(val); }, 220);
+  _addrDebounce = setTimeout(function() { fetchSuggestions(val); }, 400);
 }
 
 function fetchSuggestions(q) {
   var reqId = ++_addrLastReq;
-  // Auto-append Surrey to short queries so results stay local
-  var biased = /surrey/i.test(q) ? q : q + ' Surrey BC';
-  var url = 'https://photon.komoot.io/api/?q=' + encodeURIComponent(biased) +
-            '&lat=49.1867&lon=-122.849&zoom=14&lang=en&limit=10';
-  fetch(url)
+  // Nominatim has much better Canadian house-level coverage than Photon
+  var biased = /surrey/i.test(q) ? q : q + ', Surrey, BC';
+  var url = 'https://nominatim.openstreetmap.org/search' +
+            '?format=jsonv2&addressdetails=1&limit=8&countrycodes=ca' +
+            '&viewbox=-122.92,49.22,-122.78,49.15&bounded=0' +
+            '&q=' + encodeURIComponent(biased);
+  fetch(url, { headers: { 'Accept': 'application/json' } })
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(data) {
       if (reqId !== _addrLastReq) return; // stale
-      var feats = (data && data.features) || [];
-      // Only keep Surrey-area BC results (within ~8km of Surrey Central)
+      var results = data || [];
+      // Keep only hits within ~8km of Surrey Central
       var CENTER_LAT = 49.1867, CENTER_LON = -122.849;
-      feats = feats.filter(function(f) {
-        var p = f.properties || {};
-        if (p.countrycode && p.countrycode !== 'CA') return false;
-        var coords = (f.geometry && f.geometry.coordinates) || [0, 0];
-        var d = haversineMeters(CENTER_LAT, CENTER_LON, coords[1], coords[0]);
-        return d <= 8000;
+      results = results.filter(function(r) {
+        var lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+        return haversineMeters(CENTER_LAT, CENTER_LON, lat, lon) <= 8000;
       });
-      _addrSuggestions = feats.slice(0, 6).map(function(f) {
-        var p = f.properties || {};
-        var coords = (f.geometry && f.geometry.coordinates) || [0, 0];
-        var line1 = [p.housenumber, p.street || p.name].filter(Boolean).join(' ') || p.name || '';
-        // Only show the city/area as the secondary line — skip the obvious "BC, Canada"
-        var line2 = p.city || p.town || p.village || p.district || '';
-        return { lat: coords[1], lon: coords[0], line1: line1, line2: line2 };
+      _addrSuggestions = results.slice(0, 6).map(function(r) {
+        var a = r.address || {};
+        var line1 = [a.house_number, a.road || r.name].filter(Boolean).join(' ') || r.display_name.split(',')[0];
+        var line2 = a.city || a.town || a.village || a.suburb || a.neighbourhood || '';
+        return { lat: parseFloat(r.lat), lon: parseFloat(r.lon), line1: line1, line2: line2 };
       }).filter(function(s) { return s.line1 || s.line2; });
       renderAddrDropdown();
     })
