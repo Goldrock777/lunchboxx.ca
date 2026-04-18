@@ -790,8 +790,11 @@
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
       <div class="addr-check" style="border-top:1px solid var(--s3);padding:14px">
         <label for="addrInput" style="display:block;font-size:11px;color:var(--gray);letter-spacing:1.5px;margin-bottom:6px">CHECK YOUR ADDRESS</label>
-        <div style="display:flex;gap:6px">
-          <input id="addrInput" type="text" inputmode="search" autocomplete="street-address" placeholder="e.g. 13479 Central Ave, Surrey" style="flex:1;padding:11px 12px;background:var(--s1);border:2px solid var(--s3);border-radius:10px;color:var(--white);font-size:13px;font-family:var(--f2);outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter'){event.preventDefault();checkAddress();}">
+        <div style="display:flex;gap:6px;position:relative">
+          <div style="flex:1;position:relative">
+            <input id="addrInput" type="text" inputmode="search" autocomplete="off" placeholder="Start typing your address…" style="width:100%;padding:11px 12px;background:var(--s1);border:2px solid var(--s3);border-radius:10px;color:var(--white);font-size:13px;font-family:var(--f2);outline:none;box-sizing:border-box" oninput="onAddrInput()" onkeydown="onAddrKeydown(event)" onblur="setTimeout(closeAddrDropdown,150)" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="addrDrop">
+            <div id="addrDrop" role="listbox" style="display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--s2);border:1px solid var(--s3);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.5);max-height:260px;overflow-y:auto;z-index:50"></div>
+          </div>
           <button type="button" onclick="checkAddress()" id="addrBtn" style="padding:11px 16px;background:var(--orange);color:var(--white);border:none;border-radius:10px;font-family:var(--f1);font-size:13px;letter-spacing:1.5px;cursor:pointer;white-space:nowrap">CHECK</button>
         </div>
         <div id="addrResult" role="status" aria-live="polite" style="margin-top:10px;font-size:13px;min-height:18px"></div>
@@ -1425,7 +1428,123 @@ function showToast(msg) {
 }
 
 // ═══ INIT ═══
-// ═══ ADDRESS CHECK (Nominatim geocode + haversine distance) ═══
+// ═══ ADDRESS AUTOCOMPLETE + CHECK (Photon suggestions + haversine distance) ═══
+var _addrDebounce = null;
+var _addrSuggestions = [];
+var _addrActiveIdx = -1;
+var _addrLastReq = 0;
+var _addrPicked = null; // {lat, lon, label} from a clicked/accepted suggestion
+
+function onAddrInput() {
+  var val = document.getElementById('addrInput').value.trim();
+  _addrPicked = null;
+  if (_addrDebounce) clearTimeout(_addrDebounce);
+  if (val.length < 3) { closeAddrDropdown(); return; }
+  _addrDebounce = setTimeout(function() { fetchSuggestions(val); }, 220);
+}
+
+function fetchSuggestions(q) {
+  var reqId = ++_addrLastReq;
+  // Photon: free, designed for autocomplete, biased around Surrey Central
+  var url = 'https://photon.komoot.io/api/?q=' + encodeURIComponent(q) +
+            '&lat=49.1867&lon=-122.849&zoom=14&lang=en&limit=6';
+  fetch(url)
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (reqId !== _addrLastReq) return; // stale
+      var feats = (data && data.features) || [];
+      // Prefer Canadian results; keep the order Photon returned otherwise
+      feats.sort(function(a, b) {
+        var ac = a.properties && a.properties.countrycode === 'CA' ? 0 : 1;
+        var bc = b.properties && b.properties.countrycode === 'CA' ? 0 : 1;
+        return ac - bc;
+      });
+      _addrSuggestions = feats.slice(0, 6).map(function(f) {
+        var p = f.properties || {};
+        var coords = (f.geometry && f.geometry.coordinates) || [0, 0];
+        var line1 = [p.housenumber, p.street || p.name].filter(Boolean).join(' ') || p.name || '';
+        var line2 = [p.city || p.town || p.village, p.state, p.country].filter(Boolean).join(', ');
+        return { lat: coords[1], lon: coords[0], line1: line1, line2: line2 };
+      }).filter(function(s) { return s.line1 || s.line2; });
+      renderAddrDropdown();
+    })
+    .catch(function() { /* silent */ });
+}
+
+function renderAddrDropdown() {
+  var el = document.getElementById('addrDrop');
+  var input = document.getElementById('addrInput');
+  if (!_addrSuggestions.length) { closeAddrDropdown(); return; }
+  _addrActiveIdx = -1;
+  var html = '';
+  for (var i = 0; i < _addrSuggestions.length; i++) {
+    var s = _addrSuggestions[i];
+    html += '<div role="option" data-idx="' + i + '" onmousedown="pickSuggestion(' + i + ')" ' +
+            'style="padding:10px 12px;cursor:pointer;border-bottom:1px solid var(--s3);font-size:13px;color:var(--white)">' +
+            '<div style="font-weight:600">' + escapeHtml(s.line1 || s.line2) + '</div>' +
+            (s.line1 && s.line2 ? '<div style="font-size:11px;color:var(--grayL);margin-top:2px">' + escapeHtml(s.line2) + '</div>' : '') +
+            '</div>';
+  }
+  el.innerHTML = html;
+  el.style.display = 'block';
+  input.setAttribute('aria-expanded', 'true');
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function(c) {
+    return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+  });
+}
+
+function closeAddrDropdown() {
+  var el = document.getElementById('addrDrop');
+  var input = document.getElementById('addrInput');
+  if (el) el.style.display = 'none';
+  if (input) input.setAttribute('aria-expanded', 'false');
+  _addrActiveIdx = -1;
+}
+
+function pickSuggestion(idx) {
+  var s = _addrSuggestions[idx];
+  if (!s) return;
+  _addrPicked = s;
+  var full = [s.line1, s.line2].filter(Boolean).join(', ');
+  document.getElementById('addrInput').value = full;
+  closeAddrDropdown();
+  checkAddress();
+}
+
+function highlightSuggestion(idx) {
+  var items = document.querySelectorAll('#addrDrop [role="option"]');
+  items.forEach(function(el, i) {
+    el.style.background = i === idx ? 'var(--s3)' : '';
+  });
+  _addrActiveIdx = idx;
+}
+
+function onAddrKeydown(e) {
+  var dropVisible = document.getElementById('addrDrop').style.display !== 'none';
+  if (e.key === 'ArrowDown' && dropVisible) {
+    e.preventDefault();
+    var next = Math.min(_addrSuggestions.length - 1, _addrActiveIdx + 1);
+    highlightSuggestion(next);
+  } else if (e.key === 'ArrowUp' && dropVisible) {
+    e.preventDefault();
+    var prev = Math.max(0, _addrActiveIdx - 1);
+    highlightSuggestion(prev);
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (dropVisible && _addrActiveIdx >= 0) {
+      pickSuggestion(_addrActiveIdx);
+    } else {
+      closeAddrDropdown();
+      checkAddress();
+    }
+  } else if (e.key === 'Escape') {
+    closeAddrDropdown();
+  }
+}
+
 function haversineMeters(lat1, lon1, lat2, lon2) {
   var R = 6371000;
   var toRad = function(d) { return d * Math.PI / 180; };
@@ -1444,22 +1563,55 @@ function setAddrResult(html, color) {
   el.style.color = color || 'var(--grayL)';
 }
 
+function renderZoneResult(lat, lon, label) {
+  var center = window._zoneCenter || [49.1867, -122.849];
+  var radius = window._zoneRadius || 1200;
+  var dist = haversineMeters(center[0], center[1], lat, lon);
+  var pretty = (label || '').split(',').slice(0, 3).join(',');
+
+  var map = window._zoneMap;
+  if (map && typeof L !== 'undefined') {
+    if (window._userMarker) { map.removeLayer(window._userMarker); }
+    var inZone = dist <= radius;
+    var dot = L.divIcon({
+      className: '',
+      html: '<div style="background:' + (inZone ? '#00D26A' : '#E8392C') + ';width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.5)"></div>',
+      iconSize: [20, 20],
+      iconAnchor: [10, 10]
+    });
+    window._userMarker = L.marker([lat, lon], { icon: dot }).addTo(map);
+    var bounds = L.latLngBounds([center, [lat, lon]]).pad(0.4);
+    map.fitBounds(bounds, { maxZoom: 15 });
+    setTimeout(function() { map.invalidateSize(); }, 100);
+  }
+
+  if (dist <= radius) {
+    setAddrResult('✅ <strong>You\'re in the zone</strong> · ~' + Math.round(dist) + 'm · ETA under 20 min<br><span style="font-size:11px;color:var(--grayL)">' + pretty + '</span>', 'var(--green)');
+  } else {
+    var km = (dist / 1000).toFixed(1);
+    setAddrResult('😔 Outside our free zone · ' + km + ' km away.<br><span style="font-size:11px;color:var(--grayL)">Closest: Surrey Central / Gateway / King George Hub. DM @lunchboxx for one-off deliveries beyond the zone.</span>', 'var(--red)');
+  }
+}
+
 function checkAddress() {
   var input = document.getElementById('addrInput');
   var btn = document.getElementById('addrBtn');
   var raw = (input && input.value || '').trim();
   if (!raw) { setAddrResult('Type your address to check.', 'var(--gray)'); return; }
 
-  // Bias search to Surrey BC so "Central Ave" doesn't match elsewhere
+  // Fast path: user already picked from the dropdown — use those coords directly
+  if (_addrPicked && _addrPicked.lat && _addrPicked.lon) {
+    renderZoneResult(_addrPicked.lat, _addrPicked.lon, [_addrPicked.line1, _addrPicked.line2].filter(Boolean).join(', '));
+    return;
+  }
+
+  // Fallback: free-typed address → geocode with Nominatim, biased to Surrey BC
   var biased = raw;
   if (!/surrey/i.test(biased)) biased += ', Surrey, BC';
   if (!/canada|,\s*ca\b/i.test(biased)) biased += ', Canada';
-
   setAddrResult('Checking…', 'var(--gray)');
   if (btn) { btn.disabled = true; btn.style.opacity = '.6'; }
-
   var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=ca&q=' + encodeURIComponent(biased);
-
   fetch(url, { headers: { 'Accept': 'application/json' } })
     .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function(results) {
@@ -1469,37 +1621,7 @@ function checkAddress() {
         return;
       }
       var r = results[0];
-      var lat = parseFloat(r.lat);
-      var lon = parseFloat(r.lon);
-      var center = window._zoneCenter || [49.1867, -122.849];
-      var radius = window._zoneRadius || 1200;
-      var dist = haversineMeters(center[0], center[1], lat, lon);
-      var pretty = r.display_name.split(',').slice(0, 3).join(',');
-
-      // Drop / update marker on the Leaflet map
-      var map = window._zoneMap;
-      if (map && typeof L !== 'undefined') {
-        if (window._userMarker) { map.removeLayer(window._userMarker); }
-        var inZone = dist <= radius;
-        var dot = L.divIcon({
-          className: '',
-          html: '<div style="background:' + (inZone ? '#00D26A' : '#E8392C') + ';width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.5)"></div>',
-          iconSize: [20, 20],
-          iconAnchor: [10, 10]
-        });
-        window._userMarker = L.marker([lat, lon], { icon: dot }).addTo(map);
-        // Fit both center and pin in view
-        var bounds = L.latLngBounds([center, [lat, lon]]).pad(0.4);
-        map.fitBounds(bounds, { maxZoom: 15 });
-        setTimeout(function() { map.invalidateSize(); }, 100);
-      }
-
-      if (dist <= radius) {
-        setAddrResult('✅ <strong>You\'re in the zone</strong> · ~' + Math.round(dist) + 'm · ETA 15–20 min<br><span style="font-size:11px;color:var(--grayL)">' + pretty + '</span>', 'var(--green)');
-      } else {
-        var km = (dist / 1000).toFixed(1);
-        setAddrResult('😔 Outside our free zone · ' + km + ' km away.<br><span style="font-size:11px;color:var(--grayL)">Closest: Surrey Central / Gateway / King George Hub. DM @lunchboxx for one-off deliveries beyond the zone.</span>', 'var(--red)');
-      }
+      renderZoneResult(parseFloat(r.lat), parseFloat(r.lon), r.display_name);
     })
     .catch(function() {
       if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
