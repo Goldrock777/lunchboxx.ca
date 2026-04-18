@@ -1598,7 +1598,7 @@ function setAddrResult(html, color) {
 
 function renderZoneResult(lat, lon, label) {
   var center = window._zoneCenter || [49.1884, -122.8494];
-  var radius = window._zoneRadius || 1000;
+  var radius = window._zoneRadius || 4000;
   var dist = haversineMeters(center[0], center[1], lat, lon);
   var pretty = (label || '').split(',').slice(0, 3).join(',');
 
