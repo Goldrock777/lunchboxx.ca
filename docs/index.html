@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./hero.png">
+  <link rel="apple-touch-icon" href="./hero.png">
   <!-- Primary Meta Tags -->
   <title>Late Night Hot Dog Delivery Surrey Central, Gateway & King George | LUNCHBOXX</title>
   <meta name="description" content="Free late-night hot dog delivery to Surrey Central, Gateway Station & King George Hub. Loaded beef dogs with bacon, cheddar & spicy mayo. Open when everywhere else is closed. Order at lunchboxx.ca">
@@ -41,7 +43,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": ["Restaurant", "FastFoodRestaurant", "LocalBusiness"],
     "@id": "https://lunchboxx.ca/#restaurant",
     "name": "LUNCHBOXX",
     "description": "Late-night ghost kitchen delivering loaded hot dogs and stuffed cookies to Surrey Central, Gateway Station and King George Hub.",
@@ -69,7 +71,11 @@
       { "@type": "Place", "name": "Gateway Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1897, "longitude": -122.8479 } },
       { "@type": "Place", "name": "King George Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1826, "longitude": -122.8449 } },
       { "@type": "Place", "name": "SFU Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1874, "longitude": -122.852 } },
-      { "@type": "Place", "name": "Surrey City Centre", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } }
+      { "@type": "Place", "name": "Surrey City Centre", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
+      { "@type": "Place", "name": "Whalley" },
+      { "@type": "Place", "name": "Central City Mall Surrey" },
+      { "@type": "Place", "name": "Holland Park Surrey" },
+      { "@type": "Place", "name": "3 Civic Plaza Surrey" }
     ],
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "20:00", "closes": "02:00" },
@@ -78,6 +84,25 @@
     "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet",
     "acceptsReservations": false,
     "hasMenu": { "@id": "https://lunchboxx.ca/#menu" },
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Free ebike delivery in Surrey Central",
+      "priceSpecification": {
+        "@type": "DeliveryChargeSpecification",
+        "price": "0.00",
+        "priceCurrency": "CAD",
+        "eligibleTransactionVolume": {
+          "@type": "PriceSpecification",
+          "minPrice": "20.00",
+          "priceCurrency": "CAD"
+        },
+        "eligibleRegion": {
+          "@type": "GeoCircle",
+          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 },
+          "geoRadius": "1200"
+        }
+      }
+    },
     "sameAs": ["https://www.instagram.com/_fudgeandcrumble_/"]
   }
   </script>
@@ -98,7 +123,7 @@
           {
             "@type": "MenuItem",
             "name": "DUO",
-            "description": "2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza.",
+            "description": "2 Loaded Dogs + a Vanilla Coke with free ebike delivery. Cheaper than a pizza with Skip fees.",
             "image": "https://lunchboxx.ca/hero.png",
             "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "CAD", "availability": "https://schema.org/InStock" },
             "suitableForDiet": "https://schema.org/OmnivoreDiet"
@@ -181,6 +206,36 @@
         "@type": "Question",
         "name": "What's on a LUNCHBOXX Loaded Dog?",
         "acceptedAnswer": { "@type": "Answer", "text": "Every Loaded Dog is a jumbo beef dog on a toasted buttered bun with crispy bacon, cheddar cheese and spicy mayo, with 30g of protein per dog." }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast is LUNCHBOXX delivery?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Average delivery is 15 to 20 minutes inside our Surrey Central, Gateway and King George zone. Our partner delivers on an ebike, which is often faster than a car through Surrey City Centre traffic." }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes LUNCHBOXX different from Uber Eats or Skip?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We deliver ourselves on an ebike from our ghost kitchen in Surrey Central. That means no Skip fees, no inflated menu prices, free delivery, later hours than Uber Eats keeps, and a signature complimentary Vanilla Coke with every DUO." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I order without creating an account?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Checkout is powered by Shopify and supports guest checkout with credit card, debit card, Apple Pay and Google Pay." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum order for free delivery?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The DUO at $20 is our minimum order and already includes free ebike delivery across Surrey Central, Gateway and King George." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you deliver to SFU Surrey and Central City Tower?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. SFU Surrey residences, Central City Tower, Park Place, 3 Civic Plaza and King George Hub condos are all inside our free delivery zone." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you deliver late in Whalley and Surrey City Centre?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Whalley and Surrey City Centre are core parts of our delivery zone from 8PM to 2AM weeknights and 24/7 on weekends." }
       }
     ]
   }
@@ -718,7 +773,7 @@
     <div class="menu">
       <article class="menu-card popular" onclick="openBuilder('duo')">
         <div class="mc-top"><div><h3 class="mc-name">DUO</h3><span class="mc-tag free">FREE DELIVERY</span></div><div class="mc-price">$20</div></div>
-        <p class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Better than a solo pizza. Free delivery to Surrey Central.</p>
+        <p class="mc-desc">2 Loaded Dogs + a Vanilla Coke. Free ebike delivery — cheaper than pizza with Skip fees. <strong style="color:var(--green)">ETA ~15–20 min</strong> in Surrey Central.</p>
         <div class="mc-stats"><div class="mc-stat"><div class="val">2</div><div class="lbl">LOADED DOGS</div></div><div class="mc-stat coke-stat"><img src="./vanillacoke.png" alt="Complimentary Vanilla Coke" loading="lazy" width="80" height="80"><div class="lbl">VANILLA COKE</div></div></div>
       </article>
       <article class="menu-card best-value" onclick="openBuilder('party')">
@@ -733,14 +788,15 @@
       </article>
     </div>
 
-    <!-- Vanilla Coke Showcase -->
-    <div class="coke-showcase">
+    <!-- Rotating Promo Showcase (driven by promos.json) -->
+    <div class="coke-showcase" id="promoShowcase">
       <div class="coke-showcase-glow"></div>
-      <img src="./vanillacoke.png" alt="Vanilla Coke bottle" loading="lazy">
+      <img src="./vanillacoke.png" alt="Complimentary Vanilla Coke" loading="lazy" id="promoImg">
       <div>
-        <div class="coke-showcase-title">COMPLIMENTARY WITH EVERY ORDER</div>
-        <div class="coke-showcase-name">Vanilla Coke</div>
-        <div class="coke-showcase-desc">The classic 2000s throwback. Crisp, smooth, ice-cold. The perfect match for Loaded Dogs.</div>
+        <div class="coke-showcase-title" id="promoTagline">THE CLASSIC 2000s THROWBACK</div>
+        <div class="coke-showcase-name" id="promoName">Complimentary with every DUO: Vanilla Coke</div>
+        <time id="promoTime" datetime="" style="display:none"></time>
+        <div class="coke-showcase-desc" id="promoDesc">The classic 2000s throwback. Crisp, smooth, ice-cold. The perfect match for Loaded Dogs.</div>
       </div>
     </div>
 
@@ -782,7 +838,12 @@
       <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">How late do you deliver near King George Station?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">We deliver loaded hot dogs to the King George Station area until 2AM on weeknights, and around the clock on weekends.</p></details>
       <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Is delivery really free in Surrey Central?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. Delivery is free on every DUO, Party Pack and Catering Boxx order across Surrey Central, Gateway Station and King George Hub.</p></details>
       <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Do you cater offices and events around Surrey City Centre?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. The Catering Boxx feeds 15–20 people with 30 loaded dogs, 5 large yam fries and 2x2L pops for $200 with free delivery to offices near Surrey Central, Gateway and King George.</p></details>
-      <details style="border-top:1px solid var(--s3);padding:10px 0;border-bottom:1px solid var(--s3)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">What's on a LUNCHBOXX Loaded Dog?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">A jumbo beef dog on a toasted buttered bun with crispy bacon, cheddar cheese and spicy mayo — 30g of protein per dog.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">What's on a LUNCHBOXX Loaded Dog?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">A jumbo beef dog on a toasted buttered bun with crispy bacon, cheddar cheese and spicy mayo — 30g of protein per dog.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">How fast is delivery?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Average 15–20 min inside our Surrey Central / Gateway / King George zone. Our partner delivers on an ebike — often faster than a car through City Centre traffic.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">What makes LUNCHBOXX different from Uber Eats or Skip?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">In-house ebike delivery from our Surrey Central ghost kitchen. No Skip fees, no inflated menu prices, free delivery, later hours than Uber Eats keeps, and a complimentary Vanilla Coke with every DUO.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Can I checkout as a guest?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. Checkout is powered by Shopify — guest checkout with credit card, debit card, Apple Pay or Google Pay.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Is there a minimum order?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">The DUO at $20 is our minimum — and delivery is already free.</p></details>
+      <details style="border-top:1px solid var(--s3);padding:10px 0;border-bottom:1px solid var(--s3)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--white)">Do you deliver to SFU Surrey and Central City Tower?</summary><p style="margin-top:6px;font-size:13px;color:var(--grayL);line-height:1.5">Yes. SFU Surrey residences, Central City Tower, Park Place, 3 Civic Plaza and King George Hub condos are all in-zone.</p></details>
     </section>
   </section>
 
@@ -842,7 +903,19 @@
     <div class="brand">LUNCHBOXX</div>
     <p><span class="loc">Late Night Delivery · Surrey Central · Gateway Station · King George Hub</span></p>
     <p style="margin-top:2px">Mon–Fri 8PM–2AM · Sat–Sun 24/7</p>
-    <nav aria-label="Footer" style="margin-top:10px;font-size:11px"><a href="/" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('mains')">Hot Dogs</a>·<a href="/desserts" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('desserts')">Cookies</a></nav>
+    <p style="margin-top:4px;font-size:10px;color:var(--grayL)">Service area: Whalley · SFU Surrey · Central City Mall · 3 Civic Plaza · Holland Park · Kwantlen Park</p>
+    <nav aria-label="Footer" style="margin-top:10px;font-size:11px">
+      <a href="/" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('mains')">Hot Dogs</a>·
+      <a href="/desserts" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('desserts')">Cookies</a>·
+      <a href="/catering/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Catering</a>·
+      <a href="/surrey-central/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Surrey Central</a>·
+      <a href="/gateway-station/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Gateway</a>·
+      <a href="/king-george-hub/" style="color:var(--grayL);text-decoration:none;margin:0 6px">King George</a>·
+      <a href="/sfu-surrey/" style="color:var(--grayL);text-decoration:none;margin:0 6px">SFU Surrey</a>
+    </nav>
+    <div style="margin-top:12px">
+      <a href="https://www.instagram.com/_fudgeandcrumble_/" target="_blank" rel="noopener" aria-label="LUNCHBOXX on Instagram" style="color:var(--orange);text-decoration:none;font-weight:600;font-size:12px">📸 Instagram</a>
+    </div>
   </footer>
 
 </div>
@@ -1391,10 +1464,55 @@ function showToast(msg) {
 }
 
 // ═══ INIT ═══
+// ═══ ROTATING PROMO (reads /promos.json) ═══
+function loadPromo() {
+  fetch('./promos.json', { cache: 'no-cache' })
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (!data || !data.promos) return;
+      var now = new Date();
+      var active = null;
+      for (var i = 0; i < data.promos.length; i++) {
+        var p = data.promos[i];
+        if (!p.active) continue;
+        if (p.startDate && new Date(p.startDate) > now) continue;
+        if (p.endDate && new Date(p.endDate) < now) continue;
+        active = p;
+        break;
+      }
+      if (!active) return;
+      var img = document.getElementById('promoImg');
+      var tag = document.getElementById('promoTagline');
+      var nm  = document.getElementById('promoName');
+      var ds  = document.getElementById('promoDesc');
+      var tm  = document.getElementById('promoTime');
+      if (img) { img.src = active.image; img.alt = 'Complimentary ' + active.name; }
+      if (tag) tag.textContent = active.tagline || '';
+      if (nm)  nm.textContent  = 'Complimentary with every DUO: ' + active.name;
+      if (ds)  ds.textContent  = active.description || '';
+      if (tm && active.startDate) { tm.setAttribute('datetime', active.startDate); }
+      // Update DUO card desc
+      var duoCard = document.querySelector('.menu-card.popular .mc-desc');
+      if (duoCard && active.menuDescription) {
+        duoCard.innerHTML = active.menuDescription + '. Free ebike delivery — cheaper than pizza with Skip fees. <strong style="color:var(--green)">ETA ~15–20 min</strong> in Surrey Central.';
+      }
+      // Update meta description to mention the current promo
+      var md = document.querySelector('meta[name="description"]');
+      if (md && ROUTE_META && ROUTE_META.mains) {
+        ROUTE_META.mains.description = 'Free late-night hot dog delivery to Surrey Central, Gateway & King George. ' + active.short + '. Order at lunchboxx.ca';
+        if (!document.getElementById('secDesserts').classList.contains('visible')) {
+          md.setAttribute('content', ROUTE_META.mains.description);
+        }
+      }
+    })
+    .catch(function() { /* keep static fallback */ });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   updateLiveStatus();
   setInterval(updateLiveStatus, 60000);
   renderCookieList();
+  loadPromo();
 
   // Route to correct tab based on URL
   var startTab = getTabFromPath();
