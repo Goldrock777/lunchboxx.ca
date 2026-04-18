@@ -1449,29 +1449,29 @@ function onAddrInput() {
 
 function fetchSuggestions(q) {
   var reqId = ++_addrLastReq;
-  // Nominatim has much better Canadian house-level coverage than Photon
   var biased = /surrey/i.test(q) ? q : q + ', Surrey, BC';
   var url = 'https://nominatim.openstreetmap.org/search' +
             '?format=jsonv2&addressdetails=1&limit=8&countrycodes=ca' +
-            '&viewbox=-122.92,49.22,-122.78,49.15&bounded=0' +
+            '&viewbox=-122.92,49.22,-122.78,49.05&bounded=0' +
             '&q=' + encodeURIComponent(biased);
   fetch(url, { headers: { 'Accept': 'application/json' } })
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(data) {
       if (reqId !== _addrLastReq) return; // stale
       var results = data || [];
-      // Keep only hits within ~8km of Surrey Central
-      var CENTER_LAT = 49.1867, CENTER_LON = -122.849;
-      results = results.filter(function(r) {
-        var lat = parseFloat(r.lat), lon = parseFloat(r.lon);
-        return haversineMeters(CENTER_LAT, CENTER_LON, lat, lon) <= 8000;
-      });
       _addrSuggestions = results.slice(0, 6).map(function(r) {
         var a = r.address || {};
         var line1 = [a.house_number, a.road || r.name].filter(Boolean).join(' ') || r.display_name.split(',')[0];
         var line2 = a.city || a.town || a.village || a.suburb || a.neighbourhood || '';
         return { lat: parseFloat(r.lat), lon: parseFloat(r.lon), line1: line1, line2: line2 };
       }).filter(function(s) { return s.line1 || s.line2; });
+      if (!_addrSuggestions.length) {
+        var el = document.getElementById('addrDrop');
+        el.innerHTML = '<div style="padding:10px 12px;font-size:12px;color:var(--grayL)">No match — try adding a street number or hit <strong>CHECK</strong>.</div>';
+        el.style.display = 'block';
+        document.getElementById('addrInput').setAttribute('aria-expanded', 'true');
+        return;
+      }
       renderAddrDropdown();
     })
     .catch(function() { /* silent */ });
@@ -1739,6 +1739,12 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     }).addTo(map);
   });
+
+  // Fit the view to show all station pins + the delivery circle
+  var fitBounds = L.latLngBounds(stations.map(function(s) { return s.pos; }));
+  fitBounds.extend([center[0] + 0.012, center[1] + 0.018]);
+  fitBounds.extend([center[0] - 0.012, center[1] - 0.018]);
+  map.fitBounds(fitBounds, { padding: [20, 20] });
 
   // Enable scroll zoom after first click
   map.on('click', function() { map.scrollWheelZoom.enable(); });
