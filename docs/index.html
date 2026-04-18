@@ -76,7 +76,7 @@
     },
     "areaServed": [
       { "@type": "Place", "name": "Surrey Central", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
-      { "@type": "Place", "name": "Gateway Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1966, "longitude": -122.8475 } },
+      { "@type": "Place", "name": "Gateway Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1977, "longitude": -122.8506 } },
       { "@type": "Place", "name": "King George Station Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1829, "longitude": -122.8451 } },
       { "@type": "Place", "name": "SFU Surrey", "geo": { "@type": "GeoCoordinates", "latitude": 49.1890, "longitude": -122.8484 } },
       { "@type": "Place", "name": "Surrey City Centre", "geo": { "@type": "GeoCoordinates", "latitude": 49.1867, "longitude": -122.849 } },
@@ -1748,12 +1748,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dashArray: '6,4'
   }).addTo(map);
 
-  // Station markers
+  // Station markers (real SkyTrain + campus entrance coords)
   var stations = [
-    { pos:[49.1966, -122.8475], name:'Gateway Stn' },
+    { pos:[49.1977, -122.8506], name:'Gateway Stn' },
     { pos:[49.1895, -122.8486], name:'Surrey Central' },
     { pos:[49.1829, -122.8451], name:'King George Stn' },
-    { pos:[49.1890, -122.8484], name:'SFU Surrey' }
+    { pos:[49.1889, -122.8481], name:'SFU Surrey' }
   ];
 
   stations.forEach(function(s) {
