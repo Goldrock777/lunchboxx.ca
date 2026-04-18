@@ -107,7 +107,7 @@
         "eligibleRegion": {
           "@type": "GeoCircle",
           "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.1884, "longitude": -122.8494 },
-          "geoRadius": "4000"
+          "geoRadius": "2000"
         }
       }
     },
@@ -1598,7 +1598,7 @@ function setAddrResult(html, color) {
 
 function renderZoneResult(lat, lon, label) {
   var center = window._zoneCenter || [49.1884, -122.8494];
-  var radius = window._zoneRadius || 4000;
+  var radius = window._zoneRadius || 2000;
   var dist = haversineMeters(center[0], center[1], lat, lon);
   var pretty = (label || '').split(',').slice(0, 3).join(',');
 
@@ -1740,7 +1740,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Delivery radius circle
   L.circle(center, {
-    radius: 4000,
+    radius: 2000,
     color: '#FF6B00',
     weight: 2,
     fillColor: '#FF6B00',
@@ -1767,10 +1767,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }).addTo(map);
   });
 
-  // Fit the view to the full delivery circle (4km radius) + all station pins
+  // Fit the view to the full delivery circle (2km radius) + all station pins
   var fitBounds = L.latLngBounds(stations.map(function(s) { return s.pos; }));
-  fitBounds.extend([center[0] + 0.038, center[1] + 0.056]);
-  fitBounds.extend([center[0] - 0.038, center[1] - 0.056]);
+  fitBounds.extend([center[0] + 0.020, center[1] + 0.030]);
+  fitBounds.extend([center[0] - 0.020, center[1] - 0.030]);
   map.fitBounds(fitBounds, { padding: [20, 20] });
 
   // Enable scroll zoom after first click
@@ -1779,7 +1779,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Store map reference globally for address check
   window._zoneMap = map;
   window._zoneCenter = center;
-  window._zoneRadius = 4000;
+  window._zoneRadius = 2000;
   window._userMarker = null;
 });
 </script>
