@@ -828,7 +828,14 @@
         <div id="zoneMap"></div>
       </div>
       <div class="zone-badges"><span class="zone-badge">SFU Surrey</span><span class="zone-badge">Central City</span><span class="zone-badge">King George Stn</span><span class="zone-badge">Gateway Stn</span></div>
-      <a href="https://www.google.com/maps/@49.1867,-122.849,15z" target="_blank" rel="noopener" style="display:block;text-align:center;padding:10px 14px;font-size:12px;color:var(--orange);font-weight:600;text-decoration:none;border-top:1px solid var(--s3)">Open in Google Maps → Check your address</a>
+      <div class="addr-check" style="border-top:1px solid var(--s3);padding:14px">
+        <label for="addrInput" style="display:block;font-size:11px;color:var(--gray);letter-spacing:1.5px;margin-bottom:6px">CHECK YOUR ADDRESS</label>
+        <div style="display:flex;gap:6px">
+          <input id="addrInput" type="text" inputmode="search" autocomplete="street-address" placeholder="e.g. 13479 Central Ave, Surrey" style="flex:1;padding:11px 12px;background:var(--s1);border:2px solid var(--s3);border-radius:10px;color:var(--white);font-size:13px;font-family:var(--f2);outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter'){event.preventDefault();checkAddress();}">
+          <button type="button" onclick="checkAddress()" id="addrBtn" style="padding:11px 16px;background:var(--orange);color:var(--white);border:none;border-radius:10px;font-family:var(--f1);font-size:13px;letter-spacing:1.5px;cursor:pointer;white-space:nowrap">CHECK</button>
+        </div>
+        <div id="addrResult" role="status" aria-live="polite" style="margin-top:10px;font-size:13px;min-height:18px"></div>
+      </div>
     </section>
 
     <!-- FAQ -->
@@ -1464,6 +1471,88 @@ function showToast(msg) {
 }
 
 // ═══ INIT ═══
+// ═══ ADDRESS CHECK (Nominatim geocode + haversine distance) ═══
+function haversineMeters(lat1, lon1, lat2, lon2) {
+  var R = 6371000;
+  var toRad = function(d) { return d * Math.PI / 180; };
+  var dLat = toRad(lat2 - lat1);
+  var dLon = toRad(lon2 - lon1);
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+          Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function setAddrResult(html, color) {
+  var el = document.getElementById('addrResult');
+  if (!el) return;
+  el.innerHTML = html;
+  el.style.color = color || 'var(--grayL)';
+}
+
+function checkAddress() {
+  var input = document.getElementById('addrInput');
+  var btn = document.getElementById('addrBtn');
+  var raw = (input && input.value || '').trim();
+  if (!raw) { setAddrResult('Type your address to check.', 'var(--gray)'); return; }
+
+  // Bias search to Surrey BC so "Central Ave" doesn't match elsewhere
+  var biased = raw;
+  if (!/surrey/i.test(biased)) biased += ', Surrey, BC';
+  if (!/canada|,\s*ca\b/i.test(biased)) biased += ', Canada';
+
+  setAddrResult('Checking…', 'var(--gray)');
+  if (btn) { btn.disabled = true; btn.style.opacity = '.6'; }
+
+  var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=ca&q=' + encodeURIComponent(biased);
+
+  fetch(url, { headers: { 'Accept': 'application/json' } })
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function(results) {
+      if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+      if (!results || !results.length) {
+        setAddrResult('⚠️ Couldn\'t find that address. Try adding a street number.', 'var(--amber)');
+        return;
+      }
+      var r = results[0];
+      var lat = parseFloat(r.lat);
+      var lon = parseFloat(r.lon);
+      var center = window._zoneCenter || [49.1867, -122.849];
+      var radius = window._zoneRadius || 1200;
+      var dist = haversineMeters(center[0], center[1], lat, lon);
+      var pretty = r.display_name.split(',').slice(0, 3).join(',');
+
+      // Drop / update marker on the Leaflet map
+      var map = window._zoneMap;
+      if (map && typeof L !== 'undefined') {
+        if (window._userMarker) { map.removeLayer(window._userMarker); }
+        var inZone = dist <= radius;
+        var dot = L.divIcon({
+          className: '',
+          html: '<div style="background:' + (inZone ? '#00D26A' : '#E8392C') + ';width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.5)"></div>',
+          iconSize: [20, 20],
+          iconAnchor: [10, 10]
+        });
+        window._userMarker = L.marker([lat, lon], { icon: dot }).addTo(map);
+        // Fit both center and pin in view
+        var bounds = L.latLngBounds([center, [lat, lon]]).pad(0.4);
+        map.fitBounds(bounds, { maxZoom: 15 });
+        setTimeout(function() { map.invalidateSize(); }, 100);
+      }
+
+      if (dist <= radius) {
+        setAddrResult('✅ <strong>You\'re in the zone</strong> · ~' + Math.round(dist) + 'm · ETA 15–20 min<br><span style="font-size:11px;color:var(--grayL)">' + pretty + '</span>', 'var(--green)');
+      } else {
+        var km = (dist / 1000).toFixed(1);
+        setAddrResult('😔 Outside our free zone · ' + km + ' km away.<br><span style="font-size:11px;color:var(--grayL)">Closest: Surrey Central / Gateway / King George Hub. DM @lunchboxx for one-off deliveries beyond the zone.</span>', 'var(--red)');
+      }
+    })
+    .catch(function() {
+      if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+      setAddrResult('⚠️ Couldn\'t reach the address lookup. Try again in a moment.', 'var(--amber)');
+    });
+}
+
 // ═══ ROTATING PROMO (reads /promos.json) ═══
 function loadPromo() {
   fetch('./promos.json', { cache: 'no-cache' })
