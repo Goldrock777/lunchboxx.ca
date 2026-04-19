@@ -878,7 +878,7 @@
     <p style="margin-top:4px;font-size:10px;color:var(--grayL)">Service area: Whalley · SFU Surrey · Central City Mall · 3 Civic Plaza · Holland Park · Kwantlen Park</p>
     <nav aria-label="Footer" style="margin-top:10px;font-size:11px">
       <a href="/" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('mains')">Hot Dogs</a>·
-      <a href="/desserts" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('desserts')">Cookies</a>·
+      <a href="/desserts/" style="color:var(--grayL);text-decoration:none;margin:0 6px" onclick="event.preventDefault();switchTab('desserts')">Cookies</a>·
       <a href="/catering/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Catering</a>·
       <a href="/surrey-central/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Surrey Central</a>·
       <a href="/gateway-station/" style="color:var(--grayL);text-decoration:none;margin:0 6px">Gateway</a>·
@@ -1334,7 +1334,7 @@ function renderDrawer() {
   var tip10 = tipAmount === 10 ? ' active' : '';
   var tipC = (tipAmount > 0 && tipAmount !== 3 && tipAmount !== 5 && tipAmount !== 10) ? ' active' : '';
   var tipCShow = tipC ? 'block' : 'none';
-  html += '<div class="tip-section"><div class="tip-label">ADD A TIP 💛</div><div class="tip-row"><button class="tip-btn' + tipNone + '" data-tip="0" onclick="setTip(0)">NONE</button><button class="tip-btn' + tip3 + '" data-tip="3" onclick="setTip(3)">$3</button><button class="tip-btn' + tip5 + '" data-tip="5" onclick="setTip(5)">$5</button><button class="tip-btn' + tip10 + '" data-tip="10" onclick="setTip(10)">$10</button><button class="tip-btn' + tipC + '" data-tip="custom" onclick="setTipCustom()">Other</button></div><div class="tip-custom" id="tipCustom" style="display:' + tipCShow + '"><input type="number" id="tipInput" placeholder="$" min="0" value="' + (tipC ? tipAmount : '') + '" oninput="updateTipInput()"></div></div>';
+  html += '<div class="tip-section"><div class="tip-label">ADD A TIP 💛</div><div class="tip-row"><button class="tip-btn' + tipNone + '" data-tip="0" onclick="setTip(0)">NONE</button><button class="tip-btn' + tip3 + '" data-tip="3" onclick="setTip(3)">$3</button><button class="tip-btn' + tip5 + '" data-tip="5" onclick="setTip(5)">$5</button><button class="tip-btn' + tip10 + '" data-tip="10" onclick="setTip(10)">$10</button><button class="tip-btn' + tipC + '" data-tip="custom" onclick="setTipCustom()">Other</button></div><div class="tip-custom" id="tipCustom" style="display:' + tipCShow + '"><input type="number" id="tipInput" aria-label="Custom tip amount in dollars" placeholder="$" min="0" value="' + (tipC ? tipAmount : '') + '" oninput="updateTipInput()"></div></div>';
   body.innerHTML = html;
   foot.style.display = 'block';
   document.getElementById('drawerTotal').textContent = '$' + (subtotal + tipAmount).toFixed(2);
